@@ -1,0 +1,29 @@
+{
+  "name": "platformize-monorepo",
+  "version": "1.0.0",
+  "description": "一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 比如threejs/oasis/playcanvas",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "packageManager": "pnpm",
+  "pnpm": {
+    "overrides": {
+      "platformize": "workspace:*",
+      "platformize-oasis": "workspace:*",
+      "platformize-three": "workspace:*",
+      "platformize-playcanvas": "workspace:*"
+    }
+  },
+  "author": "DeepKolos <deepkolos@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/three": "0.133.1",
+    "three": "0.133.1"
+  }
+}

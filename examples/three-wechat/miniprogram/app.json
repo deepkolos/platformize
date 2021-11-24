@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/empty/index",
+    "pages/index/index",
+    "pages/index-copy/index-copy"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "three-platformize",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

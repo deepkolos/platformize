@@ -1,0 +1,16 @@
+{
+  "name": "platformize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rollup-plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "DeepKolos<deepkolos@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/three": "^0.134.0",
+    "three": "^0.134.0"
+  }
+}
