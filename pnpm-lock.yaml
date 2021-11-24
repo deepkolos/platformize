@@ -41,11 +41,13 @@ importers:
 
   packages/platformize:
     specifiers:
-      '@types/three': ^0.134.0
-      three: ^0.134.0
+      '@rollup/plugin-inject': ^4.0.3
+      '@types/three': 0.133.1
+      three: 0.133.1
     devDependencies:
-      '@types/three': registry.npmmirror.com/@types/three/0.134.0
-      three: registry.npmmirror.com/three/0.134.0
+      '@rollup/plugin-inject': 4.0.3
+      '@types/three': 0.133.1
+      three: 0.133.1
 
   packages/platformize-oasis:
     specifiers: {}
@@ -57,6 +59,70 @@ importers:
     specifiers: {}
 
 packages:
+
+  /@rollup/plugin-inject/4.0.3:
+    resolution: {integrity: sha512-lzMXmj0LZjd67MI+M8H9dk/oCxR0TYqYAdZ6ZOejWQLSUtud+FUPu4NCMAO8KyWWAalFo8ean7yFHCMvCNsCZw==}
+    peerDependencies:
+      rollup: ^1.20.0 || ^2.0.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      estree-walker: 2.0.2
+      magic-string: 0.25.7
+    dev: true
+
+  /@rollup/pluginutils/3.1.0:
+    resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      '@types/estree': 0.0.39
+      estree-walker: 1.0.1
+      picomatch: 2.3.0
+    dev: true
+
+  /@types/estree/0.0.39:
+    resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
+    dev: true
+
+  /@types/three/0.133.1:
+    resolution: {integrity: sha512-XqBrP/+kbs+o0CYRhCVVE95v7FaL2bO5Z7+3VQJE0nEyjo+9LoLfeNgZITOnndKHxM+7ltEciAIR7uE0SZlsOg==}
+    dev: true
+
+  /estree-walker/1.0.1:
+    resolution: {integrity: sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==}
+    dev: true
+
+  /estree-walker/2.0.2:
+    resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
+    dev: true
+
+  /fsevents/2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /magic-string/0.25.7:
+    resolution: {integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==}
+    dependencies:
+      sourcemap-codec: 1.4.8
+    dev: true
+
+  /picomatch/2.3.0:
+    resolution: {integrity: sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==}
+    engines: {node: '>=8.6'}
+    dev: true
+
+  /sourcemap-codec/1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    dev: true
+
+  /three/0.133.1:
+    resolution: {integrity: sha512-WydohO8ll949B0FTD6MGz59Yv2Lwj8hvObg/0Heh2r42S6+tQC1WByfCNRdmG4D7+odfGod+n8JPV1I2xrboWw==}
+    dev: true
 
   registry.nlark.com/@types/estree/0.0.39:
     resolution: {integrity: sha1-4Xfmme4bjCLSMXTKqnQiZEOJUJ8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/estree/download/@types/estree-0.0.39.tgz}
@@ -820,12 +886,6 @@ packages:
     version: 0.133.1
     dev: true
 
-  registry.npmmirror.com/@types/three/0.134.0:
-    resolution: {integrity: sha512-4YB+99Rgqq27EjiYTItEoZtdjLnTh8W9LxowgpC9eWsjaQJIL4Kn/ZcUKAnW3gB/jS4hqGN8iqmid+RcUZDzpA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/three/download/@types/three-0.134.0.tgz}
-    name: '@types/three'
-    version: 0.134.0
-    dev: true
-
   registry.npmmirror.com/@types/wechat-miniprogram/3.4.0:
     resolution: {integrity: sha1-10PVs8F71THCwXjqH+nZKgsjvNA=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/wechat-miniprogram/download/@types/wechat-miniprogram-3.4.0.tgz}
     name: '@types/wechat-miniprogram'
@@ -975,16 +1035,6 @@ packages:
     version: 9.0.0
     engines: {node: '>=6'}
     dev: true
-
-  registry.npmmirror.com/fsevents/2.3.2:
-    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/download/fsevents-2.3.2.tgz}
-    name: fsevents
-    version: 2.3.2
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
 
   registry.npmmirror.com/glob/7.1.6:
     resolution: {integrity: sha1-FB8zuBp8JJLhJVlDB0gMRmeSeKY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/glob/download/glob-7.1.6.tgz}
@@ -1291,7 +1341,7 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/2.3.2
+      fsevents: 2.3.2
     dev: true
 
   registry.npmmirror.com/sax/1.2.4:
@@ -1385,12 +1435,6 @@ packages:
     resolution: {integrity: sha1-Vgb0gX1noJ2SEtTMvWgmVkd0+PQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/three/download/three-0.133.1.tgz}
     name: three
     version: 0.133.1
-    dev: true
-
-  registry.npmmirror.com/three/0.134.0:
-    resolution: {integrity: sha1-161NhdBQ2ghhvzl0mwbd+18XFX8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/three/download/three-0.134.0.tgz}
-    name: three
-    version: 0.134.0
     dev: true
 
   registry.npmmirror.com/timm/1.7.1:

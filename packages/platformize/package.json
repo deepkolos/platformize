@@ -10,7 +10,8 @@
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/three": "^0.134.0",
-    "three": "^0.134.0"
+    "@rollup/plugin-inject": "^4.0.3",
+    "@types/three": "0.133.1",
+    "three": "0.133.1"
   }
 }

@@ -62,3 +62,11 @@ packages
 
 https://www.raulmelo.dev/blog/replacing-lerna-and-yarn-with-pnpm-workspaces
 https://zhuanlan.zhihu.com/p/422740629
+
+## 构建思路
+
+由于是应用层直接使用的构建插件，目测不能直接使用@rollup/plugin-inject，或者是需要类似 webpack loader，其中一个 loader 处理完，交给后续 loader 继续 resolve，继续收集依赖，需要看看 rollup 的 plugin 机制来
+
+## TODO
+
+0. 了解 rollup plugin 调用机制以及 inject 的实现
