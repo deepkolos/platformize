@@ -23,7 +23,20 @@
   "author": "DeepKolos <deepkolos@qq.com>",
   "license": "MIT",
   "devDependencies": {
+    "@ava/babel": "2.0.0",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@types/three": "0.133.1",
-    "three": "0.133.1"
+    "ava": "^3.15.0",
+    "rollup": "^2.60.1",
+    "three": "0.133.1",
+    "tslib": "^2.3.1"
+  },
+  "ava": {
+    "files": [
+      "!**/fixtures/**",
+      "!**/helpers/**",
+      "!**/recipes/**",
+      "!**/types.ts"
+    ]
   }
 }

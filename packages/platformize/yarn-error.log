@@ -1,0 +1,48 @@
+Arguments: 
+  D:\Program Files\nodejs\node.exe D:\Program Files\nodejs\node_modules\yarn\bin\yarn.js dev
+
+PATH: 
+  C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\dotnet\;D:\APP\nTrun_V3.0.2\Goto;D:\APP\curl-7.65.1-win64-mingw\bin;D:\APP\ffmpeg-4.3.1-2020-11-19-full_build\bin;D:\APP\glslang-master-windows-x64-Release\bin;D:\APP\libwebp-1.0.2-windows-x64\bin;D:\APP\KTX-Software\bin;D:\APP\scrcpy-win64-v1.18;D:\Program Files\Python39\Scripts;D:\Program Files\Python39\;D:\Program Files\Python39\Lib;D:\Program Files\Microsoft VS Code\bin;D:\Program Files\Git\bin;D:\Program Files\nodejs;D:\DEV\opensource\emsdk;D:\DEV\opensource\emsdk\upstream\emscripten;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64;d:\Program Files\LLVM\bin;D:\SDKs\TDM-GCC-64\bin;D:\SDKs\wabt-1.0.20\bin;D:\SDKs\binaryen-version_101\bin;%AppData%\npm;C:\Users\DeepKolos\.deno\bin\;;d:\Program Files\Microsoft VS Code\bin;D:\DEV\opensource\emsdk;D:\DEV\opensource\emsdk\node\14.15.5_64bit\bin;D:\DEV\opensource\emsdk\upstream\emscripten;C:\Users\DeepKolos\.cargo\bin;C:\Users\DeepKolos\AppData\Local\Microsoft\WindowsApps;;C:\Users\DeepKolos\.deno\bin
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  16.8.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: D:\DEV\opensource\platformize\package.json: Unexpected token } in JSON at position 942
+      at JSON.parse (<anonymous>)
+      at D:\Program Files\nodejs\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (D:\Program Files\nodejs\node_modules\yarn\lib\cli.js:310:30)
+      at D:\Program Files\nodejs\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "platformize",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/plugin.cjs.js",
+    "module": "dist/plugin.esm.js",
+    "scripts": {
+      "dev": "rollup -c -w",
+      "build": "rollup -c",
+      "test": "ava"
+    },
+    "keywords": [],
+    "author": "DeepKolos<deepkolos@qq.com>",
+    "license": "MIT",
+    "devDependencies": {
+      "@rollup/plugin-inject": "^4.0.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -2,16 +2,17 @@
   "name": "platformize",
   "version": "1.0.0",
   "description": "",
-  "main": "rollup-plugin.js",
+  "main": "dist/plugin.cjs.js",
+  "module": "dist/plugin.esm.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "test": "ava"
   },
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-inject": "^4.0.3",
-    "@types/three": "0.133.1",
-    "three": "0.133.1"
+    "@rollup/plugin-inject": "^4.0.3"
   }
 }

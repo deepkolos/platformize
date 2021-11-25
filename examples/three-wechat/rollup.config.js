@@ -3,8 +3,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import { terser } from "rollup-plugin-terser";
 import commonjs from '@rollup/plugin-commonjs';
 
-const production = !process.env.ROLLUP_WATCH;
-
 const plugins = [
   resolve({ extensions: ['.ts', '.js'] }),
   commonjs(),
