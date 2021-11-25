@@ -1,3 +1,1 @@
-$(() => {
-  console.log('ready');
-});
+console.log(URL)

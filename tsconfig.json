@@ -2,16 +2,17 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "lib": ["ESNext"],
-    "module": "commonjs",
+    "lib": ["ESNext", "DOM"],
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "noEmit": true,
+    "noEmit": false,
     "noEmitOnError": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "pretty": true,
     "sourceMap": true,
     "strict": true,
+    "allowJs": true,
     "target": "es2017"
   },
   "exclude": ["dist", "node_modules", "test/types"]

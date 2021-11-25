@@ -25,7 +25,9 @@
   "devDependencies": {
     "@ava/babel": "2.0.0",
     "@rollup/plugin-typescript": "^8.3.0",
+    "@types/offscreencanvas": "^2019.6.4",
     "@types/three": "0.133.1",
+    "acorn": "^8.6.0",
     "ava": "^3.15.0",
     "rollup": "^2.60.1",
     "three": "0.133.1",

@@ -1,3 +1,9 @@
 {
-  "extends": "../../tsconfig.json"
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["offscreencanvas", "node"],
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["./src"]
 }

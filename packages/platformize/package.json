@@ -2,11 +2,13 @@
   "name": "platformize",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/plugin.cjs.js",
-  "module": "dist/plugin.esm.js",
+  "main": "dist/cjs/plugin.js",
+  "module": "dist/esm/plugin.js",
   "scripts": {
-    "dev": "rollup -c -w",
-    "build": "rollup -c",
+    "dev:esm": "pnpm exec tsc --project ./tsconfig.json --outDir ./dist/esm --module ES2015 --watch",
+    "dev:cjs": "pnpm exec tsc --project ./tsconfig.json --outDir ./dist/cjs --module CommonJS --watch",
+    "build:esm": "pnpm exec tsc --project ./tsconfig.json --outDir ./dist/esm --module ES2015",
+    "build:cjs": "pnpm exec tsc --project ./tsconfig.json --outDir ./dist/cjs --module CommonJS",
     "test": "ava"
   },
   "keywords": [],
