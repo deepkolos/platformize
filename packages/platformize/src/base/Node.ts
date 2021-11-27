@@ -1,6 +1,6 @@
 import EventTarget from './EventTarget.js';
 
-export default class Node extends EventTarget {
+export default class $Node extends EventTarget {
   childNodes: Node[];
   constructor() {
     super();

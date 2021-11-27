@@ -1,39 +1,51 @@
-// @ts-nocheck
+// @ts-ignore
 import URL from '../base/URL';
 import Blob from '../base/Blob';
 import atob from '../base/atob';
-import EventTarget, { Touch } from '../base/EventTarget';
-import XMLHttpRequest from './XMLHttpRequest';
+import EventTarget, { Touch, TouchEvent } from '../base/EventTarget';
+import $XMLHttpRequest from './XMLHttpRequest';
 import copyProperties from '../base/utils/copyProperties';
 import DOMParser from '../base/DOMParser';
 import TextDecoder from '../base/TextDecoder';
+import { Platform, Polyfill } from '../Platform';
 
 function OffscreenCanvas() {
+  // @ts-ignore
   return wx.createOffscreenCanvas();
 }
 
-export class WechatPlatform {
-  constructor(canvas, width, height) {
+export class WechatPlatform extends Platform {
+  polyfill: Polyfill;
+  canvas: WechatMiniprogram.Canvas & EventTarget;
+  canvasW: number;
+  canvasH: number;
+  onDeviceMotionChange: (e: any) => void;
+  enabledDeviceMotion: boolean = false;
+
+  constructor(canvas: WechatMiniprogram.Canvas, width: number, height: number) {
+    super();
     const systemInfo = wx.getSystemInfoSync();
     const isAndroid = systemInfo.platform === 'android';
 
+    // @ts-ignore
     this.canvas = canvas;
     this.canvasW = width === undefined ? canvas.width : width;
     this.canvasH = height === undefined ? canvas.height : height;
 
-    this.document = {
-      createElementNS(_, type) {
+    const document = {
+      createElementNS(_: string, type: string) {
         if (type === 'canvas') return canvas;
         if (type === 'img') return canvas.createImage();
       },
-    };
+    } as unknown as Document;
 
-    this.window = {
+    const $URL = new URL()
+
+    const window = {
       innerWidth: systemInfo.windowWidth,
       innerHeight: systemInfo.windowHeight,
       devicePixelRatio: systemInfo.pixelRatio,
 
-      URL: new URL(),
       AudioContext: function () {},
       requestAnimationFrame: this.canvas.requestAnimationFrame,
       cancelAnimationFrame: this.canvas.cancelAnimationFrame,
@@ -42,19 +54,45 @@ export class WechatPlatform {
           return Promise.resolve('granted');
         },
       },
+
+      URL: $URL,
       DOMParser,
       TextDecoder,
-    };
+    } as unknown as Window;
 
-    [this.canvas, this.document, this.window].forEach(i => {
+    [canvas, document, window].forEach(i => {
+      // @ts-ignore
       const old = i.__proto__;
+      // @ts-ignore
       i.__proto__ = {};
+      // @ts-ignore
       i.__proto__.__proto__ = old;
+      // @ts-ignore
       copyProperties(i.__proto__, EventTarget.prototype);
     });
 
-    this.patchCanvas();
+    this.polyfill = {
+      // @ts-expect-error
+      Blob,
+      window,
+      document,
+      // @ts-expect-error
+      DOMParser,
+      // @ts-expect-error
+      TextDecoder,
+      // @ts-expect-error
+      XMLHttpRequest: $XMLHttpRequest,
+      OffscreenCanvas,
+      // @ts-expect-error
+      URL: $URL,
 
+      atob,
+      createImageBitmap: undefined,
+      cancelAnimationFrame: window.cancelAnimationFrame,
+      requestAnimationFrame: window.requestAnimationFrame,
+    };
+
+    this.patchCanvas();
     this.onDeviceMotionChange = e => {
       e.type = 'deviceorientation';
       if (isAndroid) {
@@ -62,7 +100,7 @@ export class WechatPlatform {
         e.beta *= -1;
         e.gamma *= -1;
       }
-      this.window.dispatchEvent(e);
+      window.dispatchEvent(e);
     };
   }
 
@@ -90,29 +128,19 @@ export class WechatPlatform {
       },
     });
 
+    // @ts-ignore
     this.canvas.ownerDocument = this.document;
   }
 
   // 某些情况下IOS会不success不触发。。。
   patchXHR() {
-    XMLHttpRequest.useFetchPatch = true;
+    $XMLHttpRequest.useFetchPatch = true;
     return this;
   }
 
-  getGlobals() {
-    return {
-      atob: atob,
-      Blob: Blob,
-      window: this.window,
-      document: this.document,
-      HTMLCanvasElement: undefined,
-      XMLHttpRequest: XMLHttpRequest,
-      OffscreenCanvas: OffscreenCanvas,
-      createImageBitmap: undefined,
-    };
-  }
-
-  enableDeviceOrientation(interval) {
+  enableDeviceOrientation(
+    interval: WechatMiniprogram.StartDeviceMotionListeningOption['interval'],
+  ) {
     return new Promise((resolve, reject) => {
       wx.onDeviceMotionChange(this.onDeviceMotionChange);
       wx.startDeviceMotionListening({
@@ -133,7 +161,7 @@ export class WechatPlatform {
       this.enabledDeviceMotion &&
         wx.stopDeviceMotionListening({
           success: () => {
-            resolve();
+            resolve(true);
             this.enabledDeviceMotion = false;
           },
           fail: reject,
@@ -141,7 +169,14 @@ export class WechatPlatform {
     });
   }
 
-  dispatchTouchEvent(e = {}) {
+  dispatchTouchEvent(
+    e: TouchEvent = {
+      touches: [],
+      changedTouches: [],
+      timeStamp: 0,
+      type: '',
+    },
+  ) {
     const target = { ...this };
     const changedTouches = e.changedTouches.map(touch => new Touch(touch));
 
@@ -165,11 +200,12 @@ export class WechatPlatform {
         pageX: touch.pageX,
         pageY: touch.pageY,
         pointerId: touch.identifier,
-        type: {
-          touchstart: 'pointerdown',
-          touchmove: 'pointermove',
-          touchend: 'pointerup',
-        }[e.type],
+        type:
+          {
+            touchstart: 'pointerdown',
+            touchmove: 'pointermove',
+            touchend: 'pointerup',
+          }[e.type] || '',
         pointerType: 'touch',
       };
 
@@ -182,10 +218,11 @@ export class WechatPlatform {
     // 缓解ios内存泄漏, 前后进出页面多几次，降低pixelRatio也可行
     this.canvas.width = 0;
     this.canvas.height = 0;
+    // @ts-ignore
     if (this.canvas) this.canvas.ownerDocument = null;
+    // @ts-ignore
     this.onDeviceMotionChange = null;
-    this.document = null;
-    this.window = null;
+    // @ts-ignore
     this.canvas = null;
   }
 }

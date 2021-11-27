@@ -1,0 +1,11 @@
+{
+  "name": "tests-three",
+  "version": "1.0.0",
+  "module": "index.ts",
+  "main": "index.ts",
+  "private": true,
+  "dependencies": {
+    "platformize-three": "workspace:^1.0.0",
+    "three-sprite-player": "^1.0.8"
+  }
+}

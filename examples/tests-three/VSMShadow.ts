@@ -18,6 +18,7 @@ export class DemoVSMShadow extends Demo {
   dirLight: DirectionalLight;
   dirGroup: Group;
   async init(): Promise<void> {
+    console.log('小程序VSMShadowMap需要three r131之前版本')
     const { camera, renderer, scene } = this.deps;
     camera.position.set(0, 10, 30);
     scene.fog = new Fog(0xcccccc, 50, 100);

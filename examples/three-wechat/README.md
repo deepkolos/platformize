@@ -1,15 +1,15 @@
-# three-platformize 微信小程序DEMO
+# platformize-three 微信小程序DEMO
 
-[three-platformize](https://github.com/deepkolos/three-platformize)
+[platformize-three](https://github.com/deepkolos/platformize-three)
 
-需要最基本的demo可参考[three-platformize-demo-wechat-simple](https://github.com/deepkolos/three-platformize-demo-wechat-simple)
+需要最基本的demo可参考[platformize-three-demo-wechat-simple](https://github.com/deepkolos/platformize-three-demo-wechat-simple)
 
 <div>
-  <img src="https://raw.githubusercontent.com/deepkolos/three-platformize-demo-wechat/master/demo.gif" width="250" alt="" style="display:inline-block;"/>
+  <img src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-wechat/master/demo.gif" width="250" alt="" style="display:inline-block;"/>
 </div>
 
 <div>
-  <img src="https://raw.githubusercontent.com/deepkolos/three-platformize-demo-wechat/master/qrcode.jpg" width="200" alt="" style="display:inline-block;"/>
+  <img src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-wechat/master/qrcode.jpg" width="200" alt="" style="display:inline-block;"/>
 </div>
 
 

@@ -3,7 +3,7 @@ import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import { AmbientLight, Color, PointLight } from 'three';
 // import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module';
 // import { MeshoptDecoder } from 'three/tools/meshopt_decoder.asm.module';
-import { MeshoptDecoder } from 'three/tools/meshopt_decoder.wasm.module';
+import { MeshoptDecoder } from 'platformize-three/dist/base/meshopt_decoder.wasm.module';
 
 /**
  * 测试手机：小米8 (微信8.0禁用WebAssembly API，改为WXWebAssembly, 并且不支持SIMD，但是IOS支持WXWebAssembly)

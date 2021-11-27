@@ -10,7 +10,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "pretty": true,
-    "sourceMap": true,
+    "sourceMap": false,
+    "declaration": true,
     "strict": true,
     "allowJs": true,
     "target": "es2017"

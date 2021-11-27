@@ -15,7 +15,7 @@ function atobLookup(chr: string) {
  * Implementation of atob() according to the HTML and Infra specs, except that
  * instead of throwing INVALID_CHARACTER_ERR we return null.
  */
-export default function atob(data: string) {
+export default function atob(data: string): string {
   // Web IDL requires DOMStrings to just be converted using ECMAScript
   // ToString, which in our case amounts to using a template literal.
   data = `${data}`;
@@ -37,7 +37,7 @@ export default function atob(data: string) {
   //
   // then return failure."
   if (data.length % 4 === 1 || /[^+/0-9A-Za-z]/.test(data)) {
-    return null;
+    return '';
   }
   // "Let output be an empty byte sequence."
   let output = '';

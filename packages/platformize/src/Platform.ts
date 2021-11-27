@@ -9,13 +9,14 @@ export interface Polyfill {
   OffscreenCanvas: OffscreenCanvas;
   HTMLCanvasElement: HTMLCanvasElement;
 
-  atob: Window['atob'],
-  createImageBitmap: Window['createImageBitmap'],
-  cancelAnimationFrame: Window['cancelAnimationFrame'],
-  requestAnimationFrame: Window['requestAnimationFrame'],
+  atob: Window['atob'];
+  createImageBitmap?: Window['createImageBitmap'];
+  cancelAnimationFrame: Window['cancelAnimationFrame'];
+  requestAnimationFrame: Window['requestAnimationFrame'];
 }
 
-export interface Platform {
-  polyfill: Polyfill;
-  dispose(): void;
+
+export abstract class Platform {
+  abstract polyfill: Polyfill;
+  abstract dispose(): void;
 }

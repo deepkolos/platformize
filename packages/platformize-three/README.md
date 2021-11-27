@@ -9,7 +9,7 @@
 5. 可升级、降级版本或使用自定义 THREE
 6. 微信小程序 IOS 内存优化，更少切页面导致的崩溃
 7. 支持自定义新平台适配，参考 WechatPlatform 编写适配器即可
-8. [three-platformize-plugin-wechat](https://github.com/deepkolos/three-platformize-plugin-wechat) 支持微信插件跨插件复用
+8. [platformize-three-plugin-wechat](https://github.com/deepkolos/platformize-three-plugin-wechat) 支持微信插件跨插件复用
 
 <h3 align="center">Special Sponsors</h3>
 
@@ -49,29 +49,29 @@
 
 > 注：运行 DEMO 时记得开启调试模式，取消域名验证，使用**最新版本**微信开发工具打开
 
-> 具体 Loader 使用方法的 Demo 在这个仓库下[three-platformize-demo](https://github.com/deepkolos/three-platformize-demo)
+> 具体 Loader 使用方法的 Demo 在这个仓库下[platformize-three-demo](https://github.com/deepkolos/platformize-three-demo)
 
 <table>
   <tbody>
     <tr>
       <th>
-        <a href="https://github.com/deepkolos/three-platformize-demo-wechat"
+        <a href="https://github.com/deepkolos/platformize-three-demo-wechat"
           >微信小程序 DEMO</a
         ><br /><a
-          href="https://github.com/deepkolos/three-platformize-demo-wechat-simple"
+          href="https://github.com/deepkolos/platformize-three-demo-wechat-simple"
           >微信小程序基础版 DEMO</a
         ><br /><a
-          href="https://github.com/deepkolos/three-platformize-demo-wechat-game"
+          href="https://github.com/deepkolos/platformize-three-demo-wechat-game"
           >微信小游戏 DEMO</a
         >
       </th>
       <th>
-        <a href="https://github.com/deepkolos/three-platformize-demo-taobao"
+        <a href="https://github.com/deepkolos/platformize-three-demo-taobao"
           >淘宝小程序 DEMO</a
         >
       </th>
       <th>
-        <a href="https://github.com/deepkolos/three-platformize-demo-byte"
+        <a href="https://github.com/deepkolos/platformize-three-demo-byte"
           >字节小程序 DEMO</a
         >
       </th>
@@ -79,13 +79,13 @@
     <tr>
       <td>
         <img
-          src="https://raw.githubusercontent.com/deepkolos/three-platformize-demo-wechat/master/demo.gif"
+          src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-wechat/master/demo.gif"
           width="250"
           alt=""
         />
         <div>
           <img
-            src="https://raw.githubusercontent.com/deepkolos/three-platformize-demo-wechat/master/qrcode.jpg"
+            src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-wechat/master/qrcode.jpg"
             width="150"
             alt=""
           />
@@ -93,14 +93,14 @@
       </td>
       <td>
         <img
-          src="https://raw.githubusercontent.com/deepkolos/three-platformize-demo-taobao/master/demo.gif"
+          src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-taobao/master/demo.gif"
           width="250"
           alt=""
         />
       </td>
       <td>
         <img
-          src="https://raw.githubusercontent.com/deepkolos/three-platformize-demo-byte/master/demo.gif"
+          src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-byte/master/demo.gif"
           width="250"
           alt=""
         />
@@ -117,7 +117,7 @@
 
 #### Loader
 
-1. GLTFLoader (支持带纹理的 GLB) && (EXT_meshopt_compression 安卓可用 WASM，ios 可用 ASM 版，见 tools) && (KHR_mesh_quantization，小程序可用) [【网格压缩测评】MeshQuan、MeshOpt、Draco ](https://juejin.cn/post/6931954784018628621) (微信 8.0 后 WebAssembly API 已无法使用需要使用 WXWebAssembly, 且只支持包内 wasm, 已新增 meshopt_decoder.wasm.module, [使用见](https://github.com/deepkolos/three-platformize-demo/blob/main/src/MeshOpt.ts#L8))
+1. GLTFLoader (支持带纹理的 GLB) && (EXT_meshopt_compression 安卓可用 WASM，ios 可用 ASM 版，见 tools) && (KHR_mesh_quantization，小程序可用) [【网格压缩测评】MeshQuan、MeshOpt、Draco ](https://juejin.cn/post/6931954784018628621) (微信 8.0 后 WebAssembly API 已无法使用需要使用 WXWebAssembly, 且只支持包内 wasm, 已新增 meshopt_decoder.wasm.module, [使用见](https://github.com/deepkolos/platformize-three-demo/blob/main/src/MeshOpt.ts#L8))
 2. TextureLoader
 3. RGBELoader & PMREMGenerator (小程序部分机型可能偶现[生成 envMap 错误](https://juejin.cn/post/6922829073920032775)，可用[HDRPrefilter](https://github.com/deepkolos/hdr-prefilter-texture)避免 )
 4. SVGLoader
@@ -175,8 +175,8 @@ THREE.PLATFORM.set(platform);
 THREE.PLATFORM.dispose();
 
 // 正常使用three即可
-// DEMO 代码示例见 https://github.com/deepkolos/three-platformize-demo
-// 基础的使用DEMO见 https://github.com/deepkolos/three-platformize-demo-wechat-simple
+// DEMO 代码示例见 https://github.com/deepkolos/platformize-three-demo
+// 基础的使用DEMO见 https://github.com/deepkolos/platformize-three-demo-wechat-simple
 ```
 
 ### 经验
@@ -186,7 +186,7 @@ THREE.PLATFORM.dispose();
 2. r126 不能设置全 pixelRatio，可以设置为一半，或者 2，不能是 3
 3. 虽然支持加载 GLB，但图片是使用 js 版的 ArrayBuffer 转 base64，耗时且占用内存，虽可用 wasm 的 encoder 缓解 (https://github.com/marcosc90/encoding-wasm)，但wasm对字符串处理性能不如js，用AssemblyScript编译的wasm测试
 4. IOS 前后进入退出页面崩可以降低 pixelRatio 缓解
-5. IOS 微信 readPixels 不支持抗锯齿，如果直接 canvas 的 buffer 需要关闭抗锯齿（antialias: false）, 另一种方式是 WebglRenderTarget，同时也可以开启抗锯齿，但是纹理大小受限（小米 8 下纹理宽/高不能超过 4096，需要注意先 setSize，再 setPixelRatio）（截图 Demo 见[微信小程序 DEMO](https://github.com/deepkolos/three-platformize-demo-wechat)）
+5. IOS 微信 readPixels 不支持抗锯齿，如果直接 canvas 的 buffer 需要关闭抗锯齿（antialias: false）, 另一种方式是 WebglRenderTarget，同时也可以开启抗锯齿，但是纹理大小受限（小米 8 下纹理宽/高不能超过 4096，需要注意先 setSize，再 setPixelRatio）（截图 Demo 见[微信小程序 DEMO](https://github.com/deepkolos/platformize-three-demo-wechat)）
 6. 淘宝小程序有严格的域名验证，可使用云存储放模型，但是如果模型和纹理分开则需要手动关联，推荐 GLB
 7. URL 的 polyfill 可以使用 fileSystemManager 来获取临时文件的方式避免 arraybuffer 转 base64, 但是需要手动管理临时文件
 
@@ -200,7 +200,7 @@ THREE.PLATFORM.dispose();
 
 ```shell
 # 拉取源码
-> git clone https://github.com/deepkolos/three-platformize
+> git clone https://github.com/deepkolos/platformize-three
 
 # 安装依赖
 > npm i
@@ -222,7 +222,7 @@ THREE.PLATFORM.dispose();
 
 # 到使用的项目目录，并链接
 > cd your-project
-> npm link three-platformize
+> npm link platformize-three
 
 # 或者自行发NPM包
 ```
@@ -280,7 +280,7 @@ class CustomPlatform {
 
 0. 更彻底 dispose，减少内存泄漏，Web 测试用例已增加，微信小程序已增加，IOS 仍有内存问题，多次切页面仍会崩溃，3mb 模型 iphone7 打开 30 次
 1. 适配头条小程序 done
-2. 生成微信插件，通过插件实现 three 的代码跨小程序、跨小程序插件复用 done [three-platformize-plugin-wechat](https://github.com/deepkolos/three-platformize-plugin-wechat)
+2. 生成微信插件，通过插件实现 three 的代码跨小程序、跨小程序插件复用 done [platformize-three-plugin-wechat](https://github.com/deepkolos/platformize-three-plugin-wechat)
 3. 适配微信小游戏 done
 4. 适配 ReactNative
 
@@ -288,9 +288,9 @@ class CustomPlatform {
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="https://raw.githubusercontent.com/deepkolos/three-platformize/master/docs/qq-group.jpg" />
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize-three/master/docs/qq-group.jpg" />
 
-### [CHANGELOG](https://github.com/deepkolos/three-platformize/blob/master/CHANGELOG.md)
+### [CHANGELOG](https://github.com/deepkolos/platformize-three/blob/master/CHANGELOG.md)
 
 # 赞助
 

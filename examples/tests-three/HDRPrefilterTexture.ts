@@ -1,6 +1,6 @@
 import { Mesh, MeshBasicMaterial, PlaneGeometry } from 'three';
 import { Demo } from './Demo';
-import { toEnvMap } from 'three/tools/toEnvMap';
+import { toEnvMap } from 'platformize-three/dist/base/toEnvMap';
 
 export class DemoHDRPrefilterTexture extends Demo {
   async init(): Promise<void> {

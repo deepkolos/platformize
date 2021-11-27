@@ -4,7 +4,7 @@ import {
   RGBEFormat,
   RGBEEncoding,
   CubeUVReflectionMapping,
-} from '../build/three.module';
+} from 'three';
 
 /**
  * 设置通过TextureLoad加载从PMREMGenerator生成纹理导出成PNG

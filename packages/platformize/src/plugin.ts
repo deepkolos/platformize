@@ -1,5 +1,8 @@
 import * as path from 'path';
-import inject from '@rollup/plugin-inject';
+import inject, { Injectment } from './plugin-inject';
+import type { Plugin } from 'rollup';
+
+export { inject, Injectment };
 
 export const DEFAULT_API_LIST = [
   'URL',
@@ -20,25 +23,25 @@ export const DEFAULT_API_LIST = [
 
 /**
  * 构建时把浏览器相关api映射到特定的polyfill
- * @param {Array<string>} apiList
- * @param {string} platformPath
- * @returns
  */
 export function platformize(
   apiList = DEFAULT_API_LIST,
   platformManagerPath = path.resolve(__dirname, './PlatformManager'),
-) {
+): Plugin {
   return inject({
-    exclude: platformManagerPath,
+    modules: apiList.reduce((acc, curr) => {
+      const injectSetting: Injectment = [
+        platformManagerPath,
+        'default',
+        'PlatformManager',
+        `.polyfill.${curr}`,
+      ];
 
-    ...apiList.reduce((acc, curr) => {
-      //@ts-ignore
-      acc[curr] = [platformManagerPath, `${curr}`];
-      //@ts-ignore
-      acc[`self.${curr}`] = [platformManagerPath, `${curr}`];
+      acc[curr] = injectSetting;
+      acc[`self.${curr}`] = injectSetting;
 
       return acc;
-    }, {}),
+    }, {} as { [k: string]: Injectment }),
   });
 }
 

@@ -2,19 +2,22 @@
   "name": "platformize",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/cjs/plugin.js",
-  "module": "dist/esm/plugin.js",
+  "main": "dist/plugin.js",
   "scripts": {
-    "dev:esm": "pnpm exec tsc --project ./tsconfig.json --outDir ./dist/esm --module ES2015 --watch",
-    "dev:cjs": "pnpm exec tsc --project ./tsconfig.json --outDir ./dist/cjs --module CommonJS --watch",
-    "build:esm": "pnpm exec tsc --project ./tsconfig.json --outDir ./dist/esm --module ES2015",
-    "build:cjs": "pnpm exec tsc --project ./tsconfig.json --outDir ./dist/cjs --module CommonJS",
+    "dev": "pnpm exec tsc --project ./tsconfig.json --watch",
+    "build": "pnpm exec tsc --project ./tsconfig.json",
     "test": "ava"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-inject": "^4.0.3"
+    "@rollup/plugin-inject": "^4.0.3",
+    "@rollup/pluginutils": "^4.1.1",
+    "estree-walker": "2.0.1",
+    "magic-string": "^0.25.7"
   }
 }

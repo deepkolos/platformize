@@ -1,4 +1,4 @@
-export default class Blob {
+export default class $Blob {
   parts: ArrayBuffer[];
   options: { type: string; };
   constructor(parts: Array<ArrayBuffer>, options: { type: string }) {

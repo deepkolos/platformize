@@ -1,5 +1,5 @@
 // @ts-nocheck
-import EventTarget from '../base/EventTarget.js';
+import EventTarget from '../base/EventTarget';
 
 const _requestHeader = new WeakMap();
 const _responseHeader = new WeakMap();
@@ -28,6 +28,7 @@ function _isRelativePath(url) {
 const { platform } = wx.getSystemInfoSync()
 
 export default class $XMLHttpRequest extends EventTarget {
+  static useFetchPatch: boolean;
   constructor() {
     super();
 

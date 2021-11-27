@@ -1,7 +1,7 @@
-import { Platform, Polyfill } from "./Platform";
+import { Platform, Polyfill } from './Platform';
 
 class PlatformManager<T extends Platform> {
-  polyfill?: Polyfill;
+  polyfill: Polyfill | null = {} as unknown as Polyfill;
   platform?: T | null;
 
   set(platform: T) {
@@ -12,9 +12,8 @@ class PlatformManager<T extends Platform> {
   dispose() {
     this.platform?.dispose();
     this.platform = null;
+    this.polyfill = null;
   }
 }
 
-const PLATFORM = new PlatformManager();
-
-export { PLATFORM };
+export default new PlatformManager();

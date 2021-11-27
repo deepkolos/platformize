@@ -1,5 +1,25 @@
 const _events = new WeakMap();
 
+interface TouchItem {
+  identifier: number;
+  force: number;
+  pageX?: number;
+  pageY?: number;
+  clientX: number;
+  clientY: number;
+  screenX: number;
+  screenY: number;
+  x: number;
+  y: number;
+}
+export interface TouchEvent {
+  touches: TouchItem[];
+  changedTouches: TouchItem[];
+  timeStamp: number;
+  type: string;
+  pointerType?: string;
+}
+
 export class Touch {
   identifier: number;
   force: number;
@@ -9,18 +29,7 @@ export class Touch {
   clientY: number;
   screenX: number;
   screenY: number;
-  constructor(touch: {
-    identifier: number;
-    force: number;
-    pageX?: number;
-    pageY?: number;
-    clientX: number;
-    clientY: number;
-    screenX: number;
-    screenY: number;
-    x: number;
-    y: number;
-  }) {
+  constructor(touch: TouchItem) {
     // CanvasTouch{identifier, x, y}
     // Touch{identifier, pageX, pageY, clientX, clientY, force}
     this.identifier = touch.identifier;
@@ -36,7 +45,7 @@ export class Touch {
   }
 }
 
-export default class EventTarget {
+export default class $EventTarget {
   constructor() {
     _events.set(this, {});
   }

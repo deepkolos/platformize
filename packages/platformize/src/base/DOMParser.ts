@@ -5,7 +5,7 @@ function walkTree(node: Tag, processer: (node: Tag) => void) {
   node.children.forEach(i => walkTree(i, processer));
 }
 
-export default class DOMParser {
+export default class $DOMParser {
   parseFromString(str: string) {
     const xml = parseXML(str);
 

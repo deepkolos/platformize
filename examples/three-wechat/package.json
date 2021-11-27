@@ -8,10 +8,12 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "keywords": [],
-  "author": "",
+  "author": "DeepKolos<deepkolos@qq.com>",
   "license": "",
   "dependencies": {
-    "platformize-three": "1.133.2"
+    "platformize": "workspace:^1.0.0",
+    "platformize-three": "1.133.2",
+    "tests-three": "workspace:^1.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

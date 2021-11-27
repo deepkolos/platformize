@@ -1,11 +1,48 @@
 // index.ts
-import { $requestAnimationFrame as requestAnimationFrame, $window as window, Clock, PerspectiveCamera, PLATFORM, Scene, sRGBEncoding, TextureLoader, WebGL1Renderer, WebGLRenderTarget, REVISION, Color, BoxBufferGeometry, MeshBasicMaterial, Mesh } from 'three'
-import { WechatPlatform } from 'three/src/WechatPlatform'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { DemoDeps, Demo, DemoGLTFLoader, DemoThreeSpritePlayer, DemoDeviceOrientationControls, DemoRGBELoader, DemoSVGLoader, DemoOBJLoader, DemoMeshOpt, DemoEXRLoader, DemoHDRPrefilterTexture, DemoMTLLoader, DemoLWOLoader, DemoFBXLoader, DemoBVHLoader, DemoColladaLoader, DemoMeshQuantization, DemoTTFLoader, DemoSTLLoader, DemoPDBLoader, DemoTGALoader, DemoMemoryTest, DemoVTKLoader, DemoVSMShadow } from 'three-demo/src/index'
-import { screenshot } from 'three/tools/screenshot'
+import {
+  Clock,
+  PerspectiveCamera,
+  Scene,
+  sRGBEncoding,
+  TextureLoader,
+  WebGL1Renderer,
+  REVISION,
+  Color,
+} from 'three';
 
-console.log('THREE Version', REVISION)
+import PlatformManager from 'platformize/dist/PlatformManager';
+import { WechatPlatform } from 'platformize/dist/wechat';
+
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import {
+  DemoDeps,
+  Demo,
+  DemoGLTFLoader,
+  DemoThreeSpritePlayer,
+  DemoDeviceOrientationControls,
+  DemoRGBELoader,
+  DemoSVGLoader,
+  DemoOBJLoader,
+  DemoMeshOpt,
+  DemoEXRLoader,
+  DemoHDRPrefilterTexture,
+  DemoMTLLoader,
+  DemoLWOLoader,
+  DemoFBXLoader,
+  DemoBVHLoader,
+  DemoColladaLoader,
+  DemoMeshQuantization,
+  // DemoTTFLoader,
+  DemoSTLLoader,
+  DemoPDBLoader,
+  DemoTGALoader,
+  DemoMemoryTest,
+  DemoVTKLoader,
+  DemoVSMShadow,
+} from 'tests-three';
+// import { screenshot } from 'three/tools/screenshot'
+
+console.log('THREE Version', REVISION);
 
 const DEMO_MAP = {
   // BasisLoader: DemoBasisLoader,
@@ -16,7 +53,7 @@ const DEMO_MAP = {
   TGALoader: DemoTGALoader,
   PDBLoader: DemoPDBLoader,
   STLLoader: DemoSTLLoader,
-  TTFLoader: DemoTTFLoader,
+  // TTFLoader: DemoTTFLoader,
   BVHLoader: DemoBVHLoader,
   FBXLoader: DemoFBXLoader,
   LWOLoader: DemoLWOLoader,
@@ -30,10 +67,11 @@ const DEMO_MAP = {
   MeshQuantization: DemoMeshQuantization,
   ThreeSpritePlayer: DemoThreeSpritePlayer,
   HDRPrefilterTexture: DemoHDRPrefilterTexture,
-  DeviceOrientationControls: DemoDeviceOrientationControls
-}
+  DeviceOrientationControls: DemoDeviceOrientationControls,
+};
 
-const getNode = (id) => new Promise(r => wx.createSelectorQuery().select(id).fields({ node: true, size: true }).exec(r))
+const getNode = id =>
+  new Promise(r => wx.createSelectorQuery().select(id).fields({ node: true, size: true }).exec(r));
 
 // @ts-ignore
 Page({
@@ -74,32 +112,29 @@ Page({
       // 'BasisLoader(TODO)',
       // 'Raycaster(TODO)',
       // 'Geometry(TODO)',
-    ]
+    ],
   },
 
   onReady() {
-    this.onCanvasReady()
+    this.onCanvasReady();
   },
 
   onCanvasReady() {
-    console.log('onCanvasReady')
-    Promise.all([
-      getNode('#gl'),
-      getNode('#canvas'),
-    ]).then(([glRes, canvasRes]) => {
+    console.log('onCanvasReady');
+    Promise.all([getNode('#gl'), getNode('#canvas')]).then(([glRes, canvasRes]) => {
       // @ts-ignore
-      this.initCanvas(glRes[0].node, canvasRes[0].node)
-    })
+      this.initCanvas(glRes[0].node, canvasRes[0].node);
+    });
   },
 
   initCanvas(canvas, helperCanvas) {
     const platform = new WechatPlatform(canvas);
     this.platform = platform;
     platform.enableDeviceOrientation('game');
-    PLATFORM.set(platform);
+    PlatformManager.set(platform);
 
-    console.log(window.innerWidth, window.innerHeight)
-    console.log(canvas.width, canvas.height)
+    console.log(window.innerWidth, window.innerHeight);
+    console.log(canvas.width, canvas.height);
 
     const renderer = new WebGL1Renderer({ canvas, antialias: true, alpha: false });
     const camera = new PerspectiveCamera(75, canvas.width / canvas.height, 0.1, 1000);
@@ -108,7 +143,7 @@ Page({
     const gltfLoader = new GLTFLoader();
     const textureLoader = new TextureLoader();
 
-    this.deps = { renderer, camera, scene, clock, gltfLoader, textureLoader }
+    this.deps = { renderer, camera, scene, clock, gltfLoader, textureLoader };
     this.helperCanvas = helperCanvas;
 
     scene.position.z = -3;
@@ -119,44 +154,44 @@ Page({
     renderer.setSize(canvas.width, canvas.height);
 
     const render = () => {
-      if (this.disposing) return
+      if (this.disposing) return;
       requestAnimationFrame(render);
-      (this.currDemo as Demo)?.update()
+      (this.currDemo as Demo)?.update();
       renderer.render(scene, camera);
-    }
+    };
 
-    render()
-    console.log('canvas inited')
+    render();
+    console.log('canvas inited');
   },
 
   onMenuClick() {
-    const showMenu = !this.data.showMenu
+    const showMenu = !this.data.showMenu;
     if (showMenu) {
-      this.setData({ showMenu, showCanvas: false })
+      this.setData({ showMenu, showCanvas: false });
     } else {
-      this.setData({ showMenu })
+      this.setData({ showMenu });
       setTimeout(() => {
-        this.setData({ showCanvas: true })
-      }, 330)
+        this.setData({ showCanvas: true });
+      }, 330);
     }
   },
 
   async onMenuItemClick(e) {
     const { i, item } = e.currentTarget.dataset;
-    wx.showLoading({ mask: false, title: '加载中' })
-    if (this.switchingItem || !DEMO_MAP[item]) return
+    wx.showLoading({ mask: false, title: '加载中' });
+    if (this.switchingItem || !DEMO_MAP[item]) return;
 
     (this.currDemo as Demo)?.dispose();
     this.switchingItem = true;
     this.currDemo = null as unknown as Demo;
 
-    const demo = new (DEMO_MAP[item])(this.deps) as Demo;
+    const demo = new DEMO_MAP[item](this.deps) as Demo;
     await demo.init();
     this.currDemo = demo;
-    this.setData({ currItem: i })
-    this.onMenuClick()
-    this.switchingItem = false
-    wx.hideLoading()
+    this.setData({ currItem: i });
+    this.onMenuClick();
+    this.switchingItem = false;
+    wx.hideLoading();
   },
 
   onTX(e) {
@@ -164,72 +199,75 @@ Page({
   },
 
   screenshot() {
-    const { renderer, scene, camera } = this.deps
-    const [data, w, h] = screenshot(renderer, scene, camera, WebGLRenderTarget);
-    const ctx = this.helperCanvas.getContext('2d')
-    const imgData = this.helperCanvas.createImageData(data, w, h);
-    this.helperCanvas.height = imgData.height;
-    this.helperCanvas.width = imgData.width;
-    ctx.putImageData(imgData, 0, 0);
-    const imgDataFromCanvas = ctx.getImageData(0, 0, w, h)
-    const hasPixel = imgDataFromCanvas.data.some(i => i !== 0)
-    console.log('hasPixel', hasPixel)
-    wx.canvasToTempFilePath({
-      // @ts-ignore
-      canvas: this.helperCanvas,
-      success(res) {
-        wx.previewImage({
-          urls: [res.tempFilePath],
-        })
-      }
-    })
+    return;
+    // const { renderer, scene, camera } = this.deps
+    // const [data, w, h] = screenshot(renderer, scene, camera, WebGLRenderTarget);
+    // const ctx = this.helperCanvas.getContext('2d')
+    // const imgData = this.helperCanvas.createImageData(data, w, h);
+    // this.helperCanvas.height = imgData.height;
+    // this.helperCanvas.width = imgData.width;
+    // ctx.putImageData(imgData, 0, 0);
+    // const imgDataFromCanvas = ctx.getImageData(0, 0, w, h)
+    // const hasPixel = imgDataFromCanvas.data.some(i => i !== 0)
+    // console.log('hasPixel', hasPixel)
+    // wx.canvasToTempFilePath({
+    //   // @ts-ignore
+    //   canvas: this.helperCanvas,
+    //   success(res) {
+    //     wx.previewImage({
+    //       urls: [res.tempFilePath],
+    //     })
+    //   }
+    // })
   },
 
   async screenrecord() {
-    console.log('screenrecord clicked')
-    const fps = 20
+    console.log('screenrecord clicked');
+    const fps = 20;
     const canvas = this.deps.renderer.domElement;
     const recorder = wx.createMediaRecorder(canvas, {
       fps,
       videoBitsPerSecond: 600,
       duration: 5,
-    })
+    });
 
     await new Promise(resolve => {
-      recorder.on('start', resolve)
-      recorder.start()
-    })
-    console.log('start')
+      recorder.on('start', resolve);
+      recorder.start();
+    });
+    console.log('start');
 
-    let frames = fps * 5
+    let frames = fps * 5;
     while (frames--) {
-      await new Promise(resolve => recorder.requestFrame(resolve))
-      await new Promise(resolve => setTimeout(resolve, 1000 / fps))
-      console.log(frames)
+      await new Promise(resolve => recorder.requestFrame(resolve));
+      await new Promise(resolve => setTimeout(resolve, 1000 / fps));
+      console.log(frames);
       // render()
     }
 
     const { tempFilePath } = await new Promise(resolve => {
-      recorder.on('stop', resolve)
-      recorder.stop()
-    })
-    console.log(tempFilePath)
+      recorder.on('stop', resolve);
+      recorder.stop();
+    });
+    console.log(tempFilePath);
 
-    recorder.destroy()
+    recorder.destroy();
 
     wx.previewMedia({
-      sources: [{
-        url: tempFilePath,
-        type: "video"
-      }]
-    })
+      sources: [
+        {
+          url: tempFilePath,
+          type: 'video',
+        },
+      ],
+    });
   },
 
   onUnload() {
     this.disposing = true;
-    (this.currDemo as Demo)?.dispose()
-    PLATFORM.dispose()
+    (this.currDemo as Demo)?.dispose();
+    PlatformManager.dispose();
   },
 
-  onShareAppMessage() { }
-})
+  onShareAppMessage() {},
+});

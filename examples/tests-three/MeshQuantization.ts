@@ -1,6 +1,6 @@
 import { Demo } from './Demo';
 import { DirectionalLight, AmbientLight } from 'three';
-import { MeshoptDecoder } from 'three/tools/meshopt_decoder.wasm.module';
+import { MeshoptDecoder } from 'platformize-three/dist/base/meshopt_decoder.wasm.module';
 
 /**
  * ```
