@@ -9,7 +9,7 @@ function createCommonjsModule(fn) {
 	return fn(module, module.exports), module.exports;
 }
 
-class Blob {
+class $Blob {
     constructor(parts, options) {
         this.parts = parts;
         this.options = options;
@@ -20,9 +20,9 @@ class Blob {
         // var url = `data:${options.type};base64,${base64}`;
     }
 }
-var _default$7 = Blob;
+var _default$7 = $Blob;
 
-var Blob_1$1 = /*#__PURE__*/Object.defineProperty({
+var Blob = /*#__PURE__*/Object.defineProperty({
 	default: _default$7
 }, '__esModule', {value: true});
 
@@ -109,13 +109,13 @@ var __importDefault$2 = (commonjsGlobal && commonjsGlobal.__importDefault) || fu
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
-const Blob_1 = __importDefault$2(Blob_1$1);
+const Blob_1 = __importDefault$2(Blob);
 
-class URL {
+class $URL {
     createObjectURL(obj) {
         if (obj instanceof Blob_1.default) {
             // 更好的方式，使用wx.fileSystemManager写入临时文件来获取url，但是需要手动管理临时文件
-            const base64 = base64Arraybuffer.encode(obj.parts[0]);
+            const base64 = (0, base64Arraybuffer.encode)(obj.parts[0]);
             const url = `data:${obj.options.type};base64,${base64}`;
             return url;
         }
@@ -123,9 +123,9 @@ class URL {
     }
     revokeObjectURL() { }
 }
-var _default$6 = URL;
+var _default$6 = $URL;
 
-var URL_1 = /*#__PURE__*/Object.defineProperty({
+var URL = /*#__PURE__*/Object.defineProperty({
 	default: _default$6
 }, '__esModule', {value: true});
 
@@ -228,7 +228,7 @@ var atob_1 = /*#__PURE__*/Object.defineProperty({
 	default: _default$5
 }, '__esModule', {value: true});
 
-var EventTarget_1$1 = createCommonjsModule(function (module, exports) {
+var EventTarget = createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Touch = void 0;
 const _events = new WeakMap();
@@ -247,7 +247,7 @@ class Touch {
     }
 }
 exports.Touch = Touch;
-class EventTarget {
+class $EventTarget {
     constructor() {
         _events.set(this, {});
     }
@@ -305,7 +305,7 @@ class EventTarget {
     releasePointerCapture() { }
     setPointerCapture() { }
 }
-exports.default = EventTarget;
+exports.default = $EventTarget;
 });
 
 var __importDefault$1 = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
@@ -313,7 +313,7 @@ var __importDefault$1 = (commonjsGlobal && commonjsGlobal.__importDefault) || fu
 };
 
 // @ts-nocheck
-const EventTarget_1 = __importDefault$1(EventTarget_1$1);
+const EventTarget_1 = __importDefault$1(EventTarget);
 const _requestHeader = new WeakMap();
 const _responseHeader = new WeakMap();
 const _requestTask = new WeakMap();
@@ -332,7 +332,7 @@ function _isRelativePath(url) {
     return !/^(http|https|ftp|wxfile):\/\/.*/i.test(url);
 }
 const { platform } = wx.getSystemInfoSync();
-class XMLHttpRequest extends EventTarget_1.default {
+class $XMLHttpRequest extends EventTarget_1.default {
     constructor() {
         super();
         /*
@@ -381,11 +381,11 @@ class XMLHttpRequest extends EventTarget_1.default {
     open(method, url /* async, user, password 这几个参数在小程序内不支持*/) {
         this._method = method;
         this._url = url;
-        _changeReadyState.call(this, XMLHttpRequest.OPENED);
+        _changeReadyState.call(this, $XMLHttpRequest.OPENED);
     }
     overrideMimeType() { }
     send(data = '') {
-        if (this.readyState !== XMLHttpRequest.OPENED) {
+        if (this.readyState !== $XMLHttpRequest.OPENED) {
             throw new Error("Failed to execute 'send' on 'XMLHttpRequest': The object's state must be OPENED.");
         }
         else {
@@ -419,8 +419,8 @@ class XMLHttpRequest extends EventTarget_1.default {
                     _responseHeader.set(this, header);
                 }
                 _triggerEvent.call(this, 'loadstart');
-                _changeReadyState.call(this, XMLHttpRequest.HEADERS_RECEIVED);
-                _changeReadyState.call(this, XMLHttpRequest.LOADING);
+                _changeReadyState.call(this, $XMLHttpRequest.HEADERS_RECEIVED);
+                _changeReadyState.call(this, $XMLHttpRequest.LOADING);
                 this.response = data;
                 if (data instanceof ArrayBuffer) {
                     Object.defineProperty(this, 'responseText', {
@@ -434,7 +434,7 @@ class XMLHttpRequest extends EventTarget_1.default {
                 else {
                     this.responseText = data;
                 }
-                _changeReadyState.call(this, XMLHttpRequest.DONE);
+                _changeReadyState.call(this, $XMLHttpRequest.DONE);
                 _triggerEvent.call(this, 'load');
                 _triggerEvent.call(this, 'loadend');
             };
@@ -471,7 +471,7 @@ class XMLHttpRequest extends EventTarget_1.default {
                 return;
             }
             // IOS在某些情况下不会触发onSuccess...
-            const usePatch = responseType === 'arraybuffer' && platform === 'ios' && XMLHttpRequest.useFetchPatch;
+            const usePatch = responseType === 'arraybuffer' && platform === 'ios' && $XMLHttpRequest.useFetchPatch;
             wx.request({
                 data,
                 url: url,
@@ -497,7 +497,7 @@ class XMLHttpRequest extends EventTarget_1.default {
                         success: onSuccess,
                         fail: onFail,
                     });
-                }, XMLHttpRequest.fetchPatchDelay);
+                }, $XMLHttpRequest.fetchPatchDelay);
             }
         }
     }
@@ -521,18 +521,18 @@ class XMLHttpRequest extends EventTarget_1.default {
         }
     }
 }
-var _default$4 = XMLHttpRequest;
+var _default$4 = $XMLHttpRequest;
 // TODO 没法模拟 HEADERS_RECEIVED 和 LOADING 两个状态
-XMLHttpRequest.UNSEND = 0;
-XMLHttpRequest.OPENED = 1;
-XMLHttpRequest.HEADERS_RECEIVED = 2;
-XMLHttpRequest.LOADING = 3;
-XMLHttpRequest.DONE = 4;
+$XMLHttpRequest.UNSEND = 0;
+$XMLHttpRequest.OPENED = 1;
+$XMLHttpRequest.HEADERS_RECEIVED = 2;
+$XMLHttpRequest.LOADING = 3;
+$XMLHttpRequest.DONE = 4;
 // 某些情况下IOS会不success不触发。。。
-XMLHttpRequest.useFetchPatch = false;
-XMLHttpRequest.fetchPatchDelay = 200;
+$XMLHttpRequest.useFetchPatch = false;
+$XMLHttpRequest.fetchPatchDelay = 200;
 
-var XMLHttpRequest_1 = /*#__PURE__*/Object.defineProperty({
+var XMLHttpRequest = /*#__PURE__*/Object.defineProperty({
 	default: _default$4
 }, '__esModule', {value: true});
 
@@ -699,9 +699,9 @@ function walkTree(node, processer) {
     processer(node);
     node.children.forEach(i => walkTree(i, processer));
 }
-class DOMParser {
+class $DOMParser {
     parseFromString(str) {
-        const xml = xml_parser_1.default(str);
+        const xml = (0, xml_parser_1.default)(str);
         const nodeBase = {
             // @ts-ignore
             hasAttribute(key) {
@@ -751,13 +751,13 @@ class DOMParser {
         return out;
     }
 }
-var _default$1 = DOMParser;
+var _default$1 = $DOMParser;
 
-var DOMParser_1 = /*#__PURE__*/Object.defineProperty({
+var DOMParser = /*#__PURE__*/Object.defineProperty({
 	default: _default$1
 }, '__esModule', {value: true});
 
-class TextDecoder {
+class $TextDecoder {
     /**
      * 不支持 UTF-8 code points 大于 1 字节
      * @see https://stackoverflow.com/questions/17191945/conversion-between-utf-8-arraybuffer-and-string
@@ -782,9 +782,9 @@ class TextDecoder {
         // return String.fromCharCode.apply(null, uint8Array);
     }
 }
-var _default = TextDecoder;
+var _default = $TextDecoder;
 
-var TextDecoder_1 = /*#__PURE__*/Object.defineProperty({
+var TextDecoder = /*#__PURE__*/Object.defineProperty({
 	default: _default
 }, '__esModule', {value: true});
 
@@ -797,6 +797,8 @@ exports.Platform = Platform;
 });
 
 var wechat = createCommonjsModule(function (module, exports) {
+/// <reference types="wechat-miniprogram" />
+/// <reference types="offscreencanvas" />
 var __createBinding = (commonjsGlobal && commonjsGlobal.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -812,7 +814,7 @@ var __setModuleDefault = (commonjsGlobal && commonjsGlobal.__setModuleDefault) |
 var __importStar = (commonjsGlobal && commonjsGlobal.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -821,15 +823,14 @@ var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || func
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WechatPlatform = void 0;
-// @ts-ignore
-const URL_1$1 = __importDefault(URL_1);
-const Blob_1 = __importDefault(Blob_1$1);
+const URL_1 = __importDefault(URL);
+const Blob_1 = __importDefault(Blob);
 const atob_1$1 = __importDefault(atob_1);
-const EventTarget_1 = __importStar(EventTarget_1$1);
-const XMLHttpRequest_1$1 = __importDefault(XMLHttpRequest_1);
+const EventTarget_1 = __importStar(EventTarget);
+const XMLHttpRequest_1 = __importDefault(XMLHttpRequest);
 const copyProperties_1$1 = __importDefault(copyProperties_1);
-const DOMParser_1$1 = __importDefault(DOMParser_1);
-const TextDecoder_1$1 = __importDefault(TextDecoder_1);
+const DOMParser_1 = __importDefault(DOMParser);
+const TextDecoder_1 = __importDefault(TextDecoder);
 
 function OffscreenCanvas() {
     // @ts-ignore
@@ -853,11 +854,11 @@ class WechatPlatform extends Platform_1.Platform {
                     return canvas.createImage();
             },
         };
+        const $URL = new URL_1.default();
         const window = {
             innerWidth: systemInfo.windowWidth,
             innerHeight: systemInfo.windowHeight,
             devicePixelRatio: systemInfo.pixelRatio,
-            URL: new URL_1$1.default(),
             AudioContext: function () { },
             requestAnimationFrame: this.canvas.requestAnimationFrame,
             cancelAnimationFrame: this.canvas.cancelAnimationFrame,
@@ -866,8 +867,9 @@ class WechatPlatform extends Platform_1.Platform {
                     return Promise.resolve('granted');
                 },
             },
-            DOMParser: DOMParser_1$1.default,
-            TextDecoder: TextDecoder_1$1.default,
+            URL: $URL,
+            DOMParser: DOMParser_1.default,
+            TextDecoder: TextDecoder_1.default,
         };
         [canvas, document, window].forEach(i => {
             // @ts-ignore
@@ -877,7 +879,7 @@ class WechatPlatform extends Platform_1.Platform {
             // @ts-ignore
             i.__proto__.__proto__ = old;
             // @ts-ignore
-            copyProperties_1$1.default(i.__proto__, EventTarget_1.default.prototype);
+            (0, copyProperties_1$1.default)(i.__proto__, EventTarget_1.default.prototype);
         });
         this.polyfill = {
             // @ts-expect-error
@@ -885,12 +887,15 @@ class WechatPlatform extends Platform_1.Platform {
             window,
             document,
             // @ts-expect-error
-            DOMParser: DOMParser_1$1.default,
+            DOMParser: DOMParser_1.default,
             // @ts-expect-error
-            TextDecoder: TextDecoder_1$1.default,
+            TextDecoder: TextDecoder_1.default,
             // @ts-expect-error
-            XMLHttpRequest: XMLHttpRequest_1$1.default,
+            XMLHttpRequest: XMLHttpRequest_1.default,
+            // @ts-expect-error
             OffscreenCanvas,
+            // @ts-expect-error
+            URL: $URL,
             atob: atob_1$1.default,
             createImageBitmap: undefined,
             cancelAnimationFrame: window.cancelAnimationFrame,
@@ -932,7 +937,7 @@ class WechatPlatform extends Platform_1.Platform {
     }
     // 某些情况下IOS会不success不触发。。。
     patchXHR() {
-        XMLHttpRequest_1$1.default.useFetchPatch = true;
+        XMLHttpRequest_1.default.useFetchPatch = true;
         return this;
     }
     enableDeviceOrientation(interval) {

@@ -1,16 +1,18 @@
 import sucrase from '@rollup/plugin-sucrase';
 import resolve from '@rollup/plugin-node-resolve';
-import { terser } from "rollup-plugin-terser";
+import { terser } from 'rollup-plugin-terser';
+import platformize from 'platformize-three';
+import builtins from 'rollup-plugin-node-builtins';
 import commonjs from '@rollup/plugin-commonjs';
-import platformize from 'platformize'
 
 const plugins = [
+  builtins(), // 需要放在首位
   resolve({ extensions: ['.ts', '.js'] }),
-  commonjs(),
   sucrase({ transforms: ['typescript'] }),
-  platformize(),
-  // terser({ output: { comments: false } }),
-]
+  commonjs(),
+  ...platformize(),
+  terser({ output: { comments: false } }),
+];
 
 export default [
   {
@@ -22,9 +24,9 @@ export default [
       chunkFileNames: 'chunks/[name].js',
       entryFileNames: 'pages/[name]/[name].js',
       manualChunks: {
-        'three': ['three'],
-      }
+        three: ['three'],
+      },
     },
-    plugins
+    plugins,
   },
-]
+];

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // This file is part of meshoptimizer library and is distributed under the terms of MIT License.
 // Copyright (C) 2016-2020, by Arseny Kapoulkine (arseny.kapoulkine@gmail.com)
 import * as DECODER from './decoder_base.js';

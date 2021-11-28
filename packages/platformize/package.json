@@ -14,8 +14,7 @@
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "MIT",
-  "devDependencies": {
-    "@rollup/plugin-inject": "^4.0.3",
+  "dependencies": {
     "@rollup/pluginutils": "^4.1.1",
     "estree-walker": "2.0.1",
     "magic-string": "^0.25.7"

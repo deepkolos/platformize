@@ -12,17 +12,17 @@
   "license": "",
   "dependencies": {
     "platformize": "workspace:^1.0.0",
-    "platformize-three": "1.133.2",
+    "platformize-three": "workspace:^0.133.0",
     "tests-three": "workspace:^1.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@rollup/plugin-sucrase": "^3.1.0",
-    "@types/wechat-miniprogram": "^3.3.0",
+    "@types/wechat-miniprogram": "^3.4.0",
     "miniprogram-automator": "^0.10.0",
     "rollup": "^2.36.2",
-    "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^3.3.3333"
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }

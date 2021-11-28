@@ -2,7 +2,39 @@
 
 var three = require('./three.js');
 
+class PlatformManager {
+    constructor() {
+        this.polyfill = {};
+    }
+    set(platform) {
+        this.platform = platform;
+        this.polyfill = platform.polyfill;
+    }
+    dispose() {
+        var _a;
+        (_a = this.platform) === null || _a === void 0 ? void 0 : _a.dispose();
+        this.platform = null;
+        this.polyfill = null;
+    }
+}
+var _default$8 = new PlatformManager();
+
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function getAugmentedNamespace(n) {
+	if (n.__esModule) return n;
+	var a = Object.defineProperty({}, '__esModule', {value: true});
+	Object.keys(n).forEach(function (k) {
+		var d = Object.getOwnPropertyDescriptor(n, k);
+		Object.defineProperty(a, k, d.get ? d : {
+			enumerable: true,
+			get: function () {
+				return n[k];
+			}
+		});
+	});
+	return a;
+}
 
 function createCommonjsModule(fn) {
   var module = { exports: {} };
@@ -22,7 +54,7 @@ class $Blob {
 }
 var _default$7 = $Blob;
 
-var Blob = /*#__PURE__*/Object.defineProperty({
+var Blob$1 = /*#__PURE__*/Object.defineProperty({
 	default: _default$7
 }, '__esModule', {value: true});
 
@@ -109,13 +141,13 @@ var __importDefault$2 = (commonjsGlobal && commonjsGlobal.__importDefault) || fu
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
-const Blob_1 = __importDefault$2(Blob);
+const Blob_1 = __importDefault$2(Blob$1);
 
 class $URL {
     createObjectURL(obj) {
         if (obj instanceof Blob_1.default) {
             // 更好的方式，使用wx.fileSystemManager写入临时文件来获取url，但是需要手动管理临时文件
-            const base64 = base64Arraybuffer.encode(obj.parts[0]);
+            const base64 = (0, base64Arraybuffer.encode)(obj.parts[0]);
             const url = `data:${obj.options.type};base64,${base64}`;
             return url;
         }
@@ -125,7 +157,7 @@ class $URL {
 }
 var _default$6 = $URL;
 
-var URL = /*#__PURE__*/Object.defineProperty({
+var URL$1 = /*#__PURE__*/Object.defineProperty({
 	default: _default$6
 }, '__esModule', {value: true});
 
@@ -701,7 +733,7 @@ function walkTree(node, processer) {
 }
 class $DOMParser {
     parseFromString(str) {
-        const xml = xml_parser_1.default(str);
+        const xml = (0, xml_parser_1.default)(str);
         const nodeBase = {
             // @ts-ignore
             hasAttribute(key) {
@@ -753,7 +785,7 @@ class $DOMParser {
 }
 var _default$1 = $DOMParser;
 
-var DOMParser = /*#__PURE__*/Object.defineProperty({
+var DOMParser$1 = /*#__PURE__*/Object.defineProperty({
 	default: _default$1
 }, '__esModule', {value: true});
 
@@ -784,7 +816,7 @@ class $TextDecoder {
 }
 var _default = $TextDecoder;
 
-var TextDecoder = /*#__PURE__*/Object.defineProperty({
+var TextDecoder$1 = /*#__PURE__*/Object.defineProperty({
 	default: _default
 }, '__esModule', {value: true});
 
@@ -797,6 +829,8 @@ exports.Platform = Platform;
 });
 
 var wechat = createCommonjsModule(function (module, exports) {
+/// <reference types="wechat-miniprogram" />
+/// <reference types="offscreencanvas" />
 var __createBinding = (commonjsGlobal && commonjsGlobal.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -821,15 +855,14 @@ var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || func
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WechatPlatform = void 0;
-// @ts-ignore
-const URL_1 = __importDefault(URL);
-const Blob_1 = __importDefault(Blob);
+const URL_1 = __importDefault(URL$1);
+const Blob_1 = __importDefault(Blob$1);
 const atob_1$1 = __importDefault(atob_1);
 const EventTarget_1 = __importStar(EventTarget);
 const XMLHttpRequest_1 = __importDefault(XMLHttpRequest);
 const copyProperties_1$1 = __importDefault(copyProperties_1);
-const DOMParser_1 = __importDefault(DOMParser);
-const TextDecoder_1 = __importDefault(TextDecoder);
+const DOMParser_1 = __importDefault(DOMParser$1);
+const TextDecoder_1 = __importDefault(TextDecoder$1);
 
 function OffscreenCanvas() {
     // @ts-ignore
@@ -891,6 +924,7 @@ class WechatPlatform extends Platform_1.Platform {
             TextDecoder: TextDecoder_1.default,
             // @ts-expect-error
             XMLHttpRequest: XMLHttpRequest_1.default,
+            // @ts-expect-error
             OffscreenCanvas,
             // @ts-expect-error
             URL: $URL,
@@ -3141,7 +3175,7 @@ class GLTFParser {
 
 		// Use an ImageBitmapLoader if imageBitmaps are supported. Moves much of the
 		// expensive work of uploading a texture to the GPU off the main thread.
-		if ( typeof three._default.polyfill.createImageBitmap !== 'undefined' && /Firefox/.test( navigator.userAgent ) === false ) {
+		if ( typeof createImageBitmap !== 'undefined' && /Firefox/.test( navigator.userAgent ) === false ) {
 
 			this.textureLoader = new three.ImageBitmapLoader( this.options.manager );
 
@@ -3730,7 +3764,7 @@ class GLTFParser {
 
 		}
 
-		const URL = three._default.polyfill.URL || self.webkitURL;
+		const URL = self.URL || self.webkitURL;
 
 		let sourceURI = source.uri || '';
 		let isObjectURL = false;
@@ -3742,7 +3776,7 @@ class GLTFParser {
 			sourceURI = parser.getDependency( 'bufferView', source.bufferView ).then( function ( bufferView ) {
 
 				isObjectURL = true;
-				const blob = new three._default.polyfill.Blob( [ bufferView ], { type: source.mimeType } );
+				const blob = new Blob( [ bufferView ], { type: source.mimeType } );
 				sourceURI = URL.createObjectURL( blob );
 				return sourceURI;
 
@@ -5253,7 +5287,7 @@ class OrbitControls extends three.EventDispatcher {
 		super();
 
 		if ( domElement === undefined ) console.warn( 'THREE.OrbitControls: The second parameter "domElement" is now mandatory.' );
-		if ( domElement === three._default.polyfill.document ) console.error( 'THREE.OrbitControls: "document" should not be used as the target "domElement". Please use "renderer.domElement" instead.' );
+		if ( domElement === document ) console.error( 'THREE.OrbitControls: "document" should not be used as the target "domElement". Please use "renderer.domElement" instead.' );
 
 		this.object = object;
 		this.domElement = domElement;
@@ -6475,67 +6509,44 @@ class OrbitControls extends three.EventDispatcher {
 
 }
 
+var disposeThree = createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.disposeHierarchy = exports.disposeNode = void 0;
 function disposeNode(node) {
-  if (node.isMesh) {
-    if (node.geometry) {
-      node.geometry.dispose();
+    if (node.isMesh) {
+        if (node.geometry) {
+            node.geometry.dispose();
+        }
+        if (node.material) {
+            const materials = Array.isArray(node.material) ? node.material : [node.material];
+            materials.forEach(material => {
+                Object.keys(material).forEach(key => {
+                    // @ts-ignore
+                    const value = material[key];
+                    if (value && value.dispose instanceof Function)
+                        value.dispose();
+                });
+            });
+        }
     }
-
-    if (node.material) {
-      // if (node.material.isMeshFaceMaterial) {
-      //   node.material.materials.forEach(mtrl => {
-      //     if (mtrl.map) mtrl.map.dispose();
-      //     if (mtrl.lightMap) mtrl.lightMap.dispose();
-      //     if (mtrl.bumpMap) mtrl.bumpMap.dispose();
-      //     if (mtrl.normalMap) mtrl.normalMap.dispose();
-      //     if (mtrl.specularMap) mtrl.specularMap.dispose();
-      //     if (mtrl.envMap) mtrl.envMap.dispose();
-      //     if (mtrl.alphaMap) mtrl.alphaMap.dispose();
-      //     if (mtrl.aoMap) mtrl.aoMap.dispose();
-      //     if (mtrl.displacementMap) mtrl.displacementMap.dispose();
-      //     if (mtrl.emissiveMap) mtrl.emissiveMap.dispose();
-      //     if (mtrl.gradientMap) mtrl.gradientMap.dispose();
-      //     if (mtrl.metalnessMap) mtrl.metalnessMap.dispose();
-      //     if (mtrl.roughnessMap) mtrl.roughnessMap.dispose();
-
-      //     mtrl.dispose(); // disposes any programs associated with the material
-      //   });
-      // } else {
-      //   if (node.material.map) node.material.map.dispose();
-      //   if (node.material.lightMap) node.material.lightMap.dispose();
-      //   if (node.material.bumpMap) node.material.bumpMap.dispose();
-      //   if (node.material.normalMap) node.material.normalMap.dispose();
-      //   if (node.material.specularMap) node.material.specularMap.dispose();
-      //   if (node.material.envMap) node.material.envMap.dispose();
-      //   if (node.material.alphaMap) node.material.alphaMap.dispose();
-      //   if (node.material.aoMap) node.material.aoMap.dispose();
-      //   if (node.material.displacementMap) node.material.displacementMap.dispose();
-      //   if (node.material.emissiveMap) node.material.emissiveMap.dispose();
-      //   if (node.material.gradientMap) node.material.gradientMap.dispose();
-      //   if (node.material.metalnessMap) node.material.metalnessMap.dispose();
-      //   if (node.material.roughnessMap) node.material.roughnessMap.dispose();
-
-      //   node.material.dispose(); // disposes any programs associated with the material
-      // }
-      Object.keys(node.material).forEach(key => {
-        const value = node.material[key];
-        if (value && value.dispose instanceof Function) value.dispose();
-      });
+    else if (node.isScene) {
+        if (node.background && node.background.dispose)
+            node.background.dispose();
+        if (node.environment && node.environment.dispose)
+            node.environment.dispose();
     }
-  } else if (node.isScene) {
-    if (node.background && node.background.dispose) node.background.dispose();
-    if (node.environment && node.environment.dispose) node.environment.dispose();
-  }
 }
-
+exports.disposeNode = disposeNode;
 function disposeHierarchy(node, callback = disposeNode) {
-  for (var i = node.children.length - 1; i >= 0; i--) {
-    var child = node.children[i];
-    disposeHierarchy(child, callback);
-    callback(child);
-  }
-  callback(node);
+    for (var i = node.children.length - 1; i >= 0; i--) {
+        var child = node.children[i];
+        disposeHierarchy(child, callback);
+        callback(child);
+    }
+    callback(node);
 }
+exports.disposeHierarchy = disposeHierarchy;
+});
 
 function _optionalChain$j(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }
 const baseUrl$2 = 'https://techbrood.com/threejs/examples/';
@@ -6589,7 +6600,7 @@ class Demo {
     renderer.physicallyCorrectLights = false;
     renderer.outputEncoding = three.sRGBEncoding;
 
-    disposeHierarchy(this.deps.scene);
+    disposeThree.disposeHierarchy(this.deps.scene);
     this._objects.forEach(object => _optionalChain$j([object, 'access', _3 => _3.material, 'optionalAccess', _4 => _4.dispose, 'optionalCall', _5 => _5()]));
     this._cameraObjects.forEach(object => _optionalChain$j([object, 'access', _6 => _6.material, 'optionalAccess', _7 => _7.dispose, 'optionalCall', _8 => _8()]));
     scene.remove(...this._objects);
@@ -6632,107 +6643,92 @@ class DemoMemoryTest extends Demo {
   }
 }
 
+var meshopt_decoder_wasm_module = createCommonjsModule(function (module, exports) {
+// @ts-nocheck
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MeshoptDecoder = void 0;
 // This file is part of meshoptimizer library and is distributed under the terms of MIT License.
 // Copyright (C) 2016-2020, by Arseny Kapoulkine (arseny.kapoulkine@gmail.com)
 var MeshoptDecoder = (function (path) {
-  // Built with clang version 11.0.0 (https://github.com/llvm/llvm-project.git 0160ad802e899c2922bc9b29564080c22eb0908c)
-  // Built from meshoptimizer 0.14
-
-  if (typeof WXWebAssembly !== 'object') {
-    // This module requires WebAssembly to function
-    return {
-      supported: false,
-    };
-  }
-
-  var instance;
-  var readyResolve;
-  var promise = new Promise((resovle) => {
-    readyResolve = resovle;
-  });
-
-  function setWasmPath(path) {
-    WXWebAssembly.instantiate(path, {}).then(function (result) {
-      instance = result.instance;
-      instance.exports.__wasm_call_ctors();
-      readyResolve();
+    // Built with clang version 11.0.0 (https://github.com/llvm/llvm-project.git 0160ad802e899c2922bc9b29564080c22eb0908c)
+    // Built from meshoptimizer 0.14
+    if (typeof WXWebAssembly !== 'object') {
+        // This module requires WebAssembly to function
+        return {
+            supported: false,
+        };
+    }
+    var instance;
+    var readyResolve;
+    var promise = new Promise((resovle) => {
+        readyResolve = resovle;
     });
-  }
-
-
-  function decode(fun, target, count, size, source, filter) {
-    var sbrk = instance.exports.sbrk;
-    var count4 = (count + 3) & ~3; // pad for SIMD filter
-    var tp = sbrk(count4 * size);
-    var sp = sbrk(source.length);
-    var heap = new Uint8Array(instance.exports.memory.buffer);
-    heap.set(source, sp);
-    var res = fun(tp, count, size, sp, source.length);
-    if (res == 0 && filter) {
-      filter(tp, count4, size);
+    function setWasmPath(path) {
+        WXWebAssembly.instantiate(path, {}).then(function (result) {
+            instance = result.instance;
+            instance.exports.__wasm_call_ctors();
+            readyResolve();
+        });
     }
-    target.set(heap.subarray(tp, tp + count * size));
-    sbrk(tp - sbrk(0));
-    if (res != 0) {
-      throw new Error('Malformed buffer data: ' + res);
+    function decode(fun, target, count, size, source, filter) {
+        var sbrk = instance.exports.sbrk;
+        var count4 = (count + 3) & ~3; // pad for SIMD filter
+        var tp = sbrk(count4 * size);
+        var sp = sbrk(source.length);
+        var heap = new Uint8Array(instance.exports.memory.buffer);
+        heap.set(source, sp);
+        var res = fun(tp, count, size, sp, source.length);
+        if (res == 0 && filter) {
+            filter(tp, count4, size);
+        }
+        target.set(heap.subarray(tp, tp + count * size));
+        sbrk(tp - sbrk(0));
+        if (res != 0) {
+            throw new Error('Malformed buffer data: ' + res);
+        }
     }
-  }
-  var filters = {
-    // legacy index-based enums for glTF
-    0: '',
-    1: 'meshopt_decodeFilterOct',
-    2: 'meshopt_decodeFilterQuat',
-    3: 'meshopt_decodeFilterExp',
-    // string-based enums for glTF
-    NONE: '',
-    OCTAHEDRAL: 'meshopt_decodeFilterOct',
-    QUATERNION: 'meshopt_decodeFilterQuat',
-    EXPONENTIAL: 'meshopt_decodeFilterExp',
-  };
-
-  var decoders = {
-    // legacy index-based enums for glTF
-    0: 'meshopt_decodeVertexBuffer',
-    1: 'meshopt_decodeIndexBuffer',
-    2: 'meshopt_decodeIndexSequence',
-    // string-based enums for glTF
-    ATTRIBUTES: 'meshopt_decodeVertexBuffer',
-    TRIANGLES: 'meshopt_decodeIndexBuffer',
-    INDICES: 'meshopt_decodeIndexSequence',
-  };
-
-  return {
-    setWasmPath,
-    ready: promise,
-    supported: true,
-    decodeVertexBuffer: function (target, count, size, source, filter) {
-      decode(
-        instance.exports.meshopt_decodeVertexBuffer,
-        target,
-        count,
-        size,
-        source,
-        instance.exports[filters[filter]],
-      );
-    },
-    decodeIndexBuffer: function (target, count, size, source) {
-      decode(instance.exports.meshopt_decodeIndexBuffer, target, count, size, source);
-    },
-    decodeIndexSequence: function (target, count, size, source) {
-      decode(instance.exports.meshopt_decodeIndexSequence, target, count, size, source);
-    },
-    decodeGltfBuffer: function (target, count, size, source, mode, filter) {
-      decode(
-        instance.exports[decoders[mode]],
-        target,
-        count,
-        size,
-        source,
-        instance.exports[filters[filter]],
-      );
-    },
-  };
+    var filters = {
+        // legacy index-based enums for glTF
+        0: '',
+        1: 'meshopt_decodeFilterOct',
+        2: 'meshopt_decodeFilterQuat',
+        3: 'meshopt_decodeFilterExp',
+        // string-based enums for glTF
+        NONE: '',
+        OCTAHEDRAL: 'meshopt_decodeFilterOct',
+        QUATERNION: 'meshopt_decodeFilterQuat',
+        EXPONENTIAL: 'meshopt_decodeFilterExp',
+    };
+    var decoders = {
+        // legacy index-based enums for glTF
+        0: 'meshopt_decodeVertexBuffer',
+        1: 'meshopt_decodeIndexBuffer',
+        2: 'meshopt_decodeIndexSequence',
+        // string-based enums for glTF
+        ATTRIBUTES: 'meshopt_decodeVertexBuffer',
+        TRIANGLES: 'meshopt_decodeIndexBuffer',
+        INDICES: 'meshopt_decodeIndexSequence',
+    };
+    return {
+        setWasmPath,
+        ready: promise,
+        supported: true,
+        decodeVertexBuffer: function (target, count, size, source, filter) {
+            decode(instance.exports.meshopt_decodeVertexBuffer, target, count, size, source, instance.exports[filters[filter]]);
+        },
+        decodeIndexBuffer: function (target, count, size, source) {
+            decode(instance.exports.meshopt_decodeIndexBuffer, target, count, size, source);
+        },
+        decodeIndexSequence: function (target, count, size, source) {
+            decode(instance.exports.meshopt_decodeIndexSequence, target, count, size, source);
+        },
+        decodeGltfBuffer: function (target, count, size, source, mode, filter) {
+            decode(instance.exports[decoders[mode]], target, count, size, source, instance.exports[filters[filter]]);
+        },
+    };
 })();
+exports.MeshoptDecoder = MeshoptDecoder;
+});
 
 function _optionalChain$i(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }
 /**
@@ -6750,8 +6746,8 @@ function _optionalChain$i(ops) { let lastAccessLHS = undefined; let value = ops[
 class DemoMeshOpt extends Demo {
   async init() {
     const { gltfLoader, camera, scene } = this.deps;
-    MeshoptDecoder.setWasmPath('/decoder_base.wasm');
-    gltfLoader.setMeshoptDecoder(MeshoptDecoder);
+    meshopt_decoder_wasm_module.MeshoptDecoder.setWasmPath('/decoder_base.wasm');
+    gltfLoader.setMeshoptDecoder(meshopt_decoder_wasm_module.MeshoptDecoder);
     const t = Date.now();
     const gltf = (await gltfLoader.loadAsync(
       // 'https://meshoptimizer.org/demo/pirate.glb',
@@ -6809,8 +6805,8 @@ class DemoMeshQuantization extends Demo {
   async init() {
     const { camera, gltfLoader, scene } = this.deps;
     const t = Date.now();
-    MeshoptDecoder.setWasmPath('/decoder_base.wasm');
-    gltfLoader.setMeshoptDecoder(MeshoptDecoder);
+    meshopt_decoder_wasm_module.MeshoptDecoder.setWasmPath('/decoder_base.wasm');
+    gltfLoader.setMeshoptDecoder(meshopt_decoder_wasm_module.MeshoptDecoder);
     const gltf = await gltfLoader.loadAsync(
       // 'https://cdn.static.oppenlab.com/weblf/test/PrimaryIonDrive.glb',
       'https://cdn.static.oppenlab.com/weblf/test/PrimaryIonDrive-EXT_MESH_QUANTIZATION.glb',
@@ -8705,10 +8701,10 @@ version 0.6.9
 // Sometimes 0 will appear where -1 would be more appropriate. This is because using a uint
 // is better for memory in most engines (I *think*).
 var ch2 = {};
-var durl = function (c) { return three._default.polyfill.URL.createObjectURL(new three._default.polyfill.Blob([c], { type: 'text/javascript' })); };
+var durl = function (c) { return URL.createObjectURL(new Blob([c], { type: 'text/javascript' })); };
 var cwk = function (u) { return new Worker(u); };
 try {
-    three._default.polyfill.URL.revokeObjectURL(durl(''));
+    URL.revokeObjectURL(durl(''));
 }
 catch (e) {
     // We're in Deno or a very old browser
@@ -10160,7 +10156,7 @@ var fltn = function (d, p, t, o) {
 // text encoder
 var te = typeof TextEncoder != 'undefined' && /*#__PURE__*/ new TextEncoder();
 // text decoder
-var td = typeof three._default.polyfill.TextDecoder != 'undefined' && /*#__PURE__*/ new three._default.polyfill.TextDecoder();
+var td = typeof TextDecoder != 'undefined' && /*#__PURE__*/ new TextDecoder();
 // text decoder stream
 var tds = 0;
 try {
@@ -10198,7 +10194,7 @@ var DecodeUTF8 = /*#__PURE__*/ (function () {
     function DecodeUTF8(cb) {
         this.ondata = cb;
         if (tds)
-            this.t = new three._default.polyfill.TextDecoder();
+            this.t = new TextDecoder();
         else
             this.p = et;
     }
@@ -11132,55 +11128,55 @@ function unzipSync(data) {
 }
 
 var fflate = /*#__PURE__*/Object.freeze({
-	__proto__: null,
-	Deflate: Deflate,
-	AsyncDeflate: AsyncDeflate,
-	deflate: deflate,
-	deflateSync: deflateSync,
-	Inflate: Inflate,
-	AsyncInflate: AsyncInflate,
-	inflate: inflate,
-	inflateSync: inflateSync,
-	Gzip: Gzip,
-	AsyncGzip: AsyncGzip,
-	gzip: gzip,
-	gzipSync: gzipSync,
-	Gunzip: Gunzip,
-	AsyncGunzip: AsyncGunzip,
-	gunzip: gunzip,
-	gunzipSync: gunzipSync,
-	Zlib: Zlib,
-	AsyncZlib: AsyncZlib,
-	zlib: zlib,
-	zlibSync: zlibSync,
-	Unzlib: Unzlib,
-	AsyncUnzlib: AsyncUnzlib,
-	unzlib: unzlib,
-	unzlibSync: unzlibSync,
-	compress: gzip,
-	AsyncCompress: AsyncGzip,
-	compressSync: gzipSync,
-	Compress: Gzip,
-	Decompress: Decompress,
-	AsyncDecompress: AsyncDecompress,
-	decompress: decompress,
-	decompressSync: decompressSync,
-	DecodeUTF8: DecodeUTF8,
-	EncodeUTF8: EncodeUTF8,
-	strToU8: strToU8,
-	strFromU8: strFromU8,
-	ZipPassThrough: ZipPassThrough,
-	ZipDeflate: ZipDeflate,
-	AsyncZipDeflate: AsyncZipDeflate,
-	Zip: Zip,
-	zip: zip,
-	zipSync: zipSync,
-	UnzipPassThrough: UnzipPassThrough,
-	UnzipInflate: UnzipInflate,
-	AsyncUnzipInflate: AsyncUnzipInflate,
-	Unzip: Unzip,
-	unzip: unzip,
-	unzipSync: unzipSync
+    __proto__: null,
+    Deflate: Deflate,
+    AsyncDeflate: AsyncDeflate,
+    deflate: deflate,
+    deflateSync: deflateSync,
+    Inflate: Inflate,
+    AsyncInflate: AsyncInflate,
+    inflate: inflate,
+    inflateSync: inflateSync,
+    Gzip: Gzip,
+    AsyncGzip: AsyncGzip,
+    gzip: gzip,
+    gzipSync: gzipSync,
+    Gunzip: Gunzip,
+    AsyncGunzip: AsyncGunzip,
+    gunzip: gunzip,
+    gunzipSync: gunzipSync,
+    Zlib: Zlib,
+    AsyncZlib: AsyncZlib,
+    zlib: zlib,
+    zlibSync: zlibSync,
+    Unzlib: Unzlib,
+    AsyncUnzlib: AsyncUnzlib,
+    unzlib: unzlib,
+    unzlibSync: unzlibSync,
+    compress: gzip,
+    AsyncCompress: AsyncGzip,
+    compressSync: gzipSync,
+    Compress: Gzip,
+    Decompress: Decompress,
+    AsyncDecompress: AsyncDecompress,
+    decompress: decompress,
+    decompressSync: decompressSync,
+    DecodeUTF8: DecodeUTF8,
+    EncodeUTF8: EncodeUTF8,
+    strToU8: strToU8,
+    strFromU8: strFromU8,
+    ZipPassThrough: ZipPassThrough,
+    ZipDeflate: ZipDeflate,
+    AsyncZipDeflate: AsyncZipDeflate,
+    Zip: Zip,
+    zip: zip,
+    zipSync: zipSync,
+    UnzipPassThrough: UnzipPassThrough,
+    UnzipInflate: UnzipInflate,
+    AsyncUnzipInflate: AsyncUnzipInflate,
+    Unzip: Unzip,
+    unzip: unzip,
+    unzipSync: unzipSync
 });
 
 /**
@@ -11964,7 +11960,7 @@ class FBXTreeParser {
 		} else { // Binary Format
 
 			const array = new Uint8Array( content );
-			return three._default.polyfill.window.URL.createObjectURL( new three._default.polyfill.Blob( [ array ], { type: type } ) );
+			return window.URL.createObjectURL( new Blob( [ array ], { type: type } ) );
 
 		}
 
@@ -12692,8 +12688,8 @@ class FBXTreeParser {
 			}
 
 
-			let width = three._default.polyfill.window.innerWidth;
-			let height = three._default.polyfill.window.innerHeight;
+			let width = window.innerWidth;
+			let height = window.innerHeight;
 
 			if ( cameraAttribute.AspectWidth !== undefined && cameraAttribute.AspectHeight !== undefined ) {
 
@@ -22374,7 +22370,7 @@ class EXRLoader extends three.DataTextureLoader {
 
 			}
 
-			var stringValue = new three._default.polyfill.TextDecoder().decode(
+			var stringValue = new TextDecoder().decode(
 				uintBuffer.slice( offset.value, offset.value + endOffset )
 			);
 
@@ -22386,7 +22382,7 @@ class EXRLoader extends three.DataTextureLoader {
 
 		function parseFixedLengthString( buffer, offset, size ) {
 
-			var stringValue = new three._default.polyfill.TextDecoder().decode(
+			var stringValue = new TextDecoder().decode(
 				new Uint8Array( buffer ).slice( offset.value, offset.value + size )
 			);
 
@@ -24782,7 +24778,7 @@ class SVGLoader extends three.Loader {
 
 		const currentTransform = new three.Matrix3();
 
-		const xml = new three._default.polyfill.DOMParser().parseFromString( text, 'image/svg+xml' ); // application/xml
+		const xml = new DOMParser().parseFromString( text, 'image/svg+xml' ); // application/xml
 
 		parseNode( xml.documentElement, {
 			fill: '#000',
@@ -30594,7 +30590,7 @@ class ColladaLoader extends three.Loader {
 
 		}
 
-		const xml = new three._default.polyfill.DOMParser().parseFromString( text, 'application/xml' );
+		const xml = new DOMParser().parseFromString( text, 'application/xml' );
 
 		const collada = getElementsByTagName( xml, 'COLLADA' )[ 0 ];
 
@@ -31630,11 +31626,11 @@ class VTKLoader extends three.Loader {
 			// Get Dom
 			var dom = null;
 
-			if ( three._default.polyfill.window.DOMParser ) {
+			if ( window.DOMParser ) {
 
 				try {
 
-					dom = ( new three._default.polyfill.DOMParser() ).parseFromString( stringFile, 'text/xml' );
+					dom = ( new DOMParser() ).parseFromString( stringFile, 'text/xml' );
 
 				} catch ( e ) {
 
@@ -31642,7 +31638,7 @@ class VTKLoader extends three.Loader {
 
 				}
 
-			} else if ( three._default.polyfill.window.ActiveXObject ) {
+			} else if ( window.ActiveXObject ) {
 
 				try {
 
@@ -32238,24 +32234,32 @@ class DemoThreeSpritePlayer extends Demo {
   }
 }
 
+var three_1 = /*@__PURE__*/getAugmentedNamespace(three.three_module);
+
+var toEnvMap_1 = createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.toEnvMap = void 0;
+
 /**
  * 设置通过TextureLoad加载从PMREMGenerator生成纹理导出成PNG
  * @param {Texture} texture
  * @param {Boolean} hdr 源文件是否是HDR, LDR设置false
  */
 function toEnvMap(texture, hdr = true) {
-  if (hdr) {
-    texture.format = three.RGBEFormat;
-    texture.encoding = three.RGBEEncoding;
-  }
-  texture.generateMipmaps = false;
-  texture.magFilter = three.NearestFilter;
-  texture.minFilter = three.NearestFilter;
-  texture.type = three.UnsignedByteType;
-  texture.mapping = three.CubeUVReflectionMapping;
-  texture.name = 'PMREM.cubeUv';
-  return texture;
+    if (hdr) {
+        texture.format = three_1.RGBEFormat;
+        texture.encoding = three_1.RGBEEncoding;
+    }
+    texture.generateMipmaps = false;
+    texture.magFilter = three_1.NearestFilter;
+    texture.minFilter = three_1.NearestFilter;
+    texture.type = three_1.UnsignedByteType;
+    texture.mapping = three_1.CubeUVReflectionMapping;
+    texture.name = 'PMREM.cubeUv';
+    return texture;
 }
+exports.toEnvMap = toEnvMap;
+});
 
 function _optionalChain$1(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }
 class DemoHDRPrefilterTexture extends Demo {
@@ -32265,7 +32269,7 @@ class DemoHDRPrefilterTexture extends Demo {
       // 'https://s3.ax1x.com/2021/02/01/yeci9I.png',
       'https://cdn.static.oppenlab.com/weblf/test/hdr-prefilter.png',
     );
-    toEnvMap(texture);
+    toEnvMap_1.toEnvMap(texture);
     const geometry = new three.PlaneGeometry(3, 3);
     const material = new three.MeshBasicMaterial({ map: texture });
     const mesh = new three.Mesh(geometry, material);
@@ -32297,7 +32301,7 @@ class DeviceOrientationControls extends three.EventDispatcher {
 
 		super();
 
-		if ( three._default.polyfill.window.isSecureContext === false ) {
+		if ( window.isSecureContext === false ) {
 
 			console.error( 'THREE.DeviceOrientationControls: DeviceOrientationEvent is only available in secure contexts (https)' );
 
@@ -32326,7 +32330,7 @@ class DeviceOrientationControls extends three.EventDispatcher {
 
 		const onScreenOrientationChangeEvent = function () {
 
-			scope.screenOrientation = three._default.polyfill.window.orientation || 0;
+			scope.screenOrientation = window.orientation || 0;
 
 		};
 
@@ -32350,14 +32354,14 @@ class DeviceOrientationControls extends three.EventDispatcher {
 
 			// iOS 13+
 
-			if ( three._default.polyfill.window.DeviceOrientationEvent !== undefined && typeof three._default.polyfill.window.DeviceOrientationEvent.requestPermission === 'function' ) {
+			if ( window.DeviceOrientationEvent !== undefined && typeof window.DeviceOrientationEvent.requestPermission === 'function' ) {
 
-				three._default.polyfill.window.DeviceOrientationEvent.requestPermission().then( function ( response ) {
+				window.DeviceOrientationEvent.requestPermission().then( function ( response ) {
 
 					if ( response == 'granted' ) {
 
-						three._default.polyfill.window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent );
-						three._default.polyfill.window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent );
+						window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent );
+						window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent );
 
 					}
 
@@ -32369,8 +32373,8 @@ class DeviceOrientationControls extends three.EventDispatcher {
 
 			} else {
 
-				three._default.polyfill.window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent );
-				three._default.polyfill.window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent );
+				window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent );
+				window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent );
 
 			}
 
@@ -32380,8 +32384,8 @@ class DeviceOrientationControls extends three.EventDispatcher {
 
 		this.disconnect = function () {
 
-			three._default.polyfill.window.removeEventListener( 'orientationchange', onScreenOrientationChangeEvent );
-			three._default.polyfill.window.removeEventListener( 'deviceorientation', onDeviceOrientationChangeEvent );
+			window.removeEventListener( 'orientationchange', onScreenOrientationChangeEvent );
+			window.removeEventListener( 'deviceorientation', onDeviceOrientationChangeEvent );
 
 			scope.enabled = false;
 
@@ -32486,4 +32490,7 @@ exports.DemoThreeSpritePlayer = DemoThreeSpritePlayer;
 exports.DemoVSMShadow = DemoVSMShadow;
 exports.DemoVTKLoader = DemoVTKLoader;
 exports.GLTFLoader = GLTFLoader;
+exports._default = _default$8;
+exports.commonjsGlobal = commonjsGlobal;
+exports.createCommonjsModule = createCommonjsModule;
 exports.wechat = wechat;

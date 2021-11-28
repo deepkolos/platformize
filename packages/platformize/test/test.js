@@ -27,8 +27,18 @@ const compare = (t, fixture, options) => {
 
 test('relative path & customImportLocalName & importLocalNamePostfix', t => {
   compare(t, 'basic', {
-    URL: [modPath, 'default', 'PlatformManager', `.polyfill.URL`],
-    'self.document': [modPath, 'default', 'PlatformManager', `.polyfill.document`],
+    URL: {
+      modName: modPath,
+      importName: 'default',
+      localName: 'PlatformManager',
+      localNamePostfix: `.polyfill.URL`,
+    },
+    'self.document': {
+      modName: modPath,
+      importName: 'default',
+      localName: 'PlatformManager',
+      localNamePostfix: `.polyfill.document`,
+    },
   });
 });
 
@@ -40,6 +50,21 @@ test('deconstruction', t => {
 
 test('avoid same name', t => {
   compare(t, 'avoid-same-name', {
-    URL: [modPath, 'default', 'PlatformManager', `.polyfill.URL`],
+    URL: {
+      modName: modPath,
+      importName: 'default',
+      localName: 'PlatformManager',
+      localNamePostfix: `.polyfill.URL`,
+    },
+  });
+});
+
+test('overwrite', t => {
+  compare(t, 'overwrite', {
+    modA: {
+      modName: modPath,
+      overwrite: true,
+      importName: 'Mod',
+    },
   });
 });

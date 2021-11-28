@@ -1,4 +1,5 @@
 
+  // @ts-nocheck
   var bufferView;
   var base64ReverseLookup = new Uint8Array(123/*'z'+1*/);
   for (var i = 25; i >= 0; --i) {

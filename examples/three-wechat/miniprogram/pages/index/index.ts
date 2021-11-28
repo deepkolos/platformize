@@ -8,6 +8,7 @@ import {
   WebGL1Renderer,
   REVISION,
   Color,
+  WebGLRenderTarget,
 } from 'three';
 
 import PlatformManager from 'platformize/dist/PlatformManager';
@@ -32,7 +33,7 @@ import {
   DemoBVHLoader,
   DemoColladaLoader,
   DemoMeshQuantization,
-  // DemoTTFLoader,
+  DemoTTFLoader,
   DemoSTLLoader,
   DemoPDBLoader,
   DemoTGALoader,
@@ -40,12 +41,11 @@ import {
   DemoVTKLoader,
   DemoVSMShadow,
 } from 'tests-three';
-// import { screenshot } from 'three/tools/screenshot'
+import { screenshot } from 'platformize-three/dist/base/screenshot.js';
 
 console.log('THREE Version', REVISION);
 
 const DEMO_MAP = {
-  // BasisLoader: DemoBasisLoader,
   MemoryTest: DemoMemoryTest,
   VSMShadow: DemoVSMShadow,
   VTKLoader: DemoVTKLoader,
@@ -53,7 +53,7 @@ const DEMO_MAP = {
   TGALoader: DemoTGALoader,
   PDBLoader: DemoPDBLoader,
   STLLoader: DemoSTLLoader,
-  // TTFLoader: DemoTTFLoader,
+  TTFLoader: DemoTTFLoader,
   BVHLoader: DemoBVHLoader,
   FBXLoader: DemoFBXLoader,
   LWOLoader: DemoLWOLoader,
@@ -109,9 +109,6 @@ Page({
       'VTKLoader',
       'VSMShadow',
       'MemoryTest',
-      // 'BasisLoader(TODO)',
-      // 'Raycaster(TODO)',
-      // 'Geometry(TODO)',
     ],
   },
 
@@ -199,26 +196,25 @@ Page({
   },
 
   screenshot() {
-    return;
-    // const { renderer, scene, camera } = this.deps
-    // const [data, w, h] = screenshot(renderer, scene, camera, WebGLRenderTarget);
-    // const ctx = this.helperCanvas.getContext('2d')
-    // const imgData = this.helperCanvas.createImageData(data, w, h);
-    // this.helperCanvas.height = imgData.height;
-    // this.helperCanvas.width = imgData.width;
-    // ctx.putImageData(imgData, 0, 0);
-    // const imgDataFromCanvas = ctx.getImageData(0, 0, w, h)
-    // const hasPixel = imgDataFromCanvas.data.some(i => i !== 0)
-    // console.log('hasPixel', hasPixel)
-    // wx.canvasToTempFilePath({
-    //   // @ts-ignore
-    //   canvas: this.helperCanvas,
-    //   success(res) {
-    //     wx.previewImage({
-    //       urls: [res.tempFilePath],
-    //     })
-    //   }
-    // })
+    const { renderer, scene, camera } = this.deps;
+    const [data, w, h] = screenshot(renderer, scene, camera, WebGLRenderTarget);
+    const ctx = this.helperCanvas.getContext('2d');
+    const imgData = this.helperCanvas.createImageData(data, w, h);
+    this.helperCanvas.height = imgData.height;
+    this.helperCanvas.width = imgData.width;
+    ctx.putImageData(imgData, 0, 0);
+    const imgDataFromCanvas = ctx.getImageData(0, 0, w, h);
+    const hasPixel = imgDataFromCanvas.data.some(i => i !== 0);
+    console.log('hasPixel', hasPixel);
+    wx.canvasToTempFilePath({
+      // @ts-ignore
+      canvas: this.helperCanvas,
+      success(res) {
+        wx.previewImage({
+          urls: [res.tempFilePath],
+        });
+      },
+    });
   },
 
   async screenrecord() {

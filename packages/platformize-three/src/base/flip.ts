@@ -1,12 +1,13 @@
 'use strict';
-export default function flip(pixels, w, h, c) {
+export default function flip(pixels: Uint8Array | Array<number>, w: number, h: number, c: number) {
   // handle Arrays
   if (Array.isArray(pixels)) {
+    // @ts-ignore
     var result = flip(new Float64Array(pixels), w, h, c);
     for (var i = 0; i < pixels.length; i++) {
       pixels[i] = result[i];
     }
-    return pixels;
+    return pixels as unknown as Float64Array;
   }
 
   if (!w || !h) throw Error('Bad dimensions');
@@ -14,10 +15,10 @@ export default function flip(pixels, w, h, c) {
 
   var h2 = h >> 1;
   var row = w * c;
-  var Ctor = pixels.constructor;
+  var Ctor = pixels.constructor as unknown as Uint8ArrayConstructor;
 
   // make a temp buffer to hold one row
-  var temp = new Ctor(w * c);
+  var temp: Uint8Array = new Ctor(w * c);
   for (var y = 0; y < h2; ++y) {
     var topOffset = y * row;
     var bottomOffset = (h - y - 1) * row;
@@ -33,4 +34,4 @@ export default function flip(pixels, w, h, c) {
   }
 
   return pixels;
-};
+}

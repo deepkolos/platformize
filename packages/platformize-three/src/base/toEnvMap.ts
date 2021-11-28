@@ -4,6 +4,7 @@ import {
   RGBEFormat,
   RGBEEncoding,
   CubeUVReflectionMapping,
+  Texture,
 } from 'three';
 
 /**
@@ -11,7 +12,7 @@ import {
  * @param {Texture} texture
  * @param {Boolean} hdr 源文件是否是HDR, LDR设置false
  */
-export function toEnvMap(texture, hdr = true) {
+export function toEnvMap(texture: Texture, hdr: boolean = true): Texture {
   if (hdr) {
     texture.format = RGBEFormat;
     texture.encoding = RGBEEncoding;

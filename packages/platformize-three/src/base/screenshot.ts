@@ -1,6 +1,22 @@
+import {
+  Camera,
+  OrthographicCamera,
+  PerspectiveCamera,
+  Scene,
+  WebGL1Renderer,
+  WebGLRenderer,
+  WebGLRenderTarget,
+} from 'three';
 import flip from './flip';
 
-export function screenshot(renderer, scene, camera, WebGLRenderTarget) {
+type AConstructorTypeOf<T> = new (...args:any[]) => T;
+
+export function screenshot(
+  renderer: WebGLRenderer | WebGL1Renderer,
+  scene: Scene,
+  camera: PerspectiveCamera | OrthographicCamera | Camera,
+  WebGLRenderTarget: AConstructorTypeOf<WebGLRenderTarget>,
+) {
   const { width, height } = renderer.domElement;
   // const { x: width, y: height } = renderer.getDrawingBufferSize();
   const renderTarget = new WebGLRenderTarget(width, height);

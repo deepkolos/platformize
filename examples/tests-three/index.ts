@@ -7,7 +7,7 @@ export * from './MeshQuantization';
 export * from './TGALoader';
 export * from './PDBLoader';
 export * from './STLLoader';
-// export * from './TTFLoader';
+export * from './TTFLoader';
 export * from './BVHLoader';
 export * from './FBXLoader';
 export * from './LWOLoader';

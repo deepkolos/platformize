@@ -1,9 +1,12 @@
 // @ts-nocheck
 
+/// <reference types="node" />
+
 /**
  * feat: add deconstruction support
  * feat: add relative path support for test
  * feat: add importLocalNamePostfix & customImportLocalName support
+ * feat: add overwrite existing import support
  *
  * "default.polyfill.URL"
  * import { default: { polyfill: { URL as URL } } } from 'relative path';
@@ -23,12 +26,37 @@ import { attachScopes, createFilter, makeLegalIdentifier } from '@rollup/pluginu
 export type Injectment =
   | string
   | [modName: string, importName: string]
-  | [
-      modName: string,
-      importName: string,
-      customImportLocalName: string,
-      importLocalNamePostfix: string,
-    ];
+  | {
+      modName: string;
+      importName?: string;
+      overwrite?: boolean;
+      localName?: string;
+      localNamePostfix?: string;
+    };
+
+export interface RollupInjectOptions {
+  /**
+   * All other options are treated as `string: injectment` injectrs,
+   * or `string: (id) => injectment` functions.
+   */
+  [str: string]: Injectment | RollupInjectOptions['include'] | RollupInjectOptions['modules'];
+
+  /**
+   * A minimatch pattern, or array of patterns, of files that should be
+   * processed by this plugin (if omitted, all files are included by default)
+   */
+  include?: string | RegExp | ReadonlyArray<string | RegExp> | null;
+
+  /**
+   * Files that should be excluded, if `include` is otherwise too permissive.
+   */
+  exclude?: string | RegExp | ReadonlyArray<string | RegExp> | null;
+
+  /**
+   * You can separate values to inject from other options.
+   */
+  modules?: { [str: string]: Injectment };
+}
 
 const sep = path.sep;
 
@@ -78,7 +106,7 @@ const flatten = startNode => {
   return { name, keypath: parts.join('.') };
 };
 
-export default function inject(options) {
+export default function inject(options: RollupInjectOptions) {
   if (!options) throw new Error('Missing options');
 
   const filter = createFilter(options.include, options.exclude);
@@ -98,10 +126,15 @@ export default function inject(options) {
   // Fix paths on Windows
   if (sep !== '/') {
     modulesMap.forEach((mod, key) => {
-      modulesMap.set(
-        key,
-        Array.isArray(mod) ? [mod[0].split(sep).join('/'), mod[1]] : mod.split(sep).join('/'),
-      );
+      if (typeof mod === 'string') mod = [mod, 'default'];
+      if (Array.isArray(mod))
+        mod = {
+          modName: mod[0],
+          importName: mod[1],
+        };
+
+      mod.modName = mod.modName.split(sep).join('/');
+      modulesMap.set(key, mod);
     });
   }
 
@@ -112,8 +145,7 @@ export default function inject(options) {
     name: 'inject',
 
     transform(code, id) {
-      if (!filter(id)) return null;
-      if (code.search(firstpass) === -1) return null;
+      if (!filter(id) || code.search(firstpass) === -1) return null;
 
       if (sep !== '/') id = id.split(sep).join('/'); // eslint-disable-line no-param-reassign
 
@@ -121,46 +153,46 @@ export default function inject(options) {
       try {
         ast = this.parse(code);
       } catch (err) {
-        console.error(id)
-        console.error(err);
         this.warn({
           code: 'PARSE_ERROR',
           message: `rollup-plugin-inject: failed to parse ${id}. Consider restricting the plugin to particular files via options.include`,
         });
       }
-      if (!ast) {
-        return null;
-      }
+      if (!ast) return null;
 
       const imports = new Set();
+      const importDefs = new Map();
       ast.body.forEach(node => {
         if (node.type === 'ImportDeclaration') {
           node.specifiers.forEach(specifier => {
             imports.add(specifier.local.name);
+            importDefs.set(specifier.local.name, node);
           });
         }
       });
 
       // analyse scopes
       let scope = attachScopes(ast, 'scope');
-
       const magicString = new MagicString(code);
-
       const newImports = new Map();
 
       function handleReference(node, name, keypath) {
-        let mod = modulesMap.get(keypath);
+        let modCfg = modulesMap.get(keypath);
+        if (modCfg && (!imports.has(name) || modCfg.overwrite) && !scope.contains(name)) {
+          if (typeof modCfg === 'string') modCfg = [modCfg, 'default'];
+          if (Array.isArray(modCfg))
+            modCfg = {
+              modName: modCfg[0],
+              importName: modCfg[1],
+            };
 
-        if (mod && !imports.has(name) && !scope.contains(name)) {
-          if (typeof mod === 'string') mod = [mod, 'default'];
+          let { modName, importName = '', localName, localNamePostfix = '', overwrite } = modCfg;
 
-          const [fromValue, importName, customImportLocalName, importLocalNamePostfix] = mod;
           // prevent module from importing itself
-          if (fromValue === id) return false;
+          if (modName === id) return false;
 
           let importLocalName =
-            customImportLocalName ||
-            (name === keypath ? name : makeLegalIdentifier(`$inject_${keypath}`));
+            localName || (name === keypath ? name : makeLegalIdentifier(`$inject_${keypath}`));
 
           let i = 0;
           while (imports.has(importLocalName)) {
@@ -178,11 +210,11 @@ export default function inject(options) {
                   }
                 }, '__SLOT__');
 
-          const hash = `${fromValue}:${importCode}`;
+          const hash = `${modName}:${importCode}`;
 
           if (!newImports.has(hash)) {
             // escape apostrophes and backslashes for use in single-quoted string literal
-            let modName = fromValue.replace(/[''\\]/g, '\\$&');
+            modName = modName.replace(/[''\\]/g, '\\$&');
 
             if (path.isAbsolute(modName)) {
               const fileDir = path.resolve(id, '..');
@@ -194,10 +226,15 @@ export default function inject(options) {
             newImports.set(hash, `import ${importCode} from '${modName}';`);
           }
 
-          if (name !== keypath || customImportLocalName) {
-            magicString.overwrite(node.start, node.end, importLocalName + mod[3], {
+          if (name !== keypath || overwrite || localName) {
+            magicString.overwrite(node.start, node.end, importLocalName + localNamePostfix, {
               storeName: true,
             });
+
+            const importNode = importDefs.get(name);
+            if (overwrite && importNode) {
+              magicString.remove(importNode.start, importNode.end);
+            }
           }
 
           return true;

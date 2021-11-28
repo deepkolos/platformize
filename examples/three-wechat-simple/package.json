@@ -21,6 +21,7 @@
     "typescript": "*"
   },
   "dependencies": {
+    "platformize-three": "workspace:^0.133.0",
     "three": "0.133.1"
   }
 }

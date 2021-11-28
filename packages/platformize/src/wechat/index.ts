@@ -1,4 +1,6 @@
-// @ts-ignore
+/// <reference types="wechat-miniprogram" />
+/// <reference types="offscreencanvas" />
+
 import URL from '../base/URL';
 import Blob from '../base/Blob';
 import atob from '../base/atob';
@@ -22,7 +24,7 @@ export class WechatPlatform extends Platform {
   onDeviceMotionChange: (e: any) => void;
   enabledDeviceMotion: boolean = false;
 
-  constructor(canvas: WechatMiniprogram.Canvas, width: number, height: number) {
+  constructor(canvas: WechatMiniprogram.Canvas, width?: number, height?: number) {
     super();
     const systemInfo = wx.getSystemInfoSync();
     const isAndroid = systemInfo.platform === 'android';
@@ -82,6 +84,7 @@ export class WechatPlatform extends Platform {
       TextDecoder,
       // @ts-expect-error
       XMLHttpRequest: $XMLHttpRequest,
+      // @ts-expect-error
       OffscreenCanvas,
       // @ts-expect-error
       URL: $URL,
