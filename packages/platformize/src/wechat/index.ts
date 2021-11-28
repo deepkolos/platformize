@@ -1,14 +1,14 @@
 /// <reference types="wechat-miniprogram" />
 /// <reference types="offscreencanvas" />
 
-import URL from '../base/URL';
-import Blob from '../base/Blob';
-import atob from '../base/atob';
-import EventTarget, { Touch, TouchEvent } from '../base/EventTarget';
+import $URL from '../base/URL';
+import $Blob from '../base/Blob';
+import $atob from '../base/atob';
+import $EventTarget, { Touch, TouchEvent } from '../base/EventTarget';
 import $XMLHttpRequest from './XMLHttpRequest';
 import copyProperties from '../base/utils/copyProperties';
-import DOMParser from '../base/DOMParser';
-import TextDecoder from '../base/TextDecoder';
+import $DOMParser from '../base/DOMParser';
+import $TextDecoder from '../base/TextDecoder';
 import { Platform, Polyfill } from '../Platform';
 
 function OffscreenCanvas() {
@@ -18,7 +18,7 @@ function OffscreenCanvas() {
 
 export class WechatPlatform extends Platform {
   polyfill: Polyfill;
-  canvas: WechatMiniprogram.Canvas & EventTarget;
+  canvas: WechatMiniprogram.Canvas & $EventTarget;
   canvasW: number;
   canvasH: number;
   onDeviceMotionChange: (e: any) => void;
@@ -41,8 +41,7 @@ export class WechatPlatform extends Platform {
       },
     } as unknown as Document;
 
-    const $URL = new URL()
-
+    const URL = new $URL();
     const window = {
       innerWidth: systemInfo.windowWidth,
       innerHeight: systemInfo.windowHeight,
@@ -57,9 +56,9 @@ export class WechatPlatform extends Platform {
         },
       },
 
-      URL: $URL,
-      DOMParser,
-      TextDecoder,
+      URL,
+      DOMParser: $DOMParser,
+      TextDecoder: $TextDecoder,
     } as unknown as Window;
 
     [canvas, document, window].forEach(i => {
@@ -70,26 +69,26 @@ export class WechatPlatform extends Platform {
       // @ts-ignore
       i.__proto__.__proto__ = old;
       // @ts-ignore
-      copyProperties(i.__proto__, EventTarget.prototype);
+      copyProperties(i.__proto__, $EventTarget.prototype);
     });
 
     this.polyfill = {
-      // @ts-expect-error
-      Blob,
       window,
       document,
       // @ts-expect-error
-      DOMParser,
+      Blob: $Blob,
       // @ts-expect-error
-      TextDecoder,
+      DOMParser: $DOMParser,
+      // @ts-expect-error
+      TextDecoder: $TextDecoder,
       // @ts-expect-error
       XMLHttpRequest: $XMLHttpRequest,
       // @ts-expect-error
       OffscreenCanvas,
       // @ts-expect-error
-      URL: $URL,
+      URL: URL,
 
-      atob,
+      atob: $atob,
       createImageBitmap: undefined,
       cancelAnimationFrame: window.cancelAnimationFrame,
       requestAnimationFrame: window.requestAnimationFrame,

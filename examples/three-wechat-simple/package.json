@@ -10,14 +10,9 @@
   "author": "Deepkolos<deepkolos@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.1.0",
-    "@rollup/plugin-sucrase": "^3.1.0",
     "miniprogram-api-typings": "^2.8.3-1",
     "miniprogram-automator": "^0.10.0",
-    "platformize": "workspace:^1.0.0",
     "rollup": "^2.36.2",
-    "rollup-plugin-terser": "^7.0.2",
     "typescript": "*"
   },
   "dependencies": {

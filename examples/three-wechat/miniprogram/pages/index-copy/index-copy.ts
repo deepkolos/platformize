@@ -11,9 +11,7 @@ import {
   WebGLRenderTarget,
 } from 'three';
 
-import PlatformManager from 'platformize/dist/PlatformManager';
-import { WechatPlatform } from 'platformize/dist/wechat';
-
+import { PlatformManager, WechatPlatform } from 'platformize-three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import {
   DemoDeps,

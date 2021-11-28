@@ -1,52 +1,40 @@
-/// <reference types="node" />
+import deepmerge from 'deepmerge';
+import sucrase from '@rollup/plugin-sucrase';
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
+import commonjs from '@rollup/plugin-commonjs';
+import type { RollupOptions, Plugin } from 'rollup';
+import platformize, { inject, Injectment } from './plugin-platformize';
+// @ts-ignore
+import builtins from 'rollup-plugin-node-builtins';
 
-import * as path from 'path';
-import inject, { Injectment } from './plugin-inject';
-import type { Plugin } from 'rollup';
-
-export { inject, Injectment };
-
-export const DEFAULT_API_LIST = [
-  'URL',
-  'Blob',
-  'window',
-  'document',
-  'DOMParser',
-  'TextDecoder',
-  'XMLHttpRequest',
-  'OffscreenCanvas',
-  'HTMLCanvasElement',
-
-  'atob',
-  'createImageBitmap',
-  'cancelAnimationFrame',
-  'requestAnimationFrame',
-];
-
-/**
- * 构建时把浏览器相关api映射到特定的polyfill
- */
-export function platformize(
-  apiList = DEFAULT_API_LIST,
-  platformManagerPath = path.resolve(__dirname, './PlatformManager'),
-): Plugin[] {
-  return [
-    inject({
-      modules: apiList.reduce((acc, curr) => {
-        const injectSetting: Injectment = {
-          modName: platformManagerPath,
-          importName: 'default',
-          localName: 'PlatformManager',
-          localNamePostfix: `.polyfill.${curr}`,
-        };
-
-        acc[curr] = injectSetting;
-        acc[`self.${curr}`] = injectSetting;
-
-        return acc;
-      }, {} as { [k: string]: Injectment }),
-    }),
-  ];
+function mergeRollupOptions(
+  rollupOptions: RollupOptions,
+  cfg: {
+    minify?: boolean;
+    platformizePlugins?: Plugin[];
+  } = {
+    minify: true,
+    platformizePlugins: platformize(),
+  },
+) {
+  return deepmerge<RollupOptions>(
+    {
+      treeshake: true,
+      plugins: [
+        builtins(),
+        resolve({ extensions: ['.ts', '.js'] }),
+        sucrase({ transforms: ['typescript'] }),
+        commonjs(),
+        ...(cfg.platformizePlugins || []),
+        cfg.minify ? terser({ output: { comments: false } }) : null,
+      ],
+      output: {
+        chunkFileNames: 'chunks/[name].js',
+      },
+    },
+    rollupOptions,
+  );
 }
 
-export default platformize;
+export { platformize, mergeRollupOptions, deepmerge, inject, Injectment };

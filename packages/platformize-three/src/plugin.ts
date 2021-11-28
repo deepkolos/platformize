@@ -1,24 +1,28 @@
-import platformize, { inject } from 'platformize';
-import type { Plugin } from 'rollup';
-import * as path from 'path';
+import platformize from './plugin-platformize';
+import {
+  mergeRollupOptions as mergeRollupOptionsBase,
+  deepmerge,
+  inject,
+  Injectment,
+} from 'platformize/dist/plugin';
+import { RollupOptions } from 'rollup';
 
-export default function platformizeTHREE(
-  apiList?: string[],
-  platformManagerPath?: string,
-): Plugin[] {
-  return [
-    ...platformize(apiList, platformManagerPath),
+type mergeRollupOptionsBaseCfg = Parameters<typeof mergeRollupOptionsBase>['1'];
 
-    // 替换TTFLoader所使用的opentype模块
-    inject({
-      include: /three\/examples\/jsm\/loaders\/TTFLoader\.js$/,
-      modules: {
-        opentype: {
-          modName: path.resolve(__dirname, './base/opentype.module.js'),
-          importName: 'default',
-          overwrite: true,
+const mergeRollupOptions = (rollupOptions: RollupOptions, cfg: mergeRollupOptionsBaseCfg) => {
+  return mergeRollupOptionsBase(
+    deepmerge<RollupOptions>(
+      {
+        output: {
+          manualChunks: {
+            three: ['three'],
+          },
         },
       },
-    }),
-  ];
-}
+      rollupOptions,
+    ),
+    { minify: true, platformizePlugins: platformize(), ...cfg },
+  );
+};
+
+export { platformize, mergeRollupOptions, deepmerge, inject, Injectment };

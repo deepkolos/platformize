@@ -3,7 +3,7 @@ import URL from '../base/URL';
 import Blob from '../base/Blob';
 import atob from '../base/atob';
 import EventTarget, { Touch } from '../base/EventTarget';
-import XMLHttpRequest from './XMLHttpRequest';
+import XMLHttpRequest from '../wechat/XMLHttpRequest';
 import copyProperties from '../base/utils/copyProperties';
 import DOMParser from '../base/DOMParser';
 import TextDecoder from '../base/TextDecoder';

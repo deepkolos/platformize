@@ -25,12 +25,12 @@ function _isRelativePath(url) {
   return !/^(http|https|ftp|wxfile):\/\/.*/i.test(url);
 }
 
-const { platform } = wx.getSystemInfoSync()
-
 export default class $XMLHttpRequest extends EventTarget {
   static useFetchPatch: boolean;
   constructor() {
     super();
+
+    this.runtime = wx.getSystemInfoSync().platform;
 
     /*
      * TODO 这一批事件应该是在 XMLHttpRequestEventTarget.prototype 上面的
@@ -187,7 +187,7 @@ export default class $XMLHttpRequest extends EventTarget {
       }
 
       // IOS在某些情况下不会触发onSuccess...
-      const usePatch = responseType === 'arraybuffer' && platform === 'ios' && $XMLHttpRequest.useFetchPatch;
+      const usePatch = responseType === 'arraybuffer' && this.runtime === 'ios' && $XMLHttpRequest.useFetchPatch;
 
       wx.request({
         data,

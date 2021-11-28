@@ -15,7 +15,6 @@ export interface Polyfill {
   requestAnimationFrame: Window['requestAnimationFrame'];
 }
 
-
 export abstract class Platform {
   abstract polyfill: Polyfill;
   abstract dispose(): void;

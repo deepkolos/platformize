@@ -27,9 +27,9 @@ export interface DemoDeps {
 
 export abstract class Demo {
   deps: DemoDeps;
-  private _objects = [];
-  orbitControl: OrbitControls;
-  private _cameraObjects = [];
+  private _objects: Object3D[] = [];
+  orbitControl!: OrbitControls;
+  private _cameraObjects: Object3D[] = [];
 
   constructor(deps: DemoDeps) {
     this.deps = deps;
@@ -65,7 +65,9 @@ export abstract class Demo {
     renderer.outputEncoding = sRGBEncoding;
 
     disposeHierarchy(this.deps.scene);
+    // @ts-ignore
     this._objects.forEach(object => object.material?.dispose?.());
+    // @ts-ignore
     this._cameraObjects.forEach(object => object.material?.dispose?.());
     scene.remove(...this._objects);
     camera.remove(...this._cameraObjects);
@@ -75,7 +77,9 @@ export abstract class Demo {
     this.orbitControl?.dispose();
 
     if (all) {
+      // @ts-ignore
       this.orbitControl = null;
+      // @ts-ignore
       this.deps = null;
     }
   }

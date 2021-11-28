@@ -58,18 +58,21 @@ packages
 
 适配器的版本号与`threejs/oasis/playcanvas`主版本号一一对应, adapter 除外
 
-## 使用 pnpm workspaces 管理 monorepo
+### 使用 pnpm workspaces 管理 monorepo
 
 https://www.raulmelo.dev/blog/replacing-lerna-and-yarn-with-pnpm-workspaces
 https://zhuanlan.zhihu.com/p/422740629
 
-## 构建思路
+## 构建特性
 
-由于是应用层直接使用的构建插件，目测不能直接使用@rollup/plugin-inject，或者是需要类似 webpack loader，其中一个 loader 处理完，交给后续 loader 继续 resolve，继续收集依赖，需要看看 rollup 的 plugin 机制来
-
-plugin需自带manualChunks配置, 用于缓解淘宝小程序几分钟的构建耗时
+1. 定制版 plugin-inject 实现全局 API 的替换
+2. plugin 需自带 manualChunks 配置, 用于缓解淘宝小程序几分钟的构建耗时
+3. 提供两种使用方式, 一种是便捷版, 少配置, 一种是骨头版, 允许用户自行组装
+4. 可 overwrite polyfill platformzie 进行扩展
 
 ## TODO
 
-0. 了解 rollup plugin 调用机制以及 inject 的实现
-1. 统一使用TS作为源码, plugin测试方法与rollup/plugins一致
+0. 了解 rollup plugin 调用机制(TODO) 以及 inject 的实现 ✅
+1. 统一使用 TS 作为源码, plugin 测试方法与 rollup/plugins 一致 (仅 platformize) ✅
+2. 增加方便 rollup 配置 (mergeRollupOptions) 和自行组装 (platformize) 两种方式 ✅
+3. 初步实现 platform 等 overwrite 机制 可能 不是最好的办法 ✅

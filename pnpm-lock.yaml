@@ -42,67 +42,60 @@ importers:
 
   examples/three-wechat:
     specifiers:
-      '@rollup/plugin-commonjs': ^17.0.0
-      '@rollup/plugin-node-resolve': ^11.1.0
-      '@rollup/plugin-sucrase': ^3.1.0
       '@types/wechat-miniprogram': ^3.4.0
       miniprogram-automator: ^0.10.0
-      platformize: workspace:*
       platformize-three: workspace:*
       rollup: ^2.36.2
-      rollup-plugin-node-builtins: ^2.1.2
-      rollup-plugin-terser: ^7.0.2
       tests-three: workspace:^1.0.0
+      three: 0.133.1
     dependencies:
-      platformize: link:../../packages/platformize
       platformize-three: link:../../packages/platformize-three
       tests-three: link:../tests-three
+      three: 0.133.1
     devDependencies:
-      '@rollup/plugin-commonjs': 17.1.0_rollup@2.60.1
-      '@rollup/plugin-node-resolve': 11.2.1_rollup@2.60.1
-      '@rollup/plugin-sucrase': 3.1.1_rollup@2.60.1
       '@types/wechat-miniprogram': 3.4.0
       miniprogram-automator: 0.10.0
       rollup: 2.60.1
-      rollup-plugin-node-builtins: 2.1.2
-      rollup-plugin-terser: 7.0.2_acorn@8.6.0+rollup@2.60.1
 
   examples/three-wechat-simple:
     specifiers:
-      '@rollup/plugin-commonjs': ^17.0.0
-      '@rollup/plugin-node-resolve': ^11.1.0
-      '@rollup/plugin-sucrase': ^3.1.0
       miniprogram-api-typings: ^2.8.3-1
       miniprogram-automator: ^0.10.0
-      platformize: workspace:*
       platformize-three: workspace:*
       rollup: ^2.36.2
-      rollup-plugin-terser: ^7.0.2
       three: 0.133.1
       typescript: '*'
     dependencies:
       platformize-three: link:../../packages/platformize-three
       three: 0.133.1
     devDependencies:
-      '@rollup/plugin-commonjs': 17.1.0_rollup@2.60.1
-      '@rollup/plugin-node-resolve': 11.2.1_rollup@2.60.1
-      '@rollup/plugin-sucrase': 3.1.1_rollup@2.60.1
       miniprogram-api-typings: 2.12.0
       miniprogram-automator: 0.10.0
-      platformize: link:../../packages/platformize
       rollup: 2.60.1
-      rollup-plugin-terser: 7.0.2_acorn@8.6.0+rollup@2.60.1
       typescript: 3.9.10
 
   packages/platformize:
     specifiers:
+      '@rollup/plugin-commonjs': ^17.0.0
+      '@rollup/plugin-node-resolve': ^11.1.0
+      '@rollup/plugin-sucrase': ^3.1.0
       '@rollup/pluginutils': ^4.1.1
+      deepmerge: ^4.2.2
       estree-walker: 2.0.1
       magic-string: ^0.25.7
+      rollup-plugin-node-builtins: ^2.1.2
+      rollup-plugin-terser: ^7.0.2
     dependencies:
       '@rollup/pluginutils': 4.1.1
       estree-walker: 2.0.1
       magic-string: 0.25.7
+    devDependencies:
+      '@rollup/plugin-commonjs': 17.1.0_rollup@2.60.1
+      '@rollup/plugin-node-resolve': 11.2.1_rollup@2.60.1
+      '@rollup/plugin-sucrase': 3.1.1_rollup@2.60.1
+      deepmerge: 4.2.2
+      rollup-plugin-node-builtins: 2.1.2
+      rollup-plugin-terser: 7.0.2_acorn@8.6.0+rollup@2.60.1
 
   packages/platformize-oasis:
     specifiers: {}

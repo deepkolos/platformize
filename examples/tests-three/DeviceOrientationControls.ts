@@ -3,7 +3,7 @@ import { DeviceOrientationControls } from 'three/examples/jsm/controls/DeviceOri
 import { SphereBufferGeometry, MeshBasicMaterial, Mesh, BoxBufferGeometry } from 'three';
 
 export class DemoDeviceOrientationControls extends Demo {
-  control: DeviceOrientationControls;
+  control!: DeviceOrientationControls;
 
   async init(): Promise<void> {
     const { camera, textureLoader } = this.deps;
@@ -33,6 +33,7 @@ export class DemoDeviceOrientationControls extends Demo {
     this.reset();
     this.control.disconnect();
     this.control.dispose();
+    // @ts-ignore
     this.control = null;
   }
 }
