@@ -1,6 +1,6 @@
 # platformize-three
 
-一个让 THREE 平台化的项目
+一个让 THREE 平台化的项目, 从[three-platformize](https://github.com/deepkolos/three-platformize)迁移过来
 
 1. 目前已适配微信，淘宝，字节小程序
 2. 支持 tree shaking（需用 webpack，rollup 等构建工具）
@@ -36,10 +36,10 @@
 
 |              | 微信 | 淘宝 | 字节 |
 | ------------ | ---- | ---- | ---- |
-| 小程序真机   | ✔️   | ✔️   | ✔️   |
-| 小程序模拟器 | ✔️   | ✔️   |      |
-| 小游戏真机   | ✔️   |      |      |
-| 小游戏模拟器 | ✔️   |      |      |
+| 小程序真机   | ✅   | ✅   | ✅   |
+| 小程序模拟器 | ✅   | ✅   |      |
+| 小游戏真机   | ✅   |      |      |
+| 小游戏模拟器 | ✅   |      |      |
 
 <br>
 
@@ -113,7 +113,7 @@
 
 #### Features
 
-0. VSMShadow (r131以及之前的版本可以, 见[Loop index cannot be compared with non-constant expression](https://techbrood.com/zh/news/webgl/webgl-glsl%E7%A8%8B%E5%BA%8F%E5%87%BA%E9%94%99_-loop-index-cannot-be-compared-with-non-constant-expression.html))
+0. VSMShadow (r131 以及之前的版本可以, 见[Loop index cannot be compared with non-constant expression](https://techbrood.com/zh/news/webgl/webgl-glsl%E7%A8%8B%E5%BA%8F%E5%87%BA%E9%94%99_-loop-index-cannot-be-compared-with-non-constant-expression.html))
 
 #### Loader
 

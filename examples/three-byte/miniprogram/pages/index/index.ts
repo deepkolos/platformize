@@ -96,9 +96,6 @@ Page({
       'PDBLoader',
       'TGALoader',
       // 'MemoryTest',
-      // 'BasisLoader(TODO)',
-      // 'Raycaster(TODO)',
-      // 'Geometry(TODO)',
     ],
   },
 
@@ -141,7 +138,7 @@ Page({
     scene.background = new Color(0xffffff);
     renderer.outputEncoding = sRGBEncoding;
     // renderer.setPixelRatio(2);
-    // renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(window.devicePixelRatio); // 需要基础库2.9+
     renderer.setSize(canvas.width, canvas.height);
 
     const render = () => {
