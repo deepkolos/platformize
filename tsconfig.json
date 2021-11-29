@@ -16,5 +16,11 @@
     "allowJs": true,
     "target": "es2017"
   },
-  "exclude": ["dist", "node_modules", "test/types"]
+  "exclude": [
+    "dist",
+    "node_modules",
+    "test/types",
+    "examples/three-wechat-simple/miniprogram/app.js",
+    "examples/three-wechat/miniprogram/app.js",
+  ]
 }

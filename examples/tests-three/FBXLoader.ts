@@ -13,7 +13,7 @@ import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { baseUrl, Demo } from './Demo';
 
 export class DemoFBXLoader extends Demo {
-  mixer: AnimationMixer;
+  mixer?: AnimationMixer | null;
   async init(): Promise<void> {
     const { camera, scene } = this.deps;
     camera.position.set(100, 200, 300);
@@ -80,7 +80,7 @@ export class DemoFBXLoader extends Demo {
   }
   dispose(): void {
     this.reset();
-    this.mixer.stopAllAction();
+    this.mixer?.stopAllAction();
     this.mixer = null;
   }
 }

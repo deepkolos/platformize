@@ -14,8 +14,8 @@ import {
 } from 'three';
 
 export class DemoPDBLoader extends Demo {
-  obj: Group;
-  controls: TrackballControls;
+  obj!: Group;
+  controls!: TrackballControls;
 
   async init(): Promise<void> {
     const { camera, scene, renderer } = this.deps;
@@ -60,7 +60,7 @@ export class DemoPDBLoader extends Demo {
     var sphereGeometry = new IcosahedronBufferGeometry(1, 2);
 
     geometryAtoms.computeBoundingBox();
-    geometryAtoms.boundingBox.getCenter(offset).negate();
+    geometryAtoms.boundingBox?.getCenter(offset).negate();
 
     geometryAtoms.translate(offset.x, offset.y, offset.z);
     geometryBonds.translate(offset.x, offset.y, offset.z);
@@ -82,7 +82,7 @@ export class DemoPDBLoader extends Demo {
 
       var material = new MeshPhongMaterial({ color: color });
 
-      var object = new Mesh(sphereGeometry, material);
+      const object = new Mesh(sphereGeometry, material);
       object.position.copy(position);
       object.position.multiplyScalar(75);
       object.scale.multiplyScalar(25);
@@ -108,7 +108,7 @@ export class DemoPDBLoader extends Demo {
       start.multiplyScalar(75);
       end.multiplyScalar(75);
 
-      var object = new Mesh(
+      const object = new Mesh(
         boxGeometry,
         new MeshPhongMaterial({ color: 0xffffff }),
       );

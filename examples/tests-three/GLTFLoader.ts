@@ -3,7 +3,7 @@ import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import { AnimationMixer, AnimationAction, LoopOnce, DirectionalLight, AmbientLight } from 'three';
 
 export class DemoGLTFLoader extends Demo {
-  mixer: AnimationMixer;
+  mixer?: AnimationMixer | null;
 
   async init(): Promise<void> {
     const gltf = (await this.deps.gltfLoader.loadAsync(
@@ -45,7 +45,7 @@ export class DemoGLTFLoader extends Demo {
   }
 
   dispose(): void {
-    this.mixer.stopAllAction();
+    this.mixer?.stopAllAction();
     this.mixer = null;
     this.reset();
   }

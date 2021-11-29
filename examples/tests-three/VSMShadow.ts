@@ -14,9 +14,9 @@ import {
 } from 'three';
 
 export class DemoVSMShadow extends Demo {
-  torusKnot: Mesh<TorusKnotBufferGeometry, MeshPhongMaterial>;
-  dirLight: DirectionalLight;
-  dirGroup: Group;
+  torusKnot!: Mesh<TorusKnotBufferGeometry, MeshPhongMaterial>;
+  dirLight!: DirectionalLight;
+  dirGroup!: Group;
   async init(): Promise<void> {
     console.log('小程序VSMShadowMap需要three r131之前版本')
     const { camera, renderer, scene } = this.deps;
@@ -142,8 +142,11 @@ export class DemoVSMShadow extends Demo {
 
   dispose(): void {
     this.reset();
+    // @ts-ignore
     this.dirLight = null;
+    // @ts-ignore
     this.dirGroup = null;
+    // @ts-ignore
     this.torusKnot = null;
   }
 }

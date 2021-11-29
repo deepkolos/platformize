@@ -3,7 +3,7 @@ import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import { AmbientLight, DirectionalLight } from 'three';
 
 export class DemoMemoryTest extends Demo {
-  timer: number;
+  timer!: number;
   async init(): Promise<void> {
     this.reset(false);
     const gltf = (await this.deps.gltfLoader.loadAsync(

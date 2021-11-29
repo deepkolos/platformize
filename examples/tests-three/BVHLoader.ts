@@ -9,7 +9,7 @@ import {
 } from 'three';
 
 export class DemoBVHLoader extends Demo {
-  mixer: AnimationMixer;
+  mixer!: AnimationMixer | null;
   async init(): Promise<void> {
     const { scene, camera } = this.deps;
     const loader = new BVHLoader();
@@ -46,7 +46,7 @@ export class DemoBVHLoader extends Demo {
   }
   dispose(): void {
     this.reset();
-    this.mixer.stopAllAction();
+    this.mixer?.stopAllAction();
     this.mixer = null;
   }
 }

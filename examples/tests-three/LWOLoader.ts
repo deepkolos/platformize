@@ -13,8 +13,8 @@ import {
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export class DemoLWOLoader extends Demo {
-  objects: Object3D[];
-  controls: OrbitControls;
+  objects!: Object3D[];
+  controls!: OrbitControls;
 
   async init(): Promise<void> {
     const { scene, renderer, camera } = this.deps;

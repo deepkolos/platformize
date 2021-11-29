@@ -54,7 +54,7 @@ export class DemoSVGLoader extends Demo {
     for (var i = 0; i < paths.length; i++) {
       var path = paths[i];
 
-      var fillColor = path.userData.style.fill;
+      var fillColor = path.userData?.style.fill;
       if (
         guiData.drawFillShapes &&
         fillColor !== undefined &&
@@ -62,8 +62,8 @@ export class DemoSVGLoader extends Demo {
       ) {
         var material = new MeshBasicMaterial({
           color: new Color().setStyle(fillColor),
-          opacity: path.userData.style.fillOpacity,
-          transparent: path.userData.style.fillOpacity < 1,
+          opacity: path.userData?.style.fillOpacity,
+          transparent: path.userData?.style.fillOpacity < 1,
           side: DoubleSide,
           depthWrite: false,
           wireframe: guiData.fillShapesWireframe,
@@ -81,7 +81,7 @@ export class DemoSVGLoader extends Demo {
         }
       }
 
-      var strokeColor = path.userData.style.stroke;
+      var strokeColor = path.userData?.style.stroke;
       if (
         guiData.drawStrokes &&
         strokeColor !== undefined &&
@@ -89,8 +89,8 @@ export class DemoSVGLoader extends Demo {
       ) {
         var material = new MeshBasicMaterial({
           color: new Color().setStyle(strokeColor),
-          opacity: path.userData.style.strokeOpacity,
-          transparent: path.userData.style.strokeOpacity < 1,
+          opacity: path.userData?.style.strokeOpacity,
+          transparent: path.userData?.style.strokeOpacity < 1,
           side: DoubleSide,
           depthWrite: false,
           wireframe: guiData.strokesWireframe,
@@ -101,7 +101,7 @@ export class DemoSVGLoader extends Demo {
 
           var geometry = SVGLoader.pointsToStroke(
             subPath.getPoints(),
-            path.userData.style,
+            path.userData?.style,
           );
 
           if (geometry) {

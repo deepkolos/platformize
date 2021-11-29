@@ -24,8 +24,8 @@ const tile = {
 };
 
 export class DemoThreeSpritePlayer extends Demo {
-  player: ThreeSpritePlayer;
-  mesh: Mesh;
+  player!: ThreeSpritePlayer;
+  mesh!: Mesh;
 
   async init(): Promise<void> {
     const { textureLoader } = this.deps;
@@ -61,7 +61,9 @@ export class DemoThreeSpritePlayer extends Demo {
   dispose(): void {
     this.reset();
     this.player.dispose();
+    // @ts-ignore
     this.player = null;
+    // @ts-ignore
     this.mesh = null;
   }
 }

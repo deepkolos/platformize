@@ -3,6 +3,7 @@ import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
 import {
   AmbientLight,
   Color,
+  ColorRepresentation,
   DirectionalLight,
   Fog,
   Mesh,
@@ -35,7 +36,7 @@ export class DemoSTLLoader extends Demo {
     this.loadModels();
   }
 
-  addShadowedLight(x, y, z, color, intensity) {
+  addShadowedLight(x: number, y: number, z: number, color: ColorRepresentation | undefined, intensity: number | undefined) {
     const directionalLight = new DirectionalLight(color, intensity);
     directionalLight.position.set(x, y, z);
     this.add(directionalLight);

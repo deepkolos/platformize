@@ -75,7 +75,7 @@ export class DemoTTFLoader extends Demo {
     this.addControl();
   }
 
-  createText(font, group, material) {
+  createText(font: Font, group: Group, material: MeshPhongMaterial) {
     const textGeo = new TextGeometry(text, {
       font: font,
 
@@ -92,7 +92,7 @@ export class DemoTTFLoader extends Demo {
     textGeo.computeVertexNormals();
 
     const centerOffset =
-      -0.5 * (textGeo.boundingBox.max.x - textGeo.boundingBox.min.x);
+      -0.5 * (textGeo.boundingBox!.max.x - textGeo.boundingBox!.min.x);
 
     const textMesh1 = new Mesh(textGeo, material);
 

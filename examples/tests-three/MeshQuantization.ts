@@ -25,7 +25,7 @@ export class DemoMeshQuantization extends Demo {
   async init(): Promise<void> {
     const { camera, gltfLoader, scene } = this.deps;
     const t = Date.now();
-    MeshoptDecoder.setWasmPath('/decoder_base.wasm');
+    MeshoptDecoder.setWasmPath!('/decoder_base.wasm');
     gltfLoader.setMeshoptDecoder(MeshoptDecoder);
     const gltf = await gltfLoader.loadAsync(
       // 'https://cdn.static.oppenlab.com/weblf/test/PrimaryIonDrive.glb',

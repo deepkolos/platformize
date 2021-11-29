@@ -10,8 +10,8 @@ import {
 import { EXRLoader } from 'three/examples/jsm/loaders/EXRLoader';
 
 export class DemoEXRLoader extends Demo {
-  lastToneMapping: ToneMapping;
-  lastToneMappingExposure: number;
+  lastToneMapping!: ToneMapping;
+  lastToneMappingExposure!: number;
 
   async init(): Promise<void> {
     const { renderer } = this.deps;
