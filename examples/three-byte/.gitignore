@@ -1,1 +1,4 @@
 node_modules
+miniprogram/chunks
+miniprogram/pages/index/index.js
+miniprogram/pages/simple/simple.js
