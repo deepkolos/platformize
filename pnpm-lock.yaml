@@ -53,6 +53,19 @@ importers:
     devDependencies:
       rollup: 2.60.1
 
+  examples/three-taobao:
+    specifiers:
+      platformize-three: workspace:*
+      rollup: ^2.60.1
+      tests-three: workspace:^1.0.0
+      three: 0.133.1
+    dependencies:
+      platformize-three: link:../../packages/platformize-three
+      tests-three: link:../tests-three
+      three: 0.133.1
+    devDependencies:
+      rollup: 2.60.1
+
   examples/three-wechat:
     specifiers:
       '@types/wechat-miniprogram': ^3.4.0

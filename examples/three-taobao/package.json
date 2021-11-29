@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "dev": "rollup -w -c",
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "platformize-three": "workspace:^0.133.0",
+    "tests-three": "workspace:^1.0.0",
+    "three": "0.133.1"
+  },
+  "devDependencies": {
+    "rollup": "^2.60.1"
+  }
+}

@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="nav-bar">
+    <view class="title">Three-Platformize 淘宝 Demo</view>
+    <view class="menu" onTap="onMenuClick">示例</view>
+  </view>
+
+  <view class="menu-can {{showMenu ? 'active' : ''}}">
+    <view class="menu-item {{currItem === idx ? 'active' : ''}}" a:for="{{menuList}}" a:for-index="idx" a:for-item="item" data-i="{{idx}}" data-item="{{item}}" onTap="onMenuItemClick">{{item}}</view>
+  </view>
+
+  <canvas class="canvas" id="gl" type="webgl" disable-scroll onReady="onCanvasReady" onTouchStart="onTX" onTouchMove="onTX" onTouchEnd="onTX"></canvas>
+</view>

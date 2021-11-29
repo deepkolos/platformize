@@ -27,6 +27,7 @@ function _isRelativePath(url) {
 }
 
 export default class $XMLHttpRequest extends EventTarget {
+  static URLModifier?: (url: string) => string;
   constructor() {
     super();
 
@@ -95,7 +96,7 @@ export default class $XMLHttpRequest extends EventTarget {
         "Failed to execute 'send' on 'XMLHttpRequest': The object's state must be OPENED.",
       );
     } else {
-      const url = this._url;
+      let url = this._url;
       const header = _requestHeader.get(this);
       const responseType = this.responseType;
       const dataType = this.dataType;
@@ -198,8 +199,8 @@ export default class $XMLHttpRequest extends EventTarget {
         url,
         data,
         success: ({ apFilePath }) => {
-          const fs = my.getFileSystemManager();
-          fs.readFile({
+          const fileSystem = my.getFileSystemManager();
+          fileSystem.readFile({
             filePath: apFilePath,
             encoding: responseType === 'arraybuffer' ? 'base64' : 'utf8',
             // encoding: 'arraybuffer', // 不写encoding默认ArrayBuffer

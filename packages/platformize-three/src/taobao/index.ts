@@ -1,11 +1,11 @@
-import { WechatPlatform as WechatPlatformBase } from 'platformize';
+import { TaobaoPlatform as TaobaoPlatformBase } from 'platformize';
 import type { Polyfill } from '../Platform';
 
-export class WechatPlatform extends WechatPlatformBase {
+export class TaobaoPlatform extends TaobaoPlatformBase {
   polyfill!: Polyfill;
 
   constructor(canvas: any, width?: number, height?: number) {
     super(canvas, width, height);
-    this.polyfill.$defaultWebGLExtensions = {};
+    this.polyfill.$defaultWebGLExtensions = { EXT_blend_minmax: null };
   }
 }

@@ -1,0 +1,9 @@
+{
+  "enableParallelLoader": false,
+  "enableEnhancedBuild": true,
+  "enableNodeModuleBabelTransform": true,
+  "node_modules_es6_whitelist": [
+    "three",
+    "three-sprite-player"
+  ]
+}

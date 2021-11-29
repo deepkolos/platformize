@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "module": "es2020",
+    "target": "ES2018",
+    "allowJs": false,
+    "moduleResolution": "Node",
+    "experimentalDecorators": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "alwaysStrict": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "removeComments": true,
+    "pretty": true,
+    "strictPropertyInitialization": true,
+    "lib": [
+      "es5",
+      "ES6",
+      "DOM"
+    ],
+    "types": []
+  },
+  "include": [
+    "./**/*.ts"
+  ]
+}
