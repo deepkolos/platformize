@@ -45,4 +45,4 @@
 ## 问题
 
 0. renderer.setPixelRatio(window.devicePixelRatio) 图像不居中(官方回复基础库 2.9 修复)
-1. OrbitControls 双指操作无效
+1. OrbitControls 双指操作无效, 初步定位是 changedTouches不对, 所标识的identifier也不对

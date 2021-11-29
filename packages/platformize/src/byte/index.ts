@@ -20,6 +20,7 @@ export class BytePlatform extends Platform {
   canvas: WechatMiniprogram.Canvas & $EventTarget;
   canvasW: number;
   canvasH: number;
+  touchState: boolean[] = [];
 
   constructor(canvas: WechatMiniprogram.Canvas, width?: number, height?: number) {
     super();
@@ -122,6 +123,7 @@ export class BytePlatform extends Platform {
     this.canvas.ownerDocument = this.document;
   }
 
+  // 字节小程序changedTouches与web不一致...
   dispatchTouchEvent(
     e: TouchEvent = {
       touches: [],
@@ -131,12 +133,13 @@ export class BytePlatform extends Platform {
     },
   ) {
     const target = { ...this };
-    const changedTouches = e.changedTouches.map(touch => new Touch(touch));
+    let changedTouches = e.changedTouches.map(touch => new Touch(touch));
+    const touches = e.touches.map(touch => new Touch(touch));
 
     const event = {
-      changedTouches: changedTouches,
-      touches: e.touches.map(touch => new Touch(touch)),
-      targetTouches: Array.prototype.slice.call(e.touches.map(touch => new Touch(touch))),
+      changedTouches,
+      touches,
+      targetTouches: touches,
       timeStamp: e.timeStamp,
       target: target,
       currentTarget: target,
@@ -145,25 +148,40 @@ export class BytePlatform extends Platform {
       cancelable: false,
     };
 
-    this.canvas.dispatchEvent(event);
+    if (e.type === 'touchstart')
+      for (let i = 0; i < touches.length; i++) this.touchState[touches[i].identifier] = true;
 
-    if (changedTouches.length) {
-      const touch = changedTouches[0];
-      const pointerEvent = {
-        pageX: touch.pageX,
-        pageY: touch.pageY,
-        pointerId: touch.identifier,
-        type:
-          {
-            touchstart: 'pointerdown',
-            touchmove: 'pointermove',
-            touchend: 'pointerup',
-          }[e.type] || '',
-        pointerType: 'touch',
-      };
+    if (e.type === 'touchend') {
+      for (let i = 0; i < changedTouches.length; i++)
+        this.touchState[changedTouches[i].identifier] = false;
 
-      this.canvas.dispatchEvent(pointerEvent);
+      if (!changedTouches.length) {
+        touches[0].identifier = this.touchState.findIndex(i => i);
+        changedTouches = touches;
+      }
     }
+
+    this.canvas.dispatchEvent(event);
+    if (changedTouches.length)
+      for (let i = changedTouches.length - 1; i >= 0; i--)
+        this.dispatchPointerEvent(e, changedTouches[i]);
+  }
+
+  private dispatchPointerEvent(e: TouchEvent, touch: Touch) {
+    const pointerEvent = {
+      pageX: touch.pageX,
+      pageY: touch.pageY,
+      pointerId: touch.identifier,
+      type:
+        {
+          touchstart: 'pointerdown',
+          touchmove: 'pointermove',
+          touchend: 'pointerup',
+        }[e.type] || '',
+      pointerType: 'touch',
+    };
+
+    this.canvas.dispatchEvent(pointerEvent);
   }
 
   dispose() {
