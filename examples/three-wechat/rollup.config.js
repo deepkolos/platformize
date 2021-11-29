@@ -8,6 +8,9 @@ const cfg = mergeRollupOptions(
       format: 'cjs',
       dir: 'miniprogram/',
       entryFileNames: 'pages/[name]/[name].js',
+      manualChunks: {
+        'tests-three': ['tests-three'],
+      },
     },
   },
   { minify: false },

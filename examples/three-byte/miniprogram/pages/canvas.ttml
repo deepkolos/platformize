@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="canvas-intro">canvas基础绘画能力</view>
+	<view class="canvas-item">
+		<canvas canvas-id="{{id}}" bindtouchstart="testBindtouchstart" bindtouchmove="testBindtouchmove" bindtouchend="testBindtouchend"
+		 bindtouchcancel="testBindtouchcancel" binderror="testBinderror" style="width: {{width+100}}px; height: 100px;border: 1px solid blue"></canvas>
+		<view class="expection">预期：一个小人</view>
+	</view>
+	<view class="canvas-item">
+		<canvas id="canvas_type_2d" type="2d" data-key="native-2d" binderror="testBinderror" bindtouchstart="testBindtouchstart"
+		 bindtouchmove="testBindtouchmove" bindtouchcancel="testBindtouchcancel" bindtouchend="testBindtouchend" style="width: {{width+100}}px; height: 100px;border: 1px solid blue"></canvas>
+		<view class="expection">预期：canvas 2d</view>
+	</view>
+	<view class="canvas-item">
+		<canvas id="canvas_type_webgl" type="webgl" binderror="testBinderror" bindtouchstart="testBindtouchstart" bindtouchmove="testBindtouchmove"
+		 bindtouchcancel="testBindtouchcancel" bindtouchend="testBindtouchend" style="width: 100px; height: 100px;border: 1px solid red"></canvas>
+		<view class="expection">预期：canvas webgl</view>
+	</view>
+</view>

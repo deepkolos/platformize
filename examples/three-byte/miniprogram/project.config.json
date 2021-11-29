@@ -1,0 +1,19 @@
+{
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "newFeature": false,
+        "postcss": false,
+        "mockUpdate": false,
+        "minified": false,
+        "scripts": false
+    },
+    "appid": "tt28555ee8b76e350b",
+    "projectname": "three-platformize-demo-byte",
+    "condition": {
+        "miniprogram": {
+            "current": -1
+        }
+    },
+    "projectType": "app"
+}

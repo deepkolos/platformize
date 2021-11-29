@@ -1,44 +1,49 @@
-// @ts-nocheck
-import URL from '../base/URL';
-import Blob from '../base/Blob';
-import atob from '../base/atob';
-import EventTarget, { Touch } from '../base/EventTarget';
-import XMLHttpRequest from './XMLHttpRequest';
+/// <reference types="offscreencanvas" />
+
+import $URL from '../base/URL';
+import $Blob from '../base/Blob';
+import $atob from '../base/atob';
+import $EventTarget, { Touch, TouchEvent } from '../base/EventTarget';
+import $XMLHttpRequest from './XMLHttpRequest';
 import copyProperties from '../base/utils/copyProperties';
-import DOMParser from '../base/DOMParser';
-import TextDecoder from '../base/TextDecoder';
+import $DOMParser from '../base/DOMParser';
+import $TextDecoder from '../base/TextDecoder';
+import { Platform, Polyfill } from '../Platform';
 
 function OffscreenCanvas() {
+  // @ts-ignore
   return tt.createOffscreenCanvas();
 }
 
-export class BytePlatform {
-  constructor(canvas, width, height) {
-    const systemInfo = tt.getSystemInfoSync();
-    // const isAndroid = systemInfo.platform === 'android';
+export class BytePlatform extends Platform {
+  polyfill: Polyfill;
+  canvas: WechatMiniprogram.Canvas & $EventTarget;
+  canvasW: number;
+  canvasH: number;
 
+  constructor(canvas: WechatMiniprogram.Canvas, width?: number, height?: number) {
+    super();
+    // @ts-ignore
+    const systemInfo = tt.getSystemInfoSync();
+
+    // @ts-ignore
     this.canvas = canvas;
     this.canvasW = width === undefined ? canvas.width : width;
     this.canvasH = height === undefined ? canvas.height : height;
 
-    this.document = {
-      createElementNS(_, type) {
+    const document = {
+      createElementNS(_: string, type: string) {
         if (type === 'canvas') return canvas;
-        if (type === 'img') {
-          const img = canvas.createImage();
-          img.addEventListener = (name, cb) => (img[`on${name}`] = cb.bind(img));
-          img.removeEventListener = (name, cb) => (img[`on${name}`] = null);
-          return img;
-        }
+        if (type === 'img') return canvas.createImage();
       },
-    };
+    } as unknown as Document;
 
-    this.window = {
+    const URL = new $URL();
+    const window = {
       innerWidth: systemInfo.windowWidth,
       innerHeight: systemInfo.windowHeight,
       devicePixelRatio: systemInfo.pixelRatio,
 
-      URL: new URL(),
       AudioContext: function () {},
       requestAnimationFrame: this.canvas.requestAnimationFrame,
       cancelAnimationFrame: this.canvas.cancelAnimationFrame,
@@ -47,28 +52,46 @@ export class BytePlatform {
           return Promise.resolve('granted');
         },
       },
-      DOMParser,
-      TextDecoder,
-    };
 
-    [this.canvas, this.document, this.window].forEach(i => {
+      URL,
+      DOMParser: $DOMParser,
+      TextDecoder: $TextDecoder,
+    } as unknown as Window;
+
+    [canvas, document, window].forEach(i => {
+      // @ts-ignore
       const old = i.__proto__;
+      // @ts-ignore
       i.__proto__ = {};
+      // @ts-ignore
       i.__proto__.__proto__ = old;
-      copyProperties(i.__proto__, EventTarget.prototype);
+      // @ts-ignore
+      copyProperties(i.__proto__, $EventTarget.prototype);
     });
 
-    this.patchCanvas();
+    this.polyfill = {
+      window,
+      document,
+      // @ts-expect-error
+      Blob: $Blob,
+      // @ts-expect-error
+      DOMParser: $DOMParser,
+      // @ts-expect-error
+      TextDecoder: $TextDecoder,
+      // @ts-expect-error
+      XMLHttpRequest: $XMLHttpRequest,
+      // @ts-expect-error
+      OffscreenCanvas,
+      // @ts-expect-error
+      URL: URL,
 
-    // this.onDeviceMotionChange = e => {
-    //   e.type = 'deviceorientation';
-    //   if (isAndroid) {
-    //     e.alpha *= -1;
-    //     e.beta *= -1;
-    //     e.gamma *= -1;
-    //   }
-    //   this.window.dispatchEvent(e);
-    // };
+      atob: $atob,
+      createImageBitmap: undefined,
+      cancelAnimationFrame: window.cancelAnimationFrame,
+      requestAnimationFrame: window.requestAnimationFrame,
+    };
+
+    this.patchCanvas();
   }
 
   patchCanvas() {
@@ -95,56 +118,23 @@ export class BytePlatform {
       },
     });
 
+    // @ts-ignore
     this.canvas.ownerDocument = this.document;
   }
 
-  getGlobals() {
-    return {
-      atob: atob,
-      Blob: Blob,
-      window: this.window,
-      document: this.document,
-      HTMLCanvasElement: undefined,
-      XMLHttpRequest: XMLHttpRequest,
-      OffscreenCanvas: OffscreenCanvas,
-      createImageBitmap: undefined,
-    };
-  }
-
-  // enableDeviceOrientation(interval) {
-  //   return new Promise((resolve, reject) => {
-  //     wx.onDeviceMotionChange(this.onDeviceMotionChange);
-  //     wx.startDeviceMotionListening({
-  //       interval,
-  //       success: e => {
-  //         resolve(e);
-  //         this.enabledDeviceMotion = true;
-  //       },
-  //       fail: reject,
-  //     });
-  //   });
-  // }
-
-  // disableDeviceOrientation() {
-  //   return new Promise((resolve, reject) => {
-  //     wx.offDeviceMotionChange(this.onDeviceMotionChange);
-
-  //     this.enabledDeviceMotion &&
-  //       wx.stopDeviceMotionListening({
-  //         success: () => {
-  //           resolve();
-  //           this.enabledDeviceMotion = false;
-  //         },
-  //         fail: reject,
-  //       });
-  //   });
-  // }
-
-  dispatchTouchEvent(e = {}) {
+  dispatchTouchEvent(
+    e: TouchEvent = {
+      touches: [],
+      changedTouches: [],
+      timeStamp: 0,
+      type: '',
+    },
+  ) {
     const target = { ...this };
+    const changedTouches = e.changedTouches.map(touch => new Touch(touch));
 
     const event = {
-      changedTouches: e.changedTouches.map(touch => new Touch(touch)),
+      changedTouches: changedTouches,
       touches: e.touches.map(touch => new Touch(touch)),
       targetTouches: Array.prototype.slice.call(e.touches.map(touch => new Touch(touch))),
       timeStamp: e.timeStamp,
@@ -157,17 +147,18 @@ export class BytePlatform {
 
     this.canvas.dispatchEvent(event);
 
-    if (e.changedTouches.length) {
-      const touch = e.changedTouches[0];
+    if (changedTouches.length) {
+      const touch = changedTouches[0];
       const pointerEvent = {
         pageX: touch.pageX,
         pageY: touch.pageY,
         pointerId: touch.identifier,
-        type: {
-          touchstart: 'pointerdown',
-          touchmove: 'pointermove',
-          touchend: 'pointerup',
-        }[e.type],
+        type:
+          {
+            touchstart: 'pointerdown',
+            touchmove: 'pointermove',
+            touchend: 'pointerup',
+          }[e.type] || '',
         pointerType: 'touch',
       };
 
@@ -176,14 +167,13 @@ export class BytePlatform {
   }
 
   dispose() {
-    // this.disableDeviceOrientation();
+    // @ts-ignore
     this.canvas.dispose();
     this.canvas.width = 0;
     this.canvas.height = 0;
+    // @ts-ignore
     if (this.canvas) this.canvas.ownerDocument = null;
-    this.onDeviceMotionChange = null;
-    this.document = null;
-    this.window = null;
+    // @ts-ignore
     this.canvas = null;
   }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "platformize-three-byte",
+  "version": "1.0.0",
+  "description": "platformize-three 头条小程序 Demo",
+  "scripts": {
+    "dev": "rollup -w -c",
+    "build": "rollup -c",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "keywords": [],
+  "author": "DeepKolos<deepkolos@qq.com>",
+  "license": "",
+  "dependencies": {
+    "platformize-three": "workspace:^0.133.0",
+    "tests-three": "workspace:^1.0.0",
+    "three": "0.133.1"
+  },
+  "devDependencies": {
+    "rollup": "^2.60.1"
+  }
+}

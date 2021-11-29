@@ -1,4 +1,4 @@
-import platformize from './plugin-platformize';
+import platformize, { DEFAULT_API_LIST } from './plugin-platformize';
 import {
   mergeRollupOptions as mergeRollupOptionsBase,
   deepmerge,
@@ -25,4 +25,4 @@ const mergeRollupOptions = (rollupOptions: RollupOptions, cfg: mergeRollupOption
   );
 };
 
-export { platformize, mergeRollupOptions, deepmerge, inject, Injectment };
+export { platformize, mergeRollupOptions, deepmerge, inject, Injectment, DEFAULT_API_LIST };

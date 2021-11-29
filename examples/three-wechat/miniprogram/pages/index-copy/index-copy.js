@@ -2,34 +2,35 @@
 
 var three = require('../../chunks/three.js');
 var screenshot = require('../../chunks/screenshot.js');
+var testsThree = require('../../chunks/tests-three.js');
 
 function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }// index.ts
 
 console.log('THREE Version', three.REVISION);
 
 const DEMO_MAP = {
-  MemoryTest: screenshot.DemoMemoryTest,
-  VSMShadow: screenshot.DemoVSMShadow,
-  VTKLoader: screenshot.DemoVTKLoader,
-  MeshOpt: screenshot.DemoMeshOpt,
-  TGALoader: screenshot.DemoTGALoader,
-  PDBLoader: screenshot.DemoPDBLoader,
-  STLLoader: screenshot.DemoSTLLoader,
-  TTFLoader: screenshot.DemoTTFLoader,
-  BVHLoader: screenshot.DemoBVHLoader,
-  FBXLoader: screenshot.DemoFBXLoader,
-  LWOLoader: screenshot.DemoLWOLoader,
-  MTLLoader: screenshot.DemoMTLLoader,
-  EXRLoader: screenshot.DemoEXRLoader,
-  OBJLoader: screenshot.DemoOBJLoader,
-  SVGLoader: screenshot.DemoSVGLoader,
-  RGBELoader: screenshot.DemoRGBELoader,
-  GLTFLoader: screenshot.DemoGLTFLoader,
-  ColladaLoader: screenshot.DemoColladaLoader,
-  MeshQuantization: screenshot.DemoMeshQuantization,
-  ThreeSpritePlayer: screenshot.DemoThreeSpritePlayer,
-  HDRPrefilterTexture: screenshot.DemoHDRPrefilterTexture,
-  DeviceOrientationControls: screenshot.DemoDeviceOrientationControls,
+  MemoryTest: testsThree.DemoMemoryTest,
+  VSMShadow: testsThree.DemoVSMShadow,
+  VTKLoader: testsThree.DemoVTKLoader,
+  MeshOpt: testsThree.DemoMeshOpt,
+  TGALoader: testsThree.DemoTGALoader,
+  PDBLoader: testsThree.DemoPDBLoader,
+  STLLoader: testsThree.DemoSTLLoader,
+  TTFLoader: testsThree.DemoTTFLoader,
+  BVHLoader: testsThree.DemoBVHLoader,
+  FBXLoader: testsThree.DemoFBXLoader,
+  LWOLoader: testsThree.DemoLWOLoader,
+  MTLLoader: testsThree.DemoMTLLoader,
+  EXRLoader: testsThree.DemoEXRLoader,
+  OBJLoader: testsThree.DemoOBJLoader,
+  SVGLoader: testsThree.DemoSVGLoader,
+  RGBELoader: testsThree.DemoRGBELoader,
+  GLTFLoader: testsThree.DemoGLTFLoader,
+  ColladaLoader: testsThree.DemoColladaLoader,
+  MeshQuantization: testsThree.DemoMeshQuantization,
+  ThreeSpritePlayer: testsThree.DemoThreeSpritePlayer,
+  HDRPrefilterTexture: testsThree.DemoHDRPrefilterTexture,
+  DeviceOrientationControls: testsThree.DemoDeviceOrientationControls,
 };
 
 const getNode = id =>

@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import type { RollupOptions, Plugin } from 'rollup';
-import platformize, { inject, Injectment } from './plugin-platformize';
+import platformize, { inject, Injectment, DEFAULT_API_LIST } from './plugin-platformize';
 // @ts-ignore
 import builtins from 'rollup-plugin-node-builtins';
 
@@ -37,4 +37,4 @@ function mergeRollupOptions(
   );
 }
 
-export { platformize, mergeRollupOptions, deepmerge, inject, Injectment };
+export { platformize, mergeRollupOptions, deepmerge, inject, Injectment, DEFAULT_API_LIST };

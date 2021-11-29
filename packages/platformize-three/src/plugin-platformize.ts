@@ -1,11 +1,17 @@
-import { platformize, inject } from 'platformize/dist/plugin';
+import {
+  platformize,
+  inject,
+  DEFAULT_API_LIST as DEFAULT_API_LIST_BAE,
+} from 'platformize/dist/plugin';
 import type { Plugin } from 'rollup';
 import * as path from 'path';
 
 type platformizeOptions = Parameters<typeof platformize>['0'];
 
+export const DEFAULT_API_LIST = [...DEFAULT_API_LIST_BAE, '$defaultWebGLExtensions'];
+
 export default function platformizeTHREE({
-  apiList,
+  apiList = DEFAULT_API_LIST,
   platformManagerPath,
 }: platformizeOptions = {}): Plugin[] {
   return [
