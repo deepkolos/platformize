@@ -21,6 +21,6 @@
     "node_modules",
     "test/types",
     "examples/three-wechat-simple/miniprogram/app.js",
-    "examples/three-wechat/miniprogram/app.js",
+    "examples/three-wechat/miniprogram/app.js"
   ]
 }

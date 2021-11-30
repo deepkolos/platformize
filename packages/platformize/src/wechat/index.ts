@@ -1,4 +1,4 @@
-/// <reference types="wechat-miniprogram" />
+/// <reference types="@types/wechat-miniprogram" />
 /// <reference types="offscreencanvas" />
 
 import $URL from '../base/URL';

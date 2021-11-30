@@ -11,9 +11,11 @@ import $DOMParser from '../base/DOMParser';
 import $TextDecoder from '../base/TextDecoder';
 import { Platform, Polyfill } from '../Platform';
 
+const wxGame = wx as unknown as WechatMinigame.Wx;
+
 function OffscreenCanvas() {
   // @ts-ignore
-  return wx.createOffscreenCanvas();
+  return wxGame.createOffscreenCanvas();
 }
 
 export class WechatGamePlatform extends Platform {
@@ -26,7 +28,7 @@ export class WechatGamePlatform extends Platform {
 
   constructor(canvas: WechatMinigame.Canvas, width?: number, height?: number) {
     super();
-    const systemInfo = wx.getSystemInfoSync();
+    const systemInfo = wxGame.getSystemInfoSync();
     const isAndroid = systemInfo.platform === 'android';
 
     // @ts-ignore
@@ -37,7 +39,7 @@ export class WechatGamePlatform extends Platform {
     const document = {
       createElementNS(_: string, type: string) {
         if (type === 'canvas') return canvas;
-        if (type === 'img') return wx.createImage();
+        if (type === 'img') return wxGame.createImage();
       },
     } as unknown as Document;
 
@@ -105,10 +107,10 @@ export class WechatGamePlatform extends Platform {
       window.dispatchEvent(e);
     };
 
-    const dispatchEvent = e => this.dispatchTouchEvent(e);
-    wx.onTouchMove(dispatchEvent);
-    wx.onTouchStart(dispatchEvent);
-    wx.onTouchEnd(dispatchEvent);
+    const dispatchEvent = (e: any) => this.dispatchTouchEvent(e);
+    wxGame.onTouchMove(dispatchEvent);
+    wxGame.onTouchStart(dispatchEvent);
+    wxGame.onTouchEnd(dispatchEvent);
   }
 
   patchCanvas() {
@@ -142,12 +144,10 @@ export class WechatGamePlatform extends Platform {
     return this;
   }
 
-  enableDeviceOrientation(
-    interval: WechatMiniprogram.StartDeviceMotionListeningOption['interval'],
-  ) {
+  enableDeviceOrientation(interval: WechatMinigame.StartDeviceMotionListeningOption['interval']) {
     return new Promise((resolve, reject) => {
-      wx.onDeviceMotionChange(this.onDeviceMotionChange);
-      wx.startDeviceMotionListening({
+      wxGame.onDeviceMotionChange(this.onDeviceMotionChange);
+      wxGame.startDeviceMotionListening({
         interval,
         success: e => {
           resolve(e);
@@ -160,10 +160,10 @@ export class WechatGamePlatform extends Platform {
 
   disableDeviceOrientation() {
     return new Promise((resolve, reject) => {
-      wx.offDeviceMotionChange(this.onDeviceMotionChange);
+      wxGame.offDeviceMotionChange(this.onDeviceMotionChange);
 
       this.enabledDeviceMotion &&
-        wx.stopDeviceMotionListening({
+        wxGame.stopDeviceMotionListening({
           success: () => {
             resolve(true);
             this.enabledDeviceMotion = false;
@@ -181,6 +181,7 @@ export class WechatGamePlatform extends Platform {
       type: '',
     },
   ) {
+    // 这一行总觉得有问题
     const target = { ...this };
     const changedTouches = e.changedTouches.map(touch => new Touch(touch));
 

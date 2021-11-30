@@ -17,16 +17,16 @@
   "dependencies": {
     "@rollup/pluginutils": "^4.1.1",
     "estree-walker": "2.0.1",
-    "magic-string": "^0.25.7"
-  },
-  "devDependencies": {
-    "@types/wechat-miniprogram": "^3.4.0",
-    "minigame-api-typings": "^3.4.1",
+    "deepmerge": "^4.2.2",
+    "magic-string": "^0.25.7",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@rollup/plugin-sucrase": "^3.1.0",
-    "deepmerge": "^4.2.2",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-terser": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.4.0",
+    "minigame-api-typings": "^3.4.1"
   }
 }
