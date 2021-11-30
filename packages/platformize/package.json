@@ -20,6 +20,8 @@
     "magic-string": "^0.25.7"
   },
   "devDependencies": {
+    "@types/wechat-miniprogram": "^3.4.0",
+    "minigame-api-typings": "^3.4.1",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@rollup/plugin-sucrase": "^3.1.0",

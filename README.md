@@ -65,7 +65,7 @@ https://zhuanlan.zhihu.com/p/422740629
 
 ## 构建特性
 
-1. 定制版 plugin-inject 实现全局 API 的替换
+1. 定制版 plugin-inject 实现全局 API 的替换或者局部 所引入 module 的 overwrite
 2. plugin 需自带 manualChunks 配置, 用于缓解淘宝小程序几分钟的构建耗时
 3. 提供两种使用方式, 一种是便捷版, 少配置, 一种是骨头版, 允许用户自行组装
 4. 可 overwrite polyfill platformzie 进行扩展
@@ -76,3 +76,4 @@ https://zhuanlan.zhihu.com/p/422740629
 1. 统一使用 TS 作为源码, plugin 测试方法与 rollup/plugins 一致 (仅 platformize) ✅
 2. 增加方便 rollup 配置 (mergeRollupOptions) 和自行组装 (platformize) 两种方式 ✅
 3. 初步实现 platform 等 overwrite 机制 可能 不是最好的办法 ✅
+4. fix window support

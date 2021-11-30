@@ -3,4 +3,4 @@ export * from './Platform';
 export * from './byte';
 export * from './taobao';
 export * from './wechat';
-// export * from './wechat-game';
+export * from './wechat-game';

@@ -30,6 +30,7 @@ export default function platformize({
 } = {}): Plugin[] {
   return [
     inject({
+      exclude: /platformize\/dist\/(wechat-game|wechat|taobao|byte)/,
       modules: apiList.reduce((acc, curr) => {
         const injectSetting: Injectment = {
           modName: platformManagerPath,

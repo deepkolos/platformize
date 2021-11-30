@@ -214,13 +214,13 @@ export default function inject(options: RollupInjectOptions) {
 
           if (!newImports.has(hash)) {
             // escape apostrophes and backslashes for use in single-quoted string literal
-            modName = modName.replace(/[''\\]/g, '\\$&');
+            modName = modName.replace(/[''\\]/g, '\\$&').replace(/\\/g, '/');
 
             if (path.isAbsolute(modName)) {
               const fileDir = path.resolve(id, '..');
               const modDir = path.resolve(modName, '..');
               const modToFilePath = path.relative(fileDir, modName);
-              modName = modToFilePath;
+              modName = modToFilePath.replace(/\\/g, '/');
             }
 
             newImports.set(hash, `import ${importCode} from '${modName}';`);

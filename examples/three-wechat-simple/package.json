@@ -12,7 +12,7 @@
   "devDependencies": {
     "miniprogram-api-typings": "^2.8.3-1",
     "miniprogram-automator": "^0.10.0",
-    "rollup": "^2.36.2",
+    "rollup": "^2.60.1",
     "typescript": "*"
   },
   "dependencies": {
