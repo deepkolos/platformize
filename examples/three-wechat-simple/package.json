@@ -10,7 +10,7 @@
   "author": "Deepkolos<deepkolos@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "miniprogram-api-typings": "^2.8.3-1",
+    "@types/wechat-miniprogram": "^3.4.0",
     "miniprogram-automator": "^0.10.0",
     "rollup": "^2.60.1",
     "typescript": "*"

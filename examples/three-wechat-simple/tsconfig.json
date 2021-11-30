@@ -18,10 +18,7 @@
     "removeComments": true,
     "pretty": true,
     "strictPropertyInitialization": true,
-    "lib": ["es6"],
-    "typeRoots": [
-      "./typings"
-    ]
+    "lib": ["es6"]
   },
   "include": [
     "./**/*.ts"
