@@ -1,0 +1,23 @@
+{
+  "name": "platformize-playcanvas-wechat",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "rollup -w -c",
+    "build": "rollup -c",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "keywords": [],
+  "author": "DeepKolos<deepkolos@qq.com>",
+  "license": "",
+  "dependencies": {
+    "platformize-playcanvas": "workspace:^1.50.0",
+    "tests-playcanvas": "workspace:^1.0.0",
+    "playcanvas": "1.50.0"
+  },
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.4.0",
+    "miniprogram-automator": "^0.10.0",
+    "rollup": "^2.60.1"
+  }
+}

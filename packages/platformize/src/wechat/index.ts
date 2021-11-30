@@ -23,6 +23,14 @@ export class WechatPlatform extends Platform {
   canvasH: number;
   onDeviceMotionChange: (e: any) => void;
   enabledDeviceMotion: boolean = false;
+  public canvasRect = {
+    width: 0,
+    height: 0,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  };
 
   constructor(canvas: WechatMiniprogram.Canvas, width?: number, height?: number) {
     super();
@@ -33,6 +41,8 @@ export class WechatPlatform extends Platform {
     this.canvas = canvas;
     this.canvasW = width === undefined ? canvas.width : width;
     this.canvasH = height === undefined ? canvas.height : height;
+    this.canvasRect.width = this.canvasW;
+    this.canvasRect.height = this.canvasH;
 
     const document = {
       createElementNS(_: string, type: string) {
@@ -106,8 +116,8 @@ export class WechatPlatform extends Platform {
     };
   }
 
-  patchCanvas() {
-    const { canvasH, canvasW } = this;
+  private patchCanvas() {
+    const { canvasH, canvasW, canvas } = this;
 
     Object.defineProperty(this.canvas, 'style', {
       get() {
@@ -131,7 +141,15 @@ export class WechatPlatform extends Platform {
     });
 
     // @ts-ignore
-    this.canvas.ownerDocument = this.document;
+    canvas.ownerDocument = this.document;
+    // @ts-ignore
+    canvas.getBoundingClientRect = () => this.canvasRect;
+    // @ts-ignore
+    canvas._getContext = this.canvas.getContext;
+    canvas.getContext = function getContext() {
+      if (arguments[0] !== 'webgl') return null;
+      return canvas._getContext(...arguments);
+    };
   }
 
   // 某些情况下IOS会不success不触发。。。

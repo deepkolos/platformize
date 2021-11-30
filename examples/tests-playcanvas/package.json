@@ -1,0 +1,11 @@
+{
+  "name": "tests-playcanvas",
+  "version": "1.0.0",
+  "module": "index.ts",
+  "main": "index.ts",
+  "private": true,
+  "dependencies": {
+    "platformize-playcanvas": "workspace:^1.50.0",
+    "playcanvas": "1.50.0"
+  }
+}
