@@ -18,10 +18,10 @@
     "removeComments": true,
     "pretty": true,
     "strictPropertyInitialization": true,
-    "lib": ["es5", "ES6"]
+    "lib": ["es5", "DOM"]
   },
   "include": [
-    "./**/*.ts"
+    "./miniprogram/**/*.ts"
   ],
   "exclude": [
     "node_modules"

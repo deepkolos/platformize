@@ -6,10 +6,9 @@ import {
   sRGBEncoding,
   WebGL1Renderer,
 } from 'three';
-import { WechatPlatform } from 'platformize/dist/wechat';
+import { WechatPlatform, PlatformManager } from 'platformize-three';
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import PlatformManager from 'platformize/dist/PlatformManager';
 
 Page({
   disposing: false,

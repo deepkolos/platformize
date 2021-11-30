@@ -18,7 +18,7 @@
     "removeComments": true,
     "pretty": true,
     "strictPropertyInitialization": true,
-    "lib": ["es6"]
+    "lib": ["es6", "DOM"]
   },
   "include": [
     "./**/*.ts"

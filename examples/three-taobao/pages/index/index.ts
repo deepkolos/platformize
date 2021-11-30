@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   Clock,
   PerspectiveCamera,
@@ -30,6 +29,7 @@ import {
   DemoTTFLoader,
   DemoSTLLoader,
   DemoPDBLoader,
+  DemoDeps,
 } from 'tests-three';
 
 const DEMO_MAP = {
@@ -80,9 +80,15 @@ Page({
     ],
   },
 
+  disposing: false,
+  switchingItem: false,
+  currDemo: null as unknown as Demo,
+  platform: null as unknown as TaobaoPlatform,
+  deps: null as unknown as DemoDeps,
+
   onCanvasReady() {
     Promise.all([
-      new Promise(resolve =>
+      new Promise<DOMRect>(resolve =>
         my.createSelectorQuery().select('.canvas').boundingClientRect().exec(resolve),
       ),
       new Promise((resolve, reject) => {
