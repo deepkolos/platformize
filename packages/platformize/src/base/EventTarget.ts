@@ -115,6 +115,12 @@ export default class $EventTarget {
         }
       }
     }
+
+    // @ts-ignore
+    if (typeof this[`on${event.type}`] === 'function') {
+      // @ts-ignore
+      this[`on${event.type}`].call(this, event);
+    }
   }
 
   releasePointerCapture() {}

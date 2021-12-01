@@ -2,6 +2,7 @@
   "name": "platformize-three",
   "version": "0.133.0",
   "description": "",
+  "sideEffects": false,
   "main": "dist/index.js",
   "scripts": {
     "dev": "pnpm exec tsc --project ./tsconfig.json --watch",

@@ -19,7 +19,6 @@ export function gltf(canvas: any) {
       'https://gw.alipayobjects.com/os/OasisHub/267000040/9994/%25E5%25BD%2592%25E6%25A1%25A3.gltf',
     )
     .then(gltf => {
-      console.log(gltf);
       rootEntity.addChild(gltf.defaultSceneRoot);
     });
 

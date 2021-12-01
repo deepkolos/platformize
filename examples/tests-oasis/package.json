@@ -4,8 +4,11 @@
   "module": "index.ts",
   "main": "index.ts",
   "private": true,
+  "sideEffects": false,
   "dependencies": {
     "@oasis-engine/controls": "^0.6.3",
+    "@oasis-engine/physics-lite": "^0.6.3",
+    "@tweenjs/tween.js": "^18.6.4",
     "oasis-engine": "^0.6.3",
     "platformize-oasis": "workspace:^0.6.3"
   }

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "sideEffects": false,
   "scripts": {
     "dev": "pnpm exec tsc --project ./tsconfig.json --watch",
     "build": "pnpm exec tsc --project ./tsconfig.json",

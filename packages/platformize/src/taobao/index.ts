@@ -172,6 +172,8 @@ export class TaobaoPlatform extends Platform {
       const pointerEvent = {
         pageX: touch.pageX,
         pageY: touch.pageY,
+        offsetX: touch.pageX,
+        offsetY: touch.pageY,
         pointerId: touch.identifier,
         type:
           {

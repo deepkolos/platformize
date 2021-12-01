@@ -71,10 +71,14 @@ importers:
   examples/tests-oasis:
     specifiers:
       '@oasis-engine/controls': ^0.6.3
+      '@oasis-engine/physics-lite': ^0.6.3
+      '@tweenjs/tween.js': ^18.6.4
       oasis-engine: ^0.6.3
       platformize-oasis: workspace:*
     dependencies:
       '@oasis-engine/controls': 0.6.3
+      '@oasis-engine/physics-lite': 0.6.3
+      '@tweenjs/tween.js': 18.6.4
       oasis-engine: 0.6.3
       platformize-oasis: link:../../packages/platformize-oasis
 
@@ -1291,6 +1295,12 @@ packages:
       '@oasis-engine/math': 0.6.3
     dev: false
 
+  /@oasis-engine/design/0.6.3:
+    resolution: {integrity: sha512-jtdSCCPfUt5iptb8VS0rWQBbbvdbtnPsWcZryyR3KFn+YjMOXpSq/F6QsS10/pMrKNTn5DQW8Su4UdaqzAFqyQ==}
+    dependencies:
+      '@oasis-engine/math': 0.6.3
+    dev: false
+
   /@oasis-engine/draco/0.6.3:
     resolution: {integrity: sha512-ZbQXT+Oj84KW1a7AO5uXCYUuhqTY/Py97nAcHg0Zk0Oeiyat/CfjtJQevghKziYforCRUvJyfLXjdBCkkdyQWA==}
     dependencies:
@@ -1308,6 +1318,13 @@ packages:
 
   /@oasis-engine/math/0.6.3:
     resolution: {integrity: sha512-T2/kll9M/H5UhaaihBI4JLkRipUTUhmTSLjr+MsN4F87lEIYlJkwjS9h3JsuHNL3onJbm1ojH4LYf99dwR2n4w==}
+    dev: false
+
+  /@oasis-engine/physics-lite/0.6.3:
+    resolution: {integrity: sha512-v1LN/Gbt9BTxpn2FeUCfLxZGm4ak8uqGchkfbn8nk4OOTp0KQ2mGOPbKsSpnMDl8FK4tlalRLE8v73w+q5HQvg==}
+    dependencies:
+      '@oasis-engine/design': 0.6.3
+      oasis-engine: 0.6.3
     dev: false
 
   /@oasis-engine/rhi-webgl/0.6.3:
@@ -1404,6 +1421,10 @@ packages:
     dependencies:
       defer-to-connect: 1.1.3
     dev: true
+
+  /@tweenjs/tween.js/18.6.4:
+    resolution: {integrity: sha512-lB9lMjuqjtuJrx7/kOkqQBtllspPIN+96OvTCeJ2j5FEzinoAXTdAMFnDAQT1KVPRlnYfBrqxtqP66vDM40xxQ==}
+    dev: false
 
   /@types/estree/0.0.39:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}

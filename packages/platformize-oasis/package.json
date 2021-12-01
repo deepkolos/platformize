@@ -2,6 +2,7 @@
   "name": "platformize-oasis",
   "version": "0.6.3",
   "description": "",
+  "sideEffects": false,
   "main": "dist/index.js",
   "scripts": {
     "dev": "pnpm exec tsc --project ./tsconfig.json --watch",

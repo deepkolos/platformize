@@ -221,6 +221,8 @@ export class WechatPlatform extends Platform {
       const pointerEvent = {
         pageX: touch.pageX,
         pageY: touch.pageY,
+        offsetX: touch.pageX,
+        offsetY: touch.pageY,
         pointerId: touch.identifier,
         type:
           {
