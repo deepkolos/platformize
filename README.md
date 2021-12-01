@@ -28,6 +28,7 @@ examples
 
 packages
   - platformize
+  - - plugin                       # rollup插件
   - - base                         # 平台无关的适配
   - - wechat                       # 微信小程序通用适配
   - - wechat-game                  # 微信小游戏通用适配
@@ -35,6 +36,7 @@ packages
   - - byte                         # 字节小程序通用适配
 
   - platformize-three
+  - - plugin                       # rollup插件
   - - base                         # 平台无关three相关的适配
   - - wechat                       # 微信小程序three相关适配
   - - wechat-game                  # 微信小游戏three相关适配
@@ -42,6 +44,7 @@ packages
   - - byte                         # 字节小程序three相关适配
 
   - platformize-oasis
+  - - plugin                       # rollup插件
   - - base                         # 平台无关oasis相关的适配
   - - wechat                       # 微信小程序oasis相关适配
   - - wechat-game                  # 微信小游戏oasis相关适配
@@ -49,6 +52,7 @@ packages
   - - byte                         # 字节小程序oasis相关适配
 
   - platformize-playcanvas
+  - - plugin                       # rollup插件
   - - base                         # 平台无关playcanvas相关的适配
   - - wechat                       # 微信小程序playcanvas相关适配
   - - wechat-game                  # 微信小游戏playcanvas相关适配
@@ -78,3 +82,4 @@ https://zhuanlan.zhihu.com/p/422740629
 3. 初步实现 platform 等 overwrite 机制 可能 不是最好的办法 ✅
 4. fix window support ✅
 5. playcanvas 初始版本适配 ✅
+6. oasis 初始版本适配 (跑通 cube, glb, FlappyBrid) ✅
