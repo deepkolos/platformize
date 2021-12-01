@@ -23,7 +23,6 @@ export function gltf(canvas: any) {
       rootEntity.addChild(gltf.defaultSceneRoot);
     });
 
-
   engine.run();
   return engine;
 }

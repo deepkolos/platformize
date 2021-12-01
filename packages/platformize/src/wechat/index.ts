@@ -149,6 +149,7 @@ export class WechatPlatform extends Platform {
     canvas._getContext = this.canvas.getContext;
     canvas.getContext = function getContext() {
       if (arguments[0] !== 'webgl') return null;
+      // @ts-ignore
       return canvas._getContext(...arguments);
     };
   }
