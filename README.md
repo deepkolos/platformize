@@ -76,4 +76,5 @@ https://zhuanlan.zhihu.com/p/422740629
 1. 统一使用 TS 作为源码, plugin 测试方法与 rollup/plugins 一致 (仅 platformize) ✅
 2. 增加方便 rollup 配置 (mergeRollupOptions) 和自行组装 (platformize) 两种方式 ✅
 3. 初步实现 platform 等 overwrite 机制 可能 不是最好的办法 ✅
-4. fix window support
+4. fix window support ✅
+5. playcanvas 初始版本适配 ✅

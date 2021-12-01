@@ -99,8 +99,8 @@ export default class $XMLHttpRequest extends EventTarget {
     } else {
       const url = this._url;
       const header = _requestHeader.get(this);
-      const responseType = this.responseType;
-      const dataType = this.dataType;
+      let responseType = this.responseType;
+      let dataType = this.dataType;
 
       const relative = _isRelativePath(url);
       let encoding;
@@ -111,16 +111,21 @@ export default class $XMLHttpRequest extends EventTarget {
         encoding = 'utf8';
       }
 
+      if (responseType === 'json') {
+        dataType = 'json';
+        responseType = 'text';
+      }
+
       delete this.response;
       this.response = null;
-      let resolved = false
+      let resolved = false;
 
       const onSuccess = ({ data, statusCode, header }) => {
-        // console.log('onSuccess', url)
-        if (resolved) return
+        // console.log('onSuccess', url);
+        if (resolved) return;
         resolved = true;
         statusCode = statusCode === undefined ? 200 : statusCode;
-        if (typeof data !== 'string' && !(data instanceof ArrayBuffer)) {
+        if (typeof data !== 'string' && !(data instanceof ArrayBuffer) && dataType !== 'json') {
           try {
             data = JSON.stringify(data);
           } catch (e) {}
@@ -154,7 +159,7 @@ export default class $XMLHttpRequest extends EventTarget {
 
       const onFail = ({ errMsg }) => {
         // TODO 规范错误
-        if (resolved) return
+        if (resolved) return;
         resolved = true;
         if (errMsg.indexOf('abort') !== -1) {
           _triggerEvent.call(this, 'abort');
@@ -187,12 +192,13 @@ export default class $XMLHttpRequest extends EventTarget {
       }
 
       // IOS在某些情况下不会触发onSuccess...
-      const usePatch = responseType === 'arraybuffer' && this.runtime === 'ios' && $XMLHttpRequest.useFetchPatch;
+      const usePatch =
+        responseType === 'arraybuffer' && this.runtime === 'ios' && $XMLHttpRequest.useFetchPatch;
 
       wx.request({
         data,
         url: url,
-        method: this._method,
+        method: this._method.toUpperCase(),
         header: header,
         dataType: dataType,
         responseType: responseType,
@@ -215,7 +221,7 @@ export default class $XMLHttpRequest extends EventTarget {
             success: onSuccess,
             fail: onFail,
           });
-        }, $XMLHttpRequest.fetchPatchDelay)
+        }, $XMLHttpRequest.fetchPatchDelay);
       }
     }
   }

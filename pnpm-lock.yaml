@@ -34,6 +34,23 @@ importers:
       tslib: 2.3.1
       typescript: 4.5.2
 
+  examples/oasis-wechat:
+    specifiers:
+      '@types/wechat-miniprogram': ^3.4.0
+      miniprogram-automator: ^0.10.0
+      oasis-engine: ^0.6.3
+      platformize-oasis: workspace:*
+      rollup: ^2.60.1
+      tests-oasis: workspace:*
+    dependencies:
+      oasis-engine: 0.6.3
+      platformize-oasis: link:../../packages/platformize-oasis
+      tests-oasis: link:../tests-oasis
+    devDependencies:
+      '@types/wechat-miniprogram': 3.4.0
+      miniprogram-automator: 0.10.0
+      rollup: 2.60.1
+
   examples/playcanvas-wechat:
     specifiers:
       '@types/wechat-miniprogram': ^3.4.0
@@ -50,6 +67,16 @@ importers:
       '@types/wechat-miniprogram': 3.4.0
       miniprogram-automator: 0.10.0
       rollup: 2.60.1
+
+  examples/tests-oasis:
+    specifiers:
+      '@oasis-engine/controls': ^0.6.3
+      oasis-engine: ^0.6.3
+      platformize-oasis: workspace:*
+    dependencies:
+      '@oasis-engine/controls': 0.6.3
+      oasis-engine: 0.6.3
+      platformize-oasis: link:../../packages/platformize-oasis
 
   examples/tests-playcanvas:
     specifiers:
@@ -170,7 +197,10 @@ importers:
       minigame-api-typings: registry.npmmirror.com/minigame-api-typings/3.4.1
 
   packages/platformize-oasis:
-    specifiers: {}
+    specifiers:
+      platformize: workspace:*
+    dependencies:
+      platformize: link:../platformize
 
   packages/platformize-playcanvas:
     specifiers:
@@ -1248,6 +1278,44 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: true
+
+  /@oasis-engine/controls/0.6.3:
+    resolution: {integrity: sha512-qWpTd3hjgrGWX2sYvEIi8mxuEGFveEPoN4IJMdk4dfuf8qWwgngGiCctA8U3RqxlxOb4rwtiD2f9a+folK3+WQ==}
+    dependencies:
+      oasis-engine: 0.6.3
+    dev: false
+
+  /@oasis-engine/core/0.6.3:
+    resolution: {integrity: sha512-OduHtHwvpaPcntU53FIPXSD/dNz6tuoYwXbD1mUcyojpR4fVqruz+eayWW8jwI2vf8dTKB9qNw+8uNWvF+YBhw==}
+    dependencies:
+      '@oasis-engine/math': 0.6.3
+    dev: false
+
+  /@oasis-engine/draco/0.6.3:
+    resolution: {integrity: sha512-ZbQXT+Oj84KW1a7AO5uXCYUuhqTY/Py97nAcHg0Zk0Oeiyat/CfjtJQevghKziYforCRUvJyfLXjdBCkkdyQWA==}
+    dependencies:
+      '@oasis-engine/core': 0.6.3
+    dev: false
+
+  /@oasis-engine/loader/0.6.3:
+    resolution: {integrity: sha512-4mB/ru8NTYxamyx/L5JVyurNWLKbwuqRgpZ7n113AyFtRU1Lgg8rUTHUaGinkdzHUNOXkzJ/+sEtW/KB23J8XA==}
+    dependencies:
+      '@oasis-engine/core': 0.6.3
+      '@oasis-engine/draco': 0.6.3
+      '@oasis-engine/math': 0.6.3
+      '@oasis-engine/rhi-webgl': 0.6.3
+    dev: false
+
+  /@oasis-engine/math/0.6.3:
+    resolution: {integrity: sha512-T2/kll9M/H5UhaaihBI4JLkRipUTUhmTSLjr+MsN4F87lEIYlJkwjS9h3JsuHNL3onJbm1ojH4LYf99dwR2n4w==}
+    dev: false
+
+  /@oasis-engine/rhi-webgl/0.6.3:
+    resolution: {integrity: sha512-7WFkdT4Ar9pVV+XJFi3kKy1KEpbwdUqGfwtkdFQrevYuHFP28Oe1vmon1oAVTldXAY9ErJVj66PbD5qWn1U2AA==}
+    dependencies:
+      '@oasis-engine/core': 0.6.3
+      '@oasis-engine/math': 0.6.3
+    dev: false
 
   /@rollup/plugin-commonjs/17.1.0_rollup@2.60.1:
     resolution: {integrity: sha512-PoMdXCw0ZyvjpCMT5aV4nkL0QywxP29sODQsSGeDpr/oI49Qq9tRtAsb/LbYbDzFlOydVEqHmmZWFtXJEAX9ew==}
@@ -3276,6 +3344,15 @@ packages:
     resolution: {integrity: sha512-9UZCFRHQdNrfTpGg8+1INIg93B6zE0aXMVFkw1WFwvO4SlZywU6aLg5Of0Ap/PgcbSw4LNxvMWXMeugwMCX0AA==}
     engines: {node: '>=8'}
     dev: true
+
+  /oasis-engine/0.6.3:
+    resolution: {integrity: sha512-kc0ZNad+mkR067N9sJbTyWXaGoS9Y28TH1DK9HzYezsCbG62y5W6QKBG+h41BKRTJjpLDgdoUnYTkw/6TvYtTg==}
+    dependencies:
+      '@oasis-engine/core': 0.6.3
+      '@oasis-engine/loader': 0.6.3
+      '@oasis-engine/math': 0.6.3
+      '@oasis-engine/rhi-webgl': 0.6.3
+    dev: false
 
   /object-assign/4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}

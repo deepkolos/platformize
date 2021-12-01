@@ -1,0 +1,12 @@
+{
+  "name": "tests-oasis",
+  "version": "1.0.0",
+  "module": "index.ts",
+  "main": "index.ts",
+  "private": true,
+  "dependencies": {
+    "@oasis-engine/controls": "^0.6.3",
+    "oasis-engine": "^0.6.3",
+    "platformize-oasis": "workspace:^0.6.3"
+  }
+}

@@ -49,6 +49,7 @@ export class WechatPlatform extends Platform {
         if (type === 'canvas') return canvas;
         if (type === 'img') return canvas.createImage();
       },
+      body: {},
     } as unknown as Document;
 
     const URL = new $URL();
@@ -71,7 +72,7 @@ export class WechatPlatform extends Platform {
       TextDecoder: $TextDecoder,
     } as unknown as Window;
 
-    [canvas, document, window].forEach(i => {
+    [canvas, document, window, document.body].forEach(i => {
       // @ts-ignore
       const old = i.__proto__;
       // @ts-ignore

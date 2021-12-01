@@ -6,7 +6,7 @@
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
   "libVersion": "2.15.0",
-  "projectname": "platformize-three-demo-wechat",
+  "projectname": "platformize-oasis-demo-wechat",
   "scripts": {
     "beforeCompile": "npm run tsc",
     "beforePreview": "npm run tsc",

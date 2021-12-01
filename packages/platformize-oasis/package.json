@@ -1,12 +1,17 @@
 {
   "name": "platformize-oasis",
-  "version": "1.0.0",
+  "version": "0.6.3",
   "description": "",
-  "main": "rollup-plugin.js",
+  "main": "dist/index.js",
   "scripts": {
+    "dev": "pnpm exec tsc --project ./tsconfig.json --watch",
+    "build": "pnpm exec tsc --project ./tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "platformize": "workspace:^1.0.0"
+  }
 }
