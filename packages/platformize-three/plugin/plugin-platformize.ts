@@ -2,7 +2,7 @@ import {
   platformize,
   inject,
   DEFAULT_API_LIST as DEFAULT_API_LIST_BAE,
-} from 'platformize/dist/plugin';
+} from 'platformize/dist-plugin';
 import type { Plugin } from 'rollup';
 import * as path from 'path';
 
@@ -22,7 +22,7 @@ export default function platformizeTHREE({
       include: /three\/examples\/jsm\/loaders\/TTFLoader\.js$/,
       modules: {
         opentype: {
-          modName: path.resolve(__dirname, './base/opentype.module.js'),
+          modName: path.resolve(__dirname, '../dist/base/opentype.module.js'),
           importName: 'default',
           overwrite: true,
         },

@@ -2,7 +2,7 @@ import {
   platformize,
   inject,
   DEFAULT_API_LIST as DEFAULT_API_LIST_BAE,
-} from 'platformize/dist/plugin';
+} from 'platformize/dist-plugin';
 import type { Plugin } from 'rollup';
 
 type platformizeOptions = Parameters<typeof platformize>['0'];

@@ -1,4 +1,4 @@
-import { mergeRollupOptions } from 'platformize-playcanvas/dist/plugin';
+import { mergeRollupOptions } from 'platformize-playcanvas/dist-plugin';
 
 const cfg = mergeRollupOptions(
   {

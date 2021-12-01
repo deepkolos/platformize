@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "sideEffects": false,
   "scripts": {
-    "dev": "pnpm exec tsc --project ./tsconfig.json --watch",
-    "build": "pnpm exec tsc --project ./tsconfig.json",
+    "dev": "concurrently 'pnpm exec tsc --project ./tsconfig.json --watch' 'pnpm exec tsc --project ./tsconfig.plugin.json --watch'",
+    "build": "concurrently 'pnpm exec tsc --project ./tsconfig.json' 'pnpm exec tsc --project ./tsconfig.plugin.json'",
     "test": "ava"
   },
   "files": [

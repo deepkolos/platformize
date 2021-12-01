@@ -1,4 +1,4 @@
-import { mergeRollupOptions } from 'platformize-three/dist/plugin';
+import { mergeRollupOptions } from 'platformize-three/dist-plugin';
 
 const cfg = mergeRollupOptions(
   {

@@ -1,4 +1,5 @@
 {
+  "name": "platformize-three-taobao",
   "scripts": {
     "dev": "rollup -w -c",
     "build": "rollup -c"

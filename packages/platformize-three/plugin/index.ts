@@ -4,7 +4,7 @@ import {
   deepmerge,
   inject,
   Injectment,
-} from 'platformize/dist/plugin';
+} from 'platformize/dist-plugin';
 import { RollupOptions } from 'rollup';
 
 type mergeRollupOptionsBaseCfg = Parameters<typeof mergeRollupOptionsBase>['1'];
@@ -15,7 +15,7 @@ const mergeRollupOptions = (rollupOptions: RollupOptions, cfg: mergeRollupOption
       {
         output: {
           manualChunks: {
-            oasis: ['oasis-engine'],
+            three: ['three'],
           },
         },
       },

@@ -9,6 +9,7 @@
     "examples/*"
   ],
   "scripts": {
+    "dev": "pnpm --if-present --parallel --workspace-concurrency=4 --filter=platformize --filter=platformize-three --filter=platformize-oasis --filter=platformize-playcanvas run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "packageManager": "pnpm",
@@ -29,6 +30,7 @@
     "@types/three": "0.133.1",
     "acorn": "^8.6.0",
     "ava": "^3.15.0",
+    "concurrently": "^6.4.0",
     "minigame-api-typings": "^3.4.1",
     "rollup": "^2.60.1",
     "three": "0.133.1",

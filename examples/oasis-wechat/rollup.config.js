@@ -1,4 +1,4 @@
-import { mergeRollupOptions } from 'platformize-oasis/dist/plugin';
+import { mergeRollupOptions } from 'platformize-oasis/dist-plugin';
 
 const cfg = mergeRollupOptions(
   {

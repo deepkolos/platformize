@@ -27,7 +27,7 @@ export const DEFAULT_API_LIST = [
  */
 export default function platformize({
   apiList = DEFAULT_API_LIST,
-  platformManagerPath = path.resolve(__dirname, './PlatformManager'),
+  platformManagerPath = path.resolve(__dirname, '../dist/PlatformManager'), // 相对于构建产物目录
 } = {}): Plugin[] {
   return [
     inject({

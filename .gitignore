@@ -1,4 +1,5 @@
 node_modules
 dist
+dist-plugin
 .DS_Store 
 examples/oasis-wechat/README.md

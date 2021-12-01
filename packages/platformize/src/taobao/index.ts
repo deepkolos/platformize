@@ -52,7 +52,7 @@ export class TaobaoPlatform extends Platform {
 
       AudioContext: function () {},
       requestAnimationFrame: (cb: () => void) => this.canvas.requestAnimationFrame(cb),
-      cancelAnimationFrame: (cb: () => void) => this.canvas.cancelAnimationFrame(cb),
+      cancelAnimationFrame: (cb: number) => this.canvas.cancelAnimationFrame(cb),
       DeviceOrientationEvent: {
         requestPermission() {
           return Promise.resolve('granted');
