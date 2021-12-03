@@ -8,6 +8,7 @@ export interface Polyfill {
   XMLHttpRequest: XMLHttpRequest;
   OffscreenCanvas: OffscreenCanvas;
   HTMLCanvasElement: HTMLCanvasElement;
+  Image: HTMLImageElement,
 
   atob: Window['atob'];
   performance: Window['performance'],

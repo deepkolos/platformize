@@ -12,8 +12,8 @@
   "license": "",
   "dependencies": {
     "platformize-playcanvas": "workspace:^1.50.0",
-    "tests-playcanvas": "workspace:^1.0.0",
-    "playcanvas": "1.50.0"
+    "playcanvas": "1.50.0",
+    "tests-playcanvas": "workspace:^1.0.0"
   },
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.4.0",

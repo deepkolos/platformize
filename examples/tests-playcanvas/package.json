@@ -6,6 +6,7 @@
   "private": true,
   "sideEffects": false,
   "dependencies": {
+    "@tweenjs/tween.js": "^18.6.4",
     "platformize-playcanvas": "workspace:^1.50.0",
     "playcanvas": "1.50.0"
   }

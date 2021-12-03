@@ -6,7 +6,7 @@ import $Blob from '../base/Blob';
 import $atob from '../base/atob';
 import $EventTarget, { Touch, TouchEvent } from '../base/EventTarget';
 import $XMLHttpRequest from '../wechat/XMLHttpRequest';
-import copyProperties from '../base/utils/copyProperties';
+import { copyProperties, createImage } from '../base/utils/helper';
 import $DOMParser from '../base/DOMParser';
 import $TextDecoder from '../base/TextDecoder';
 import { Platform, Polyfill } from '../Platform';
@@ -39,10 +39,11 @@ export class WechatGamePlatform extends Platform {
     const document = {
       createElementNS(_: string, type: string) {
         if (type === 'canvas') return canvas;
-        if (type === 'img') return wxGame.createImage();
+        if (type === 'img') return createImage(wxGame);
       },
     } as unknown as Document;
 
+    const Image = (() => createImage(wxGame)) as unknown as HTMLImageElement;
     const URL = new $URL();
     const window = {
       innerWidth: systemInfo.windowWidth,
@@ -59,6 +60,7 @@ export class WechatGamePlatform extends Platform {
       },
 
       URL,
+      Image,
       DOMParser: $DOMParser,
       TextDecoder: $TextDecoder,
     } as unknown as Window;
@@ -88,7 +90,8 @@ export class WechatGamePlatform extends Platform {
       // @ts-expect-error
       OffscreenCanvas,
       // @ts-expect-error
-      URL: URL,
+      URL,
+      Image,
 
       atob: $atob,
       createImageBitmap: undefined,

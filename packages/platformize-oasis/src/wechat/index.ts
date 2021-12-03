@@ -11,6 +11,5 @@ export class WechatPlatform extends WechatPlatformBase {
     super(canvas, width, height);
     this.polyfill.$defaultWebGLExtensions = {};
     this.polyfill.HTMLCanvasElement = canvas.constructor as unknown as HTMLCanvasElement;
-    this.polyfill.Image = (() => canvas.createImage()) as unknown as HTMLImageElement;
   }
 }
