@@ -10,7 +10,7 @@ export class WechatPlatform extends WechatPlatformBase {
   constructor(canvas: WechatMiniprogram.Canvas, width?: number, height?: number) {
     super(canvas, width, height);
     this.polyfill.$defaultWebGLExtensions = {};
-    this.polyfill.HTMLCanvasElement = $HTMLCanvasElement as unknown as HTMLCanvasElement;
+    this.polyfill.HTMLCanvasElement = canvas.constructor as unknown as HTMLCanvasElement;
     this.polyfill.Image = (() => canvas.createImage()) as unknown as HTMLImageElement;
   }
 }

@@ -1,6 +1,10 @@
 import { PlatformManager, WechatPlatform } from 'platformize-oasis';
 import * as DEMO from 'tests-oasis';
 import type { Engine } from 'oasis-engine';
+import { Logger } from 'oasis-engine';
+
+Logger.enable();
+console.log('Logger Enable', Logger.isEnabled);
 
 const getNode = id =>
   new Promise(r => wx.createSelectorQuery().select(id).fields({ node: true, size: true }).exec(r));
@@ -33,7 +37,7 @@ Page({
   initCanvas(canvas, helperCanvas) {
     const platform = new WechatPlatform(canvas);
     this.platform = platform;
-    platform.enableDeviceOrientation('game');
+    // platform.enableDeviceOrientation('game');
     PlatformManager.set(platform);
 
     console.log(window.innerWidth, window.innerHeight);

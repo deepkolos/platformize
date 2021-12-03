@@ -82,4 +82,4 @@ https://zhuanlan.zhihu.com/p/422740629
 3. 初步实现 platform 等 overwrite 机制 可能 不是最好的办法 ✅
 4. fix window support ✅
 5. playcanvas 初始版本适配 ✅
-6. oasis 初始版本适配 (跑通 cube, glb, FlappyBrid) ✅
+6. oasis 初始版本适配 (跑通 cube, glb, FlappyBrid) (模拟器 ✅, 真机 ❎ 只有 BufferMeshInstance 显示出东西)

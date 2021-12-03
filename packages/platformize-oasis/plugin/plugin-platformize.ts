@@ -9,5 +9,20 @@ export default function platformizeOasis({
   apiList = DEFAULT_API_LIST,
   platformManagerPath,
 }: platformizeOptions = {}): Plugin[] {
-  return [...platformize({ apiList, platformManagerPath })];
+  return [patchOasis(), ...platformize({ apiList, platformManagerPath })];
+}
+
+function patchOasis(): Plugin {
+  return {
+    name: 'patchOasis',
+    transform(code, filePath) {
+      if (filePath.indexOf('@oasis-engine') > -1) {
+        code = code.replace(
+          `gl[_glKey] = extensionVal;`,
+          `try { gl[_glKey] = extensionVal; } catch (e) { console.error(e); }`,
+        );
+      }
+      return { code, map: null };
+    },
+  };
 }

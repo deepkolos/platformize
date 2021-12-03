@@ -1,7 +1,7 @@
 import { OrbitControl } from '@oasis-engine/controls';
 import { Camera, GLTFResource, WebGLEngine } from 'oasis-engine';
 
-export function gltf(canvas: any) {
+export function GLTF(canvas: any) {
   const engine = new WebGLEngine(canvas);
   engine.canvas.resizeByClientSize();
 

@@ -66,10 +66,16 @@ export class WechatPlatform extends Platform {
           return Promise.resolve('granted');
         },
       },
+      performance: {
+        now() {
+          return Date.now();
+        },
+      },
 
       URL,
       DOMParser: $DOMParser,
       TextDecoder: $TextDecoder,
+      Blob: $Blob,
     } as unknown as Window;
 
     [canvas, document, window, document.body].forEach(i => {
@@ -103,6 +109,7 @@ export class WechatPlatform extends Platform {
       createImageBitmap: undefined,
       cancelAnimationFrame: window.cancelAnimationFrame,
       requestAnimationFrame: window.requestAnimationFrame,
+      performance: window.performance,
     };
 
     this.patchCanvas();

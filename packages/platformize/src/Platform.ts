@@ -10,6 +10,7 @@ export interface Polyfill {
   HTMLCanvasElement: HTMLCanvasElement;
 
   atob: Window['atob'];
+  performance: Window['performance'],
   createImageBitmap?: Window['createImageBitmap'];
   cancelAnimationFrame: Window['cancelAnimationFrame'];
   requestAnimationFrame: Window['requestAnimationFrame'];

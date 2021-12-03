@@ -1,5 +1,7 @@
 # platformize-oasis[WIP]
 
+更加全面的适配可参考官方的适配库 https://github.com/oasis-engine/miniprogram-adapter
+
 ## 讨论
 
 可通过群里 DeepKolos 联系我

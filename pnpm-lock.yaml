@@ -73,12 +73,14 @@ importers:
   examples/tests-oasis:
     specifiers:
       '@oasis-engine/controls': ^0.6.3
+      '@oasis-engine/lottie': ^0.6.5
       '@oasis-engine/physics-lite': ^0.6.3
       '@tweenjs/tween.js': ^18.6.4
       oasis-engine: ^0.6.3
       platformize-oasis: workspace:*
     dependencies:
       '@oasis-engine/controls': 0.6.3
+      '@oasis-engine/lottie': 0.6.5
       '@oasis-engine/physics-lite': 0.6.3
       '@tweenjs/tween.js': 18.6.4
       oasis-engine: 0.6.3
@@ -1318,6 +1320,14 @@ packages:
       '@oasis-engine/rhi-webgl': 0.6.3
     dev: false
 
+  /@oasis-engine/lottie/0.6.5:
+    resolution: {integrity: sha512-1BsjXi7yezexTqu6rbiyg+2wAjftOtssKWw13ZHAS3rY2Oj633VP1BuXxc4yBjGIiKnvynI65iIeAvlfws2+Mg==}
+    dependencies:
+      '@oasis-engine/controls': 0.6.3
+      bezier-easing: 2.1.0
+      oasis-engine: 0.6.3
+    dev: false
+
   /@oasis-engine/math/0.6.3:
     resolution: {integrity: sha512-T2/kll9M/H5UhaaihBI4JLkRipUTUhmTSLjr+MsN4F87lEIYlJkwjS9h3JsuHNL3onJbm1ojH4LYf99dwR2n4w==}
     dev: false
@@ -1667,6 +1677,10 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+
+  /bezier-easing/2.1.0:
+    resolution: {integrity: sha1-wE3+i5JtbsrKGBPWn/F5t8ICXYY=}
+    dev: false
 
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}

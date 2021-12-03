@@ -9,7 +9,7 @@ import {
   WebGLEngine,
 } from 'oasis-engine';
 
-export function cube(canvas: any) {
+export function Cube(canvas: any) {
   // Init Engine
   const engine = new WebGLEngine(canvas);
   // Adapter to screen

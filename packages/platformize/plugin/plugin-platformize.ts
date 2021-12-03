@@ -17,6 +17,7 @@ export const DEFAULT_API_LIST = [
   'Image',
 
   'atob',
+  'performance',
   'createImageBitmap',
   'cancelAnimationFrame',
   'requestAnimationFrame',
