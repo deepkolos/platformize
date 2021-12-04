@@ -2,6 +2,7 @@ import * as pc from 'playcanvas';
 
 export function hellWorld(canvas: any) {
   const app = new pc.Application(canvas, {});
+  app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
 
   // create box entity
   const box = new pc.Entity('cube');

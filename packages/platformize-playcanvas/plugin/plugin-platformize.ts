@@ -50,7 +50,14 @@ function playcanvasPatch(): Plugin {
         );
 
         // fake browser interface check
-        code = code.replace(`_isBrowserInterface(texture) {`, `_isBrowserInterface(texture) { return true;`)
+        code = code.replace(
+          `_isBrowserInterface(texture) {`,
+          `_isBrowserInterface(texture) { return true;`,
+        );
+        code = code.replace(
+          `platform.browser ? window.devicePixelRatio : 1`,
+          `window.devicePixelRatio`,
+        );
       }
 
       return {

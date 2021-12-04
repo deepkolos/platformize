@@ -6,6 +6,7 @@ import * as pc from 'playcanvas';
 export function miniStats(canvas: any) {
   // Create the application and start the update loop
   const app = new pc.Application(canvas, {});
+  app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
   app.start();
 
   // Set the canvas to fill the window and automatically change resolution to be the same as the canvas size
