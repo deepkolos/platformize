@@ -51,6 +51,7 @@ export class WechatPlatform extends Platform {
       },
       body: {},
     } as unknown as Document;
+    const img = createImage(canvas);
 
     const Image = (() => createImage(canvas)) as unknown as HTMLImageElement;
     const URL = new $URL();
@@ -107,6 +108,7 @@ export class WechatPlatform extends Platform {
       // @ts-expect-error
       URL,
       Image,
+      HTMLImageElement: img.constructor,
 
       atob: $atob,
       createImageBitmap: undefined,

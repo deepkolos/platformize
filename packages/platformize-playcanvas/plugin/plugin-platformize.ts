@@ -29,11 +29,13 @@ function playcanvasPatch(): Plugin {
     name: 'playcanvasPatch',
     transform(code, filePath) {
       if (filePath.indexOf('playcanvas/build/playcanvas') > -1) {
-        // avoid Node redeclare
-        code = code.replace(`class Node`, `class Node_`);
-        code = code.replace(`new Node`, `new Node_`);
-        code = code.replace(`: Node,`, `: Node_,`);
-        code = code.replace(`, Node,`, `, Node_ as Node,`);
+        if (filePath.endsWith('.mjs')) {
+          // avoid Node redeclare
+          code = code.replace(`class Node`, `class Node_`);
+          code = code.replace(`new Node`, `new Node_`);
+          code = code.replace(`: Node,`, `: Node_,`);
+          code = code.replace(`, Node,`, `, Node_ as Node,`);
+        }
 
         // enable animation loop
         code = code.replace(
@@ -46,6 +48,9 @@ function playcanvasPatch(): Plugin {
           `original_getExtension.call(this, name);`,
           `$defaultWebGLExtensions[name] !== undefined ? $defaultWebGLExtensions[name] : (original_getExtension.call(this, name) || null);`,
         );
+
+        // fake browser interface check
+        code = code.replace(`_isBrowserInterface(texture) {`, `_isBrowserInterface(texture) { return true;`)
       }
 
       return {

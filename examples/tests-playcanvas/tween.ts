@@ -5,11 +5,11 @@ import { loadAssets } from './loader';
 export async function tween(canvas: any) {
   // Create the application and start the update loop
   const app = new pc.Application(canvas, {});
-  app.start();
 
   const [fontAsset] = await loadAssets(app, [
     { url: 'https://playcanvas.github.io/static/assets/fonts/arial.json', type: 'font' },
   ]);
+  console.log(fontAsset);
   tweenScript();
 
   // Set the canvas to fill the window and automatically change resolution to be the same as the canvas size
@@ -129,6 +129,8 @@ export async function tween(canvas: any) {
   app.on('update', function () {
     app.drawLines(points, colors);
   });
+
+  app.start();
 
   return app;
 }

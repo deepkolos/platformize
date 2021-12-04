@@ -14,6 +14,7 @@ export const DEFAULT_API_LIST = [
   'XMLHttpRequest',
   'OffscreenCanvas',
   'HTMLCanvasElement',
+  'HTMLImageElement',
   'Image',
 
   'atob',
