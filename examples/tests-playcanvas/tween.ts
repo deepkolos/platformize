@@ -1,6 +1,6 @@
 import * as pc from 'playcanvas';
 import * as TWEEN from '@tweenjs/tween.js';
-import { loadAssets } from './loader';
+import { loadAssets } from './utils/loader';
 
 export async function tween(canvas: any) {
   // Create the application and start the update loop
