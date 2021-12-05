@@ -1,5 +1,6 @@
 import * as pc from 'playcanvas';
-import { getUrl, loadAssets } from './utils/loader';
+import { bloomScript } from './scripts/posteffect-bloom';
+import { getUrl, labelAssets, loadAssets } from './utils/loader';
 
 export async function animationBlend1D(canvas: any) {
   const app = new pc.Application(canvas, {
@@ -7,8 +8,12 @@ export async function animationBlend1D(canvas: any) {
     touch: new pc.TouchDevice(document.body),
     elementInput: new pc.ElementInput(canvas),
   });
+  app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
+  app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
+  app.setCanvasResolution(pc.RESOLUTION_AUTO);
+  bloomScript();
 
-  const [model, idleAnim, danceAnim] = await loadAssets(app, [
+  const assetsArray = await loadAssets(app, [
     {
       url: getUrl('static/assets/models/bitmoji.glb'),
       type: 'container',
@@ -22,7 +27,7 @@ export async function animationBlend1D(canvas: any) {
       type: 'container',
     },
   ]);
-  const assets = { model, idleAnim, danceAnim };
+  const assets = labelAssets(assetsArray, ['model', 'idleAnim', 'danceAnim']);
 
   // setup skydome
   app.scene.exposure = 3;
@@ -40,8 +45,8 @@ export async function animationBlend1D(canvas: any) {
   cameraEntity.addComponent('script');
   cameraEntity.script!.create('bloom', {
     attributes: {
-      bloomIntensity: 1,
-      bloomThreshold: 0.7,
+      bloomIntensity: 2,
+      bloomThreshold: 0.5,
       blurAmount: 4,
     },
   });

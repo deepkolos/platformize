@@ -97,3 +97,8 @@ rush build
 6. oasis 初始版本适配 (跑通 cube, glb, FlappyBrid) (模拟器 ✅, 真机 ❎ 只有 BufferMeshInstance 显示出东西)
 7. 小程序一般不支持动态加载 js, 所以 playcanvas 的 Script 的动态加载将不会被支持, 需构建方式引入 (可见 tween/obj 例子) ✅
 8. 构建迁移到 rush + swc (esbuild 不支持像 tsc 那样 transpile 目录) ✅
+9. TextDecoder 支持更多格式
+
+## 适配经验
+
+0. new Blob(parts, options) 的 options 非可选, 需要填写 mimeType

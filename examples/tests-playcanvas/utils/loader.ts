@@ -12,3 +12,11 @@ export function loadAssets(app: pc.Application, assets: Array<{ url: string; typ
     ),
   );
 }
+
+export function labelAssets(arr: pc.Asset[], labels: string[]) {
+  const out: { [k: string]: pc.Asset } = {};
+  labels.forEach((v, k) => {
+    out[v] = arr[k];
+  });
+  return out;
+}
