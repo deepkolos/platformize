@@ -52,11 +52,17 @@ function playcanvasPatch(): Plugin {
         // fake browser interface check
         code = code.replace(
           `_isBrowserInterface(texture) {`,
-          `_isBrowserInterface(texture) { return texture.width !== undefined;`,
+          `_isBrowserInterface(texture) { return texture && texture.width !== undefined;`,
         );
         code = code.replace(
           `platform.browser ? window.devicePixelRatio : 1`,
           `window.devicePixelRatio`,
+        );
+
+        // patch URL.createObjectUrl
+        code = code.replace(
+          `URL.createObjectURL(new Blob([asset.file.contents]))`,
+          `URL.createObjectURL(new Blob([asset.file.contents], {type: 'image/'+path.getExtension(url.original).toLowerCase().slice(1)}))`,
         );
       }
 

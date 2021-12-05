@@ -1,5 +1,7 @@
 import * as pc from 'playcanvas';
 
+export const getUrl = (str: string) => `https://playcanvas.github.io/${str}`;
+
 export function loadAssets(app: pc.Application, assets: Array<{ url: string; type: string }>) {
   return Promise.all(
     assets.map(
