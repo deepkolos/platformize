@@ -64,6 +64,7 @@ Page({
     this.currDemo = null as unknown as pc.Application;
 
     const demo = (await DEMO[item](this.canvas)) as pc.Application;
+    if (!demo) console.error('no app instance returned');
     this.currDemo = demo;
     this.setData({ currItem: i });
     this.onMenuClick();

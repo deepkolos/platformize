@@ -226,4 +226,6 @@ export function miniStats(canvas: any) {
       }
     }
   });
+
+  return app;
 }

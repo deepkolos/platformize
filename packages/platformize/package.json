@@ -27,7 +27,8 @@
     "estree-walker": "2.0.1",
     "magic-string": "^0.25.7",
     "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "regenerator-runtime": "~0.13.9"
   },
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.4.0",

@@ -7,6 +7,8 @@ export function glb(canvas: any) {
   // Create the app and start the update loop
   const app = new pc.Application(canvas, {});
   app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
+  app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
+  app.setCanvasResolution(pc.RESOLUTION_AUTO);
 
   // the array will store loaded cameras
   let camerasComponents: Array<pc.CameraComponent> = [];

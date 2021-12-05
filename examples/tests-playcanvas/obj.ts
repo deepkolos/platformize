@@ -4,6 +4,9 @@ import { ObjModelParser } from './utils/ObjModelParser';
 export function obj(canvas: any) {
   // Create the app and start the update loop
   const app = new pc.Application(canvas, {});
+  app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
+  app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
+  app.setCanvasResolution(pc.RESOLUTION_AUTO);
 
   app.scene.ambientLight = new pc.Color(0.2, 0.2, 0.2);
 
