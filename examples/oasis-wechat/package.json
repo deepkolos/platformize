@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "build:watch": "pnpm run build",
     "dev": "rollup -w -c",
     "build": "rollup -c",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
@@ -11,9 +12,9 @@
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "",
   "dependencies": {
-    "tests-oasis": "workspace:*",
+    "tests-oasis": "*",
     "oasis-engine": "^0.6.3",
-    "platformize-oasis": "workspace:^0.6.3"
+    "platformize-oasis": "^0.6.3"
   },
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.4.0",

@@ -4,39 +4,12 @@
   "description": "一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 比如threejs/oasis/playcanvas",
   "main": "index.js",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ],
   "scripts": {
-    "dev": "pnpm --if-present --parallel --workspace-concurrency=4 --filter=platformize --filter=platformize-three --filter=platformize-oasis --filter=platformize-playcanvas run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "exit 0"
   },
   "packageManager": "pnpm",
-  "pnpm": {
-    "overrides": {
-      "platformize": "workspace:*",
-      "platformize-oasis": "workspace:*",
-      "platformize-three": "workspace:*",
-      "platformize-playcanvas": "workspace:*"
-    }
-  },
   "author": "DeepKolos <deepkolos@qq.com>",
   "license": "MIT",
-  "devDependencies": {
-    "@ava/babel": "2.0.0",
-    "@rollup/plugin-typescript": "^8.3.0",
-    "@types/offscreencanvas": "^2019.6.4",
-    "@types/three": "0.133.1",
-    "acorn": "^8.6.0",
-    "ava": "^3.15.0",
-    "concurrently": "^6.4.0",
-    "minigame-api-typings": "^3.4.1",
-    "rollup": "^2.60.1",
-    "three": "0.133.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.2"
-  },
   "ava": {
     "files": [
       "!**/fixtures/**",

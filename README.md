@@ -62,10 +62,22 @@ packages
 
 适配器的版本号与`threejs/oasis/playcanvas`主版本号一一对应, adapter 除外
 
-### 使用 pnpm workspaces 管理 monorepo
+### 使用 rush 管理 monorepo
 
 https://www.raulmelo.dev/blog/replacing-lerna-and-yarn-with-pnpm-workspaces
 https://zhuanlan.zhihu.com/p/422740629
+https://rushjs.io/
+
+```sh
+pnpm i -g @microsoft/rush
+rush install
+
+# dev
+rush build:watch
+
+# prod
+rush build
+```
 
 ## 构建特性
 
@@ -83,5 +95,5 @@ https://zhuanlan.zhihu.com/p/422740629
 4. fix window support ✅
 5. playcanvas 初始版本适配 ✅
 6. oasis 初始版本适配 (跑通 cube, glb, FlappyBrid) (模拟器 ✅, 真机 ❎ 只有 BufferMeshInstance 显示出东西)
-7. 小程序一般不支持动态加载 js, 所以 playcanvas 的 Script 的动态加载将不会被支持, 需构建方式引入 (可见 tween 例子) ✅
-8. 构建迁移到 rush
+7. 小程序一般不支持动态加载 js, 所以 playcanvas 的 Script 的动态加载将不会被支持, 需构建方式引入 (可见 tween/obj 例子) ✅
+8. 构建迁移到 rush + swc (esbuild 不支持像 tsc 那样 transpile 目录)

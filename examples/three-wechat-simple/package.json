@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "rollup -w -c rollup.config.js",
-    "build": "rollup -c rollup.config.js"
+    "build:watch": "pnpm run build",
+    "dev": "rollup -wc",
+    "build": "rollup -c"
   },
   "keywords": [],
   "author": "Deepkolos<deepkolos@qq.com>",
@@ -16,7 +17,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "platformize-three": "workspace:^0.133.0",
+    "platformize-three": "^0.133.0",
     "three": "0.133.1"
   }
 }

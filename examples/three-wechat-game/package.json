@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "build:watch": "pnpm run build",
     "dev": "rollup -w -c",
     "build": "rollup -c",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
@@ -16,7 +17,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "platformize-three": "workspace:^0.133.0",
+    "platformize-three": "^0.133.0",
     "three": "0.133.1"
   }
 }

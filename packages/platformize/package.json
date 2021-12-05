@@ -6,8 +6,10 @@
   "module": "dist/index.js",
   "sideEffects": false,
   "scripts": {
-    "dev": "concurrently 'pnpm exec tsc --project ./tsconfig.json --watch' 'pnpm exec tsc --project ./tsconfig.plugin.json --watch'",
-    "build": "concurrently 'pnpm exec tsc --project ./tsconfig.json' 'pnpm exec tsc --project ./tsconfig.plugin.json'",
+    "build:watch": "pnpm run build:file",
+    "build:type": "concurrently 'tsc --project ./tsconfig.json --emitDeclarationOnly || exit 0' 'tsc --project ./tsconfig.plugin.json --emitDeclarationOnly || exit 0'",
+    "build:file": "concurrently 'swc plugin -d dist-plugin -C module.type=commonjs' 'swc src -d dist'",
+    "build": "concurrently 'pnpm run build:type' 'pnpm run build:file'",
     "test": "ava"
   },
   "files": [
@@ -17,18 +19,24 @@
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "@rollup/pluginutils": "^4.1.1",
-    "estree-walker": "2.0.1",
-    "deepmerge": "^4.2.2",
-    "magic-string": "^0.25.7",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@rollup/plugin-sucrase": "^3.1.0",
+    "@rollup/pluginutils": "^4.1.1",
+    "deepmerge": "^4.2.2",
+    "estree-walker": "2.0.1",
+    "magic-string": "^0.25.7",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-terser": "^7.0.2"
   },
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.4.0",
-    "minigame-api-typings": "^3.4.1"
+    "minigame-api-typings": "^3.4.1",
+    "@swc/cli": "~0.1.52",
+    "@swc/core": "~1.2.117",
+    "ava": "^3.15.0",
+    "@ava/babel": "2.0.0",
+    "typescript": "~4.5.2",
+    "concurrently": "~6.4.0"
   }
 }

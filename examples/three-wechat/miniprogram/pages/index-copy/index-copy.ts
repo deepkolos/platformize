@@ -6,7 +6,6 @@ import {
   sRGBEncoding,
   TextureLoader,
   WebGL1Renderer,
-  REVISION,
   Color,
   WebGLRenderTarget,
 } from 'three';
@@ -41,7 +40,7 @@ import {
 } from 'tests-three';
 import { screenshot } from 'platformize-three/dist/base/screenshot.js';
 
-console.log('THREE Version', REVISION);
+// console.log('THREE Version', REVISION);
 
 const DEMO_MAP = {
   MemoryTest: DemoMemoryTest,

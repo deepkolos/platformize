@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "rollup -w -c",
+    "build:watch": "pnpm run build",
+    "dev": "rollup -wc",
     "build": "rollup -c",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
@@ -11,8 +12,8 @@
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "",
   "dependencies": {
-    "platformize-three": "workspace:^0.133.0",
-    "tests-three": "workspace:^1.0.0",
+    "platformize-three": "^0.133.0",
+    "tests-three": "^1.0.0",
     "three": "0.133.1"
   },
   "devDependencies": {

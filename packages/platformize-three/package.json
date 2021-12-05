@@ -6,8 +6,10 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
-    "dev": "concurrently 'pnpm exec tsc --project ./tsconfig.json --watch' 'pnpm exec tsc --project ./tsconfig.plugin.json --watch'",
-    "build": "concurrently 'pnpm exec tsc --project ./tsconfig.json' 'pnpm exec tsc --project ./tsconfig.plugin.json'",
+    "build:watch": "pnpm run build:file",
+    "build:type": "concurrently 'tsc --project ./tsconfig.json --emitDeclarationOnly || exit 0' 'tsc --project ./tsconfig.plugin.json --emitDeclarationOnly || exit 0'",
+    "build:file": "concurrently 'swc plugin -d dist-plugin -C module.type=commonjs' 'swc src -d dist'",
+    "build": "concurrently 'pnpm run build:type' 'pnpm run build:file'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
@@ -17,6 +19,6 @@
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "platformize": "workspace:^1.0.0"
+    "platformize": "^1.0.0"
   }
 }
