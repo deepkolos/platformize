@@ -3,6 +3,9 @@ import { bloomScript } from './scripts/posteffect-bloom';
 import { getUrl, labelAssets, loadAssets } from './utils/loader';
 
 export async function animationBlend1D(canvas: any) {
+  console.warn(
+    '该测试用例在微信小程序会报错,因为glb模型有纹理分辨率大于2048,微信小程序不支持加载分辨率高于2048的图片',
+  );
   const app = new pc.Application(canvas, {
     mouse: new pc.Mouse(document.body),
     touch: new pc.TouchDevice(document.body),

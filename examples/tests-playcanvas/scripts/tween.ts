@@ -284,7 +284,7 @@ export function tweenScript() {
       return;
     }
 
-    var updateProperty = function (value) {
+    var updateProperty = function (value: number) {
       // Update the tweened property. Transformation functions are special-cased here.
       switch (propertyName) {
         case 'eulerAngles':
@@ -303,6 +303,7 @@ export function tweenScript() {
           propertyOwner.setPosition(value);
           break;
         default:
+          // @ts-ignore
           propertyOwner[propertyName] = isNumber ? value.x : value;
 
           if (propertyOwner instanceof pc.Material) {
