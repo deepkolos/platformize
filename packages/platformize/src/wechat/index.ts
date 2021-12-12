@@ -9,6 +9,7 @@ import $XMLHttpRequest from './XMLHttpRequest';
 import { copyProperties, createImage } from '../base/utils/helper';
 import $DOMParser from '../base/DOMParser';
 import $TextDecoder from '../base/TextDecoder';
+import $performance from '../base/performance';
 import { Platform, Polyfill } from '../Platform';
 
 function OffscreenCanvas() {
@@ -68,17 +69,13 @@ export class WechatPlatform extends Platform {
           return Promise.resolve('granted');
         },
       },
-      performance: {
-        now() {
-          return Date.now();
-        },
-      },
 
       URL,
       Image,
       DOMParser: $DOMParser,
       TextDecoder: $TextDecoder,
       Blob: $Blob,
+      performance: $performance,
     } as unknown as Window;
 
     [canvas, document, window, document.body].forEach(i => {

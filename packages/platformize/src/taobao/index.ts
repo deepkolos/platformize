@@ -8,6 +8,7 @@ import $XMLHttpRequest from './XMLHttpRequest';
 import { copyProperties, createImage } from '../base/utils/helper';
 import $DOMParser from '../base/DOMParser';
 import $TextDecoder from '../base/TextDecoder';
+import $performance from '../base/performance';
 import { Platform, Polyfill } from '../Platform';
 
 declare global {
@@ -64,6 +65,7 @@ export class TaobaoPlatform extends Platform {
       Image,
       DOMParser: $DOMParser,
       TextDecoder: $TextDecoder,
+      performance: $performance,
     } as unknown as Window;
 
     [canvas, document, window].forEach(i => {
@@ -95,6 +97,7 @@ export class TaobaoPlatform extends Platform {
       Image,
 
       atob: $atob,
+      performance: $performance,
       createImageBitmap: undefined,
       cancelAnimationFrame: window.cancelAnimationFrame,
       requestAnimationFrame: window.requestAnimationFrame,

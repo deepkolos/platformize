@@ -12,6 +12,7 @@ export interface Polyfill {
   Image: HTMLImageElement,
 
   atob: Window['atob'];
+  navigator: Window['navigator'],
   performance: Window['performance'],
   createImageBitmap?: Window['createImageBitmap'];
   cancelAnimationFrame: Window['cancelAnimationFrame'];

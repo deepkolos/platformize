@@ -75,6 +75,9 @@ rush install
 # dev
 rush build:watch
 
+rush build:watch --to-except platformize-playcanvas-wechat
+pnpm dev --filter platformize-playcanvas-wechat
+
 # prod
 rush build
 ```

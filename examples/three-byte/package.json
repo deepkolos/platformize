@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "platformize-three 头条小程序 Demo",
   "scripts": {
-    "build:watch": "pnpm run build",
+    "build:watch": "rollup -c",
     "dev": "rollup -wc",
     "build": "rollup -c --environment BUILD:production",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"

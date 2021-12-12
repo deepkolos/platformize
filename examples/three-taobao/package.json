@@ -1,7 +1,7 @@
 {
   "name": "platformize-three-taobao",
   "scripts": {
-    "build:watch": "pnpm run build",
+    "build:watch": "rollup -c",
     "dev": "rollup -wc",
     "build": "rollup -c --environment BUILD:production",
     "test": "exit 0"

@@ -63,6 +63,7 @@ export class WechatGamePlatform extends Platform {
       Image,
       DOMParser: $DOMParser,
       TextDecoder: $TextDecoder,
+      performance,
     } as unknown as Window;
 
     [canvas, document, window].forEach(i => {
@@ -92,6 +93,7 @@ export class WechatGamePlatform extends Platform {
       // @ts-expect-error
       URL,
       Image,
+      performance,
 
       atob: $atob,
       createImageBitmap: undefined,

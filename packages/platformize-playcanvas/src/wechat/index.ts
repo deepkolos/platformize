@@ -14,5 +14,12 @@ export class WechatPlatform extends WechatPlatformBase {
       if (type === 'canvas') return canvas;
       if (type === 'img') return canvas.createImage();
     };
+    // @ts-ignore
+    this.polyfill.document.body = { appendChild() {} };
+    // @ts-ignore
+    this.polyfill.document.head = {};
+
+    // @ts-ignore
+    canvas.setAttribute = () => {};
   }
 }
