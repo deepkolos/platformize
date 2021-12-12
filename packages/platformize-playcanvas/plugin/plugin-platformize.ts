@@ -64,6 +64,21 @@ function playcanvasPatch(): Plugin {
           `URL.createObjectURL(new Blob([asset.file.contents]))`,
           `URL.createObjectURL(new Blob([asset.file.contents], {type: 'image/'+path.getExtension(url.original).toLowerCase().slice(1)}))`,
         );
+
+        // patch TouchDevice
+        code = code.replace(`let touch = false;`, `let touch = true;`);
+        code = code.replace(`while (!(target instanceof HTMLElement))`, `while(false)`);
+        code = code.replace(`while (!(target instanceof HTMLElement))`, `while(false)`);
+        code = code.replace(`let currentElement = target;`, `let currentElement = null;
+        return {
+          x: touch.pageX - totalOffsetX,
+          y: touch.pageY - totalOffsetY
+        };`);
+        code = code.replace(`let currentElement = target;`, `let currentElement = null;
+        return {
+          x: touch.pageX - totalOffsetX,
+          y: touch.pageY - totalOffsetY
+        };`);
       }
 
       return {
