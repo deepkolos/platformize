@@ -9,5 +9,5 @@ export default mergeRollupOptions(
       chunkFileNames: 'chunks/[name].js',
     },
   },
-  { minify: false },
+  { minify: process.env.BUILD === 'production' },
 );

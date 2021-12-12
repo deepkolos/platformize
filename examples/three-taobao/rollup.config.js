@@ -13,7 +13,7 @@ const cfg = mergeRollupOptions(
       },
     },
   },
-  { minify: false },
+  { minify: process.env.BUILD === 'production' },
 );
 
 // console.log(cfg);

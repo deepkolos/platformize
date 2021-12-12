@@ -64,8 +64,8 @@ packages
 
 ### 使用 rush 管理 monorepo
 
-https://www.raulmelo.dev/blog/replacing-lerna-and-yarn-with-pnpm-workspaces
-https://zhuanlan.zhihu.com/p/422740629
+https://www.raulmelo.dev/blog/replacing-lerna-and-yarn-with-pnpm-workspaces \
+https://zhuanlan.zhihu.com/p/422740629\
 https://rushjs.io/
 
 ```sh

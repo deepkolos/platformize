@@ -3,7 +3,8 @@
   "scripts": {
     "build:watch": "pnpm run build",
     "dev": "rollup -wc",
-    "build": "rollup -c"
+    "build": "rollup -c --environment BUILD:production",
+    "test": "exit 0"
   },
   "dependencies": {
     "platformize-three": "^0.133.0",
