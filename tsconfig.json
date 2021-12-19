@@ -18,6 +18,7 @@
   },
   "exclude": [
     "dist",
+    "dist-cli",
     "node_modules",
     "test/types",
     "examples/three-wechat-simple/miniprogram/app.js",

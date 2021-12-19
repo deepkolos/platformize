@@ -6,3 +6,4 @@ export * from './obj';
 export * from './animation-blend-1d';
 export * from './area-light';
 export * from './saved-project';
+export { run as savedProjectAuto } from './saved-project-auto';

@@ -70,4 +70,6 @@ common/autoinstallers/*/.npmrc
 # custom
 dist
 dist-plugin
+dist-cli
+!dist-cli/index.js
 .DS_Store 
