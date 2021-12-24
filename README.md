@@ -101,6 +101,7 @@ rush build
 7. 小程序一般不支持动态加载 js, 所以 playcanvas 的 Script 的动态加载将不会被支持, 需构建方式引入 (可见 tween/obj 例子) ✅
 8. 构建迁移到 rush + swc (esbuild 不支持像 tsc 那样 transpile 目录) ✅
 9. TextDecoder 支持更多格式
+10. 支持 playcanvas 导出项目转换到小程序 ✅
 
 ## 适配经验
 
