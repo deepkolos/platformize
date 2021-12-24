@@ -149,6 +149,9 @@ export function BufferMeshInstance(canvas: any) {
    * Create custom instance shader.
    */
   function initCustomShader(): Shader {
+    // @ts-ignore
+    if (Shader._shaderMap.CustomShader) return Shader._shaderMap.CustomShader;
+
     const shader = Shader.create(
       'CustomShader',
       `uniform mat4 u_MVPMat;
@@ -179,6 +182,9 @@ export function BufferMeshInstance(canvas: any) {
        }
        `,
     );
+    
     return shader;
   }
+
+  return engine;
 }

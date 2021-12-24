@@ -1,10 +1,6 @@
 import { PlatformManager, WechatPlatform } from 'platformize-oasis';
 import * as DEMO from 'tests-oasis';
 import type { Engine } from 'oasis-engine';
-import { Logger } from 'oasis-engine';
-
-Logger.enable();
-console.log('Logger Enable', Logger.isEnabled);
 
 const getNode = id =>
   new Promise(r => wx.createSelectorQuery().select(id).fields({ node: true, size: true }).exec(r));
@@ -68,6 +64,7 @@ Page({
     this.currDemo = null as unknown as Engine;
 
     const demo = (await DEMO[item](this.canvas)) as Engine;
+    if (!demo) console.error('no engine instance returned');
     this.currDemo = demo;
     this.setData({ currItem: i });
     this.onMenuClick();

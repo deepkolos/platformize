@@ -19,6 +19,8 @@ import {
   WebGLEngine,
 } from 'oasis-engine';
 
+// u_time -> u_time_avoid_rename 避免从ShaderWater切换到ParticleSpriteSheet报 Shader proterty u_time has been used
+
 export function ShaderWater(canvas: any) {
   //  const gui = new dat.GUI();
   //-- create engine object
@@ -62,7 +64,7 @@ export function ShaderWater(canvas: any) {
  varying vec3 v_position;
  varying vec3 v_normal;
  
- uniform float u_time;
+ uniform float u_time_avoid_rename;
  uniform sampler2D u_texture;
  uniform vec3 u_cameraPos;
  
@@ -87,8 +89,8 @@ export function ShaderWater(canvas: any) {
      float l = cos(length(p * 2.0));
      vec2 u = vec2(l, sc.y);
      vec2 um = u * 0.3;
-     um.x += u_time * 0.1 * u_water_speed;
-     um.y += -u_time * 0.025 * u_water_speed;
+     um.x += u_time_avoid_rename * 0.1 * u_water_speed;
+     um.y += -u_time_avoid_rename * 0.025 * u_water_speed;
      um.x += (um.y) * 2.0;    
      float a1 = texture2D(u_texture, (p.yz  *  .4 + um) * u_water_scale).x;
      float a2 = texture2D(u_texture, (p.zx  *  .4 + um) * u_water_scale).x;
@@ -180,7 +182,8 @@ export function ShaderWater(canvas: any) {
  `;
 
   // 初始化 shader
-  Shader.create('water', vertexSource, fragSource);
+  // @ts-ignore
+  if (!Shader._shaderMap.water) Shader.create('water', vertexSource, fragSource);
 
   class ShaderMaterial extends Material {
     constructor(engine: Engine) {
@@ -212,10 +215,10 @@ export function ShaderWater(canvas: any) {
       engine.run();
     });
 
-  // u_time 更新脚本
+  // u_time_avoid_rename 更新脚本
   class WaterScript extends Script {
     onUpdate() {
-      material.shaderData.setFloat('u_time', engine.time.timeSinceStartup * 0.001);
+      material.shaderData.setFloat('u_time_avoid_rename', engine.time.timeSinceStartup * 0.001);
     }
   }
   sphereEntity.addComponent(WaterScript);
