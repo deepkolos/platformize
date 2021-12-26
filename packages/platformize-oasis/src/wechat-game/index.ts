@@ -8,6 +8,7 @@ export class WechatGamePlatform extends WechatGamePlatformBase {
 
   constructor(canvas: WechatMinigame.Canvas, width?: number, height?: number) {
     super(canvas, width, height);
-    this.polyfill.$defaultWebGLExtensions = {};
+    this.polyfill.$defaultWebGLExtensions = { OES_vertex_array_object: null };
+    this.polyfill.HTMLCanvasElement = canvas.constructor as unknown as HTMLCanvasElement;
   }
 }

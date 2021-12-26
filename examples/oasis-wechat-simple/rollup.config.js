@@ -1,4 +1,4 @@
-import { mergeRollupOptions } from 'platformize-three/dist-plugin';
+import { mergeRollupOptions } from 'platformize-oasis/dist-plugin';
 
 export default mergeRollupOptions(
   {

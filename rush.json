@@ -496,6 +496,16 @@
       "shouldPublish": false
     },
     {
+      "packageName": "platformize-oasis-wechat-game",
+      "projectFolder": "examples/oasis-wechat-game",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "platformize-oasis-wechat-simple",
+      "projectFolder": "examples/oasis-wechat-simple",
+      "shouldPublish": false
+    },
+    {
       "packageName": "platformize-three-wechat",
       "projectFolder": "examples/three-wechat",
       "shouldPublish": false

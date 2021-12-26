@@ -1,5 +1,5 @@
 {
-  "name": "platformize-three-wechat-simple",
+  "name": "platformize-oasis-wechat-simple",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -12,12 +12,12 @@
   "license": "MIT",
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.4.0",
-    "miniprogram-automator": "^0.10.0",
     "rollup": "^2.60.1",
     "typescript": "*"
   },
   "dependencies": {
-    "platformize-three": "^0.133.0",
-    "three": "0.133.1"
+    "oasis-engine": "^0.6.3",
+    "@oasis-engine/controls": "^0.6.3",
+    "platformize-oasis": "^0.6.3"
   }
 }

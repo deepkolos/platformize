@@ -2,7 +2,6 @@
 
 import { WechatPlatform as WechatPlatformBase } from 'platformize';
 import type { Polyfill } from '../Platform';
-import $HTMLCanvasElement from '../base/HTMLCanvasElement';
 
 export class WechatPlatform extends WechatPlatformBase {
   polyfill!: Polyfill;

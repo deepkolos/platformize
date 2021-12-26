@@ -25,6 +25,13 @@ function patchOasis(): Plugin {
           `this._requireResult = {};`,
           `this._requireResult = Object.assign({}, $defaultWebGLExtensions)`,
         );
+
+        // 开发工具补丁, 但raycast还是不灵敏, 真机没问题
+        code = code.replace(
+          /activePointerCount === 1 &&/g,
+          `activePointerCount >= 1 && `,
+        );
+
       }
       return { code, map: null };
     },

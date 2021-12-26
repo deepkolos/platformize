@@ -63,7 +63,7 @@ export class WechatGamePlatform extends Platform {
       Image,
       DOMParser: $DOMParser,
       TextDecoder: $TextDecoder,
-      performance,
+      performance: Date,
     } as unknown as Window;
 
     [canvas, document, window].forEach(i => {
@@ -93,7 +93,8 @@ export class WechatGamePlatform extends Platform {
       // @ts-expect-error
       URL,
       Image,
-      performance,
+      // @ts-expect-error
+      performance: Date,
 
       atob: $atob,
       createImageBitmap: undefined,
@@ -113,9 +114,12 @@ export class WechatGamePlatform extends Platform {
     };
 
     const dispatchEvent = (e: any) => this.dispatchTouchEvent(e);
-    wxGame.onTouchMove(dispatchEvent);
-    wxGame.onTouchStart(dispatchEvent);
-    wxGame.onTouchEnd(dispatchEvent);
+
+    if (systemInfo.platform != 'devtools') {
+      wxGame.onTouchMove(dispatchEvent);
+      wxGame.onTouchStart(dispatchEvent);
+      wxGame.onTouchEnd(dispatchEvent);
+    }
   }
 
   patchCanvas() {
@@ -209,6 +213,8 @@ export class WechatGamePlatform extends Platform {
       const pointerEvent = {
         pageX: touch.pageX,
         pageY: touch.pageY,
+        offsetX: touch.pageX,
+        offsetY: touch.pageY,
         pointerId: touch.identifier,
         type:
           {

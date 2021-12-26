@@ -12,6 +12,8 @@ specifiers:
   '@rush-temp/platformize': file:./projects/platformize.tgz
   '@rush-temp/platformize-oasis': file:./projects/platformize-oasis.tgz
   '@rush-temp/platformize-oasis-wechat': file:./projects/platformize-oasis-wechat.tgz
+  '@rush-temp/platformize-oasis-wechat-game': file:./projects/platformize-oasis-wechat-game.tgz
+  '@rush-temp/platformize-oasis-wechat-simple': file:./projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-playcanvas': file:./projects/platformize-playcanvas.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:./projects/platformize-playcanvas-wechat.tgz
   '@rush-temp/platformize-three': file:./projects/platformize-three.tgz
@@ -55,6 +57,8 @@ dependencies:
   '@rush-temp/platformize': file:projects/platformize.tgz_rollup@2.60.2
   '@rush-temp/platformize-oasis': file:projects/platformize-oasis.tgz
   '@rush-temp/platformize-oasis-wechat': file:projects/platformize-oasis-wechat.tgz
+  '@rush-temp/platformize-oasis-wechat-game': file:projects/platformize-oasis-wechat-game.tgz
+  '@rush-temp/platformize-oasis-wechat-simple': file:projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-playcanvas': file:projects/platformize-playcanvas.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:projects/platformize-playcanvas-wechat.tgz
   '@rush-temp/platformize-three': file:projects/platformize-three.tgz
@@ -4639,6 +4643,31 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
+  file:projects/platformize-oasis-wechat-game.tgz:
+    resolution: {integrity: sha512-M8p4Pe6dKWw/zQVVdUp2zXn9ubzj6po6SdjZcaw/eAe2GxK/7L0soeM12TiHSAmWYKRy4egqm+CBtH7qQhebkw==, tarball: file:projects/platformize-oasis-wechat-game.tgz}
+    name: '@rush-temp/platformize-oasis-wechat-game'
+    version: 0.0.0
+    dependencies:
+      '@oasis-engine/physics-lite': 0.6.3
+      '@tweenjs/tween.js': 18.6.4
+      minigame-api-typings: 3.4.1
+      oasis-engine: 0.6.3
+      rollup: 2.60.2
+      typescript: 4.5.2
+    dev: false
+
+  file:projects/platformize-oasis-wechat-simple.tgz:
+    resolution: {integrity: sha512-YtqQG4iRruH978tfVysxrXRR45T4XQoTN2l/ZLOvZ+yG2RqK8VP0BJIypOijU1gU7ay2pwuyHFYRNG7FO62sEQ==, tarball: file:projects/platformize-oasis-wechat-simple.tgz}
+    name: '@rush-temp/platformize-oasis-wechat-simple'
+    version: 0.0.0
+    dependencies:
+      '@oasis-engine/controls': 0.6.3
+      '@types/wechat-miniprogram': 3.4.0
+      oasis-engine: 0.6.3
+      rollup: 2.60.2
+      typescript: 4.5.2
+    dev: false
+
   file:projects/platformize-oasis-wechat.tgz:
     resolution: {integrity: sha512-iaiWM/VeSp+EIjjeKZZA1sh5PpZYtnV+0tpg/QulJrQMuvrHSaLY7BuoArkLoihpH29T7joMFb2iRmyVaEmVpg==, tarball: file:projects/platformize-oasis-wechat.tgz}
     name: '@rush-temp/platformize-oasis-wechat'
@@ -4740,7 +4769,7 @@ packages:
     dev: false
 
   file:projects/platformize.tgz_rollup@2.60.2:
-    resolution: {integrity: sha512-PClsFBLL8A72BJ8Ue73YZEiWZDgUP55GmBx8xpDghO75WGVjUrualvoysV/ma0mCYHe+YZokkX0Qefes1gpGvg==, tarball: file:projects/platformize.tgz}
+    resolution: {integrity: sha512-BnfYXLA7Cr5+9jZIpux4CKx55gU5KxbhR9MrhURU8dbp5q+tKC7y0hw4MxNlDYuaFC3GbIK3iUahlbmqZOmRmQ==, tarball: file:projects/platformize.tgz}
     id: file:projects/platformize.tgz
     name: '@rush-temp/platformize'
     version: 0.0.0
