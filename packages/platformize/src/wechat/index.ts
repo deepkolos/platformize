@@ -108,6 +108,7 @@ export class WechatPlatform extends Platform {
       HTMLImageElement: img.constructor,
 
       atob: $atob,
+      global: window,
       createImageBitmap: undefined,
       cancelAnimationFrame: window.cancelAnimationFrame,
       requestAnimationFrame: window.requestAnimationFrame,

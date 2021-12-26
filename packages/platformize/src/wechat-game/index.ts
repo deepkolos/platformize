@@ -97,6 +97,7 @@ export class WechatGamePlatform extends Platform {
       performance: Date,
 
       atob: $atob,
+      global: window,
       createImageBitmap: undefined,
       cancelAnimationFrame: window.cancelAnimationFrame,
       requestAnimationFrame: window.requestAnimationFrame,

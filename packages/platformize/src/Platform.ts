@@ -11,6 +11,7 @@ export interface Polyfill {
   HTMLImageElement: HTMLImageElement;
   Image: HTMLImageElement,
 
+  global: Window;
   atob: Window['atob'];
   navigator: Window['navigator'],
   performance: Window['performance'],

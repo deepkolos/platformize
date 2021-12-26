@@ -92,6 +92,7 @@ export class BytePlatform extends Platform {
       Image,
 
       atob: $atob,
+      global: window,
       performance: $performance,
       createImageBitmap: undefined,
       cancelAnimationFrame: window.cancelAnimationFrame,

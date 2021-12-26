@@ -18,6 +18,7 @@ export const DEFAULT_API_LIST = [
   'Image',
 
   'atob',
+  'global',
   'navigator',
   'performance',
   'createImageBitmap',

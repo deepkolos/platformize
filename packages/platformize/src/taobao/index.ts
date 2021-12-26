@@ -97,6 +97,7 @@ export class TaobaoPlatform extends Platform {
       Image,
 
       atob: $atob,
+      global: window,
       performance: $performance,
       createImageBitmap: undefined,
       cancelAnimationFrame: window.cancelAnimationFrame,
