@@ -1,0 +1,1 @@
+<canvas class="webgl" type="webgl" id="gl" bindtouchstart="onTX" bindtouchmove="onTX" bindtouchend="onTX"></canvas>

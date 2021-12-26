@@ -491,6 +491,16 @@
       "shouldPublish": false
     },
     {
+      "packageName": "platformize-playcanvas-wechat-simple",
+      "projectFolder": "examples/playcanvas-wechat-simple",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "platformize-playcanvas-wechat-game",
+      "projectFolder": "examples/playcanvas-wechat-game",
+      "shouldPublish": false
+    },
+    {
       "packageName": "platformize-oasis-wechat",
       "projectFolder": "examples/oasis-wechat",
       "shouldPublish": false

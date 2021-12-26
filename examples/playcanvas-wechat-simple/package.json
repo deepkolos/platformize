@@ -1,0 +1,22 @@
+{
+  "name": "platformize-playcanvas-wechat-simple",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:watch": "rollup -c",
+    "dev": "rollup -wc",
+    "build": "rollup -c --environment BUILD:production"
+  },
+  "keywords": [],
+  "author": "Deepkolos<deepkolos@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.4.0",
+    "rollup": "^2.60.1",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "platformize-playcanvas": "^1.50.0",
+    "playcanvas": "1.50.0"
+  }
+}

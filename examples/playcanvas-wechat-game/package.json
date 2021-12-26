@@ -1,0 +1,23 @@
+{
+  "name": "platformize-playcanvas-wechat-game",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:watch": "rollup -c",
+    "dev": "rollup -wc",
+    "build": "rollup -c --environment BUILD:production",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "keywords": [],
+  "author": "DeepKolos<deepkolos@qq.com>",
+  "license": "",
+  "devDependencies": {
+    "minigame-api-typings": "^3.4.1",
+    "rollup": "^2.60.1",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "platformize-playcanvas": "^1.50.0",
+    "playcanvas": "1.50.0"
+  }
+}

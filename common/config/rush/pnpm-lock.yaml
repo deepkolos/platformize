@@ -16,6 +16,8 @@ specifiers:
   '@rush-temp/platformize-oasis-wechat-simple': file:./projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-playcanvas': file:./projects/platformize-playcanvas.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:./projects/platformize-playcanvas-wechat.tgz
+  '@rush-temp/platformize-playcanvas-wechat-game': file:./projects/platformize-playcanvas-wechat-game.tgz
+  '@rush-temp/platformize-playcanvas-wechat-simple': file:./projects/platformize-playcanvas-wechat-simple.tgz
   '@rush-temp/platformize-three': file:./projects/platformize-three.tgz
   '@rush-temp/platformize-three-byte': file:./projects/platformize-three-byte.tgz
   '@rush-temp/platformize-three-taobao': file:./projects/platformize-three-taobao.tgz
@@ -61,6 +63,8 @@ dependencies:
   '@rush-temp/platformize-oasis-wechat-simple': file:projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-playcanvas': file:projects/platformize-playcanvas.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:projects/platformize-playcanvas-wechat.tgz
+  '@rush-temp/platformize-playcanvas-wechat-game': file:projects/platformize-playcanvas-wechat-game.tgz
+  '@rush-temp/platformize-playcanvas-wechat-simple': file:projects/platformize-playcanvas-wechat-simple.tgz
   '@rush-temp/platformize-three': file:projects/platformize-three.tgz
   '@rush-temp/platformize-three-byte': file:projects/platformize-three-byte.tgz
   '@rush-temp/platformize-three-taobao': file:projects/platformize-three-taobao.tgz
@@ -4685,6 +4689,28 @@ packages:
     resolution: {integrity: sha512-q//wtmLoCvEx/at9ByBkqCWr9WbZECbTP5CYTYQgbP7M5SyJ9fmTwaqmgBTX1a8BLuOeCxyk+lGRrk3EwAM5Uw==, tarball: file:projects/platformize-oasis.tgz}
     name: '@rush-temp/platformize-oasis'
     version: 0.0.0
+    dev: false
+
+  file:projects/platformize-playcanvas-wechat-game.tgz:
+    resolution: {integrity: sha512-jszd2BbUsA8S+PJVQZ14PSxAimsm2uUaJW87gc4yokDhs+Ii+prUmG/r6tPfSSRsF+GI0L3bZnheGhyuJ9BrhA==, tarball: file:projects/platformize-playcanvas-wechat-game.tgz}
+    name: '@rush-temp/platformize-playcanvas-wechat-game'
+    version: 0.0.0
+    dependencies:
+      minigame-api-typings: 3.4.1
+      playcanvas: 1.50.0
+      rollup: 2.60.2
+      typescript: 4.5.2
+    dev: false
+
+  file:projects/platformize-playcanvas-wechat-simple.tgz:
+    resolution: {integrity: sha512-Jq32T9UMukRTzVIjA3V6vkX11CrRZrNb3EdpmmCuQLs+fkS8AJdiKIRNf/DHch5z2jFhQLJSlk7YGs0MW9E9hQ==, tarball: file:projects/platformize-playcanvas-wechat-simple.tgz}
+    name: '@rush-temp/platformize-playcanvas-wechat-simple'
+    version: 0.0.0
+    dependencies:
+      '@types/wechat-miniprogram': 3.4.0
+      playcanvas: 1.50.0
+      rollup: 2.60.2
+      typescript: 4.5.2
     dev: false
 
   file:projects/platformize-playcanvas-wechat.tgz:

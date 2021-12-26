@@ -7,7 +7,7 @@ import type { Plugin } from 'rollup';
 
 type platformizeOptions = Parameters<typeof platformize>['0'];
 
-export const DEFAULT_API_LIST = [...DEFAULT_API_LIST_BAE, '$defaultWebGLExtensions'];
+export const DEFAULT_API_LIST = [...DEFAULT_API_LIST_BAE, '$defaultWebGLExtensions', 'global'];
 
 export default function platformizePlayCanvas({
   apiList = DEFAULT_API_LIST,

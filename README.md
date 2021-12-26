@@ -1,6 +1,6 @@
-# [WIP]platformize
+# platformize [WIP]
 
-一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 比如`threejs/oasis/playcanvas`
+一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 比如`threejs@0.133.0 / oasis@0.6.3 / playcanvas@1.50.0`
 
 ## 目录设计
 
@@ -11,16 +11,19 @@ examples
   - tests-oasis                    # oasis测试用例
   - tests-playcanvas               # playcanvas测试用例
 
+  - three-wechat-simple            # 微信小程序three基础用例
   - three-wechat                   # 微信小程序three测试用例
   - three-wechat-game              # 微信小游戏three测试用例
   - three-taobao                   # 淘宝小程序three测试用例
   - three-byte                     # 字节小程序three测试用例
 
+  - oasis-wechat-simple            # 微信小程序oasis基础用例
   - oasis-wechat                   # 微信小程序oasis测试用例
   - oasis-wechat-game              # 微信小游戏oasis测试用例
   - oasis-taobao                   # 淘宝小程序oasis测试用例
   - oasis-byte                     # 字节小程序oasis测试用例
 
+  - playcanvas-wechat-simple       # 微信小程序playcanvas基础用例
   - playcanvas-wechat              # 微信小程序playcanvas测试用例
   - playcanvas-wechat-game         # 微信小游戏playcanvas测试用例
   - playcanvas-taobao              # 淘宝小程序playcanvas测试用例
@@ -29,35 +32,40 @@ examples
 packages
   - platformize
   - - plugin                       # rollup插件
-  - - base                         # 平台无关的适配
-  - - wechat                       # 微信小程序通用适配
-  - - wechat-game                  # 微信小游戏通用适配
-  - - taobao                       # 淘宝小程序通用适配
-  - - byte                         # 字节小程序通用适配
+  - - src
+  - - - base                       # 平台无关的适配
+  - - - wechat                     # 微信小程序通用适配
+  - - - wechat-game                # 微信小游戏通用适配
+  - - - taobao                     # 淘宝小程序通用适配
+  - - - byte                       # 字节小程序通用适配
 
   - platformize-three
   - - plugin                       # rollup插件
-  - - base                         # 平台无关three相关的适配
-  - - wechat                       # 微信小程序three相关适配
-  - - wechat-game                  # 微信小游戏three相关适配
-  - - taobao                       # 淘宝小程序three相关适配
-  - - byte                         # 字节小程序three相关适配
+  - - src
+  - - - base                       # 平台无关three相关的适配
+  - - - wechat                     # 微信小程序three相关适配
+  - - - wechat-game                # 微信小游戏three相关适配
+  - - - taobao                     # 淘宝小程序three相关适配
+  - - - byte                       # 字节小程序three相关适配
 
   - platformize-oasis
   - - plugin                       # rollup插件
-  - - base                         # 平台无关oasis相关的适配
-  - - wechat                       # 微信小程序oasis相关适配
-  - - wechat-game                  # 微信小游戏oasis相关适配
-  - - taobao                       # 淘宝小程序oasis相关适配
-  - - byte                         # 字节小程序oasis相关适配
+  - - src
+  - - - base                       # 平台无关oasis相关的适配
+  - - - wechat                     # 微信小程序oasis相关适配
+  - - - wechat-game                # 微信小游戏oasis相关适配
+  - - - taobao                     # 淘宝小程序oasis相关适配
+  - - - byte                       # 字节小程序oasis相关适配
 
   - platformize-playcanvas
   - - plugin                       # rollup插件
-  - - base                         # 平台无关playcanvas相关的适配
-  - - wechat                       # 微信小程序playcanvas相关适配
-  - - wechat-game                  # 微信小游戏playcanvas相关适配
-  - - taobao                       # 淘宝小程序playcanvas相关适配
-  - - byte                         # 字节小程序playcanvas相关适配
+  - - cli                          # 转换编辑器导出项目到小程序cli
+  - - src
+  - - - base                       # 平台无关playcanvas相关的适配
+  - - - wechat                     # 微信小程序playcanvas相关适配
+  - - - wechat-game                # 微信小游戏playcanvas相关适配
+  - - - taobao                     # 淘宝小程序playcanvas相关适配
+  - - - byte                       # 字节小程序playcanvas相关适配
 ```
 
 适配器的版本号与`threejs/oasis/playcanvas`主版本号一一对应, adapter 除外

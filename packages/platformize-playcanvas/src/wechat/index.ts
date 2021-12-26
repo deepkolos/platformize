@@ -18,6 +18,7 @@ export class WechatPlatform extends WechatPlatformBase {
     this.polyfill.document.body = { appendChild() {} };
     // @ts-ignore
     this.polyfill.document.head = {};
+    this.polyfill.global = this.polyfill.window;
 
     // @ts-ignore
     canvas.setAttribute = () => {};
