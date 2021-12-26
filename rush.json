@@ -521,6 +521,11 @@
       "shouldPublish": false
     },
     {
+      "packageName": "platformize-oasis-taobao",
+      "projectFolder": "examples/oasis-taobao",
+      "shouldPublish": false
+    },
+    {
       "packageName": "platformize-three-wechat",
       "projectFolder": "examples/three-wechat",
       "shouldPublish": false

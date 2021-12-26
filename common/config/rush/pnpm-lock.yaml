@@ -11,6 +11,7 @@ specifiers:
   '@rollup/pluginutils': ^4.1.1
   '@rush-temp/platformize': file:./projects/platformize.tgz
   '@rush-temp/platformize-oasis': file:./projects/platformize-oasis.tgz
+  '@rush-temp/platformize-oasis-taobao': file:./projects/platformize-oasis-taobao.tgz
   '@rush-temp/platformize-oasis-wechat': file:./projects/platformize-oasis-wechat.tgz
   '@rush-temp/platformize-oasis-wechat-game': file:./projects/platformize-oasis-wechat-game.tgz
   '@rush-temp/platformize-oasis-wechat-simple': file:./projects/platformize-oasis-wechat-simple.tgz
@@ -59,6 +60,7 @@ dependencies:
   '@rollup/pluginutils': 4.1.1
   '@rush-temp/platformize': file:projects/platformize.tgz_rollup@2.60.2
   '@rush-temp/platformize-oasis': file:projects/platformize-oasis.tgz
+  '@rush-temp/platformize-oasis-taobao': file:projects/platformize-oasis-taobao.tgz
   '@rush-temp/platformize-oasis-wechat': file:projects/platformize-oasis-wechat.tgz
   '@rush-temp/platformize-oasis-wechat-game': file:projects/platformize-oasis-wechat-game.tgz
   '@rush-temp/platformize-oasis-wechat-simple': file:projects/platformize-oasis-wechat-simple.tgz
@@ -4647,6 +4649,15 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+    dev: false
+
+  file:projects/platformize-oasis-taobao.tgz:
+    resolution: {integrity: sha512-+ME41IKfIr/T/2XPgUuqMV3/wmBk/8IFB7gGPLnvEE3KCD0G1ZMiZE+/VUEgE0v1LuD23OyiF443fmMePYK1Kg==, tarball: file:projects/platformize-oasis-taobao.tgz}
+    name: '@rush-temp/platformize-oasis-taobao'
+    version: 0.0.0
+    dependencies:
+      oasis-engine: 0.6.3
+      rollup: 2.60.2
     dev: false
 
   file:projects/platformize-oasis-wechat-game.tgz:

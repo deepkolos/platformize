@@ -191,7 +191,7 @@ export class TaobaoPlatform extends Platform {
         pageY: touch.pageY,
         offsetX: touch.pageX,
         offsetY: touch.pageY,
-        pointerId: touch.identifier,
+        pointerId: (touch.identifier || 0) + 2,
         type:
           {
             touchstart: 'pointerdown',

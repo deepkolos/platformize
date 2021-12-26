@@ -1,6 +1,6 @@
-import { PlatformManager, TaobaoPlatform } from 'platformize-playcanvas';
-import * as DEMO from 'tests-playcanvas';
-import * as pc from 'playcanvas';
+import { PlatformManager, TaobaoPlatform } from 'platformize-oasis';
+import * as DEMO from 'tests-oasis';
+import type { Engine } from 'oasis-engine';
 
 Page({
   data: {
@@ -12,7 +12,7 @@ Page({
   disposing: false,
   platform: null as unknown as TaobaoPlatform,
   canvas: null as unknown as WechatMiniprogram.Canvas,
-  currDemo: null as unknown as pc.Application,
+  currDemo: null as unknown as Engine,
   switchingItem: false,
 
   onCanvasReady() {
