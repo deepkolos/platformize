@@ -1,4 +1,4 @@
-# platformize-playcanvas-taobao 淘宝小程序 DEMO
+# platformize-oasis-taobao 淘宝小程序 DEMO
 
 [platformize](https://github.com/deepkolos/platformize)
 
@@ -10,18 +10,7 @@
 
 # 运行
 
-淘宝小程序开发工具打开即可运行
-
-## 使用
-
-如果不使用 rollup 做额外打包，新版本小程序开发工具需要在`mini.project.json`增加一下配置
-
-```json
-{
-  "enableNodeModuleBabelTransform": true,
-  "node_modules_es6_whitelist": ["three"]
-}
-```
+`rush build:watch`后淘宝小程序开发工具打开即可运行
 
 ## 模拟器预览
 

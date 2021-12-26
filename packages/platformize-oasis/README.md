@@ -1,6 +1,8 @@
-# platformize-oasis[WIP]
+# platformize-oasis [WIP]
 
-更加全面的适配可参考官方的适配库 https://github.com/oasis-engine/miniprogram-adapter
+更加全面的适配可参考官方的适配库 https://github.com/oasis-engine/miniprogram-adapter 也欢迎 PR 集成到本仓库
+
+## 使用
 
 ## 讨论
 

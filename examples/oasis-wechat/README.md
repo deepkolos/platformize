@@ -1,4 +1,4 @@
-# platformize-oasis 微信小程序 DEMO
+# platformize-oasis-demo-wechat
 
 [platformize](https://github.com/deepkolos/platformize)
 
@@ -9,11 +9,8 @@
 如果需要修改代码，可按照已下步骤构建
 
 ```sh
-// 安装依赖
-> pnpm i
+# 运行构建
+> rush build:watch
 
-// 运行构建
-> pnpm run dev
-
-// 小程序打开即可
+# 小程序打开即可
 ```

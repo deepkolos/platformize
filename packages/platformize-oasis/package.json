@@ -12,6 +12,11 @@
     "build": "concurrently 'pnpm run build:type' 'pnpm run build:file'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "README.md",
+    "dist",
+    "dist-plugin"
+  ],
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "MIT",

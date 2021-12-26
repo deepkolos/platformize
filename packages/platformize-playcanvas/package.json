@@ -8,6 +8,13 @@
   "bin": {
     "transform-pc-project": "./cli.js"
   },
+  "files": [
+    "README.md",
+    "cli.js",
+    "dist",
+    "dist-cli",
+    "dist-plugin"
+  ],
   "scripts": {
     "build:watch": "pnpm run build:file",
     "build:cli": "swc cli -d dist-cli -C module.type=commonjs",

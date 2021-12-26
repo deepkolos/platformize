@@ -13,7 +13,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "dist"
+    "README.md",
+    "dist",
+    "dist-plugin"
   ],
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",

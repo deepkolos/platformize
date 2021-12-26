@@ -13,7 +13,9 @@
     "test": "ava"
   },
   "files": [
-    "dist"
+    "README.md",
+    "dist",
+    "dist-plugin"
   ],
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",

@@ -1,0 +1,7 @@
+src
+cli
+test
+plugin
+.rush
+*.build.log
+demo.gif
