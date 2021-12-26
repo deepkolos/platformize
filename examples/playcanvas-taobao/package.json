@@ -1,0 +1,17 @@
+{
+  "name": "platformize-playcanvas-taobao",
+  "scripts": {
+    "build:watch": "rollup -c",
+    "dev": "rollup -wc",
+    "build": "rollup -c --environment BUILD:production",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "platformize-playcanvas": "^1.50.0",
+    "playcanvas": "1.50.0",
+    "tests-playcanvas": "^1.0.0"
+  },
+  "devDependencies": {
+    "rollup": "^2.60.1"
+  }
+}

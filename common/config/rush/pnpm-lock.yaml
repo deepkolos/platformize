@@ -15,6 +15,7 @@ specifiers:
   '@rush-temp/platformize-oasis-wechat-game': file:./projects/platformize-oasis-wechat-game.tgz
   '@rush-temp/platformize-oasis-wechat-simple': file:./projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-playcanvas': file:./projects/platformize-playcanvas.tgz
+  '@rush-temp/platformize-playcanvas-taobao': file:./projects/platformize-playcanvas-taobao.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:./projects/platformize-playcanvas-wechat.tgz
   '@rush-temp/platformize-playcanvas-wechat-game': file:./projects/platformize-playcanvas-wechat-game.tgz
   '@rush-temp/platformize-playcanvas-wechat-simple': file:./projects/platformize-playcanvas-wechat-simple.tgz
@@ -62,6 +63,7 @@ dependencies:
   '@rush-temp/platformize-oasis-wechat-game': file:projects/platformize-oasis-wechat-game.tgz
   '@rush-temp/platformize-oasis-wechat-simple': file:projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-playcanvas': file:projects/platformize-playcanvas.tgz
+  '@rush-temp/platformize-playcanvas-taobao': file:projects/platformize-playcanvas-taobao.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:projects/platformize-playcanvas-wechat.tgz
   '@rush-temp/platformize-playcanvas-wechat-game': file:projects/platformize-playcanvas-wechat-game.tgz
   '@rush-temp/platformize-playcanvas-wechat-simple': file:projects/platformize-playcanvas-wechat-simple.tgz
@@ -4689,6 +4691,15 @@ packages:
     resolution: {integrity: sha512-q//wtmLoCvEx/at9ByBkqCWr9WbZECbTP5CYTYQgbP7M5SyJ9fmTwaqmgBTX1a8BLuOeCxyk+lGRrk3EwAM5Uw==, tarball: file:projects/platformize-oasis.tgz}
     name: '@rush-temp/platformize-oasis'
     version: 0.0.0
+    dev: false
+
+  file:projects/platformize-playcanvas-taobao.tgz:
+    resolution: {integrity: sha512-lUt8iHY4La44PK22zWAfsxq4b8zTnHU6qYB38GId+i3moVHZ+E42wNk1i8dbFTRC9P8tH7zV2YthiiB6IFkfMA==, tarball: file:projects/platformize-playcanvas-taobao.tgz}
+    name: '@rush-temp/platformize-playcanvas-taobao'
+    version: 0.0.0
+    dependencies:
+      playcanvas: 1.50.0
+      rollup: 2.60.2
     dev: false
 
   file:projects/platformize-playcanvas-wechat-game.tgz:

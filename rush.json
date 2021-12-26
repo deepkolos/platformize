@@ -501,6 +501,11 @@
       "shouldPublish": false
     },
     {
+      "packageName": "platformize-playcanvas-taobao",
+      "projectFolder": "examples/playcanvas-taobao",
+      "shouldPublish": false
+    },
+    {
       "packageName": "platformize-oasis-wechat",
       "projectFolder": "examples/oasis-wechat",
       "shouldPublish": false

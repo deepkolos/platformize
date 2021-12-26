@@ -117,7 +117,7 @@ export class TaobaoPlatform extends Platform {
   }
 
   patchCanvas() {
-    const { canvasH, canvasW } = this;
+    const { canvasH, canvasW, canvas } = this;
 
     Object.defineProperty(this.canvas, 'style', {
       get() {
@@ -139,6 +139,16 @@ export class TaobaoPlatform extends Platform {
         return canvasW || this.width;
       },
     });
+
+    // @ts-ignore
+    canvas.getBoundingClientRect = () => this.canvasRect;
+    // @ts-ignore
+    canvas._getContext = this.canvas.getContext;
+    canvas.getContext = function getContext() {
+      if (arguments[0] !== 'webgl') return null;
+      // @ts-ignore
+      return canvas._getContext(...arguments);
+    };
   }
 
   enableDeviceOrientation() {

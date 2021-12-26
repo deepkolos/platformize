@@ -2,7 +2,7 @@
 
 import { WechatGamePlatform as WechatGamePlatformBase } from 'platformize';
 import type { Polyfill } from '../Platform';
-import { createImage } from 'platformize/src/base/utils/helper';
+import { createImage } from 'platformize';
 
 export class WechatGamePlatform extends WechatGamePlatformBase {
   polyfill!: Polyfill;

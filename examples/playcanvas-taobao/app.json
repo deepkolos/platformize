@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "defaultTitle": "My App",
+    "pullRefresh": false,
+    "allowsBounceVertical": "NO",
+    "gpuAccelerate": "true"
+  }
+}

@@ -1,0 +1,5 @@
+node_modules
+.tea
+.mini-ide
+chunks
+pages/index/index.js
