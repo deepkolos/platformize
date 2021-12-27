@@ -1,0 +1,626 @@
+{
+  "application_properties": {
+    "i18nAssets": [],
+    "useTouch": true,
+    "layerOrder": [
+      { "layer": 0, "enabled": true, "transparent": false },
+      { "layer": 1, "enabled": true, "transparent": false },
+      { "layer": 2, "enabled": true, "transparent": false },
+      { "layer": 0, "enabled": true, "transparent": true },
+      { "layer": 3, "enabled": true, "transparent": false },
+      { "layer": 3, "enabled": true, "transparent": true },
+      { "layer": 4, "enabled": true, "transparent": true }
+    ],
+    "externalScripts": [],
+    "height": 720,
+    "vr": false,
+    "useModelV2": false,
+    "antiAlias": true,
+    "layers": {
+      "0": { "transparentSortMode": 3, "opaqueSortMode": 2, "name": "World" },
+      "1": { "transparentSortMode": 3, "opaqueSortMode": 2, "name": "Depth" },
+      "2": { "transparentSortMode": 3, "opaqueSortMode": 0, "name": "Skybox" },
+      "3": { "transparentSortMode": 3, "opaqueSortMode": 0, "name": "Immediate" },
+      "4": { "transparentSortMode": 1, "opaqueSortMode": 1, "name": "UI" }
+    },
+    "width": 1280,
+    "useDevicePixelRatio": false,
+    "useKeyboard": true,
+    "maxAssetRetries": 5,
+    "powerPreference": "default",
+    "batchGroups": [],
+    "preserveDrawingBuffer": false,
+    "useLegacyScripts": false,
+    "fillMode": "FILL_WINDOW",
+    "scripts": [62306171, 62306172, 62306173, 62306178, 62306182, 62306184],
+    "useMouse": true,
+    "use3dPhysics": false,
+    "transparentCanvas": false,
+    "resolutionMode": "AUTO",
+    "loadingScreenScript": null,
+    "preferWebGl2": true,
+    "useGamepads": false,
+    "libraries": []
+  },
+  "scenes": [{ "name": "Untitled", "url": "1284821.json" }],
+  "assets": {
+    "62306164": {
+      "data": {
+        "addressu": "repeat",
+        "addressv": "repeat",
+        "minfilter": "linear_mip_linear",
+        "magfilter": "linear",
+        "anisotropy": 1,
+        "rgbm": true,
+        "mipmaps": true
+      },
+      "file": {
+        "filename": "Helipad_posy.png",
+        "hash": "b4db4d7dc90e3e34e74a251f1f201eab",
+        "size": 185811,
+        "url": "files/assets/62306164/1/Helipad_posy.png"
+      },
+      "meta": {
+        "format": "png",
+        "type": "TrueColorAlpha",
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "depth": 8,
+        "srgb": true,
+        "compress": {
+          "alpha": true,
+          "dxt": false,
+          "pvr": false,
+          "pvrBpp": 4,
+          "etc1": false,
+          "etc2": false,
+          "normals": false,
+          "basis": false,
+          "quality": 128,
+          "compressionMode": "etc"
+        }
+      },
+      "name": "Helipad_posy",
+      "preload": false,
+      "region": "eu-west-1",
+      "revision": 1,
+      "tags": [],
+      "type": "texture",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "5afa7138-f2a2-42c4-8caa-22fe36f3e5b4",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306164"
+    },
+    "62306165": {
+      "data": {
+        "textures": [62306166, 62306175, 62306164, 62306181, 62306176, 62306177],
+        "magFilter": 1,
+        "minFilter": 5,
+        "anisotropy": 1,
+        "name": "Helipad",
+        "rgbm": true
+      },
+      "file": {
+        "size": 524324,
+        "hash": "70ca835b5be23270ef72e363699cc156",
+        "filename": "Helipad.dds",
+        "url": "files/assets/62306165/1/Helipad.dds"
+      },
+      "meta": null,
+      "name": "Helipad",
+      "preload": false,
+      "region": "eu-west-1",
+      "revision": 1,
+      "tags": [],
+      "type": "cubemap",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "e1e41d6a-4f6d-42fa-adad-5ce96a58ffa3",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306165"
+    },
+    "62306166": {
+      "data": {
+        "addressu": "repeat",
+        "addressv": "repeat",
+        "minfilter": "linear_mip_linear",
+        "magfilter": "linear",
+        "anisotropy": 1,
+        "rgbm": true,
+        "mipmaps": true
+      },
+      "file": {
+        "filename": "Helipad_posx.png",
+        "hash": "cac1dd195a385d5871816e5f6c99a714",
+        "size": 442652,
+        "url": "files/assets/62306166/1/Helipad_posx.png"
+      },
+      "meta": {
+        "format": "png",
+        "type": "TrueColorAlpha",
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "depth": 8,
+        "srgb": true,
+        "compress": {
+          "alpha": true,
+          "dxt": false,
+          "pvr": false,
+          "pvrBpp": 4,
+          "etc1": false,
+          "etc2": false,
+          "normals": false,
+          "basis": false,
+          "quality": 128,
+          "compressionMode": "etc"
+        }
+      },
+      "name": "Helipad_posx",
+      "preload": false,
+      "region": "eu-west-1",
+      "revision": 1,
+      "tags": [],
+      "type": "texture",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "e2f29ac7-ae62-4fd4-ac84-6a1e3197be2a",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306166"
+    },
+    "62306171": {
+      "tags": [],
+      "name": "orbit-camera.js",
+      "revision": 1,
+      "preload": true,
+      "meta": null,
+      "data": {
+        "order": 100,
+        "scripts": {
+          "orbitCamera": {
+            "attributesOrder": [
+              "distanceMax",
+              "distanceMin",
+              "pitchAngleMax",
+              "pitchAngleMin",
+              "inertiaFactor",
+              "focusEntity",
+              "frameOnStart"
+            ],
+            "attributes": {
+              "distanceMax": {
+                "type": "number",
+                "default": 0,
+                "title": "Distance Max",
+                "description": "Setting this at 0 will give an infinite distance limit"
+              },
+              "distanceMin": { "type": "number", "default": 2, "title": "Distance Min" },
+              "pitchAngleMax": {
+                "type": "number",
+                "default": 90,
+                "title": "Pitch Angle Max (degrees)"
+              },
+              "pitchAngleMin": {
+                "type": "number",
+                "default": -90,
+                "title": "Pitch Angle Min (degrees)"
+              },
+              "focusEntity": {
+                "type": "entity",
+                "title": "Focus Entity",
+                "description": "Entity for the camera to focus on. If blank, then the camera will use the whole scene"
+              },
+              "frameOnStart": {
+                "type": "boolean",
+                "default": true,
+                "title": "Frame on Start",
+                "description": "Frames the entity or scene at the start of the application.\""
+              },
+              "inertiaFactor": {
+                "type": "number",
+                "default": 0,
+                "title": "Inertia Factor",
+                "description": "Higher value means that the camera will continue moving after the user has stopped dragging. 0 is fully responsive."
+              }
+            }
+          }
+        },
+        "loading": false,
+        "loadingType": 0
+      },
+      "type": "script",
+      "file": {
+        "filename": "__game-scripts.js",
+        "size": 13346,
+        "hash": "51186c98597eced3aec328b165d2152f",
+        "url": "__game-scripts.js"
+      },
+      "region": "eu-west-1",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "54d83ed3-49c7-4e09-8bd4-0e072883df96",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306171"
+    },
+    "62306172": {
+      "tags": [],
+      "name": "mouse-input.js",
+      "revision": 1,
+      "preload": true,
+      "meta": null,
+      "data": {
+        "order": 100,
+        "scripts": {
+          "mouseInput": {
+            "attributesOrder": ["orbitSensitivity", "distanceSensitivity"],
+            "attributes": {
+              "orbitSensitivity": {
+                "type": "number",
+                "default": 0.3,
+                "title": "Orbit Sensitivity",
+                "description": "How fast the camera moves around the orbit. Higher is faster"
+              },
+              "distanceSensitivity": {
+                "type": "number",
+                "default": 0.15,
+                "title": "Distance Sensitivity",
+                "description": "How fast the camera moves in and out. Higher is faster"
+              }
+            }
+          }
+        },
+        "loading": false,
+        "loadingType": 0
+      },
+      "type": "script",
+      "file": {
+        "filename": "__game-scripts.js",
+        "size": 13346,
+        "hash": "51186c98597eced3aec328b165d2152f",
+        "url": "__game-scripts.js"
+      },
+      "region": "eu-west-1",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "81fef1e2-ee9d-4bba-a3d6-ad78341494b8",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306172"
+    },
+    "62306173": {
+      "tags": [],
+      "name": "keyboard-input.js",
+      "revision": 1,
+      "preload": true,
+      "meta": null,
+      "data": {
+        "scripts": { "keyboardInput": { "attributesOrder": [], "attributes": {} } },
+        "loading": false,
+        "loadingType": 0
+      },
+      "type": "script",
+      "file": {
+        "filename": "__game-scripts.js",
+        "size": 13346,
+        "hash": "51186c98597eced3aec328b165d2152f",
+        "url": "__game-scripts.js"
+      },
+      "region": "eu-west-1",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "3b2dd0b6-059f-4abc-bc4f-8ecc834f39b3",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306173"
+    },
+    "62306175": {
+      "data": {
+        "addressu": "repeat",
+        "addressv": "repeat",
+        "minfilter": "linear_mip_linear",
+        "magfilter": "linear",
+        "anisotropy": 1,
+        "rgbm": true,
+        "mipmaps": true
+      },
+      "file": {
+        "filename": "Helipad_negx.png",
+        "hash": "ad3dcc195356ed24941a5f127f06f917",
+        "size": 421202,
+        "url": "files/assets/62306175/1/Helipad_negx.png"
+      },
+      "meta": {
+        "format": "png",
+        "type": "TrueColorAlpha",
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "depth": 8,
+        "srgb": true,
+        "compress": {
+          "alpha": true,
+          "dxt": false,
+          "pvr": false,
+          "pvrBpp": 4,
+          "etc1": false,
+          "etc2": false,
+          "normals": false,
+          "basis": false,
+          "quality": 128,
+          "compressionMode": "etc"
+        }
+      },
+      "name": "Helipad_negx",
+      "preload": false,
+      "region": "eu-west-1",
+      "revision": 1,
+      "tags": [],
+      "type": "texture",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "1051eee7-850a-41a7-846b-c22d37819a22",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306175"
+    },
+    "62306176": {
+      "data": {
+        "addressu": "repeat",
+        "addressv": "repeat",
+        "minfilter": "linear_mip_linear",
+        "magfilter": "linear",
+        "anisotropy": 1,
+        "rgbm": true,
+        "mipmaps": true
+      },
+      "file": {
+        "filename": "Helipad_posz.png",
+        "hash": "ed7ddf73b69555d1aef880e581214856",
+        "size": 458870,
+        "url": "files/assets/62306176/1/Helipad_posz.png"
+      },
+      "meta": {
+        "format": "png",
+        "type": "TrueColorAlpha",
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "depth": 8,
+        "srgb": true,
+        "compress": {
+          "alpha": true,
+          "dxt": false,
+          "pvr": false,
+          "pvrBpp": 4,
+          "etc1": false,
+          "etc2": false,
+          "normals": false,
+          "basis": false,
+          "quality": 128,
+          "compressionMode": "etc"
+        }
+      },
+      "name": "Helipad_posz",
+      "preload": false,
+      "region": "eu-west-1",
+      "revision": 1,
+      "tags": [],
+      "type": "texture",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "478c421e-7601-4842-a427-dd382ad9827e",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306176"
+    },
+    "62306177": {
+      "data": {
+        "addressu": "repeat",
+        "addressv": "repeat",
+        "minfilter": "linear_mip_linear",
+        "magfilter": "linear",
+        "anisotropy": 1,
+        "rgbm": true,
+        "mipmaps": true
+      },
+      "file": {
+        "filename": "Helipad_negz.png",
+        "hash": "98b3170f573dad6dff21623ffb347d80",
+        "size": 414309,
+        "url": "files/assets/62306177/1/Helipad_negz.png"
+      },
+      "meta": {
+        "format": "png",
+        "type": "TrueColorAlpha",
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "depth": 8,
+        "srgb": true,
+        "compress": {
+          "alpha": true,
+          "dxt": false,
+          "pvr": false,
+          "pvrBpp": 4,
+          "etc1": false,
+          "etc2": false,
+          "normals": false,
+          "basis": false,
+          "quality": 128,
+          "compressionMode": "etc"
+        }
+      },
+      "name": "Helipad_negz",
+      "preload": false,
+      "region": "eu-west-1",
+      "revision": 1,
+      "tags": [],
+      "type": "texture",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "da3cbbb8-577b-4373-ac93-0195e4df724c",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306177"
+    },
+    "62306178": {
+      "tags": [],
+      "name": "touch-input.js",
+      "revision": 1,
+      "preload": true,
+      "meta": null,
+      "data": {
+        "order": 100,
+        "scripts": {
+          "touchInput": {
+            "attributesOrder": ["orbitSensitivity", "distanceSensitivity"],
+            "attributes": {
+              "orbitSensitivity": {
+                "type": "number",
+                "default": 0.4,
+                "title": "Orbit Sensitivity",
+                "description": "How fast the camera moves around the orbit. Higher is faster"
+              },
+              "distanceSensitivity": {
+                "type": "number",
+                "default": 0.2,
+                "title": "Distance Sensitivity",
+                "description": "How fast the camera moves in and out. Higher is faster"
+              }
+            }
+          }
+        },
+        "loading": false,
+        "loadingType": 0
+      },
+      "type": "script",
+      "file": {
+        "filename": "__game-scripts.js",
+        "size": 13346,
+        "hash": "51186c98597eced3aec328b165d2152f",
+        "url": "__game-scripts.js"
+      },
+      "region": "eu-west-1",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "934a8494-cadb-4c91-ad33-f920b8cfb27b",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306178"
+    },
+    "62306181": {
+      "data": {
+        "addressu": "repeat",
+        "addressv": "repeat",
+        "minfilter": "linear_mip_linear",
+        "magfilter": "linear",
+        "anisotropy": 1,
+        "rgbm": true,
+        "mipmaps": true
+      },
+      "file": {
+        "filename": "Helipad_negy.png",
+        "hash": "1ee3f6bfb70d50783c2f0f0588aebc55",
+        "size": 465542,
+        "url": "files/assets/62306181/1/Helipad_negy.png"
+      },
+      "meta": {
+        "format": "png",
+        "type": "TrueColorAlpha",
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "depth": 8,
+        "srgb": true,
+        "compress": {
+          "alpha": true,
+          "dxt": false,
+          "pvr": false,
+          "pvrBpp": 4,
+          "etc1": false,
+          "etc2": false,
+          "normals": false,
+          "basis": false,
+          "quality": 128,
+          "compressionMode": "etc"
+        }
+      },
+      "name": "Helipad_negy",
+      "preload": false,
+      "region": "eu-west-1",
+      "revision": 1,
+      "tags": [],
+      "type": "texture",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "022c1419-e5ed-46fc-905b-2052fd338881",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306181"
+    },
+    "62306182": {
+      "tags": [],
+      "name": "load-glb-url.js",
+      "revision": 1,
+      "preload": true,
+      "exclude": false,
+      "meta": null,
+      "data": {
+        "scripts": {
+          "loadGlbUrl": {
+            "attributesOrder": ["glbIPFSAsset"],
+            "attributes": { "glbIPFSAsset": { "type": "string" } }
+          }
+        },
+        "loading": false,
+        "loadingType": 0
+      },
+      "type": "script",
+      "file": {
+        "filename": "__game-scripts.js",
+        "size": 13346,
+        "hash": "51186c98597eced3aec328b165d2152f",
+        "url": "__game-scripts.js"
+      },
+      "region": "eu-west-1",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "5011e5f6-5db7-4629-877f-6a42815511f6",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306182"
+    },
+    "62306184": {
+      "tags": [],
+      "name": "glb-utils.js",
+      "revision": 1,
+      "preload": true,
+      "meta": null,
+      "data": {
+        "scripts": { "glbUtils": { "attributesOrder": [], "attributes": {} } },
+        "loading": false,
+        "loadingType": 0
+      },
+      "type": "script",
+      "file": {
+        "filename": "__game-scripts.js",
+        "size": 13346,
+        "hash": "51186c98597eced3aec328b165d2152f",
+        "url": "__game-scripts.js"
+      },
+      "region": "eu-west-1",
+      "i18n": {},
+      "branch_id": "5c2ef5de-375b-4985-a033-be392bc0c47d",
+      "immutable_backup": "f00bc1df-ed75-40ce-a85c-6f179644e84c",
+      "same_as_backup": 1,
+      "checkpoint_id": "0e7e342d-e91c-4d78-9e55-945700fad3d9",
+      "id": "62306184"
+    }
+  }
+}

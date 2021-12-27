@@ -14,13 +14,17 @@
 
 ## 使用
 
-如果不使用 rollup 做额外打包，新版本小程序开发工具需要在`mini.project.json`增加一下配置
+```sh
+# 安装依赖
+> rush install
 
-```json
-{
-  "enableNodeModuleBabelTransform": true,
-  "node_modules_es6_whitelist": ["three"]
-}
+# dev
+> rush build:watch
+
+# 淘宝小程序开发工具打开本目录即可
+
+# prod
+> rush build
 ```
 
 ## 模拟器预览
@@ -49,6 +53,16 @@ try {
 }
 ```
 
-# BUG
+## 讨论
 
-~~目前加载 GLB 有问题~~, ~~已适配实现加载 GLB, 还是新版本 IDE 和淘宝有问题~~
+可通过群里 DeepKolos 联系我
+
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/three-platformize/master/docs/qq-group.jpg" />
+
+# 赞助
+
+如果项目对您有帮助或者有适配需求，欢迎打赏
+
+<img src="https://upload-images.jianshu.io/upload_images/252050-d3d6bfdb1bb06ddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="赞赏码" width="300">
+
+感谢各位支持~~

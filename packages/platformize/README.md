@@ -2,26 +2,6 @@
 
 platformize 通用构建插件和基础 API 适配, 可单独使用
 
-<details>
-<summary><h3>各小程序限制情况(点击展开)</h3></summary>
-
-- 小程序均不支持动态加载 JS, 所以`Scrpit`或`Wasm`Module 均不支持网络加载
-
-#### 微信小程序限制
-
-- 纹理图片分辨率不能大于 `2048`, 下载 ArrayBuffer 大小不能大于 `10MB`
-- WebGL 扩展 `OES_vertex_array_object` 有问题, 需手动禁用
-
-#### 淘宝小程序限制
-
-- 网络资源有严格的限制, 白名单需工单要内部的申请地址, 最长 3 个月, 过期失效, 建议走云存储
-- WebGL 扩展 `EXT_blend_minmax` 返回 undefined, 需手动禁用
-
-#### 字节小程序限制
-
-- WebGL 不开放给个人开发者
-</details>
-
 ## 使用
 
 ```text
@@ -46,10 +26,17 @@ export default mergeRollupOptions(
 );
 ```
 
+#### 原始方式
+
 需要高度定制`rollup.config.js`也可以选择自行组装
 
 ```javascript
 import { platformize } from 'platformize/dist-plugin';
+import sucrase from '@rollup/plugin-sucrase';
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
+import commonjs from '@rollup/plugin-commonjs';
+import builtins from 'rollup-plugin-node-builtins';
 
 export default {
   {
@@ -97,11 +84,11 @@ window.devicePixelRatio
 requestAnimationFrame();
 cancelAnimationFrame();
 const xhr = new XMLHttpRequest();
-...['等等']
+...等等
 ```
 
 <details>
-<summary>业务代码中按照Web方式使用以下API, 但非完全等价</summary>
+<summary>业务代码中按照Web方式使用以下API, 但非完全等价, 只实现了常用的部分</summary>
 
 - URL
 - Blob

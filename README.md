@@ -17,10 +17,30 @@
 | 字节小程序真机   | ✅      |       |            |
 | 字节小程序模拟器 | ❌      |       |            |
 
-- [各小程序限制的情况](./packages/platformize/README.md)
-- [ThreeJS 的具体情况](./packages/platformize-three/README.md)
-- [Oasis 的具体情况](./packages/platformize-oasis/README.md)
-- [Playcanvas 的具体情况](./packages/platformize-playcanvas/README.md)
+- [platformize 通用适配](./packages/platformize/README.md)
+- [platformize-three 专门适配](./packages/platformize-three/README.md)
+- [platformize-oasis 专门适配](./packages/platformize-oasis/README.md)
+- [platformize-playcanvas 专门适配](./packages/platformize-playcanvas/README.md)
+
+<details>
+<summary><h3>各小程序限制情况</h3></summary>
+
+- 小程序均不支持动态加载 JS, 所以`Scrpit`或`Wasm`Module 均不支持网络加载
+
+#### 微信小程序限制
+
+- 纹理图片分辨率不能大于 `2048`, 下载 ArrayBuffer 大小不能大于 `10MB`
+- WebGL 扩展 `OES_vertex_array_object` 有问题, 需手动禁用
+
+#### 淘宝小程序限制
+
+- 网络资源有严格的限制, 白名单需工单要内部的申请地址, 最长 3 个月, 过期失效, 建议走云存储
+- WebGL 扩展 `EXT_blend_minmax` 返回 undefined, 需手动禁用
+
+#### 字节小程序限制
+
+- WebGL 不开放给个人开发者
+</details>
 
 ## 截图
 

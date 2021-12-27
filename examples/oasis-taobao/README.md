@@ -10,7 +10,18 @@
 
 # 运行
 
-`rush build:watch`后淘宝小程序开发工具打开即可运行
+```sh
+# 安装依赖
+> rush install
+
+# dev
+> rush build:watch
+
+# 淘宝开发工具打开本目录即可
+
+# prod
+> rush build
+```
 
 ## 模拟器预览
 
@@ -20,6 +31,8 @@
 
 由于淘宝小程序有十分严格 URL 管控，且难申请域名白名单，推荐使用云存储存放模型，
 DEMO 里只有 GLTFLoader 是使用淘宝的域名，所以其他 Loader 的 Demo 真机无法预览
+
+可用 XMLHttpRequest 的[setURLModifier](../../packages/platformize/src/taobao/XMLHttpRequest.ts)实现 url 到云存储的映射
 
 ```js
 try {

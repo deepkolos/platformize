@@ -15,10 +15,12 @@ export class WechatPlatform extends WechatPlatformBase {
       if (type === 'img') return canvas.createImage();
     };
     // @ts-ignore
-    this.polyfill.document.body = { appendChild() {} };
+    this.polyfill.document.body = canvas;
     // @ts-ignore
     this.polyfill.document.head = {};
 
+    // @ts-ignore
+    canvas.appendChild = () => {};
     // @ts-ignore
     canvas.setAttribute = () => {};
   }

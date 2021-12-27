@@ -17,10 +17,12 @@ export class WechatGamePlatform extends WechatGamePlatformBase {
       if (type === 'img') return createImage(wxGame);
     };
     // @ts-ignore
-    this.polyfill.document.body = { appendChild() {} };
+    this.polyfill.document.body = canvas;
     // @ts-ignore
     this.polyfill.document.head = {};
 
+    // @ts-ignore
+    canvas.appendChild = () => {};
     // @ts-ignore
     canvas.setAttribute = () => {};
   }

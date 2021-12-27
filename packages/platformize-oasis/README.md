@@ -1,8 +1,58 @@
 # platformize-oasis [WIP]
 
-更加全面的适配可参考官方的适配库 https://github.com/oasis-engine/miniprogram-adapter 也欢迎 PR 集成到本仓库
+[`oasis-engine@0.6.3`](https://github.com/oasis-engine/engine) 专门适配
+
+> 更加全面的适配可参考官方的适配库 [oasis-engine/miniprogram-adapter](https://github.com/oasis-engine/miniprogram-adapter) 也欢迎 PR 集成到本仓库
 
 ## 使用
+
+```text
+pnpm i -S platformize-oasis@0.6.3 oasis-engine@0.6.3
+```
+
+`rollup.config.js`注入特定配置
+
+```javascript
+import { mergeRollupOptions } from 'platformize/dist-plugin';
+
+export default mergeRollupOptions(
+  {
+    input: ['./miniprogram/pages/index/index.ts'],
+    output: {
+      format: 'cjs',
+      dir: 'miniprogram/',
+      entryFileNames: 'pages/[name]/[name].js',
+    },
+  },
+  { minify: process.env.BUILD === 'production' },
+);
+```
+
+自行组装版本见[这里](../platformize/README.md#原始方式)
+
+```js
+import { PlatformManager, WechatPlatform } from 'platformize';
+
+const width = canvasClientWidth;
+const height = canvasClientHeight;
+const wechatPlatform = new WechatPlatform(canvas, width, height);
+PlatformManager.set(wechatPlatform);
+
+window.innerWidth
+window.innerHeight
+window.devicePixelRatio
+requestAnimationFrame();
+cancelAnimationFrame();
+const xhr = new XMLHttpRequest();
+...等等
+```
+
+### 详细例子
+
+- [oasis-wechat](../../examples/oasis-wechat/README.md)
+- [oasis-wechat-simple](../../examples/oasis-wechat-simple/README.md)
+- [oasis-wechat-game](../../examples/oasis-wechat-game/README.md)
+- [oasis-taobao](../../examples/oasis-taobao/README.md)
 
 ## 讨论
 

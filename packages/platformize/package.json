@@ -1,7 +1,7 @@
 {
   "name": "platformize",
   "version": "1.0.0",
-  "description": "",
+  "description": "platformize 通用构建插件和基础 API 适配, 可单独使用",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "sideEffects": false,
