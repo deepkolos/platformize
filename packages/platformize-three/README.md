@@ -288,7 +288,7 @@ class CustomPlatform {
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize-three/master/docs/qq-group.jpg" />
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/three-platformize/master/docs/qq-group.jpg" />
 
 ### [CHANGELOG](https://github.com/deepkolos/platformize-three/blob/master/CHANGELOG.md)
 

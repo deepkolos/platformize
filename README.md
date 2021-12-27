@@ -101,19 +101,16 @@ packages
 
 ## 运行例子/开发贡献
 
-> 使用 rush 管理 monorepo
+> 使用 [rush](https://rushjs.io/) 管理 monorepo
 
-https://www.raulmelo.dev/blog/replacing-lerna-and-yarn-with-pnpm-workspaces \
-https://zhuanlan.zhihu.com/p/422740629 \
-https://rushjs.io/
-
-```sh
+```text
 pnpm i -g @microsoft/rush concurrently
 rush install
 
-# dev
+# dev all
 rush build:watch
 
+# dev one example
 rush build:watch --to-except platformize-playcanvas-wechat
 pnpm dev --filter platformize-playcanvas-wechat
 
@@ -143,7 +140,7 @@ rush build
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize-three/master/docs/qq-group.jpg" />
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/three-platformize/master/docs/qq-group.jpg" />
 
 # 赞助
 
