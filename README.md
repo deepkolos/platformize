@@ -23,7 +23,8 @@
 - [platformize-playcanvas 专门适配](./packages/platformize-playcanvas/README.md)
 
 <details>
-<summary><h3>各小程序限制情况</h3></summary>
+
+<summary style="font-size: 18px;display: flex;align-items: center;">各小程序限制情况</summary>
 
 - 小程序均不支持动态加载 JS, 所以`Scrpit`或`Wasm`Module 均不支持网络加载
 
