@@ -24,7 +24,7 @@
 
 <details>
 
-<summary style="font-size: 18px;display: flex;align-items: center;">各小程序限制情况</summary>
+<summary style="font-size: 24px;display: flex;align-items: center;">各小程序限制情况</summary>
 
 - 小程序均不支持动态加载 JS, 所以`Scrpit`或`Wasm`Module 均不支持网络加载
 
@@ -44,6 +44,33 @@
 </details>
 
 ## 截图
+
+<div>
+  <img src="./examples/three-wechat/demo.gif" width="200" alt="" style="display:inline-block;"/>
+  <img src="./examples/oasis-wechat/demo.gif" width="200" alt="" style="display:inline-block;"/>
+  <img src="./examples/playcanvas-wechat/demo.gif" width="200" alt="" style="display:inline-block;"/>
+</div>
+
+<h3 align="center">Special Sponsors</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://www.yuntucad.com" target="_blank" align="center">
+          <img height="40px" alt="云图三维-在线三维CAD设计软件" src="https://upload-images.jianshu.io/upload_images/252050-3b45b9102c4b7a1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br>
+          云图三维-在线三维CAD设计软件
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://www.oppentech.com/" target="_blank" align="center">
+          <img height="40px" alt="奥本未来-AR/VR领域先行者" src="https://s3.cn-northwest-1.amazonaws.com.cn/oppenhome/logo_black.png"><br>
+          奥本未来-AR/VR领域先行者
+        </a>
+      </td>
+    </tr><tr></tr>
+  </tbody>
+</table>
 
 ## 目录设计
 
@@ -161,7 +188,7 @@ rush build
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="https://raw.githubusercontent.com/deepkolos/three-platformize/master/docs/qq-group.jpg" />
+<img width="250" src="./docs/qq-group.jpg" />
 
 # 赞助
 
@@ -170,3 +197,18 @@ rush build
 <img src="https://upload-images.jianshu.io/upload_images/252050-d3d6bfdb1bb06ddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="赞赏码" width="300">
 
 感谢各位支持~~
+
+| 时间       | 大佬                                       |
+| ---------- | ------------------------------------------ |
+| 2021/12/20 | 神神                                       |
+| 2021/11/10 | 神神                                       |
+| 2021/09/27 | 阿不                                       |
+| 2021/08/10 | 奥本未来                                   |
+| 2021/07/28 | Noth1ng                                    |
+| 2021/07/09 | 匿名                                       |
+| 2021/07/07 | [云图 CAD-刘鑫](https://www.yuntucad.com/) |
+| 2021/06/23 | Fong                                       |
+| 2021/06/23 | 刘子弃                                     |
+| 2021/06/23 | Joson                                      |
+| 2021/06/03 | 仿生伏尔泰                                 |
+| 2021/04/28 | Noth1ng                                    |

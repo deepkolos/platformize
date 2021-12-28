@@ -85,6 +85,8 @@ requestAnimationFrame();
 cancelAnimationFrame();
 const xhr = new XMLHttpRequest();
 ...等等
+// 使用完毕后销毁资源
+wechatPlatform.dispose();
 ```
 
 <details>
@@ -121,7 +123,7 @@ const xhr = new XMLHttpRequest();
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="https://raw.githubusercontent.com/deepkolos/three-platformize/master/docs/qq-group.jpg" />
+<img width="250" src="../../docs/qq-group.jpg" />
 
 # 赞助
 

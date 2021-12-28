@@ -11,40 +11,6 @@
 7. 支持自定义新平台适配，参考 WechatPlatform 编写适配器即可
 8. [platformize-three-plugin-wechat](https://github.com/deepkolos/platformize-three-plugin-wechat) 支持微信插件跨插件复用
 
-<h3 align="center">Special Sponsors</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="middle">
-        <a href="https://www.yuntucad.com" target="_blank" align="center">
-          <img height="45px" alt="云图三维-在线三维CAD设计软件" src="https://upload-images.jianshu.io/upload_images/252050-3b45b9102c4b7a1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br>
-          云图三维-在线三维CAD设计软件
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a href="https://www.oppentech.com/" target="_blank" align="center">
-          <img height="45px" alt="奥本未来-AR/VR领域先行者" src="https://s3.cn-northwest-1.amazonaws.com.cn/oppenhome/logo_black.png"><br>
-          奥本未来-AR/VR领域先行者
-        </a>
-      </td>
-    </tr><tr></tr>
-  </tbody>
-</table>
-
-### 适配情况
-
-|              | 微信 | 淘宝 | 字节 |
-| ------------ | ---- | ---- | ---- |
-| 小程序真机   | ✅   | ✅   | ✅   |
-| 小程序模拟器 | ✅   | ✅   |      |
-| 小游戏真机   | ✅   |      |      |
-| 小游戏模拟器 | ✅   |      |      |
-
-<br>
-
-> [奥本未来](https://www.oppentech.com/)招聘前端、WebGL、图形学算法，欢迎投简历
-
 ## DEMO
 
 > 注：运行 DEMO 时记得开启调试模式，取消域名验证，使用**最新版本**微信开发工具打开
@@ -162,22 +128,56 @@
 
 ## 使用
 
-```js
-import * as THREE from 'three';
-import WechatPlatform from 'three/src/WechatPlatform';
-
-const platform = new WechatPlatform(canvas); // webgl canvas
-
-platform.enableDeviceOrientation('game'); // 开启DeviceOrientation
-THREE.PLATFORM.set(platform);
-
-// 使用完毕后释放资源
-THREE.PLATFORM.dispose();
-
-// 正常使用three即可
-// DEMO 代码示例见 https://github.com/deepkolos/platformize-three-demo
-// 基础的使用DEMO见 https://github.com/deepkolos/platformize-three-demo-wechat-simple
+```text
+pnpm i -S platformize-three@0.133.1 three@0.133.0
 ```
+
+`rollup.config.js`注入特定配置
+
+```javascript
+import { mergeRollupOptions } from 'platformize-three/dist-plugin';
+
+export default mergeRollupOptions(
+  {
+    input: ['./miniprogram/pages/index/index.ts'],
+    output: {
+      format: 'cjs',
+      dir: 'miniprogram/',
+      entryFileNames: 'pages/[name]/[name].js',
+    },
+  },
+  { minify: process.env.BUILD === 'production' },
+);
+```
+
+自行组装版本见[这里](../platformize/README.md#原始方式)
+
+```js
+import { PlatformManager, WechatPlatform } from 'platformize-three';
+
+const width = canvasClientWidth;
+const height = canvasClientHeight;
+const wechatPlatform = new WechatPlatform(canvas, width, height);
+PlatformManager.set(wechatPlatform);
+
+window.innerWidth
+window.innerHeight
+window.devicePixelRatio
+requestAnimationFrame();
+cancelAnimationFrame();
+const xhr = new XMLHttpRequest();
+...等等
+// 使用完毕后销毁资源
+wechatPlatform.dispose();
+```
+
+### 详细例子
+
+- [three-wechat](../../examples/three-wechat/README.md)
+- [three-wechat-simple](../../examples/three-wechat-simple/README.md)
+- [three-wechat-game](../../examples/three-wechat-game/README.md)
+- [three-taobao](../../examples/three-taobao/README.md)
+- [three-byte](../../examples/three-byte/README.md)
 
 ### 经验
 
@@ -190,91 +190,13 @@ THREE.PLATFORM.dispose();
 6. 淘宝小程序有严格的域名验证，可使用云存储放模型，但是如果模型和纹理分开则需要手动关联，推荐 GLB
 7. URL 的 polyfill 可以使用 fileSystemManager 来获取临时文件的方式避免 arraybuffer 转 base64, 但是需要手动管理临时文件
 
-## 实现
-
-构建时替换平台相关的 api 调用，转发到 PLATFORM 的引用，通过 PLATFORM.set 更新
-
-## 维护
-
 ### 如何更新/降级 Three 的版本？
 
-```shell
-# 拉取源码
-> git clone https://github.com/deepkolos/platformize-three
-
-# 安装依赖
-> npm i
-
-# 更新到最新的three版本
-> npm i -S three@latest
-# 或者指定three版本
-> npm i -S three@0.122.0
-# 需要把目标three的构建`utils/build/rollup.config.js`同步到本项目的构建`config/rollup.config.three-origin.js`
-
-# 建立软链接
-> npm run link
-
-# 构建
-> npm run build
-
-# 使用
-> npm link
-
-# 到使用的项目目录，并链接
-> cd your-project
-> npm link platformize-three
-
-# 或者自行发NPM包
-```
-
-### 如何平台化自定义的 Three？
-
-```shell
-# 把自定义Three link 到./three
-> npx symlink-dir yourthree ./three
-
-# 不使用软链接直接复制或者git submodule也可以
-> cp yourthree ./three
-
-# 复制对应版本three构建配置替换到rollup.config.three-origin.js
-> cp yourthree/utils/build/rollup.config.js ./config/rollup.config.three-origin.js
-
-# 构建
-> npm run build
-```
+与 web 一样, 把 three 替换为特定的版本,或者定制后的 three 即可, 不过目前只有 r133 版本测试过
 
 ### 如何编写自定义平台？
 
-可参考`src/WechatPlatform`或者`src/TaobaoPlatform`
-
-```js
-class CustomPlatform {
-  getGlobals() {
-    // 自定义的polyfill
-    return {
-      atob,
-      Blob,
-      window,
-      document,
-      XMLHttpRequest,
-      OffscreenCanvas,
-      HTMLCanvasElement,
-      createImageBitmap,
-    };
-  }
-
-  setWebGLExtensions() {
-    return {
-      // 可覆盖gl返回值，比如淘宝小程序IOS返回值不为null，但是扩展不可用的bug
-      EXT_blend_minmax: null,
-    };
-  }
-
-  dispose() {
-    // 释放资源
-  }
-}
-```
+可参考`src/wechat`或者`src/taobao`编写
 
 ## TODO
 
@@ -288,7 +210,7 @@ class CustomPlatform {
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="https://raw.githubusercontent.com/deepkolos/three-platformize/master/docs/qq-group.jpg" />
+<img width="250" src="../../docs/qq-group.jpg" />
 
 ### [CHANGELOG](https://github.com/deepkolos/platformize-three/blob/master/CHANGELOG.md)
 
@@ -299,20 +221,6 @@ class CustomPlatform {
 <img src="https://upload-images.jianshu.io/upload_images/252050-d3d6bfdb1bb06ddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="赞赏码" width="300">
 
 感谢各位支持~~
-
-<!--
-| 时间       | 大佬                                       | 赞助    |
-| ---------- | ------------------------------------------ | ------- |
-| 2021/11/10 | 神神                                       | 200 块  |
-| 2021/09/27 | 阿不                                       | 100.1 块|
-| 2021/08/10 | 奥本未来                                   | 1000 块 |
-| 2021/07/28 | Noth1ng                                    | 18 块   |
-| 2021/07/07 | [云图 CAD-刘鑫](https://www.yuntucad.com/) | 2000 块 |
-| 2021/06/23 | Fong                                       | 66 块   |
-| 2021/06/23 | 刘子弃                                     | 6 块    |
-| 2021/06/23 | Joson                                      | 1 块    |
-| 2021/06/03 | 仿生伏尔泰                                 | 1 块    |
-| 2021/04/28 | Noth1ng                                    | 6 块    | -->
 
 | 时间       | 大佬                                       |
 | ---------- | ------------------------------------------ |
