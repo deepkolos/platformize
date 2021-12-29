@@ -11,6 +11,17 @@ function main(args: Args) {
   // console.log(args);
   const t = Date.now();
 
+  if (!args.dst || !args.src || !args.url || args.h)
+    return console.log(`
+  描述:
+    转换playcanvas编辑器导出项目到小程序支持写法工具
+
+  参数:
+    -src="web离线项目本地目录"
+    -dst="转换输出目录"
+    -url="网络资源网址前缀"
+    -h 显示帮组`);
+
   const srcPath = checkDirExist(args.src);
   const dstPath = checkDirExist(args.dst);
   const urlPath = args.url;

@@ -2,15 +2,6 @@
 
 一个让 THREE 平台化的项目, 从[three-platformize](https://github.com/deepkolos/three-platformize)迁移过来
 
-1. 目前已适配微信，淘宝，字节小程序
-2. 支持 tree shaking（需用 webpack，rollup 等构建工具）
-3. VSCode types 正常，能正常访问各个类的定义
-4. 适配 examples/jsm/\*\*/\*.js，types 正常
-5. 可升级、降级版本或使用自定义 THREE
-6. 微信小程序 IOS 内存优化，更少切页面导致的崩溃
-7. 支持自定义新平台适配，参考 WechatPlatform 编写适配器即可
-8. [platformize-three-plugin-wechat](https://github.com/deepkolos/platformize-three-plugin-wechat) 支持微信插件跨插件复用
-
 ## DEMO
 
 > 注：运行 DEMO 时记得开启调试模式，取消域名验证，使用**最新版本**微信开发工具打开
@@ -112,10 +103,6 @@
 7. meshopt_decoder.asm.module（微信小程序可用
 8. meshopt_decoder.wasm.module（微信小程序可用
 
-#### Extensions
-
-0. GLTFGPUCompressedTexture(BasisTextureLoader 的代替方案) 生成工具通过[gltf-gpu-compressed-texture](https://github.com/deepkolos/gltf-gpu-compressed-texture)获取（暂未适配微信小程序
-
 ## 使用
 
 ```text
@@ -176,7 +163,7 @@ wechatPlatform.dispose();
 2. r126 不能设置全 pixelRatio，可以设置为一半，或者 2，不能是 3
 3. 虽然支持加载 GLB，但图片是使用 js 版的 ArrayBuffer 转 base64，耗时且占用内存，虽可用 wasm 的 encoder 缓解 (https://github.com/marcosc90/encoding-wasm)，但wasm对字符串处理性能不如js，用AssemblyScript编译的wasm测试
 4. IOS 前后进入退出页面崩可以降低 pixelRatio 缓解
-5. IOS 微信 readPixels 不支持抗锯齿，如果直接 canvas 的 buffer 需要关闭抗锯齿（antialias: false）, 另一种方式是 WebglRenderTarget，同时也可以开启抗锯齿，但是纹理大小受限（小米 8 下纹理宽/高不能超过 4096，需要注意先 setSize，再 setPixelRatio）（截图 Demo 见[微信小程序 DEMO](https://github.com/deepkolos/platformize-three-demo-wechat)）
+5. IOS 微信 readPixels 不支持抗锯齿，如果直接 canvas 的 buffer 需要关闭抗锯齿（antialias: false）, 另一种方式是 WebglRenderTarget，同时也可以开启抗锯齿，但是纹理大小受限（小米 8 下纹理宽/高不能超过 4096，需要注意先 setSize，再 setPixelRatio）（截图 Demo 见[微信小程序 DEMO](../../examples/three-wechat/README.md)）
 6. 淘宝小程序有严格的域名验证，可使用云存储放模型，但是如果模型和纹理分开则需要手动关联，推荐 GLB
 7. URL 的 polyfill 可以使用 fileSystemManager 来获取临时文件的方式避免 arraybuffer 转 base64, 但是需要手动管理临时文件
 

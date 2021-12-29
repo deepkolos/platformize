@@ -8,10 +8,6 @@
 
 # 运行
 
-请使用**最新版本**的头条开发工具打开**miniprogram** 目录，切换到自己的测试 appId 即可运行，**打开调试模式，不校验域名**
-
-如果需要修改代码，可按照已下步骤构建
-
 ```sh
 # 安装依赖
 > rush install
@@ -19,7 +15,7 @@
 # dev
 > rush build:watch
 
-# 小程序开发工具打开miniprogram目录即可
+# 小程序开发工具打开miniprogram目录即可, 开调试模式
 
 # prod
 > rush build
