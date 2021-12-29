@@ -1,7 +1,7 @@
 {
   "name": "platformize-three",
   "version": "0.133.0",
-  "description": "",
+  "description": "platformize three to many platform wechat/taobao miniprogram/game",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
