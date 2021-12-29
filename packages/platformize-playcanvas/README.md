@@ -1,4 +1,4 @@
-# platformize-playcanvas[WIP]
+# platformize-playcanvas
 
 ## 使用
 

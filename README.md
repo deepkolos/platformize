@@ -1,4 +1,4 @@
-# platformize [WIP]
+# platformize
 
 一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 比如`threejs@0.133.0 / oasis@0.6.3 / playcanvas@1.50.0`
 

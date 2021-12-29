@@ -1,4 +1,4 @@
-# platformize-oasis [WIP]
+# platformize-oasis
 
 [`oasis-engine@0.6.3`](https://github.com/oasis-engine/engine) 专门适配
 
