@@ -1,7 +1,7 @@
 # platformize-three-demo-wechat 微信小程序
 
 <div>
-  <img src="./demo.gif" width="250" alt="" style="display:inline-block;"/>
+  <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
 </div>
 
 <div>
@@ -36,7 +36,7 @@ IPAD 来回进出页面崩
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="../../docs/qq-group.jpg" />
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize/main/docs/qq-group.jpg" />
 
 # 赞助
 

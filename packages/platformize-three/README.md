@@ -6,33 +6,33 @@
 
 > 注：运行 DEMO 时记得开启调试模式，取消域名验证，使用**最新版本**微信开发工具打开
 
-> 具体 Loader 使用方法的 Demo 在这个仓库下[tests-three](../../examples/tests-three/index.ts)
+> 具体 Loader 使用方法的 Demo 在这个仓库下[tests-three](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/tests-three/index.ts)
 
 <table>
   <tbody>
     <tr>
       <th>
-        <a href="../../examples/three-wechat/README.md">微信小程序 DEMO</a><br />
-        <a href="../../examples/three-wechat-simple/README.md">微信小程序基础版 DEMO</a><br />
-        <a href="../../examples/three-wechat-game/README.md">微信小游戏 DEMO</a>
+        <a href="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/README.md">微信小程序 DEMO</a><br />
+        <a href="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat-simple/README.md">微信小程序基础版 DEMO</a><br />
+        <a href="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat-game/README.md">微信小游戏 DEMO</a>
       </th>
       <th>
-        <a href="../../examples/three-taobao">淘宝小程序 DEMO</a>
+        <a href="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-taobao">淘宝小程序 DEMO</a>
       </th>
       <th>
-        <a href="../../examples/three-byte">字节小程序 DEMO</a>
+        <a href="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-byte">字节小程序 DEMO</a>
       </th>
     </tr>
     <tr>
       <td>
         <img
-          src="../../examples/three-wechat/demo.gif"
+          src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/demo.gif"
           width="250"
           alt=""
         />
         <div>
           <img
-            src="../../examples/three-wechat/qrcode.jpg"
+            src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/qrcode.jpg"
             width="150"
             alt=""
           />
@@ -40,14 +40,14 @@
       </td>
       <td>
         <img
-          src="../../examples/three-taobao/demo.gif"
+          src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-taobao/demo.gif"
           width="250"
           alt=""
         />
       </td>
       <td>
         <img
-          src="../../examples/three-byte/demo.gif"
+          src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-byte/demo.gif"
           width="250"
           alt=""
         />
@@ -64,7 +64,7 @@
 
 #### Loader
 
-1. GLTFLoader (支持带纹理的 GLB) && (EXT_meshopt_compression 安卓可用 WASM，ios 可用 ASM 版，见 tools) && (KHR_mesh_quantization，小程序可用) [【网格压缩测评】MeshQuan、MeshOpt、Draco ](https://juejin.cn/post/6931954784018628621) (微信 8.0 后 WebAssembly API 已无法使用需要使用 WXWebAssembly, 且只支持包内 wasm, 已新增 meshopt_decoder.wasm.module, [使用见](../../examples/tests-three/MeshOpt.ts#L8))
+1. GLTFLoader (支持带纹理的 GLB) && (EXT_meshopt_compression 安卓可用 WASM，ios 可用 ASM 版，见 tools) && (KHR_mesh_quantization，小程序可用) [【网格压缩测评】MeshQuan、MeshOpt、Draco ](https://juejin.cn/post/6931954784018628621) (微信 8.0 后 WebAssembly API 已无法使用需要使用 WXWebAssembly, 且只支持包内 wasm, 已新增 meshopt_decoder.wasm.module, [使用见](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/tests-three/MeshOpt.ts#L8))
 2. TextureLoader
 3. RGBELoader & PMREMGenerator (小程序部分机型可能偶现[生成 envMap 错误](https://juejin.cn/post/6922829073920032775)，可用[HDRPrefilter](https://github.com/deepkolos/hdr-prefilter-texture)避免 )
 4. SVGLoader
@@ -150,11 +150,11 @@ wechatPlatform.dispose();
 
 ### 详细例子
 
-- [three-wechat](../../examples/three-wechat/README.md)
-- [three-wechat-simple](../../examples/three-wechat-simple/README.md)
-- [three-wechat-game](../../examples/three-wechat-game/README.md)
-- [three-taobao](../../examples/three-taobao/README.md)
-- [three-byte](../../examples/three-byte/README.md)
+- [three-wechat](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/README.md)
+- [three-wechat-simple](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat-simple/README.md)
+- [three-wechat-game](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat-game/README.md)
+- [three-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-taobao/README.md)
+- [three-byte](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-byte/README.md)
 
 ### 经验
 
@@ -163,7 +163,7 @@ wechatPlatform.dispose();
 2. r126 不能设置全 pixelRatio，可以设置为一半，或者 2，不能是 3
 3. 虽然支持加载 GLB，但图片是使用 js 版的 ArrayBuffer 转 base64，耗时且占用内存，虽可用 wasm 的 encoder 缓解 (https://github.com/marcosc90/encoding-wasm)，但wasm对字符串处理性能不如js，用AssemblyScript编译的wasm测试
 4. IOS 前后进入退出页面崩可以降低 pixelRatio 缓解
-5. IOS 微信 readPixels 不支持抗锯齿，如果直接 canvas 的 buffer 需要关闭抗锯齿（antialias: false）, 另一种方式是 WebglRenderTarget，同时也可以开启抗锯齿，但是纹理大小受限（小米 8 下纹理宽/高不能超过 4096，需要注意先 setSize，再 setPixelRatio）（截图 Demo 见[微信小程序 DEMO](../../examples/three-wechat/README.md)）
+5. IOS 微信 readPixels 不支持抗锯齿，如果直接 canvas 的 buffer 需要关闭抗锯齿（antialias: false）, 另一种方式是 WebglRenderTarget，同时也可以开启抗锯齿，但是纹理大小受限（小米 8 下纹理宽/高不能超过 4096，需要注意先 setSize，再 setPixelRatio）（截图 Demo 见[微信小程序 DEMO](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/README.md)）
 6. 淘宝小程序有严格的域名验证，可使用云存储放模型，但是如果模型和纹理分开则需要手动关联，推荐 GLB
 7. URL 的 polyfill 可以使用 fileSystemManager 来获取临时文件的方式避免 arraybuffer 转 base64, 但是需要手动管理临时文件
 
@@ -187,7 +187,7 @@ wechatPlatform.dispose();
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="../../docs/qq-group.jpg" />
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize/main/docs/qq-group.jpg" />
 
 ### [CHANGELOG](https://github.com/deepkolos/platformize-three/blob/master/CHANGELOG.md)
 

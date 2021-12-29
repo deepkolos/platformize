@@ -46,9 +46,9 @@
 ## 截图
 
 <div>
-  <img src="./examples/three-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
-  <img src="./examples/oasis-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
-  <img src="./examples/playcanvas-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
+  <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
+  <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
+  <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
 </div>
 
 <h3 align="center">Special Sponsors</h3>
@@ -189,7 +189,7 @@ rush rebuild
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="./docs/qq-group.jpg" />
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize/main/docs/qq-group.jpg" />
 
 # 赞助
 

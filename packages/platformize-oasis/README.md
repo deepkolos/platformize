@@ -51,16 +51,16 @@ wechatPlatform.dispose();
 
 ### 详细例子
 
-- [oasis-wechat](../../examples/oasis-wechat/README.md)
-- [oasis-wechat-simple](../../examples/oasis-wechat-simple/README.md)
-- [oasis-wechat-game](../../examples/oasis-wechat-game/README.md)
-- [oasis-taobao](../../examples/oasis-taobao/README.md)
+- [oasis-wechat](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat/README.md)
+- [oasis-wechat-simple](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat-simple/README.md)
+- [oasis-wechat-game](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat-game/README.md)
+- [oasis-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-taobao/README.md)
 
 ## 讨论
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="../../docs/qq-group.jpg" />
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize/main/docs/qq-group.jpg" />
 
 # 赞助
 

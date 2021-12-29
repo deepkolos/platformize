@@ -47,14 +47,14 @@ wechatPlatform.dispose();
 
 ### 详细例子
 
-- [playcanvas-wechat](../../examples/playcanvas-wechat/README.md)
-- [playcanvas-wechat-simple](../../examples/playcanvas-wechat-simple/README.md)
-- [playcanvas-wechat-game](../../examples/playcanvas-wechat-game/README.md)
-- [playcanvas-taobao](../../examples/playcanvas-taobao/README.md)
+- [playcanvas-wechat](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-wechat/README.md)
+- [playcanvas-wechat-simple](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-wechat-simple/README.md)
+- [playcanvas-wechat-game](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-wechat-game/README.md)
+- [playcanvas-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-taobao/README.md)
 
 ## 注意事项
 
-- 小程序不支持网络动态加载`Script`, 需构建时引入, 例子可见[tests-playcanvas/tween](../../examples/tests-playcanvas/tween.ts)
+- 小程序不支持网络动态加载`Script`, 需构建时引入, 例子可见[tests-playcanvas/tween](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/tests-playcanvas/tween.ts)
 
 ## 转换 playcanvas 编辑器导出项目到小程序
 
@@ -68,7 +68,7 @@ node ./packages/platformize-playcanvas/cli.js -src=./resources/playcanvas-editor
 
 可通过群里 DeepKolos 联系我
 
-<img width="250" src="../../docs/qq-group.jpg" />
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize/main/docs/qq-group.jpg" />
 
 # 赞助
 
