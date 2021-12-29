@@ -2,7 +2,7 @@
 
 一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 比如`threejs@0.133.0 / oasis@0.6.3 / playcanvas@1.50.0`
 
-> 欢迎各位提 PR, 分享小程序的适配经验, 把这些经验集中起来, 让小程序的 3D 开发更便利, 当然适配到 ReactNative, 快应用, Lynx 等其他 Hybrid 也是同理
+> 欢迎各位提 PR, 分享小程序的适配经验, 把这些经验集中起来, 让小程序的 3D 开发更便利, 当然适配到 ReactNative, 快应用, Lynx 等其他 Hybrid 也是同理, 编写Web API对应的polyfill+library的一些patch即可
 
 ## 适配情况
 

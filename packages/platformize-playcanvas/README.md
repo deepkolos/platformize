@@ -77,3 +77,7 @@ node ./packages/platformize-playcanvas/cli.js -src=./resources/playcanvas-editor
 <img src="https://upload-images.jianshu.io/upload_images/252050-d3d6bfdb1bb06ddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="赞赏码" width="300">
 
 感谢各位支持~~
+
+| 时间       | 大佬 |
+| ---------- | ---- |
+| 2021/12/20 | 神神 |

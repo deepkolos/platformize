@@ -15,43 +15,33 @@
 
 > 注：运行 DEMO 时记得开启调试模式，取消域名验证，使用**最新版本**微信开发工具打开
 
-> 具体 Loader 使用方法的 Demo 在这个仓库下[platformize-three-demo](https://github.com/deepkolos/platformize-three-demo)
+> 具体 Loader 使用方法的 Demo 在这个仓库下[tests-three](../../examples/tests-three/index.ts)
 
 <table>
   <tbody>
     <tr>
       <th>
-        <a href="https://github.com/deepkolos/platformize-three-demo-wechat"
-          >微信小程序 DEMO</a
-        ><br /><a
-          href="https://github.com/deepkolos/platformize-three-demo-wechat-simple"
-          >微信小程序基础版 DEMO</a
-        ><br /><a
-          href="https://github.com/deepkolos/platformize-three-demo-wechat-game"
-          >微信小游戏 DEMO</a
-        >
+        <a href="../../examples/three-wechat/README.md">微信小程序 DEMO</a><br />
+        <a href="../../examples/three-wechat-simple/README.md">微信小程序基础版 DEMO</a><br />
+        <a href="../../examples/three-wechat-game/README.md">微信小游戏 DEMO</a>
       </th>
       <th>
-        <a href="https://github.com/deepkolos/platformize-three-demo-taobao"
-          >淘宝小程序 DEMO</a
-        >
+        <a href="../../examples/three-taobao">淘宝小程序 DEMO</a>
       </th>
       <th>
-        <a href="https://github.com/deepkolos/platformize-three-demo-byte"
-          >字节小程序 DEMO</a
-        >
+        <a href="../../examples/three-byte">字节小程序 DEMO</a>
       </th>
     </tr>
     <tr>
       <td>
         <img
-          src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-wechat/master/demo.gif"
+          src="../../examples/three-wechat/demo.gif"
           width="250"
           alt=""
         />
         <div>
           <img
-            src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-wechat/master/qrcode.jpg"
+            src="../../examples/three-wechat/qrcode.jpg"
             width="150"
             alt=""
           />
@@ -59,14 +49,14 @@
       </td>
       <td>
         <img
-          src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-taobao/master/demo.gif"
+          src="../../examples/three-taobao/demo.gif"
           width="250"
           alt=""
         />
       </td>
       <td>
         <img
-          src="https://raw.githubusercontent.com/deepkolos/platformize-three-demo-byte/master/demo.gif"
+          src="../../examples/three-byte/demo.gif"
           width="250"
           alt=""
         />
@@ -75,7 +65,7 @@
   </tbody>
 </table>
 
-### 已测试模块
+## 已测试模块
 
 #### Features
 
@@ -83,7 +73,7 @@
 
 #### Loader
 
-1. GLTFLoader (支持带纹理的 GLB) && (EXT_meshopt_compression 安卓可用 WASM，ios 可用 ASM 版，见 tools) && (KHR_mesh_quantization，小程序可用) [【网格压缩测评】MeshQuan、MeshOpt、Draco ](https://juejin.cn/post/6931954784018628621) (微信 8.0 后 WebAssembly API 已无法使用需要使用 WXWebAssembly, 且只支持包内 wasm, 已新增 meshopt_decoder.wasm.module, [使用见](https://github.com/deepkolos/platformize-three-demo/blob/main/src/MeshOpt.ts#L8))
+1. GLTFLoader (支持带纹理的 GLB) && (EXT_meshopt_compression 安卓可用 WASM，ios 可用 ASM 版，见 tools) && (KHR_mesh_quantization，小程序可用) [【网格压缩测评】MeshQuan、MeshOpt、Draco ](https://juejin.cn/post/6931954784018628621) (微信 8.0 后 WebAssembly API 已无法使用需要使用 WXWebAssembly, 且只支持包内 wasm, 已新增 meshopt_decoder.wasm.module, [使用见](../../examples/tests-three/MeshOpt.ts#L8))
 2. TextureLoader
 3. RGBELoader & PMREMGenerator (小程序部分机型可能偶现[生成 envMap 错误](https://juejin.cn/post/6922829073920032775)，可用[HDRPrefilter](https://github.com/deepkolos/hdr-prefilter-texture)避免 )
 4. SVGLoader
@@ -110,7 +100,7 @@
 
 0. ImageBitmapLoader(微信小程序未开放 ImageBitmap)
 
-#### Tools
+#### Tools(/src/base)
 
 0. dispose-three（销毁节点
 1. flip（截屏需要 flipY
