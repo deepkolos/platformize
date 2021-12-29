@@ -164,6 +164,7 @@ pnpm dev --filter platformize-playcanvas-wechat
 
 # prod
 rush build
+rush rebuild
 ```
 
 ## TODO
