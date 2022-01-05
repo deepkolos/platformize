@@ -180,7 +180,7 @@ rush rebuild
 8. 构建迁移到 rush + swc (esbuild 不支持像 tsc 那样 transpile 目录) ✅
 9. TextDecoder 支持更多格式 (TBD)
 10. 支持 playcanvas 导出项目转换到小程序 ✅
-11. 运行时反馈式tree shaking
+11. 运行时反馈式tree shaking (类似tfjs custom module的方式[tfjs-treeshaking-test](https://github.com/deepkolos/tfjs-treeshaking-test))
 
 ## 适配经验
 
