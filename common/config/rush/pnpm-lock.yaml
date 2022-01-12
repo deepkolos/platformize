@@ -5,6 +5,17 @@ specifiers:
   '@oasis-engine/controls': ^0.6.3
   '@oasis-engine/lottie': ^0.6.5
   '@oasis-engine/physics-lite': ^0.6.3
+  '@pixi/app': 6.2.1
+  '@pixi/constants': 6.2.1
+  '@pixi/core': 6.2.1
+  '@pixi/display': 6.2.1
+  '@pixi/math': 6.2.1
+  '@pixi/runner': 6.2.1
+  '@pixi/settings': 6.2.1
+  '@pixi/sprite': 6.2.1
+  '@pixi/ticker': 6.2.1
+  '@pixi/unsafe-eval': 6.2.1
+  '@pixi/utils': 6.2.1
   '@rollup/plugin-commonjs': ^17.0.0
   '@rollup/plugin-node-resolve': ^11.1.0
   '@rollup/plugin-sucrase': ^3.1.0
@@ -15,6 +26,8 @@ specifiers:
   '@rush-temp/platformize-oasis-wechat': file:./projects/platformize-oasis-wechat.tgz
   '@rush-temp/platformize-oasis-wechat-game': file:./projects/platformize-oasis-wechat-game.tgz
   '@rush-temp/platformize-oasis-wechat-simple': file:./projects/platformize-oasis-wechat-simple.tgz
+  '@rush-temp/platformize-pixi': file:./projects/platformize-pixi.tgz
+  '@rush-temp/platformize-pixi-wechat': file:./projects/platformize-pixi-wechat.tgz
   '@rush-temp/platformize-playcanvas': file:./projects/platformize-playcanvas.tgz
   '@rush-temp/platformize-playcanvas-taobao': file:./projects/platformize-playcanvas-taobao.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:./projects/platformize-playcanvas-wechat.tgz
@@ -27,6 +40,7 @@ specifiers:
   '@rush-temp/platformize-three-wechat-game': file:./projects/platformize-three-wechat-game.tgz
   '@rush-temp/platformize-three-wechat-simple': file:./projects/platformize-three-wechat-simple.tgz
   '@rush-temp/tests-oasis': file:./projects/tests-oasis.tgz
+  '@rush-temp/tests-pixi': file:./projects/tests-pixi.tgz
   '@rush-temp/tests-playcanvas': file:./projects/tests-playcanvas.tgz
   '@rush-temp/tests-three': file:./projects/tests-three.tgz
   '@swc/cli': ~0.1.52
@@ -54,6 +68,17 @@ dependencies:
   '@oasis-engine/controls': 0.6.3
   '@oasis-engine/lottie': 0.6.5
   '@oasis-engine/physics-lite': 0.6.3
+  '@pixi/app': 6.2.1_aceb95ab22e2234d543e5a00b62355d3
+  '@pixi/constants': 6.2.1
+  '@pixi/core': 6.2.1_df051550645010bdf6fa89694bb02821
+  '@pixi/display': 6.2.1_1d33a1a6f36d9b164ecad80ec2850ee4
+  '@pixi/math': 6.2.1
+  '@pixi/runner': 6.2.1
+  '@pixi/settings': 6.2.1
+  '@pixi/sprite': 6.2.1_a5021554595e851f1bd0aeb0c831d747
+  '@pixi/ticker': 6.2.1_@pixi+settings@6.2.1
+  '@pixi/unsafe-eval': 6.2.1_@pixi+core@6.2.1
+  '@pixi/utils': 6.2.1_3e04be5e664f83402a3249471d1d4424
   '@rollup/plugin-commonjs': 17.1.0_rollup@2.60.2
   '@rollup/plugin-node-resolve': 11.2.1_rollup@2.60.2
   '@rollup/plugin-sucrase': 3.1.1_rollup@2.60.2
@@ -64,6 +89,8 @@ dependencies:
   '@rush-temp/platformize-oasis-wechat': file:projects/platformize-oasis-wechat.tgz
   '@rush-temp/platformize-oasis-wechat-game': file:projects/platformize-oasis-wechat-game.tgz
   '@rush-temp/platformize-oasis-wechat-simple': file:projects/platformize-oasis-wechat-simple.tgz
+  '@rush-temp/platformize-pixi': file:projects/platformize-pixi.tgz
+  '@rush-temp/platformize-pixi-wechat': file:projects/platformize-pixi-wechat.tgz_aceb95ab22e2234d543e5a00b62355d3
   '@rush-temp/platformize-playcanvas': file:projects/platformize-playcanvas.tgz
   '@rush-temp/platformize-playcanvas-taobao': file:projects/platformize-playcanvas-taobao.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:projects/platformize-playcanvas-wechat.tgz
@@ -76,6 +103,7 @@ dependencies:
   '@rush-temp/platformize-three-wechat-game': file:projects/platformize-three-wechat-game.tgz
   '@rush-temp/platformize-three-wechat-simple': file:projects/platformize-three-wechat-simple.tgz
   '@rush-temp/tests-oasis': file:projects/tests-oasis.tgz
+  '@rush-temp/tests-pixi': file:projects/tests-pixi.tgz
   '@rush-temp/tests-playcanvas': file:projects/tests-playcanvas.tgz
   '@rush-temp/tests-three': file:projects/tests-three.tgz
   '@swc/cli': 0.1.52_@swc+core@1.2.117
@@ -1235,6 +1263,112 @@ packages:
       '@oasis-engine/math': 0.6.3
     dev: false
 
+  /@pixi/app/6.2.1_aceb95ab22e2234d543e5a00b62355d3:
+    resolution: {integrity: sha512-J1dlu4PTF6O9WfHKTs0pg3NSePW2+8M2yMrivR7R/Z3CmmebnRiquua7U/avQXkLVJBwGdSyij2e6fN8dvnUXw==}
+    peerDependencies:
+      '@pixi/core': 6.2.1
+      '@pixi/display': 6.2.1
+    dependencies:
+      '@pixi/core': 6.2.1_df051550645010bdf6fa89694bb02821
+      '@pixi/display': 6.2.1_1d33a1a6f36d9b164ecad80ec2850ee4
+    dev: false
+
+  /@pixi/constants/6.2.1:
+    resolution: {integrity: sha512-Dppt6rjYP4mIvJCY1I38XhPSfXoOm+A+ERKljLjcvcxVAMhqCTVz3YMp2cUzaio6DtQutiQ6tT06M40xlBZ/lA==}
+    dev: false
+
+  /@pixi/core/6.2.1_df051550645010bdf6fa89694bb02821:
+    resolution: {integrity: sha512-Ndh4/sNXWEkDeU5waWBCsMMPPaQv5uXLyepPXJE0emHBtgJOjKEHa79hrr0p1I2KN7Q8+mw8WlK55yVGuHroIA==}
+    peerDependencies:
+      '@pixi/constants': 6.2.1
+      '@pixi/math': 6.2.1
+      '@pixi/runner': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@pixi/ticker': 6.2.1
+      '@pixi/utils': 6.2.1
+    dependencies:
+      '@pixi/constants': 6.2.1
+      '@pixi/math': 6.2.1
+      '@pixi/runner': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@pixi/ticker': 6.2.1_@pixi+settings@6.2.1
+      '@pixi/utils': 6.2.1_3e04be5e664f83402a3249471d1d4424
+    dev: false
+
+  /@pixi/display/6.2.1_1d33a1a6f36d9b164ecad80ec2850ee4:
+    resolution: {integrity: sha512-4taHTgQeAWXrxB4WV0CsyarFEVuI8seKU+12S57c8nQGRYESfDUx4jFatWfgMHY2xCNwCdPTCvlSJzT5ou8VWA==}
+    peerDependencies:
+      '@pixi/math': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@pixi/utils': 6.2.1
+    dependencies:
+      '@pixi/math': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@pixi/utils': 6.2.1_3e04be5e664f83402a3249471d1d4424
+    dev: false
+
+  /@pixi/math/6.2.1:
+    resolution: {integrity: sha512-ejAHHbJSRtAhpFVFOQ4niavCDkjISWBxjFQoqznManDZKXBH0vf8EQBWSth5Cp9wXXAG0mAt4gzlwYXEf7Axkg==}
+    dev: false
+
+  /@pixi/runner/6.2.1:
+    resolution: {integrity: sha512-m3dB5b212WJ3wa7QGBY27NckHtQu1TR2FwtEeMyL0g0tSfCf1ve0Pegf39q9PQ4D1/C1j0n58JuKBqSf9oH66Q==}
+    dev: false
+
+  /@pixi/settings/6.2.1:
+    resolution: {integrity: sha512-GVgLgTdEMZDSEyly+yX+49MhVzEiSyJCHItAurLUVGLvi443AcRuK57mYVNDdTfOn2VRIvwW7FNgwdrzq58WWQ==}
+    dependencies:
+      ismobilejs: 1.1.1
+    dev: false
+
+  /@pixi/sprite/6.2.1_a5021554595e851f1bd0aeb0c831d747:
+    resolution: {integrity: sha512-NV4mS3vUcVgi9qKtY3SH/tf5goinCAJId3bmj76MAlBDNaE8wyu7bEcWLQFIHC59zxJCOd5D/iOmDqVKiOu4Dw==}
+    peerDependencies:
+      '@pixi/constants': 6.2.1
+      '@pixi/core': 6.2.1
+      '@pixi/display': 6.2.1
+      '@pixi/math': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@pixi/utils': 6.2.1
+    dependencies:
+      '@pixi/constants': 6.2.1
+      '@pixi/core': 6.2.1_df051550645010bdf6fa89694bb02821
+      '@pixi/display': 6.2.1_1d33a1a6f36d9b164ecad80ec2850ee4
+      '@pixi/math': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@pixi/utils': 6.2.1_3e04be5e664f83402a3249471d1d4424
+    dev: false
+
+  /@pixi/ticker/6.2.1_@pixi+settings@6.2.1:
+    resolution: {integrity: sha512-J9UCTIJswM7HO76CtBpJAB+EMBxElmJ+JV9uTUQBGZVc6cmQI9JPPx1QcDWVkuF4qv1Keeh0Tjhnq8Sjc701AA==}
+    peerDependencies:
+      '@pixi/settings': 6.2.1
+    dependencies:
+      '@pixi/settings': 6.2.1
+    dev: false
+
+  /@pixi/unsafe-eval/6.2.1_@pixi+core@6.2.1:
+    resolution: {integrity: sha512-vDd+eGY7J8sdLpNdblX6ek/5Pqicjh5jhek/mgCDbvNDVP0H/OuKky2rWANNpafeSO5kLbhEgXebYe5HTBmEfw==}
+    peerDependencies:
+      '@pixi/core': 6.2.1
+    dependencies:
+      '@pixi/core': 6.2.1_df051550645010bdf6fa89694bb02821
+    dev: false
+
+  /@pixi/utils/6.2.1_3e04be5e664f83402a3249471d1d4424:
+    resolution: {integrity: sha512-aLOIzDZ6ccJ/DfGs9vldjWXn3RHpOMR26Bkr3aeynn/p1rdY3n2dzC8oKWwVb3gPQWmsEZJa8QuLvOiIwHqAJg==}
+    peerDependencies:
+      '@pixi/constants': 6.2.1
+      '@pixi/settings': 6.2.1
+    dependencies:
+      '@pixi/constants': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@types/earcut': 2.1.1
+      earcut: 2.2.3
+      eventemitter3: 3.1.2
+      url: 0.11.0
+    dev: false
+
   /@rollup/plugin-commonjs/17.1.0_rollup@2.60.2:
     resolution: {integrity: sha512-PoMdXCw0ZyvjpCMT5aV4nkL0QywxP29sODQsSGeDpr/oI49Qq9tRtAsb/LbYbDzFlOydVEqHmmZWFtXJEAX9ew==}
     engines: {node: '>= 8.0.0'}
@@ -1445,6 +1579,10 @@ packages:
 
   /@tweenjs/tween.js/18.6.4:
     resolution: {integrity: sha512-lB9lMjuqjtuJrx7/kOkqQBtllspPIN+96OvTCeJ2j5FEzinoAXTdAMFnDAQT1KVPRlnYfBrqxtqP66vDM40xxQ==}
+    dev: false
+
+  /@types/earcut/2.1.1:
+    resolution: {integrity: sha512-w8oigUCDjElRHRRrMvn/spybSMyX8MTkKA5Dv+tS1IE/TgmNZPqUYtvYBXGY8cieSE66gm+szeK+bnbxC2xHTQ==}
     dev: false
 
   /@types/estree/0.0.39:
@@ -2325,6 +2463,10 @@ packages:
     resolution: {integrity: sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=}
     dev: false
 
+  /earcut/2.2.3:
+    resolution: {integrity: sha512-iRDI1QeCQIhMCZk48DRDMVgQSSBDmbzzNhnxIo+pwx3swkfjMh6vh0nWLq1NdvGHLKH6wIrAM3vQWeTj6qeoug==}
+    dev: false
+
   /electron-to-chromium/1.4.11:
     resolution: {integrity: sha512-2OhsaYgsWGhWjx2et8kaUcdktPbBGjKM2X0BReUCKcSCPttEY+hz2zie820JLbttU8jwL92+JJysWwkut3wZgA==}
     dev: false
@@ -2447,6 +2589,10 @@ packages:
   /esutils/2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /eventemitter3/3.1.2:
+    resolution: {integrity: sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==}
     dev: false
 
   /evp_bytestokey/1.0.3:
@@ -2991,6 +3137,10 @@ packages:
 
   /isbuffer/0.0.0:
     resolution: {integrity: sha1-OMFG2d9Si4v5sHAcPUPPEt8/w5s=}
+    dev: false
+
+  /ismobilejs/1.1.1:
+    resolution: {integrity: sha512-VaFW53yt8QO61k2WJui0dHf4SlL8lxBofUuUmwBo0ljPk0Drz2TiuDW4jo3wDcv41qy/SxrJ+VAzJ/qYqsmzRw==}
     dev: false
 
   /jest-worker/26.6.2:
@@ -3840,6 +3990,10 @@ packages:
       once: 1.4.0
     dev: false
 
+  /punycode/1.3.2:
+    resolution: {integrity: sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0=}
+    dev: false
+
   /pupa/2.1.1:
     resolution: {integrity: sha512-l1jNAspIBSFqbT+y+5FosojNpVpF94nlI+wDUpqP9enwOTfHx9f0gh5nB96vl+6yTpsJsypeNrwfzPrKuHB41A==}
     engines: {node: '>=8'}
@@ -3854,6 +4008,12 @@ packages:
   /qrcode-terminal/0.12.0:
     resolution: {integrity: sha512-EXtzRZmC+YGmGlDFbXKxQiMZNwCLEO6BANKXG4iCtSIM0yqc/pappSx3RIKr4r0uh5JsBckOXeKrB3Iz7mdQpQ==}
     hasBin: true
+    dev: false
+
+  /querystring/0.2.0:
+    resolution: {integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=}
+    engines: {node: '>=0.4.x'}
+    deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: false
 
   /queue-microtask/1.2.3:
@@ -4495,6 +4655,13 @@ packages:
       prepend-http: 2.0.0
     dev: false
 
+  /url/0.11.0:
+    resolution: {integrity: sha1-ODjpfPxgUh63PFJajlW/3Z4uKPE=}
+    dependencies:
+      punycode: 1.3.2
+      querystring: 0.2.0
+    dev: false
+
   /utif/2.0.1:
     resolution: {integrity: sha512-Z/S1fNKCicQTf375lIP9G8Sa1H/phcysstNrrSdZKj1f9g58J4NMgb5IgiEZN9/nLMPDwF0W7hdOe9Qq2IYoLg==}
     dependencies:
@@ -4704,6 +4871,28 @@ packages:
     version: 0.0.0
     dev: false
 
+  file:projects/platformize-pixi-wechat.tgz_aceb95ab22e2234d543e5a00b62355d3:
+    resolution: {integrity: sha512-E/Ths+YHWturCHZdBxnqJks7OrYJXYE0eXm8bLH0MYmpW/d1C9WnEOJcKSJrXMqcUg1+wTtHftQbr35mRhOUAQ==, tarball: file:projects/platformize-pixi-wechat.tgz}
+    id: file:projects/platformize-pixi-wechat.tgz
+    name: '@rush-temp/platformize-pixi-wechat'
+    version: 0.0.0
+    dependencies:
+      '@pixi/app': 6.2.1_aceb95ab22e2234d543e5a00b62355d3
+      '@types/wechat-miniprogram': 3.4.0
+      miniprogram-automator: 0.10.0
+      rollup: 2.60.2
+    transitivePeerDependencies:
+      - '@pixi/core'
+      - '@pixi/display'
+      - supports-color
+    dev: false
+
+  file:projects/platformize-pixi.tgz:
+    resolution: {integrity: sha512-i63NSBjSK3Pm4t3u5spB/Yu/yZTMIPY5VwRY0Ao0AUCr7rw8adsXDdV0IwSLSmu0DNOzn86+2g8m1yo4G/DlsA==, tarball: file:projects/platformize-pixi.tgz}
+    name: '@rush-temp/platformize-pixi'
+    version: 0.0.0
+    dev: false
+
   file:projects/platformize-playcanvas-taobao.tgz:
     resolution: {integrity: sha512-lUt8iHY4La44PK22zWAfsxq4b8zTnHU6qYB38GId+i3moVHZ+E42wNk1i8dbFTRC9P8tH7zV2YthiiB6IFkfMA==, tarball: file:projects/platformize-playcanvas-taobao.tgz}
     name: '@rush-temp/platformize-playcanvas-taobao'
@@ -4858,6 +5047,24 @@ packages:
       '@oasis-engine/physics-lite': 0.6.3
       '@tweenjs/tween.js': 18.6.4
       oasis-engine: 0.6.3
+    dev: false
+
+  file:projects/tests-pixi.tgz:
+    resolution: {integrity: sha512-7tUrScd4enAr1u4zbTFm9yKEmQFiIpPPPOOTXv3fIBxGgDvX1YTyjsyNk69oIeR0RPqlthHefddvdU4k+8s1Nw==, tarball: file:projects/tests-pixi.tgz}
+    name: '@rush-temp/tests-pixi'
+    version: 0.0.0
+    dependencies:
+      '@pixi/app': 6.2.1_aceb95ab22e2234d543e5a00b62355d3
+      '@pixi/constants': 6.2.1
+      '@pixi/core': 6.2.1_df051550645010bdf6fa89694bb02821
+      '@pixi/display': 6.2.1_1d33a1a6f36d9b164ecad80ec2850ee4
+      '@pixi/math': 6.2.1
+      '@pixi/runner': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@pixi/sprite': 6.2.1_a5021554595e851f1bd0aeb0c831d747
+      '@pixi/ticker': 6.2.1_@pixi+settings@6.2.1
+      '@pixi/unsafe-eval': 6.2.1_@pixi+core@6.2.1
+      '@pixi/utils': 6.2.1_3e04be5e664f83402a3249471d1d4424
     dev: false
 
   file:projects/tests-playcanvas.tgz:

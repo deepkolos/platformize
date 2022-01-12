@@ -38,6 +38,10 @@ export class BytePlatform extends Platform {
         if (type === 'canvas') return canvas;
         if (type === 'img') return createImage(canvas);
       },
+      createElement(type: string) {
+        if (type === 'canvas') return canvas;
+        if (type === 'img') return createImage(canvas);
+      },
     } as unknown as Document;
 
     const Image = (() => createImage(canvas)) as unknown as HTMLImageElement;

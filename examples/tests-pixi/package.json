@@ -1,0 +1,26 @@
+{
+  "name": "tests-pixi",
+  "version": "1.0.0",
+  "module": "index.ts",
+  "main": "index.ts",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build:watch": "exit 0",
+    "build": "exit 0"
+  },
+  "dependencies": {
+    "platformize-pixi": "^6.2.1",
+    "@pixi/unsafe-eval": "6.2.1",
+    "@pixi/sprite": "6.2.1",
+    "@pixi/display": "6.2.1",
+    "@pixi/app": "6.2.1",
+    "@pixi/constants": "6.2.1",
+    "@pixi/core": "6.2.1",
+    "@pixi/math": "6.2.1",
+    "@pixi/runner": "6.2.1",
+    "@pixi/settings": "6.2.1",
+    "@pixi/ticker": "6.2.1",
+    "@pixi/utils": "6.2.1"
+  }
+}

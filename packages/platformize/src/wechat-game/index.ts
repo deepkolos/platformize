@@ -41,6 +41,10 @@ export class WechatGamePlatform extends Platform {
         if (type === 'canvas') return canvas;
         if (type === 'img') return createImage(wxGame);
       },
+      createElement(type: string) {
+        if (type === 'canvas') return canvas;
+        if (type === 'img') return createImage(canvas);
+      },
     } as unknown as Document;
 
     const Image = (() => createImage(wxGame)) as unknown as HTMLImageElement;

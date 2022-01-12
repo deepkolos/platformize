@@ -468,6 +468,11 @@
       "projectFolder": "packages/platformize-playcanvas",
       "shouldPublish": true
     },
+    {
+      "packageName": "platformize-pixi",
+      "projectFolder": "packages/platformize-pixi",
+      "shouldPublish": true
+    },
     // tests
     {
       "packageName": "tests-three",
@@ -482,6 +487,11 @@
     {
       "packageName": "tests-playcanvas",
       "projectFolder": "examples/tests-playcanvas",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "tests-pixi",
+      "projectFolder": "examples/tests-pixi",
       "shouldPublish": false
     },
     // examples
@@ -548,6 +558,11 @@
     {
       "packageName": "platformize-three-wechat-simple",
       "projectFolder": "examples/three-wechat-simple",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "platformize-pixi-wechat",
+      "projectFolder": "examples/pixi-wechat",
       "shouldPublish": false
     }
   ]

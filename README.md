@@ -1,21 +1,21 @@
 # platformize
 
-一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 比如`threejs@0.133.0 / oasis@0.6.3 / playcanvas@1.50.0`
+一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 比如`threejs@0.133.0 / oasis@0.6.3 / playcanvas@1.50.0 / pixi@6.2.1`
 
 > 欢迎各位提 PR, 分享小程序的适配经验, 把这些经验集中起来, 让小程序的 3D 开发更便利, 当然适配到 ReactNative, 快应用, Lynx 等其他 Hybrid 也是同理, 编写 Web API 对应的 polyfill+library 的一些 patch 即可
 
 ## 适配情况
 
-|                  | ThreeJS | Oasis | Playcanvas |
-| ---------------- | ------- | ----- | ---------- |
-| 微信小程序真机   | ✅      | ✅    | ✅         |
-| 微信小程序模拟器 | ✅      | ✅    | ✅         |
-| 微信小游戏真机   | ✅      | ✅    | ✅         |
-| 微信小游戏模拟器 | ✅      | ✅    | ✅         |
-| 淘宝小程序真机   | ✅      | ✅    | ✅         |
-| 淘宝小程序模拟器 | ❌      | ❌    | ❌         |
-| 字节小程序真机   | ✅      |       |            |
-| 字节小程序模拟器 | ❌      |       |            |
+|                  | ThreeJS | Oasis | Playcanvas | PixiJS |
+| ---------------- | ------- | ----- | ---------- | ------ |
+| 微信小程序真机   | ✅      | ✅    | ✅         |        |
+| 微信小程序模拟器 | ✅      | ✅    | ✅         |        |
+| 微信小游戏真机   | ✅      | ✅    | ✅         |        |
+| 微信小游戏模拟器 | ✅      | ✅    | ✅         |        |
+| 淘宝小程序真机   | ✅      | ✅    | ✅         |        |
+| 淘宝小程序模拟器 | ❌      | ❌    | ❌         |        |
+| 字节小程序真机   | ✅      |       |            |        |
+| 字节小程序模拟器 | ❌      |       |            |        |
 
 - [platformize 通用适配](./packages/platformize/README.md)
 - [platformize-three 专门适配](./packages/platformize-three/README.md)
@@ -180,7 +180,7 @@ rush rebuild
 8. 构建迁移到 rush + swc (esbuild 不支持像 tsc 那样 transpile 目录) ✅
 9. TextDecoder 支持更多格式 (TBD)
 10. 支持 playcanvas 导出项目转换到小程序 ✅
-11. 运行时反馈式tree shaking (类似tfjs custom module的方式[tfjs-treeshaking-test](https://github.com/deepkolos/tfjs-treeshaking-test))
+11. 运行时反馈式 tree shaking (类似 tfjs custom module 的方式[tfjs-treeshaking-test](https://github.com/deepkolos/tfjs-treeshaking-test))
 
 ## 适配经验
 

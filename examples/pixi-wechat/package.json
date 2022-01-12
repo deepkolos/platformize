@@ -1,0 +1,24 @@
+{
+  "name": "platformize-pixi-wechat",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:watch": "rollup -c",
+    "dev": "rollup -w -c",
+    "build": "rollup -c --environment BUILD:production",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "keywords": [],
+  "author": "DeepKolos<deepkolos@qq.com>",
+  "license": "",
+  "dependencies": {
+    "tests-pixi": "*",
+    "platformize-pixi": "^6.2.1",
+    "@pixi/app": "6.2.1"
+  },
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.4.0",
+    "miniprogram-automator": "^0.10.0",
+    "rollup": "^2.60.1"
+  }
+}

@@ -50,6 +50,10 @@ export class WechatPlatform extends Platform {
         if (type === 'canvas') return canvas;
         if (type === 'img') return createImage(canvas);
       },
+      createElement(type: string) {
+        if (type === 'canvas') return canvas;
+        if (type === 'img') return createImage(canvas);
+      },
       body: {},
     } as unknown as Document;
     const img = createImage(canvas);
