@@ -1,6 +1,6 @@
 import * as PIXI from '../pixi';
 
-export function BasicContianer(canvas) {
+export function BasicContianer(canvas: any) {
   PIXI.__init__();
   const app = new PIXI.Application({
     width: canvas.width,
@@ -8,7 +8,7 @@ export function BasicContianer(canvas) {
     backgroundColor: 0x1099bb,
     resolution: window.devicePixelRatio || 1,
   });
-  document.body.appendChild(app.view);
+  // document.body.appendChild(app.view);
 
   const container = new PIXI.Container();
 

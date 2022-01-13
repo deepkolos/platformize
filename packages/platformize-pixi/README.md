@@ -5,7 +5,20 @@
 ## 使用
 
 ```text
-pnpm i -S platformize-pixi@0.6.3 oasis-engine@0.6.3
+pnpm i -S platformize-pixi@6.2.1 pixi.js@6.2.1
+
+# https://pixijs.io/customize/
+pnpm i -S @pixi/constants@6.2.1 \
+          @pixi/core@6.2.1 \
+          @pixi/math@6.2.1 \
+          @pixi/runner@6.2.1 \
+          @pixi/settings@6.2.1 \
+          @pixi/ticker@6.2.1 \
+          @pixi/utils@6.2.1 \
+          @pixi/app@6.2.1 \
+          @pixi/display@6.2.1 \
+          @pixi/sprite@6.2.1 \
+          @pixi/unsafe-eval@6.2.1
 ```
 
 `rollup.config.js`注入特定配置

@@ -64,7 +64,7 @@ Page({
     this.currDemo = null as unknown as Application;
 
     const demo = (await DEMO[item](this.canvas)) as Application;
-    if (!demo) console.error('no engine instance returned');
+    if (!demo) console.error('no app instance returned');
     this.currDemo = demo;
     this.setData({ currItem: i });
     this.onMenuClick();

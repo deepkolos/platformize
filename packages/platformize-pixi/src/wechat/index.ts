@@ -13,7 +13,11 @@ export class WechatPlatform extends WechatPlatformBase {
     // @ts-ignore
     this.polyfill.navigator = { userAgent: '' };
     // @ts-ignore
+    this.polyfill.window.location = { origin: '' };
+    // @ts-ignore
     this.polyfill.document.body = { appendChild() {} };
     this.polyfill.HTMLCanvasElement = canvas.constructor as unknown as HTMLCanvasElement;
+    const img = this.polyfill.document.createElement('img')
+    this.polyfill.HTMLImageElement = img.constructor as unknown as HTMLImageElement;
   }
 }

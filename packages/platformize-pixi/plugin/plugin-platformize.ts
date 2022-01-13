@@ -35,6 +35,7 @@ function patchPixi(): Plugin {
         code = code.replaceAll(`self.removeEventListener`, `window.removeEventListener`);
         code = code.replaceAll(`self.addEventListener`, `window.addEventListener`);
         code = code.replaceAll(`self.HTMLVideoElement`, `false`);
+        code = code.replaceAll(`self.XDomainRequest`, `false`);
         code = code.replace(
           `function determineCrossOrigin(url$1, loc) {`,
           `function determineCrossOrigin(url$1, loc) { return '';`,
@@ -43,7 +44,29 @@ function patchPixi(): Plugin {
           `gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS)`,
           `gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS) || 1`,
         );
-        code = code.replace(`function isWebGLSupported() {`,`function isWebGLSupported() {return true;`)
+        code = code.replace(
+          `function isWebGLSupported() {`,
+          `function isWebGLSupported() {return true;`,
+        );
+        code = code.replaceAll('self.origin', "''");
+        code = code.replaceAll(
+          `source instanceof HTMLImageElement`,
+          `source.naturalWidth !== undefined`,
+        );
+        code = code.replaceAll(`'ontouchstart' in self`, 'true');
+        code = code.replaceAll(`'PointerEvent' in self`, `false`)
+        code = code.replaceAll(`!!self.PointerEvent`, `false`)
+        code = code.replaceAll(`event instanceof TouchEvent`, `event.touches !== undefined`)
+
+        if (filePath.indexOf('loader') > -1) {
+          code = code.replace(`var Url = self.URL || self.webkitURL;`, ``);
+          code = code.replace(`Url.revokeObjectURL`, `URL.revokeObjectURL`);
+          code = code.replace(`Url.createObjectURL`, `URL.createObjectURL`);
+          code = code.replace(
+            `_determineCrossOrigin = function (url, loc) {`,
+            `_determineCrossOrigin = function (url, loc) { return '';`,
+          );
+        }
       }
 
       if (filePath.indexOf('process-es6') > -1) {
