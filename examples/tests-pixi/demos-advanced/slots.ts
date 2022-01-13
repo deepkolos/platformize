@@ -120,11 +120,10 @@ export function Slots(canvas: any) {
     // bottom.addListener('pointerdown', () => {
     //   startPlay();
     // });
-    reelContainer.on('touchstart', () => {
+    reelContainer.interactive = true;
+    reelContainer.on('pointerdown', () => {
       startPlay();
     });
-
-    setTimeout(startPlay, 2000);
 
     let running = false;
 

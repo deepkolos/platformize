@@ -6,3 +6,5 @@ export * from './demos-basic/tinting';
 export * from './demos-basic/cacheAsBitmap';
 export * from './demos-advanced/slots';
 export * from './demos-advanced/scratchcard';
+export * from './demos-advanced/star-warp';
+export * from './demos-advanced/collision-detection';
