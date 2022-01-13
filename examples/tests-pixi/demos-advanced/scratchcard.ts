@@ -16,6 +16,7 @@ export function ScratchCard(canvas: any) {
   const brush = new PIXI.Graphics();
   brush.beginFill(0xffffff);
   brush.drawCircle(0, 0, 50);
+  //   brush.drawRect(0,0, 50,50);
   brush.endFill();
 
   app.loader.add('t1', 'https://pixijs.io/examples/examples/assets/bg_grass.jpg');

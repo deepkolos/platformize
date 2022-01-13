@@ -22,8 +22,17 @@ function patchPixi(): Plugin {
         code = code.replace(`self.WebGLRenderingContext`, 'true');
         code = code.replace(
           `function createWhiteTexture() {`,
-          `function createWhiteTexture() {return new Texture(new BaseTexture());`,
+          `function createWhiteTexture() {
+            return new Texture(
+              new BaseTexture(
+                new BufferResource(new Uint8Array(new Array(4 * 16 * 16).fill(255)), {
+                  width: 16,
+                  height: 16,
+                }),
+              ),
+            );;`,
         );
+        
         code = replaceAll(
           code,
           `'WebGL2RenderingContext' in self && gl instanceof self.WebGL2RenderingContext`,
