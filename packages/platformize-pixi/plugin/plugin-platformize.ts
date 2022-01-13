@@ -1,5 +1,6 @@
 import { platformize, DEFAULT_API_LIST as DEFAULT_API_LIST_BAE } from 'platformize/dist-plugin';
 import type { Plugin } from 'rollup';
+// @ts-ignore
 import replaceAll from 'string.prototype.replaceall';
 
 type platformizeOptions = Parameters<typeof platformize>['0'];
@@ -61,6 +62,15 @@ function patchPixi(): Plugin {
         code = replaceAll(code, `'PointerEvent' in self`, `false`);
         code = replaceAll(code, `!!self.PointerEvent`, `false`);
         code = replaceAll(code, `event instanceof TouchEvent`, `event.touches !== undefined`);
+        code = code.replace(`self.Promise`, `true`);
+
+        if (filePath.indexOf('text')) {
+          code = code.replace(
+            `// OffscreenCanvas2D measureText can be up to 40% faster.`,
+            `return { getContext(){} }`,
+          );
+          code = code.replace(`data instanceof XMLDocument`, `data && data.isXML`);
+        }
 
         if (filePath.indexOf('loader') > -1) {
           code = code.replace(`var Url = self.URL || self.webkitURL;`, ``);

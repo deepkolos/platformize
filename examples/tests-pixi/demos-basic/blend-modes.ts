@@ -16,7 +16,7 @@ export function BlendModes(canvas: any) {
   app.stage.addChild(background);
 
   // create an array to store a reference to the dudes
-  const dudeArray = [];
+  const dudeArray: any[] = [];
 
   const totaldudes = 20;
 

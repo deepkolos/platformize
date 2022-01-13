@@ -60,6 +60,7 @@ function parse(xml: string) {
     return {
       declaration: declaration(),
       root: tag(),
+      isXML: true
     };
   }
 
