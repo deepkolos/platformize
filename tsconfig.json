@@ -21,6 +21,7 @@
     "dist-cli",
     "node_modules",
     "test/types",
+    "examples/**/*.js",
     "examples/three-wechat-simple/miniprogram/app.js",
     "examples/three-wechat/miniprogram/app.js"
   ]

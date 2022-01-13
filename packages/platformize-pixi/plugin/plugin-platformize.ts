@@ -1,5 +1,6 @@
 import { platformize, DEFAULT_API_LIST as DEFAULT_API_LIST_BAE } from 'platformize/dist-plugin';
 import type { Plugin } from 'rollup';
+import replaceAll from 'string.prototype.replaceall';
 
 type platformizeOptions = Parameters<typeof platformize>['0'];
 
@@ -22,7 +23,8 @@ function patchPixi(): Plugin {
           `function createWhiteTexture() {`,
           `function createWhiteTexture() {return new Texture(new BaseTexture());`,
         );
-        code = code.replaceAll(
+        code = replaceAll(
+          code,
           `'WebGL2RenderingContext' in self && gl instanceof self.WebGL2RenderingContext`,
           'false',
         );
@@ -30,17 +32,18 @@ function patchPixi(): Plugin {
           `var attributes = gl.getContextAttributes();`,
           `var attributes = gl.getContextAttributes() || {};`,
         );
-        code = code.replaceAll(`self.console`, `console`);
-        code = code.replaceAll(`self.location`, `window.location`);
-        code = code.replaceAll(`self.removeEventListener`, `window.removeEventListener`);
-        code = code.replaceAll(`self.addEventListener`, `window.addEventListener`);
-        code = code.replaceAll(`self.HTMLVideoElement`, `false`);
-        code = code.replaceAll(`self.XDomainRequest`, `false`);
+        code = replaceAll(code, `self.console`, `console`);
+        code = replaceAll(code, `self.location`, `window.location`);
+        code = replaceAll(code, `self.removeEventListener`, `window.removeEventListener`);
+        code = replaceAll(code, `self.addEventListener`, `window.addEventListener`);
+        code = replaceAll(code, `self.HTMLVideoElement`, `false`);
+        code = replaceAll(code, `self.XDomainRequest`, `false`);
         code = code.replace(
           `function determineCrossOrigin(url$1, loc) {`,
           `function determineCrossOrigin(url$1, loc) { return '';`,
         );
-        code = code.replaceAll(
+        code = replaceAll(
+          code,
           `gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS)`,
           `gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS) || 1`,
         );
@@ -48,15 +51,16 @@ function patchPixi(): Plugin {
           `function isWebGLSupported() {`,
           `function isWebGLSupported() {return true;`,
         );
-        code = code.replaceAll('self.origin', "''");
-        code = code.replaceAll(
+        code = replaceAll(code, 'self.origin', "''");
+        code = replaceAll(
+          code,
           `source instanceof HTMLImageElement`,
           `source.naturalWidth !== undefined`,
         );
-        code = code.replaceAll(`'ontouchstart' in self`, 'true');
-        code = code.replaceAll(`'PointerEvent' in self`, `false`)
-        code = code.replaceAll(`!!self.PointerEvent`, `false`)
-        code = code.replaceAll(`event instanceof TouchEvent`, `event.touches !== undefined`)
+        code = replaceAll(code, `'ontouchstart' in self`, 'true');
+        code = replaceAll(code, `'PointerEvent' in self`, `false`);
+        code = replaceAll(code, `!!self.PointerEvent`, `false`);
+        code = replaceAll(code, `event instanceof TouchEvent`, `event.touches !== undefined`);
 
         if (filePath.indexOf('loader') > -1) {
           code = code.replace(`var Url = self.URL || self.webkitURL;`, ``);

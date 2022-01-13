@@ -17,6 +17,7 @@
     "three": "0.133.1"
   },
   "devDependencies": {
+    "@types/three": "0.133.1",
     "@types/wechat-miniprogram": "^3.4.0",
     "miniprogram-automator": "^0.10.0",
     "rollup": "^2.60.1"

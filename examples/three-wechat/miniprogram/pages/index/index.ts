@@ -1,16 +1,4 @@
 // index.ts
-import {
-  Clock,
-  PerspectiveCamera,
-  Scene,
-  sRGBEncoding,
-  TextureLoader,
-  WebGL1Renderer,
-  REVISION,
-  Color,
-  WebGLRenderTarget,
-} from 'three';
-
 import { PlatformManager, WechatPlatform } from 'platformize-three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import {
@@ -40,6 +28,17 @@ import {
   DemoVSMShadow,
 } from 'tests-three';
 import { screenshot } from 'platformize-three/dist/base/screenshot.js';
+import {
+  Clock,
+  PerspectiveCamera,
+  Scene,
+  sRGBEncoding,
+  TextureLoader,
+  WebGL1Renderer,
+  REVISION,
+  Color,
+  WebGLRenderTarget,
+} from 'three';
 
 console.log('THREE Version', REVISION);
 

@@ -9,7 +9,11 @@
     "build:watch": "exit 0",
     "build": "exit 0"
   },
+  "devDependencies": {
+    "@types/three": "0.133.1"
+  },
   "dependencies": {
+    "three": "0.133.1",
     "platformize-three": "^0.133.0",
     "three-sprite-player": "^1.0.8"
   }

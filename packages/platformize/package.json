@@ -33,6 +33,8 @@
     "regenerator-runtime": "~0.13.9"
   },
   "devDependencies": {
+    "@types/node": "^17.0.8",
+    "rollup": "^2.60.1",
     "@types/wechat-miniprogram": "^3.4.0",
     "minigame-api-typings": "^3.4.1",
     "@swc/cli": "~0.1.52",

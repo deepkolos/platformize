@@ -20,7 +20,12 @@
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "rollup": "^2.60.1"
+  },
   "dependencies": {
+    "string.prototype.replaceall": "^1.0.6",
     "platformize": "^1.0.0"
   }
 }

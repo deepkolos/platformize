@@ -54,6 +54,8 @@ specifiers:
   '@swc/cli': ~0.1.52
   '@swc/core': ~1.2.117
   '@tweenjs/tween.js': ^18.6.4
+  '@types/node': ^17.0.8
+  '@types/three': 0.133.1
   '@types/wechat-miniprogram': ^3.4.0
   ava: ^3.15.0
   concurrently: ~6.4.0
@@ -68,6 +70,7 @@ specifiers:
   rollup: ^2.60.1
   rollup-plugin-node-builtins: ^2.1.2
   rollup-plugin-terser: ^7.0.2
+  string.prototype.replaceall: ^1.0.6
   three: 0.133.1
   three-sprite-player: ^1.0.8
 
@@ -99,7 +102,7 @@ dependencies:
   '@rollup/plugin-node-resolve': 11.2.1_rollup@2.60.2
   '@rollup/plugin-sucrase': 3.1.1_rollup@2.60.2
   '@rollup/pluginutils': 4.1.1
-  '@rush-temp/platformize': file:projects/platformize.tgz_rollup@2.60.2
+  '@rush-temp/platformize': file:projects/platformize.tgz
   '@rush-temp/platformize-oasis': file:projects/platformize-oasis.tgz
   '@rush-temp/platformize-oasis-taobao': file:projects/platformize-oasis-taobao.tgz
   '@rush-temp/platformize-oasis-wechat': file:projects/platformize-oasis-wechat.tgz
@@ -125,6 +128,8 @@ dependencies:
   '@swc/cli': 0.1.52_@swc+core@1.2.117
   '@swc/core': 1.2.117
   '@tweenjs/tween.js': 18.6.4
+  '@types/node': 17.0.8
+  '@types/three': 0.133.1
   '@types/wechat-miniprogram': 3.4.0
   ava: 3.15.0
   concurrently: 6.4.0
@@ -139,6 +144,7 @@ dependencies:
   rollup: 2.60.2
   rollup-plugin-node-builtins: 2.1.2
   rollup-plugin-terser: 7.0.2_rollup@2.60.2
+  string.prototype.replaceall: 1.0.6
   three: 0.133.1
   three-sprite-player: 1.0.8
 
@@ -1729,6 +1735,10 @@ packages:
     resolution: {integrity: sha512-KB0sixD67CeecHC33MYn+eYARkqTheIRNuu97y2XMjR7Wu3XibO1vaY6VBV6O/a89SPI81cEUIYT87UqUWlZNw==}
     dev: false
 
+  /@types/node/17.0.8:
+    resolution: {integrity: sha512-YofkM6fGv4gDJq78g4j0mMuGMkZVxZDgtU0JRdx6FgiJDG+0fY0GKVolOV8WqVmEhLCXkQRjwDdKyPxJp/uucg==}
+    dev: false
+
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
     dev: false
@@ -1737,6 +1747,10 @@ packages:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
       '@types/node': 16.11.11
+    dev: false
+
+  /@types/three/0.133.1:
+    resolution: {integrity: sha512-XqBrP/+kbs+o0CYRhCVVE95v7FaL2bO5Z7+3VQJE0nEyjo+9LoLfeNgZITOnndKHxM+7ltEciAIR7uE0SZlsOg==}
     dev: false
 
   /@types/wechat-miniprogram/3.4.0:
@@ -2655,6 +2669,41 @@ packages:
       is-arrayish: 0.2.1
     dev: false
 
+  /es-abstract/1.19.1:
+    resolution: {integrity: sha512-2vJ6tjA/UfqLm2MPs7jxVybLoB8i1t1Jd9R3kISld20sIxPcTbLuggQOUxeWeAvIUkduv/CfMjuh4WmiXr2v9w==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.2
+      es-to-primitive: 1.2.1
+      function-bind: 1.1.1
+      get-intrinsic: 1.1.1
+      get-symbol-description: 1.0.0
+      has: 1.0.3
+      has-symbols: 1.0.2
+      internal-slot: 1.0.3
+      is-callable: 1.2.4
+      is-negative-zero: 2.0.2
+      is-regex: 1.1.4
+      is-shared-array-buffer: 1.0.1
+      is-string: 1.0.7
+      is-weakref: 1.0.2
+      object-inspect: 1.12.0
+      object-keys: 1.1.1
+      object.assign: 4.1.2
+      string.prototype.trimend: 1.0.4
+      string.prototype.trimstart: 1.0.4
+      unbox-primitive: 1.0.1
+    dev: false
+
+  /es-to-primitive/1.2.1:
+    resolution: {integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      is-callable: 1.2.4
+      is-date-object: 1.0.5
+      is-symbol: 1.0.4
+    dev: false
+
   /es6-error/4.1.1:
     resolution: {integrity: sha512-Um/+FxMr9CISWh0bi5Zv0iOD+4cFh5qLeks1qhAopKVAJw3drgKbKySikp7wGhDL0HPeaja0P5ULZrxLkniUVg==}
     dev: false
@@ -2858,6 +2907,14 @@ packages:
       pump: 3.0.0
     dev: false
 
+  /get-symbol-description/1.0.0:
+    resolution: {integrity: sha512-2EmdH1YvIQiZpltCNgkuiUnyukzxM/R6NDJX31Ke3BG1Nq5b0S2PhX59UKi9vZpPDQVdqn+1IcaAwnzTT5vCjw==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.2
+      get-intrinsic: 1.1.1
+    dev: false
+
   /gifwrap/0.9.2:
     resolution: {integrity: sha512-fcIswrPaiCDAyO8xnWvHSZdWChjKXUanKKpAiWWJ/UTkEi/aYKn5+90e7DE820zbEaVR9CE2y4z9bzhQijZ0BA==}
     dependencies:
@@ -2944,6 +3001,10 @@ packages:
 
   /graceful-fs/4.2.8:
     resolution: {integrity: sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==}
+    dev: false
+
+  /has-bigints/1.0.1:
+    resolution: {integrity: sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA==}
     dev: false
 
   /has-flag/3.0.0:
@@ -3091,6 +3152,15 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
+  /internal-slot/1.0.3:
+    resolution: {integrity: sha512-O0DB1JC/sPyZl7cIo78n5dR7eUSwwpYPiXRhTzNxZVAMUuB8vlnRFyLxdrVToks6XPLVnFfbzaVd5WLjhgg+vA==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      get-intrinsic: 1.1.1
+      has: 1.0.3
+      side-channel: 1.0.4
+    dev: false
+
   /irregular-plurals/3.3.0:
     resolution: {integrity: sha512-MVBLKUTangM3EfRPFROhmWQQKRDsrgI83J8GS3jXy+OwYqiR2/aoWndYQ5416jLE3uaGgLH7ncme3X9y09gZ3g==}
     engines: {node: '>=8'}
@@ -3108,11 +3178,30 @@ packages:
     resolution: {integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=}
     dev: false
 
+  /is-bigint/1.0.4:
+    resolution: {integrity: sha512-zB9CruMamjym81i2JZ3UMn54PKGsQzsJeo6xvN3HJJ4CAsQNB6iRutp2To77OfCNuoxspsIhzaPoO1zyCEhFOg==}
+    dependencies:
+      has-bigints: 1.0.1
+    dev: false
+
   /is-binary-path/2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
     dependencies:
       binary-extensions: 2.2.0
+    dev: false
+
+  /is-boolean-object/1.1.2:
+    resolution: {integrity: sha512-gDYaKHJmnj4aWxyj6YHyXVpdQawtVLHU5cb+eztPGczf6cjuTdwve5ZIEfgXqH4e57An1D1AKf8CZ3kYrQRqYA==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.2
+      has-tostringtag: 1.0.0
+    dev: false
+
+  /is-callable/1.2.4:
+    resolution: {integrity: sha512-nsuwtxZfMX67Oryl9LCQ+upnC0Z0BgpwntpS89m1H/TLF0zNfzfLMV/9Wa/6MZsj0acpEjAO0KF1xT6ZdLl95w==}
+    engines: {node: '>= 0.4'}
     dev: false
 
   /is-ci/2.0.0:
@@ -3177,9 +3266,21 @@ packages:
     resolution: {integrity: sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=}
     dev: false
 
+  /is-negative-zero/2.0.2:
+    resolution: {integrity: sha512-dqJvarLawXsFbNDeJW7zAz8ItJ9cd28YufuuFzh0G8pNHjJMnY08Dv7sYX2uF5UpQOwieAeOExEYAWWfu7ZZUA==}
+    engines: {node: '>= 0.4'}
+    dev: false
+
   /is-npm/5.0.0:
     resolution: {integrity: sha512-WW/rQLOazUq+ST/bCAVBp/2oMERWLsR7OrKyt052dNDk4DHcDE0/7QSXITlmi+VBcV13DfIbysG3tZJm5RfdBA==}
     engines: {node: '>=10'}
+    dev: false
+
+  /is-number-object/1.0.6:
+    resolution: {integrity: sha512-bEVOqiRcvo3zO1+G2lVMy+gkkEm9Yh7cDMRusKKu5ZJKPUYSJwICTKZrNKHA2EbSP0Tu0+6B/emsYNHZyn6K8g==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      has-tostringtag: 1.0.0
     dev: false
 
   /is-number/7.0.0:
@@ -3229,9 +3330,27 @@ packages:
       has-tostringtag: 1.0.0
     dev: false
 
+  /is-shared-array-buffer/1.0.1:
+    resolution: {integrity: sha512-IU0NmyknYZN0rChcKhRO1X8LYz5Isj/Fsqh8NJOSf+N/hCOTwy29F32Ik7a+QszE63IdvmwdTPDd6cZ5pg4cwA==}
+    dev: false
+
   /is-stream/2.0.1:
     resolution: {integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==}
     engines: {node: '>=8'}
+    dev: false
+
+  /is-string/1.0.7:
+    resolution: {integrity: sha512-tE2UXzivje6ofPW7l23cjDOMa09gb7xlAqG6jG5ej6uPV32TlWP3NKPigtaGeHNu9fohccRYvIiZMfOOnOYUtg==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      has-tostringtag: 1.0.0
+    dev: false
+
+  /is-symbol/1.0.4:
+    resolution: {integrity: sha512-C/CPBqKWnvdcxqIARxyOh4v1UUEOCHpgDa0WYgpKDFMszcrPcffg5uhwSgPCLD2WWxmq6isisz87tzT01tuGhg==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      has-symbols: 1.0.2
     dev: false
 
   /is-typedarray/1.0.0:
@@ -3249,6 +3368,12 @@ packages:
 
   /is-utf8/0.2.1:
     resolution: {integrity: sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=}
+    dev: false
+
+  /is-weakref/1.0.2:
+    resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
+    dependencies:
+      call-bind: 1.0.2
     dev: false
 
   /is-yarn-global/0.3.0:
@@ -3747,6 +3872,10 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /object-inspect/1.12.0:
+    resolution: {integrity: sha512-Ho2z80bVIvJloH+YzRmpZVQe87+qASmBUKZDWgx9cu+KDrX2ZDH/3tMy+gXbZETVGs2M8YdxObOh7XAtim9Y0g==}
     dev: false
 
   /object-is/1.1.5:
@@ -4330,16 +4459,6 @@ packages:
       process-es6: 0.11.6
     dev: false
 
-  /rollup-plugin-swc/0.2.0_@swc+core@1.2.117+rollup@2.60.2:
-    resolution: {integrity: sha512-caZSD80g4RwVxkiaeAp/TYvWGzWjzVKvJKBTSKitcKE95MQrnKm8qICLMwCOdvs4XMgc0RgcsCmVkckl8oMDCg==}
-    peerDependencies:
-      '@swc/core': '>=1.0'
-      rollup: '>=1.5.0'
-    dependencies:
-      '@swc/core': 1.2.117
-      rollup: 2.60.2
-    dev: false
-
   /rollup-plugin-terser/7.0.2_rollup@2.60.2:
     resolution: {integrity: sha512-w3iIaU4OxcF52UUXiZNsNeuXIMDvFrr+ZXK6bFZ0Q60qyVfq4uLptoS4bbq3paG3x216eQllFZX7zt6TIImguQ==}
     peerDependencies:
@@ -4437,6 +4556,14 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
+  /side-channel/1.0.4:
+    resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
+    dependencies:
+      call-bind: 1.0.2
+      get-intrinsic: 1.1.1
+      object-inspect: 1.12.0
+    dev: false
+
   /signal-exit/3.0.6:
     resolution: {integrity: sha512-sDl4qMFpijcGw22U5w63KmD3cZJfBuFlVNbVMKje2keoKML7X2UzWbc4XrmEbDwg0NXJc3yv4/ox7b+JWb57kQ==}
     dev: false
@@ -4529,6 +4656,31 @@ packages:
       emoji-regex: 8.0.0
       is-fullwidth-code-point: 3.0.0
       strip-ansi: 6.0.1
+    dev: false
+
+  /string.prototype.replaceall/1.0.6:
+    resolution: {integrity: sha512-OA8VDhE7ssNFlyoDXUHxw6V5cjgPrtosyJKqJX5i1P5tV9eUynsbhx1yz0g+Ye4fjFwAxhKLxt8GSRx2Aqc+Sw==}
+    dependencies:
+      call-bind: 1.0.2
+      define-properties: 1.1.3
+      es-abstract: 1.19.1
+      get-intrinsic: 1.1.1
+      has-symbols: 1.0.2
+      is-regex: 1.1.4
+    dev: false
+
+  /string.prototype.trimend/1.0.4:
+    resolution: {integrity: sha512-y9xCjw1P23Awk8EvTpcyL2NIr1j7wJ39f+k6lvRnSMz+mz9CGz9NYPelDk42kOz6+ql8xjfK8oYzy3jAP5QU5A==}
+    dependencies:
+      call-bind: 1.0.2
+      define-properties: 1.1.3
+    dev: false
+
+  /string.prototype.trimstart/1.0.4:
+    resolution: {integrity: sha512-jh6e984OBfvxS50tdY2nRZnoC5/mLFKOREQfw8t5yytkoUsJRNxvI/E39qu1sD0OtWI3OC0XgKSmcWwziwYuZw==}
+    dependencies:
+      call-bind: 1.0.2
+      define-properties: 1.1.3
     dev: false
 
   /string_decoder/0.10.31:
@@ -4753,6 +4905,15 @@ packages:
     hasBin: true
     dev: false
 
+  /unbox-primitive/1.0.1:
+    resolution: {integrity: sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw==}
+    dependencies:
+      function-bind: 1.1.1
+      has-bigints: 1.0.1
+      has-symbols: 1.0.2
+      which-boxed-primitive: 1.0.2
+    dev: false
+
   /unique-string/2.0.0:
     resolution: {integrity: sha512-uNaeirEPvpZWSgzwsPGtU2zVSTrn/8L5q/IexZmH0eH6SA73CmAA5U4GwORTxQAZs95TAXLNqeLoPPNO5gZfWg==}
     engines: {node: '>=8'}
@@ -4820,6 +4981,16 @@ packages:
   /well-known-symbols/2.0.0:
     resolution: {integrity: sha512-ZMjC3ho+KXo0BfJb7JgtQ5IBuvnShdlACNkKkdsqBmYw3bPAaJfPeYUo6tLUaT5tG/Gkh7xkpBhKRQ9e7pyg9Q==}
     engines: {node: '>=6'}
+    dev: false
+
+  /which-boxed-primitive/1.0.2:
+    resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}
+    dependencies:
+      is-bigint: 1.0.4
+      is-boolean-object: 1.1.2
+      is-number-object: 1.0.6
+      is-string: 1.0.7
+      is-symbol: 1.0.4
     dev: false
 
   /widest-line/3.1.0:
@@ -4998,9 +5169,12 @@ packages:
     dev: false
 
   file:projects/platformize-oasis.tgz:
-    resolution: {integrity: sha512-q//wtmLoCvEx/at9ByBkqCWr9WbZECbTP5CYTYQgbP7M5SyJ9fmTwaqmgBTX1a8BLuOeCxyk+lGRrk3EwAM5Uw==, tarball: file:projects/platformize-oasis.tgz}
+    resolution: {integrity: sha512-+qq1qUnsqKSItLXkMBUNqVVIn/xVOmTJ/kwyIW2uKTnEnaC9XiUZdZfUO5RJSMh0oScjZ4A5TxsvLgb14u6jcg==, tarball: file:projects/platformize-oasis.tgz}
     name: '@rush-temp/platformize-oasis'
     version: 0.0.0
+    dependencies:
+      '@types/node': 17.0.8
+      rollup: 2.60.2
     dev: false
 
   file:projects/platformize-pixi-wechat.tgz_aceb95ab22e2234d543e5a00b62355d3:
@@ -5020,9 +5194,13 @@ packages:
     dev: false
 
   file:projects/platformize-pixi.tgz:
-    resolution: {integrity: sha512-i63NSBjSK3Pm4t3u5spB/Yu/yZTMIPY5VwRY0Ao0AUCr7rw8adsXDdV0IwSLSmu0DNOzn86+2g8m1yo4G/DlsA==, tarball: file:projects/platformize-pixi.tgz}
+    resolution: {integrity: sha512-HsieXzBwN3CoyoyZLjp0RE6ayDkfHTcAvry6mFSmXdL/lR1gVfGsrSnm5nyh0Onw9OuFwnwX8Kwf0/Marp/3/Q==, tarball: file:projects/platformize-pixi.tgz}
     name: '@rush-temp/platformize-pixi'
     version: 0.0.0
+    dependencies:
+      '@types/node': 17.0.8
+      rollup: 2.60.2
+      string.prototype.replaceall: 1.0.6
     dev: false
 
   file:projects/platformize-playcanvas-taobao.tgz:
@@ -5070,9 +5248,12 @@ packages:
     dev: false
 
   file:projects/platformize-playcanvas.tgz:
-    resolution: {integrity: sha512-zflxeNmqOPiUFs15+3Fg7q2U3AayWQs3Au6JrzrxWUavTMpE/kPf0dlmm5vSp+0LxrrUy5hHLeUmY2qwloa0Fw==, tarball: file:projects/platformize-playcanvas.tgz}
+    resolution: {integrity: sha512-qAjNXcfMM+dEHDYTxKfuD0s9QHrwoyh9KMaOpjLfSkiEvf5sIfzQ/x69TTYD7a18TyXHdxEggEbdcHc3nBw+ug==, tarball: file:projects/platformize-playcanvas.tgz}
     name: '@rush-temp/platformize-playcanvas'
     version: 0.0.0
+    dependencies:
+      '@types/node': 17.0.8
+      rollup: 2.60.2
     dev: false
 
   file:projects/platformize-three-byte.tgz:
@@ -5119,10 +5300,11 @@ packages:
     dev: false
 
   file:projects/platformize-three-wechat.tgz:
-    resolution: {integrity: sha512-GbFnJE514w2eVrUh3w5fVPraKwNZV24/a4qjvmK4CWuqtt4KWTCLWURA9wkKvCSOa8eo6amHe5AKtVvL/1WlIQ==, tarball: file:projects/platformize-three-wechat.tgz}
+    resolution: {integrity: sha512-ZyRWu0RrsBEiZyZNNMVPYptftdww4OTaXSYbzUYuMHB+dnsD6uliM8YI0YxMTncQg/ETdi1xC6tFfcwjpfWAQg==, tarball: file:projects/platformize-three-wechat.tgz}
     name: '@rush-temp/platformize-three-wechat'
     version: 0.0.0
     dependencies:
+      '@types/three': 0.133.1
       '@types/wechat-miniprogram': 3.4.0
       miniprogram-automator: 0.10.0
       rollup: 2.60.2
@@ -5132,14 +5314,17 @@ packages:
     dev: false
 
   file:projects/platformize-three.tgz:
-    resolution: {integrity: sha512-HU1SdwWILrEAMXgTMaEWcXKY4aZKpDaJvBMHh4HgcCe9+9eMdV8QWovkKINZq3xvNwXUKjBeHjXVfJv2Si8ErQ==, tarball: file:projects/platformize-three.tgz}
+    resolution: {integrity: sha512-ZicOspc2LOnpIJMbCxCzI+FCkCCvQmFQxvCKfUuOZkym9a5fOUWXUU13vpof1IMY2yh+SxidfDK1v2xMKb40AA==, tarball: file:projects/platformize-three.tgz}
     name: '@rush-temp/platformize-three'
     version: 0.0.0
+    dependencies:
+      '@types/node': 17.0.8
+      rollup: 2.60.2
+      three: 0.133.1
     dev: false
 
-  file:projects/platformize.tgz_rollup@2.60.2:
-    resolution: {integrity: sha512-BnfYXLA7Cr5+9jZIpux4CKx55gU5KxbhR9MrhURU8dbp5q+tKC7y0hw4MxNlDYuaFC3GbIK3iUahlbmqZOmRmQ==, tarball: file:projects/platformize.tgz}
-    id: file:projects/platformize.tgz
+  file:projects/platformize.tgz:
+    resolution: {integrity: sha512-ZOmbA5z60R9aufC9DMsb2re5rj37bqx+71eT0VhHuLEmtIGM4gljUhoEKgDqCnzlXOaMnRzRVvm1q51Y58PbEQ==, tarball: file:projects/platformize.tgz}
     name: '@rush-temp/platformize'
     version: 0.0.0
     dependencies:
@@ -5150,6 +5335,7 @@ packages:
       '@rollup/pluginutils': 4.1.1
       '@swc/cli': 0.1.52_@swc+core@1.2.117
       '@swc/core': 1.2.117
+      '@types/node': 17.0.8
       '@types/wechat-miniprogram': 3.4.0
       ava: 3.15.0
       concurrently: 6.4.0
@@ -5158,14 +5344,13 @@ packages:
       magic-string: 0.25.7
       minigame-api-typings: 3.4.1
       regenerator-runtime: 0.13.9
+      rollup: 2.60.2
       rollup-plugin-node-builtins: 2.1.2
-      rollup-plugin-swc: 0.2.0_@swc+core@1.2.117+rollup@2.60.2
       rollup-plugin-terser: 7.0.2_rollup@2.60.2
       typescript: 4.5.2
     transitivePeerDependencies:
       - acorn
       - chokidar
-      - rollup
       - supports-color
     dev: false
 
@@ -5217,9 +5402,11 @@ packages:
     dev: false
 
   file:projects/tests-three.tgz:
-    resolution: {integrity: sha512-BuDBRL3rE8++UkHzL9BqhFGKhdLPl3IMl6ZPbCRLyfq6E6Odnp6tNk9tmZfswiUZoChKI1Rq98d/Q3jJnuEdOA==, tarball: file:projects/tests-three.tgz}
+    resolution: {integrity: sha512-sf/pxvlo6B4dAFwCvr3tdYdm/tI2QG+E7LuAUM1tdyg9pGR6E1MVztTIXTenbcsF4YS6feQJgeDzSFMpF4gPvw==, tarball: file:projects/tests-three.tgz}
     name: '@rush-temp/tests-three'
     version: 0.0.0
     dependencies:
+      '@types/three': 0.133.1
+      three: 0.133.1
       three-sprite-player: 1.0.8
     dev: false
