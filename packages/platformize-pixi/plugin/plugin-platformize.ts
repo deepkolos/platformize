@@ -32,7 +32,7 @@ function patchPixi(): Plugin {
               ),
             );;`,
         );
-        
+
         code = replaceAll(
           code,
           `'WebGL2RenderingContext' in self && gl instanceof self.WebGL2RenderingContext`,
@@ -72,13 +72,33 @@ function patchPixi(): Plugin {
         code = replaceAll(code, `!!self.PointerEvent`, `false`);
         code = replaceAll(code, `event instanceof TouchEvent`, `event.touches !== undefined`);
         code = code.replace(`self.Promise`, `true`);
+        code = replaceAll(code, `source instanceof HTMLCanvasElement`, `source.getContext`);
+        code = code.replace(`'letterSpacing' in CanvasRenderingContext2D.prototype`, 'false');
+        code = code.replace(`'textLetterSpacing' in CanvasRenderingContext2D.prototype;`, 'false');
+        code = code.replace(
+          `source = source || this.source;`,
+          `source = source || this.source;
+          if (source.getContext) {
+            const ctx = source.getContext('2d');
+            source = ctx.getImageData(0, 0, source.width, source.height);
+          }`,
+        );
 
-        if (filePath.indexOf('text')) {
+        code = code.replace(`WebGLRenderingContext.STENCIL_TEST`, '2960');
+        code = code.replace(`WebGLRenderingContext.SCISSOR_TEST`, '3089');
+
+        if (filePath.match(/text(-bitmap)?\.js$/)) {
           code = code.replace(
             `// OffscreenCanvas2D measureText can be up to 40% faster.`,
             `return { getContext(){} }`,
           );
           code = code.replace(`data instanceof XMLDocument`, `data && data.isXML`);
+
+          code = replaceAll(
+            code,
+            `canvas = document.createElement('canvas');`,
+            `canvas = window.$canvas2D;`,
+          );
         }
 
         if (filePath.indexOf('loader') > -1) {

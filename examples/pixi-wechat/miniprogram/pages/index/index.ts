@@ -2,6 +2,8 @@ import { Application } from '@pixi/app';
 import { PlatformManager, WechatPlatform } from 'platformize-pixi';
 import * as DEMO from 'tests-pixi';
 
+const PIXI = DEMO.PIXI;
+
 const getNode = id =>
   new Promise(r => wx.createSelectorQuery().select(id).fields({ node: true, size: true }).exec(r));
 
@@ -15,7 +17,7 @@ Page({
     showMenu: true,
     showCanvas: false,
     currItem: -1,
-    menuList: Object.keys(DEMO),
+    menuList: Object.keys(DEMO).filter(i => i !== 'PIXI'),
   },
 
   onReady() {
@@ -32,6 +34,7 @@ Page({
 
   initCanvas(canvas, helperCanvas) {
     const platform = new WechatPlatform(canvas);
+    platform.init(PIXI, helperCanvas);
     this.platform = platform;
     // platform.enableDeviceOrientation('game');
     PlatformManager.set(platform);

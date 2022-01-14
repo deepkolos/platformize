@@ -1,3 +1,4 @@
+export * as PIXI from './pixi';
 export * from './demos-basic/container';
 export * from './demos-basic/particle-container';
 export * from './demos-basic/blend-modes';
@@ -18,3 +19,10 @@ export * from './sprite/tiling-sprite';
 export * from './sprite/animatedsprite-animationspeed';
 export * from './sprite/animatedsprite-explosion';
 export * from './sprite/animatedsprite-jet';
+export * from './mask/filter';
+export * from './mask/graphics';
+export * from './mask/sprite';
+export * from './filter/blur';
+export * from './filter/color-matrix';
+export * from './filter/displacement-map';
+export * from './text/text';

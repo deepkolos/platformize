@@ -17,7 +17,14 @@ export class WechatPlatform extends WechatPlatformBase {
     // @ts-ignore
     this.polyfill.document.body = { appendChild() {} };
     this.polyfill.HTMLCanvasElement = canvas.constructor as unknown as HTMLCanvasElement;
-    const img = this.polyfill.document.createElement('img')
+    const img = this.polyfill.document.createElement('img');
     this.polyfill.HTMLImageElement = img.constructor as unknown as HTMLImageElement;
+  }
+
+  init(pixi: any, canvas2d: any) {
+    pixi.TextMetrics._canvas = canvas2d;
+    pixi.TextMetrics._context = canvas2d.getContext('2d');
+    // @ts-ignore
+    this.polyfill.window.$canvas2D = canvas2d;
   }
 }
