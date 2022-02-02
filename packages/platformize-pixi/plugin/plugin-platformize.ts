@@ -95,6 +95,8 @@ function patchPixi(): Plugin {
 
         code = code.replace(`WebGLRenderingContext.STENCIL_TEST`, '2960');
         code = code.replace(`WebGLRenderingContext.SCISSOR_TEST`, '3089');
+        code = code.replace(`!this.domElement.parentElement`, `false`);
+        code = code.replace(`!this.interactionDOMElement.parentElement`, `false`);
 
         if (filePath.match(/text(-bitmap)?\.js$/)) {
           code = code.replace(

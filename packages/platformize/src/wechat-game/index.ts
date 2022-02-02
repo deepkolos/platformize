@@ -25,6 +25,15 @@ export class WechatGamePlatform extends Platform {
   canvasH: number;
   onDeviceMotionChange: (e: any) => void;
   enabledDeviceMotion: boolean = false;
+  public canvasRect = {
+    width: 0,
+    height: 0,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  };
+  static DEVTOOLS_USE_NATIVE_EVENT = true; 
 
   constructor(canvas: WechatMinigame.Canvas, width?: number, height?: number) {
     super();
@@ -35,6 +44,8 @@ export class WechatGamePlatform extends Platform {
     this.canvas = canvas;
     this.canvasW = width === undefined ? canvas.width : width;
     this.canvasH = height === undefined ? canvas.height : height;
+    this.canvasRect.width = this.canvasW;
+    this.canvasRect.height = this.canvasH;
 
     const document = {
       createElementNS(_: string, type: string) {
@@ -43,7 +54,7 @@ export class WechatGamePlatform extends Platform {
       },
       createElement(type: string) {
         if (type === 'canvas') return canvas;
-        if (type === 'img') return createImage(canvas);
+        if (type === 'img') return createImage(wxGame);
       },
     } as unknown as Document;
 
@@ -120,7 +131,7 @@ export class WechatGamePlatform extends Platform {
 
     const dispatchEvent = (e: any) => this.dispatchTouchEvent(e);
 
-    if (systemInfo.platform != 'devtools') {
+    if (systemInfo.platform != 'devtools' || WechatGamePlatform.DEVTOOLS_USE_NATIVE_EVENT) {
       wxGame.onTouchMove(dispatchEvent);
       wxGame.onTouchStart(dispatchEvent);
       wxGame.onTouchEnd(dispatchEvent);
@@ -128,9 +139,9 @@ export class WechatGamePlatform extends Platform {
   }
 
   patchCanvas() {
-    const { canvasH, canvasW } = this;
+    const { canvasH, canvasW, canvas } = this;
 
-    Object.defineProperty(this.canvas, 'style', {
+    Object.defineProperty(canvas, 'style', {
       get() {
         return {
           width: this.width + 'px',
@@ -139,17 +150,20 @@ export class WechatGamePlatform extends Platform {
       },
     });
 
-    Object.defineProperty(this.canvas, 'clientHeight', {
+    Object.defineProperty(canvas, 'clientHeight', {
       get() {
         return canvasH || this.height;
       },
     });
 
-    Object.defineProperty(this.canvas, 'clientWidth', {
+    Object.defineProperty(canvas, 'clientWidth', {
       get() {
         return canvasW || this.width;
       },
     });
+
+    // @ts-ignore
+    canvas.getBoundingClientRect = () => this.canvasRect;
   }
 
   // 某些情况下IOS会不success不触发。。。

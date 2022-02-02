@@ -57,6 +57,7 @@ specifiers:
   '@rush-temp/platformize-oasis-wechat-simple': file:./projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-pixi': file:./projects/platformize-pixi.tgz
   '@rush-temp/platformize-pixi-wechat': file:./projects/platformize-pixi-wechat.tgz
+  '@rush-temp/platformize-pixi-wechat-game': file:./projects/platformize-pixi-wechat-game.tgz
   '@rush-temp/platformize-playcanvas': file:./projects/platformize-playcanvas.tgz
   '@rush-temp/platformize-playcanvas-taobao': file:./projects/platformize-playcanvas-taobao.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:./projects/platformize-playcanvas-wechat.tgz
@@ -152,6 +153,7 @@ dependencies:
   '@rush-temp/platformize-oasis-wechat-simple': file:projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-pixi': file:projects/platformize-pixi.tgz
   '@rush-temp/platformize-pixi-wechat': file:projects/platformize-pixi-wechat.tgz_aceb95ab22e2234d543e5a00b62355d3
+  '@rush-temp/platformize-pixi-wechat-game': file:projects/platformize-pixi-wechat-game.tgz
   '@rush-temp/platformize-playcanvas': file:projects/platformize-playcanvas.tgz
   '@rush-temp/platformize-playcanvas-taobao': file:projects/platformize-playcanvas-taobao.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:projects/platformize-playcanvas-wechat.tgz
@@ -5482,6 +5484,56 @@ packages:
     dependencies:
       '@types/node': 17.0.8
       rollup: 2.60.2
+    dev: false
+
+  file:projects/platformize-pixi-wechat-game.tgz:
+    resolution: {integrity: sha512-2xb8mMtWStLUhKMqW44dALFbzy4L5RTfKH7zI40VGk/V8SNFsOvKbZ5+VD/TBYbHMvem+ZbMq0VpEFrY867bPw==, tarball: file:projects/platformize-pixi-wechat-game.tgz}
+    name: '@rush-temp/platformize-pixi-wechat-game'
+    version: 0.0.0
+    dependencies:
+      '@pixi/accessibility': 6.2.1_0d73c62036669f541116e605da87f869
+      '@pixi/app': 6.2.1_aceb95ab22e2234d543e5a00b62355d3
+      '@pixi/basis': 6.2.1_3483474bb8588d021c9d62524e8fe248
+      '@pixi/compressed-textures': 6.2.1_4570dd0dd66864252550461512680eed
+      '@pixi/constants': 6.2.1
+      '@pixi/core': 6.2.1_df051550645010bdf6fa89694bb02821
+      '@pixi/display': 6.2.1_1d33a1a6f36d9b164ecad80ec2850ee4
+      '@pixi/events': 6.2.1_761ae4ff9cb7f414e2936c869e655e65
+      '@pixi/extract': 6.2.1_720b1a2efe21855310638cafcfb57ede
+      '@pixi/filter-alpha': 6.2.1_@pixi+core@6.2.1
+      '@pixi/filter-blur': 6.2.1_7e73f8e619ab2754135a83402dece0a7
+      '@pixi/filter-color-matrix': 6.2.1_@pixi+core@6.2.1
+      '@pixi/filter-displacement': 6.2.1_466426cda9ccff9f6b7ca02ef067a902
+      '@pixi/filter-fxaa': 6.2.1_@pixi+core@6.2.1
+      '@pixi/filter-noise': 6.2.1_@pixi+core@6.2.1
+      '@pixi/graphics': 6.2.1_034fe82e0b7c37335078a5be42a50651
+      '@pixi/graphics-extras': 6.2.1_142cb27b42542fc3a11ba70c1b25bbc0
+      '@pixi/interaction': 6.2.1_2f12d893b3b69cfbe54a5422fcfb7e1e
+      '@pixi/loaders': 6.2.1_0445c811d1aa420add98db068b3fbdb0
+      '@pixi/math': 6.2.1
+      '@pixi/math-extras': 6.2.1_@pixi+math@6.2.1
+      '@pixi/mesh': 6.2.1_a5021554595e851f1bd0aeb0c831d747
+      '@pixi/mesh-extras': 6.2.1_f1d195b9b3256951824ba57c8871862e
+      '@pixi/mixin-cache-as-bitmap': 6.2.1_ba4fdb112950673509298511dc6b3afd
+      '@pixi/mixin-get-child-by-name': 6.2.1_@pixi+display@6.2.1
+      '@pixi/mixin-get-global-position': 6.2.1_56b20ebf8842efecd39d113c254f170d
+      '@pixi/particle-container': 6.2.1_4912b6a6a843e20da688d7ff2a4fb940
+      '@pixi/polyfill': 6.2.1
+      '@pixi/prepare': 6.2.1_af55ba3ad4aed622a0ddec9f80a6fcab
+      '@pixi/runner': 6.2.1
+      '@pixi/settings': 6.2.1
+      '@pixi/sprite': 6.2.1_a5021554595e851f1bd0aeb0c831d747
+      '@pixi/sprite-animated': 6.2.1_d611442354a186932caa7508522c6d21
+      '@pixi/sprite-tiling': 6.2.1_034fe82e0b7c37335078a5be42a50651
+      '@pixi/spritesheet': 6.2.1_f7272aeb0863e6b6ce7dd21b6fb952c9
+      '@pixi/text': 6.2.1_ea0f6c1db7ab9c63b2a36efd859e0e1e
+      '@pixi/text-bitmap': 6.2.1_ee50e84376f7bae8d8c67165504906b8
+      '@pixi/ticker': 6.2.1_@pixi+settings@6.2.1
+      '@pixi/unsafe-eval': 6.2.1_@pixi+core@6.2.1
+      '@pixi/utils': 6.2.1_3e04be5e664f83402a3249471d1d4424
+      minigame-api-typings: 3.4.1
+      rollup: 2.60.2
+      typescript: 4.5.2
     dev: false
 
   file:projects/platformize-pixi-wechat.tgz_aceb95ab22e2234d543e5a00b62355d3:

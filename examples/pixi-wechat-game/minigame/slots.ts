@@ -1,4 +1,4 @@
-import * as PIXI from '../pixi';
+import * as PIXI from './pixi';
 
 export function Slots(canvas: any) {
   PIXI.__init__();

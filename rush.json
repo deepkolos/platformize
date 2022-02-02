@@ -564,6 +564,11 @@
       "packageName": "platformize-pixi-wechat",
       "projectFolder": "examples/pixi-wechat",
       "shouldPublish": false
+    },
+    {
+      "packageName": "platformize-pixi-wechat-game",
+      "projectFolder": "examples/pixi-wechat-game",
+      "shouldPublish": false
     }
   ]
 }
