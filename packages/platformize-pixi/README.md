@@ -1,13 +1,14 @@
 # platformize-pixi
 
-[`pixijs@6.2.1`] 专门适配
+`pixijs@6.2.1` 专门适配
 
 ## 使用
 
 ```text
 pnpm i -S platformize-pixi@6.2.1
 
-# https://pixijs.io/customize/
+# 根据实际使用模块安装 https://pixijs.io/customize/
+# 模块引入可参考 [tests-pixi/pixi.ts](../../examples/tests-pixi/pixi.ts)
 pnpm i -S @pixi/constants@6.2.1 \
           @pixi/core@6.2.1 \
           @pixi/math@6.2.1 \
@@ -69,8 +70,6 @@ wechatPlatform.dispose();
 - [pixi-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-taobao/README.md)
 
 ## 已知问题
-
-
 
 ## 讨论
 
