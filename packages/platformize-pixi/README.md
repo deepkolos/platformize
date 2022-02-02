@@ -5,6 +5,8 @@
 ## 使用
 
 ```text
+pnpm i -S platformize-pixi@6.2.1
+
 # https://pixijs.io/customize/
 pnpm i -S @pixi/constants@6.2.1 \
           @pixi/core@6.2.1 \
@@ -46,6 +48,7 @@ const width = canvasClientWidth;
 const height = canvasClientHeight;
 const wechatPlatform = new WechatPlatform(canvas, width, height);
 PlatformManager.set(wechatPlatform);
+wechatPlatform.init(PIXI, canvas2D); // 需要额外的注入canvas2d的引用来支持text-bitmap
 
 window.innerWidth
 window.innerHeight
