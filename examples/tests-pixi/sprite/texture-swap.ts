@@ -1,3 +1,4 @@
+import { InteractionManager } from '@pixi/interaction';
 import * as PIXI from '../pixi';
 
 export function SpriteSwap(canvas: any) {
@@ -6,6 +7,8 @@ export function SpriteSwap(canvas: any) {
     view: canvas,
     width: canvas.width,
     height: canvas.height,
+    antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 
@@ -44,7 +47,7 @@ export function SpriteSwap(canvas: any) {
 
   app.ticker.add(() => {
     // just for fun, let's rotate mr rabbit a little
-    dude.rotation += 0.1;
+    // dude.rotation += 0.1;
   });
   return app;
 }

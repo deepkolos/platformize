@@ -19,6 +19,8 @@ export class WechatPlatform extends WechatPlatformBase {
     this.polyfill.HTMLCanvasElement = canvas.constructor as unknown as HTMLCanvasElement;
     const img = this.polyfill.document.createElement('img');
     this.polyfill.HTMLImageElement = img.constructor as unknown as HTMLImageElement;
+    // @ts-ignore
+    this.canvas.parentElement = {};
   }
 
   init(pixi: any, canvas2d: any) {

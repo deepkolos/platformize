@@ -6,6 +6,8 @@ export function SpriteSpeed(canvas: any) {
     view: canvas,
     width: canvas.width,
     height: canvas.height,
+    antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 
@@ -27,7 +29,7 @@ export function SpriteSpeed(canvas: any) {
       textures.push({ texture, time });
     }
 
-    const scaling = 4;
+    const scaling = 2;
 
     // create a slow AnimatedSprite
     const slow = new PIXI.AnimatedSprite(textures);

@@ -7,6 +7,8 @@ export function SpriteBasic(canvas: any) {
     width: canvas.width,
     height: canvas.height,
     backgroundColor: 0x1099bb,
+    antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 

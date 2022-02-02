@@ -21,6 +21,7 @@
 - [platformize-three 专门适配](./packages/platformize-three/README.md)
 - [platformize-oasis 专门适配](./packages/platformize-oasis/README.md)
 - [platformize-playcanvas 专门适配](./packages/platformize-playcanvas/README.md)
+- [platformize-pixi 专门适配](./packages/platformize-pixi/README.md)
 
 <details>
 
@@ -80,6 +81,7 @@ examples
   - tests-three                # three测试用例
   - tests-oasis                # oasis测试用例
   - tests-playcanvas           # playcanvas测试用例
+  - tests-pixi                 # pixi测试用例
 
   - three-wechat-simple        # 微信小程序three基础用例
   - three-wechat               # 微信小程序three测试用例
@@ -98,6 +100,12 @@ examples
   - playcanvas-wechat-game     # 微信小游戏playcanvas测试用例
   - playcanvas-taobao          # 淘宝小程序playcanvas测试用例
   - playcanvas-byte            # 字节小程序playcanvas测试用例
+
+  - pixi-wechat-simple         # 微信小程序pixi基础用例
+  - pixi-wechat                # 微信小程序pixi测试用例
+  - pixi-wechat-game           # 微信小游戏pixi测试用例
+  - pixi-taobao                # 淘宝小程序pixi测试用例
+  - pixi-byte                  # 字节小程序pixi测试用例
 
 packages
   - platformize
@@ -136,9 +144,19 @@ packages
   - - - wechat-game            # 微信小游戏playcanvas相关适配
   - - - taobao                 # 淘宝小程序playcanvas相关适配
   - - - byte                   # 字节小程序playcanvas相关适配
+
+  - platformize-pixi
+  - - plugin                   # rollup插件
+  - - cli                      # 转换编辑器导出项目到小程序cli
+  - - src
+  - - - base                   # 平台无关pixi相关的适配
+  - - - wechat                 # 微信小程序pixi相关适配
+  - - - wechat-game            # 微信小游戏pixi相关适配
+  - - - taobao                 # 淘宝小程序pixi相关适配
+  - - - byte                   # 字节小程序pixi相关适配
 ```
 
-适配器的版本号与`threejs/oasis/playcanvas`主版本号一一对应, adapter 除外
+适配器的版本号与`threejs/oasis/playcanvas/pixi`主版本号一一对应, adapter 除外
 
 ## 构建特性
 

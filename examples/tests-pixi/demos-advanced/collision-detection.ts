@@ -9,6 +9,8 @@ export function CollisionDetection(canvas: any) {
     width: canvas.width,
     height: canvas.height,
     backgroundColor: 0x111111,
+    antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 
@@ -90,8 +92,8 @@ export function CollisionDetection(canvas: any) {
   const mouseCoords = { x: 0, y: 0 };
   app.stage.interactive = true;
   app.stage.on('pointermove', e => {
-    mouseCoords.x = e.data.global.x;
-    mouseCoords.y = e.data.global.y;
+    mouseCoords.x = e.data.global.x * app.renderer.resolution;
+    mouseCoords.y = e.data.global.y * app.renderer.resolution;
   });
 
   // Listen for animate update

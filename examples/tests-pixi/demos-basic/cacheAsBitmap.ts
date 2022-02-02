@@ -6,6 +6,8 @@ export function CacheAsBitmap(canvas: any) {
     view: canvas,
     width: canvas.width,
     height: canvas.height,
+    antialias: true,
+    resolution: window.devicePixelRatio,
   });
   //   document.body.appendChild(app.view);
 
@@ -23,11 +25,15 @@ export function CacheAsBitmap(canvas: any) {
   );
 
   let count = 0;
+  const cW = canvas.width;
+  const cH = canvas.height;
+  const cHalfW = canvas.width * 0.5;
+  const cHalfH = canvas.height * 0.5;
 
   // create an empty container
   const alienContainer = new PIXI.Container();
-  alienContainer.x = canvas.width / 2;
-  alienContainer.y = canvas.height / 2;
+  alienContainer.x = window.innerWidth * 0.5;
+  alienContainer.y = window.innerHeight * 0.5;
 
   // make the stage interactive
   app.stage.interactive = true;
@@ -48,8 +54,8 @@ export function CacheAsBitmap(canvas: any) {
        * var texture = PIXI.Texture.from(frameName);
        * var alien = new PIXI.Sprite(texture);
        */
-      alien.x = Math.random() * 800 - 400;
-      alien.y = Math.random() * 600 - 300;
+      alien.x = Math.random() * cW - cHalfW;
+      alien.y = Math.random() * cH - cHalfH;
       alien.anchor.x = 0.5;
       alien.anchor.y = 0.5;
       aliens.push(alien);
@@ -67,8 +73,9 @@ export function CacheAsBitmap(canvas: any) {
     // feel free to play with what's below
     var sprite = new PIXI.Sprite(app.renderer.generateTexture(alienContainer));
     app.stage.addChild(sprite);
-    sprite.x = Math.random() * canvas.width;
-    sprite.y = Math.random() * canvas.height;
+    sprite.x = Math.random() * cHalfW;
+    sprite.y = Math.random() * cHalfH;
+    sprite.scale.set(1 / app.renderer.resolution);
   }
 
   app.ticker.add(() => {

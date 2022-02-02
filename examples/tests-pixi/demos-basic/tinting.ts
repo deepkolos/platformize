@@ -6,6 +6,8 @@ export function Tinting(canvas: any) {
     view: canvas,
     width: canvas.width,
     height: canvas.height,
+    antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 

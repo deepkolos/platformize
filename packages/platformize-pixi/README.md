@@ -5,8 +5,6 @@
 ## 使用
 
 ```text
-pnpm i -S platformize-pixi@6.2.1 pixi.js@6.2.1
-
 # https://pixijs.io/customize/
 pnpm i -S @pixi/constants@6.2.1 \
           @pixi/core@6.2.1 \
@@ -66,6 +64,10 @@ wechatPlatform.dispose();
 - [pixi-wechat-simple](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-wechat-simple/README.md)
 - [pixi-wechat-game](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-wechat-game/README.md)
 - [pixi-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-taobao/README.md)
+
+## 已知问题
+
+
 
 ## 讨论
 

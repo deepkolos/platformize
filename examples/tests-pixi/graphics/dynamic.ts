@@ -7,12 +7,14 @@ export function GraphicsDynamic(canvas: any) {
     width: canvas.width,
     height: canvas.height,
     antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 
   app.stage.interactive = true;
 
   const graphics = new PIXI.Graphics();
+  graphics.scale.set(1 / window.devicePixelRatio);
 
   // set a fill and line style
   graphics.beginFill(0xff3300);
@@ -62,8 +64,8 @@ export function GraphicsDynamic(canvas: any) {
   // let's create a moving shape
   const thing = new PIXI.Graphics();
   app.stage.addChild(thing);
-  thing.x = 800 / 2;
-  thing.y = 600 / 2;
+  thing.x = canvas.width / 4;
+  thing.y = canvas.height / 4;
 
   let count = 0;
 

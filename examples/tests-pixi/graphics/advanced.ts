@@ -7,9 +7,11 @@ export function GraphicsAdvanced(canvas: any) {
     width: canvas.width,
     height: canvas.height,
     antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 
+  app.stage.scale.set(0.85 / window.devicePixelRatio);
   const sprite = PIXI.Sprite.from('https://pixijs.io/examples/examples/assets/bg_rotate.jpg');
 
   // // BEZIER CURVE ////

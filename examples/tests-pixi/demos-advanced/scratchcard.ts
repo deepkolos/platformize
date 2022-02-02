@@ -8,6 +8,8 @@ export function ScratchCard(canvas: any) {
     view: canvas,
     width: canvas.width,
     height: canvas.height,
+    antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
   const { stage } = app;

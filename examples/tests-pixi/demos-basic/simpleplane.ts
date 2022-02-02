@@ -7,7 +7,8 @@ export function SimplePlane(canvas: any) {
     width: canvas.width,
     height: canvas.height,
     backgroundColor: 0x1099bb,
-    resolution: window.devicePixelRatio || 1,
+    antialias: true,
+    resolution: window.devicePixelRatio,
   });
 //   document.body.appendChild(app.view);
 

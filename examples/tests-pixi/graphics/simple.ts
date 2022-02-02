@@ -7,6 +7,7 @@ export function GraphicsSimple(canvas: any) {
     width: canvas.width,
     height: canvas.height,
     antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 

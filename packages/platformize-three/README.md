@@ -129,6 +129,8 @@ export default mergeRollupOptions(
 
 自行组装版本见[这里](../platformize/README.md#原始方式)
 
+> threejs+tensorflow需要禁止global的polyfill见[这里](../platformize/README.md#原始方式)
+
 ```js
 import { PlatformManager, WechatPlatform } from 'platformize-three';
 

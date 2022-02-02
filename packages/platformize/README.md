@@ -31,12 +31,15 @@ export default mergeRollupOptions(
 需要高度定制`rollup.config.js`也可以选择自行组装
 
 ```javascript
-import { platformize } from 'platformize/dist-plugin';
+import { platformize, DEFAULT_API_LIST } from 'platformize/dist-plugin';
 import sucrase from '@rollup/plugin-sucrase';
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import builtins from 'rollup-plugin-node-builtins';
+
+// threejs+tensorflow需要禁止global的polyfill
+DEFAULT_API_LIST.splice(DEFAULT_API_LIST.indexOf('global'), 1);
 
 export default {
   {
@@ -52,7 +55,7 @@ export default {
       resolve({ extensions: ['.ts', '.js'] }),
       sucrase({ transforms: ['typescript'] }),
       commonjs(),
-      ...platformize(), // 注意需要解构
+      ...platformize(DEFAULT_API_LIST), // 注意需要解构
       terser({ output: { comments: false } }),
     ]
   },

@@ -7,6 +7,7 @@ export function MaskGraphics(canvas: any) {
     width: canvas.width,
     height: canvas.height,
     antialias: true,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 

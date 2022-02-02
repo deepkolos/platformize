@@ -11,6 +11,8 @@ Page({
   platform: null as unknown as WechatPlatform,
   canvas: null as unknown as WechatMiniprogram.Canvas,
   currDemo: null as unknown as Application,
+  canvasW: 0,
+  canvasH: 0,
   switchingItem: false,
 
   data: {
@@ -41,7 +43,8 @@ Page({
 
     console.log(window.innerWidth, window.innerHeight);
     console.log(canvas.width, canvas.height);
-
+    this.canvasW = canvas.width;
+    this.canvasH = canvas.height;
     this.canvas = canvas;
   },
 
@@ -65,7 +68,8 @@ Page({
     this.currDemo?.destroy();
     this.switchingItem = true;
     this.currDemo = null as unknown as Application;
-
+    this.canvas.width = this.canvasW;
+    this.canvas.height = this.canvasH;
     const demo = (await DEMO[item](this.canvas)) as Application;
     if (!demo) console.error('no app instance returned');
     this.currDemo = demo;

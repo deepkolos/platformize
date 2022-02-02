@@ -5,7 +5,9 @@ export function SpriteExplosion(canvas: any) {
   const app = new PIXI.Application({
     view: canvas,
     width: canvas.width,
+    antialias: true,
     height: canvas.height,
+    resolution: window.devicePixelRatio,
   });
   document.body.appendChild(app.view);
 
