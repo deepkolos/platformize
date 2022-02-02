@@ -81,6 +81,15 @@ function patchPixi(): Plugin {
           if (source.getContext) {
             const ctx = source.getContext('2d');
             source = ctx.getImageData(0, 0, source.width, source.height);
+            if (glTexture.width === width && glTexture.height === height) {
+                gl.texSubImage2D(baseTexture.target, 0, 0, 0, width, height, baseTexture.format, glTexture.type, source.data);
+            } else {
+                glTexture.width = width;
+                glTexture.height = height;
+    
+                gl.texImage2D(baseTexture.target, 0, glTexture.internalFormat, width, height, 0, baseTexture.format, glTexture.type, source.data);
+            }
+            return true;
           }`,
         );
 
