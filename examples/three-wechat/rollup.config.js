@@ -1,4 +1,5 @@
 import { mergeRollupOptions } from 'platformize-three/dist-plugin';
+import firelog from './firelog.json';
 
 const cfg = mergeRollupOptions(
   {
@@ -13,7 +14,10 @@ const cfg = mergeRollupOptions(
       },
     },
   },
-  { minify: process.env.BUILD === 'production' },
+  {
+    minify: process.env.BUILD === 'production',
+    hotcode: { log: firelog, mode: process.env.HOTCODE_MODE },
+  },
 );
 
 // console.log(cfg);

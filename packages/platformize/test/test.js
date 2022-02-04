@@ -3,7 +3,7 @@ const acorn = require('acorn');
 const test = require('ava');
 const path = require('path');
 
-const { default: inject } = require('../dist/plugin-inject.js');
+const { default: inject } = require('../dist-plugin/plugin-inject.js');
 
 const modPath = path.resolve(__dirname, '../dist/PlatformManager.js');
 
