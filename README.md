@@ -23,6 +23,11 @@
 - [platformize-playcanvas 专门适配](./packages/platformize-playcanvas/README.md)
 - [platformize-pixi 专门适配](./packages/platformize-pixi/README.md)
 
+## 特点
+
+0. 使用方式与 web 完全一致, 更方便跨端代码复用
+1. 支持运行时反馈式 treeshaking, [oasis-wechat-game](./examples/oasis-wechat-game/README.md)小程序包大小从`545kb` > `290kb`
+
 <details>
 
 <summary style="font-size: 24px;display: flex;align-items: center;">各小程序限制情况</summary>
@@ -198,7 +203,7 @@ rush rebuild
 8. 构建迁移到 rush + swc (esbuild 不支持像 tsc 那样 transpile 目录) ✅
 9. TextDecoder 支持更多格式 (TBD)
 10. 支持 playcanvas 导出项目转换到小程序 ✅
-11. 运行时反馈式 tree shaking (类似 tfjs custom module 的方式[tfjs-treeshaking-test](https://github.com/deepkolos/tfjs-treeshaking-test))  prototype ✅
+11. 运行时反馈式 tree shaking (类似 tfjs custom module 的方式[tfjs-treeshaking-test](https://github.com/deepkolos/tfjs-treeshaking-test)) prototype ✅
 
 ## 适配经验
 
