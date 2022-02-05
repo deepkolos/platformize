@@ -28,13 +28,16 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": true,
+    "useIsolateContext": false,
+    "userConfirmedUseIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
+    "disableUseStrict": false,
     "useStaticServer": false,
-    "showES6CompileOption": false
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false
   },
   "compileType": "game",
   "libVersion": "1.9.94",

@@ -23,6 +23,20 @@
 > rush build
 ```
 
+## 运行时反馈式treeshaking
+
+测试的firelog.json是`GLTFLoader`的case
+
+```sh
+# 运行时反馈式treeshaking slot
+> pnpm run dev-hotcode-slot / pnpm run build-hotcode-slot
+
+# 模拟器内操作, 然后控制台执行JSON.stringify(console.fireLog) 保存内容到 firelog.json
+
+# 然后, 执行remove
+> pnpm run dev-hotcode-remove / pnpm run build-hotcode-remove
+```
+
 #### 内存测试结果
 
 用例 1：重复加载一个有纹理的 glb

@@ -1,12 +1,20 @@
 //@ts-nocheck
 
-console.fireLog = {};
+const fireLog = {};
+const fireError = new Set();
+
+console.fireLog = fireLog;
+console.fireError = fireError;
+
+setInterval(() => {
+  console.log(fireLog);
+}, 3000);
+
 export function fire(id: number) {
-  if (console.fireLog[id] == undefined) console.fireLog[id] = 0;
-  console.fireLog[id]++;
+  if (fireLog[id] == undefined) fireLog[id] = 0;
+  fireLog[id]++;
 }
 
 export function error(id: number) {
-  if (console.fireError == undefined) console.fireError = new Set();
-  console.fireError.add(id);
+  fireError.add(id);
 }

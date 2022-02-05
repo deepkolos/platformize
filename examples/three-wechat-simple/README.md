@@ -1,6 +1,6 @@
 # platformize-three-demo-wechat-simple 微信小程序
 
-最基本的 threejs demo, 显示一个 gltf 模型，小程序包大小`606kb`, `运行时反馈式treeshaking`后只有`426kb`
+最基本的 threejs demo, 显示一个 gltf 模型，小程序包大小`606kb`, `运行时反馈式treeshaking`后只有`321kb`
 
 # 运行
 
@@ -23,7 +23,7 @@
 # 运行时反馈式treeshaking slot
 > pnpm run dev-hotcode-slot / pnpm run build-hotcode-slot
 
-# 模拟器内操作, 然后JSON.stringify(console.fireLog) 保存内容到 firelog.json
+# 模拟器内操作, 然后控制台执行JSON.stringify(console.fireLog) 保存内容到 firelog.json
 
 # 然后, 执行remove
 > pnpm run dev-hotcode-remove / pnpm run build-hotcode-remove

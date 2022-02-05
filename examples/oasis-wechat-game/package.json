@@ -6,7 +6,10 @@
     "build:watch": "rollup -c",
     "dev": "rollup -wc",
     "build": "rollup -c --environment BUILD:production",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "dev-hotcode-slot": "rollup -c --environment HOTCODE_MODE:slot",
+    "build-hotcode-slot": "rollup -c --environment BUILD:production --environment HOTCODE_MODE:slot",
+    "dev-hotcode-remove": "rollup -c --environment HOTCODE_MODE:remove",
+    "build-hotcode-remove": "rollup -c --environment BUILD:production --environment HOTCODE_MODE:remove"
   },
   "keywords": [],
   "author": "DeepKolos<deepkolos@qq.com>",

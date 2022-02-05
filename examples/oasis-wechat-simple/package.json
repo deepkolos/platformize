@@ -5,7 +5,13 @@
   "scripts": {
     "build:watch": "rollup -c",
     "dev": "rollup -wc",
-    "build": "rollup -c --environment BUILD:production"
+    "build": "rollup -c --environment BUILD:production",
+    "dev-hotcode-slot": "rollup -c --environment HOTCODE_MODE:slot",
+    "build-hotcode-slot": "rollup -c --environment BUILD:production --environment HOTCODE_MODE:slot",
+    "dev-hotcode-remove": "rollup -c --environment HOTCODE_MODE:remove",
+    "build-hotcode-remove": "rollup -c --environment BUILD:production --environment HOTCODE_MODE:remove",
+    "dev-hotcode-debug": "rollup -c --environment HOTCODE_MODE:debug",
+    "build-hotcode-debug": "rollup -c --environment BUILD:production --environment HOTCODE_MODE:debug"
   },
   "keywords": [],
   "author": "Deepkolos<deepkolos@qq.com>",

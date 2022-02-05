@@ -1,6 +1,6 @@
 # platformize-oasis-demo-wechat-game
 
-[platformize](https://github.com/deepkolos/platformize) 适配`oasis-engine`微信小游戏 Demo
+[platformize](https://github.com/deepkolos/platformize) 适配`oasis-engine`微信小游戏 Demo, 包大小`545kb`, 运行时反馈式 treeshaking 后大小为`290kb`
 
 <div>
   <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat-game/demo.gif" width="200"alt="" />
@@ -17,6 +17,18 @@
 
 # prod
 > rush build
+```
+
+## 运行时反馈式 treeshaking
+
+```sh
+# 运行时反馈式treeshaking slot
+> pnpm run dev-hotcode-slot / pnpm run build-hotcode-slot
+
+# 模拟器内操作, 然后控制台执行JSON.stringify(定时每3s打印出来的对象) 保存内容到 firelog.json
+
+# 然后, 执行remove
+> pnpm run dev-hotcode-remove / pnpm run build-hotcode-remove
 ```
 
 ## 讨论

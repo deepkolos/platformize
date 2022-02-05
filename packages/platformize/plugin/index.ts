@@ -40,4 +40,4 @@ function mergeRollupOptions(
   );
 }
 
-export { platformize, mergeRollupOptions, deepmerge, inject, Injectment, DEFAULT_API_LIST };
+export { platformize, mergeRollupOptions, deepmerge, inject, Injectment, DEFAULT_API_LIST, hotCode, HotCodeProps };

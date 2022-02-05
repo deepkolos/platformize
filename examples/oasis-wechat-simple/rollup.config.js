@@ -1,4 +1,5 @@
 import { mergeRollupOptions } from 'platformize-oasis/dist-plugin';
+import firelog from './firelog.json';
 
 export default mergeRollupOptions(
   {
@@ -10,5 +11,8 @@ export default mergeRollupOptions(
       chunkFileNames: 'chunks/[name].js',
     },
   },
-  { minify: process.env.BUILD === 'production' },
+  {
+    minify: process.env.BUILD === 'production',
+    hotcode: { log: firelog, mode: process.env.HOTCODE_MODE },
+  },
 );
