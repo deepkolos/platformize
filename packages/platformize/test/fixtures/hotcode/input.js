@@ -25,6 +25,12 @@ switch (2) {
     console.log('e');
     console.log('e1');
     break;
+  case '4': {
+    const a = 0;
+    console.log('e');
+    console.log('e1');
+    break;
+  }
   default:
     console.log('f');
     console.log('f1');
