@@ -78,6 +78,33 @@
   </tbody>
 </table>
 
+## 构建特性
+
+1. 定制版 plugin-inject 实现全局 API 的替换或者局部 所引入 module 的 overwrite
+2. plugin 需自带 manualChunks 配置, 用于缓解淘宝小程序几分钟的构建耗时
+3. 提供两种使用方式, 一种是便捷版, 少配置, 一种是骨头版, 允许用户自行组装
+4. 可 overwrite polyfill platformzie 进行扩展
+
+## 运行例子/开发贡献
+
+> 使用 [rush](https://rushjs.io/) 管理 monorepo
+
+```text
+pnpm i -g @microsoft/rush concurrently
+rush install
+
+# dev all
+rush build:watch
+
+# dev one example
+rush build:watch --to-except platformize-playcanvas-wechat
+pnpm dev --filter platformize-playcanvas-wechat
+
+# prod
+rush build
+rush rebuild
+```
+
 ## 目录设计
 
 ```yml
@@ -162,33 +189,6 @@ packages
 ```
 
 适配器的版本号与`threejs/oasis/playcanvas/pixi`主版本号一一对应, adapter 除外
-
-## 构建特性
-
-1. 定制版 plugin-inject 实现全局 API 的替换或者局部 所引入 module 的 overwrite
-2. plugin 需自带 manualChunks 配置, 用于缓解淘宝小程序几分钟的构建耗时
-3. 提供两种使用方式, 一种是便捷版, 少配置, 一种是骨头版, 允许用户自行组装
-4. 可 overwrite polyfill platformzie 进行扩展
-
-## 运行例子/开发贡献
-
-> 使用 [rush](https://rushjs.io/) 管理 monorepo
-
-```text
-pnpm i -g @microsoft/rush concurrently
-rush install
-
-# dev all
-rush build:watch
-
-# dev one example
-rush build:watch --to-except platformize-playcanvas-wechat
-pnpm dev --filter platformize-playcanvas-wechat
-
-# prod
-rush build
-rush rebuild
-```
 
 ## TODO
 
