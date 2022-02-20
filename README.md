@@ -55,6 +55,7 @@
   <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
   <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
   <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
+  <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
 </div>
 
 <h3 align="center">Special Sponsors</h3>

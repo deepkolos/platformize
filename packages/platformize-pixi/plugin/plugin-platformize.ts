@@ -7,14 +7,14 @@ type platformizeOptions = Parameters<typeof platformize>['0'];
 
 export const DEFAULT_API_LIST = [...DEFAULT_API_LIST_BAE, '$defaultWebGLExtensions'];
 
-export default function platformizeOasis({
-  apiList = DEFAULT_API_LIST,
-  platformManagerPath,
-}: platformizeOptions = {}): Plugin[] {
-  return [patchPixi(), ...platformize({ apiList, platformManagerPath })];
+export default function platformizePixi(
+  { apiList = DEFAULT_API_LIST, platformManagerPath }: platformizeOptions = {},
+  disableContextLost = true,
+): Plugin[] {
+  return [patchPixi(disableContextLost), ...platformize({ apiList, platformManagerPath })];
 }
 
-function patchPixi(): Plugin {
+function patchPixi(disableContextLost: boolean): Plugin {
   return {
     name: 'patchPixi',
     transform(code, filePath) {
@@ -97,6 +97,9 @@ function patchPixi(): Plugin {
         code = code.replace(`WebGLRenderingContext.SCISSOR_TEST`, '3089');
         code = code.replace(`!this.domElement.parentElement`, `false`);
         code = code.replace(`!this.interactionDOMElement.parentElement`, `false`);
+        // disable context lost enable simulator switch cases
+        if (disableContextLost)
+          code = replaceAll(code, `gl.getExtension('WEBGL_lose_context')`, `null`);
 
         if (filePath.match(/text(-bitmap)?\.js$/)) {
           code = code.replace(

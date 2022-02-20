@@ -43,8 +43,8 @@ export function MouseTail(canvas: any) {
   const mouseposition = { x: 0, y: 0 };
   app.stage.interactive = true;
   app.stage.on('pointermove', e => {
-    mouseposition.x = e.data.global.x * app.renderer.resolution;
-    mouseposition.y = e.data.global.y * app.renderer.resolution;
+    mouseposition.x = e.data.global.x;
+    mouseposition.y = e.data.global.y;
   });
 
 
