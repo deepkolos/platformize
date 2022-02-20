@@ -9,7 +9,7 @@
   "dependencies": {
     "tests-oasis": "*",
     "oasis-engine": "^0.6.3",
-    "platformize-oasis": "^0.6.3"
+    "platformize-oasis": "^0.6.4"
   },
   "devDependencies": {
     "rollup": "^2.60.1"

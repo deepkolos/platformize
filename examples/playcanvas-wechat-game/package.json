@@ -17,7 +17,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "platformize-playcanvas": "^1.50.0",
+    "platformize-playcanvas": "^1.50.1",
     "playcanvas": "1.50.0"
   }
 }

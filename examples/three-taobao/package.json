@@ -7,7 +7,7 @@
     "test": "exit 0"
   },
   "dependencies": {
-    "platformize-three": "^0.133.0",
+    "platformize-three": "^0.133.1",
     "tests-three": "^1.0.0",
     "three": "0.133.1"
   },

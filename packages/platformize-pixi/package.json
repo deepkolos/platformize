@@ -1,6 +1,6 @@
 {
   "name": "platformize-pixi",
-  "version": "6.2.1",
+  "version": "6.2.2",
   "description": "platformize pixjs to many platform wechat/taobao miniprogram/game",
   "sideEffects": false,
   "main": "dist/index.js",

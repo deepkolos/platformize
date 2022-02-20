@@ -24,6 +24,6 @@
   "dependencies": {
     "oasis-engine": "^0.6.3",
     "@oasis-engine/controls": "^0.6.3",
-    "platformize-oasis": "^0.6.3"
+    "platformize-oasis": "^0.6.4"
   }
 }

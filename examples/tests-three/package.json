@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "three": "0.133.1",
-    "platformize-three": "^0.133.0",
+    "platformize-three": "^0.133.1",
     "three-sprite-player": "^1.0.8"
   }
 }

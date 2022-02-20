@@ -12,7 +12,7 @@
   "author": "DeepKolos<deepkolos@qq.com>",
   "license": "",
   "dependencies": {
-    "platformize-playcanvas": "^1.50.0",
+    "platformize-playcanvas": "^1.50.1",
     "playcanvas": "1.50.0",
     "tests-playcanvas": "^1.0.0"
   },

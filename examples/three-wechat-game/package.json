@@ -17,7 +17,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "platformize-three": "^0.133.0",
+    "platformize-three": "^0.133.1",
     "three": "0.133.1"
   }
 }

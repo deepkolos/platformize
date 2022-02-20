@@ -1,6 +1,6 @@
 {
   "name": "platformize-oasis",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "platformize oasis to many platform wechat/taobao miniprogram/game",
   "sideEffects": false,
   "main": "dist/index.js",

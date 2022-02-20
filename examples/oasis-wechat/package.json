@@ -14,7 +14,7 @@
   "dependencies": {
     "tests-oasis": "*",
     "oasis-engine": "^0.6.3",
-    "platformize-oasis": "^0.6.3"
+    "platformize-oasis": "^0.6.4"
   },
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.4.0",
