@@ -91,7 +91,7 @@
 > 使用 [rush](https://rushjs.io/) 管理 monorepo
 
 ```text
-pnpm i -g @microsoft/rush concurrently
+pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core
 rush install
 
 # dev all
