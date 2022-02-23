@@ -1,5 +1,5 @@
-export * from './Cube';
-export * from './GLTF';
+export * from './cube';
+export * from './gltf';
 export * from './FlappyBird';
 export * from './PBRHelmet';
 export * from './LottiesBenchmark';
