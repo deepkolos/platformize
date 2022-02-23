@@ -7,9 +7,9 @@
   "sideEffects": false,
   "scripts": {
     "build:watch": "pnpm run build:file",
-    "build:type": "concurrently 'tsc --project ./tsconfig.json --emitDeclarationOnly || exit 0' 'tsc --project ./tsconfig.plugin.json --emitDeclarationOnly || exit 0'",
-    "build:file": "concurrently 'swc plugin -d dist-plugin -C module.type=commonjs' 'swc src -d dist'",
-    "build": "concurrently 'pnpm run build:type' 'pnpm run build:file'",
+    "build:type": "concurrently \"tsc --project ./tsconfig.json --emitDeclarationOnly || exit 0\" \"tsc --project ./tsconfig.plugin.json --emitDeclarationOnly || exit 0\"",
+    "build:file": "concurrently \"swc plugin -d dist-plugin -C module.type=commonjs\" \"swc src -d dist\"",
+    "build": "concurrently \"pnpm run build:type\" \"pnpm run build:file\"",
     "test": "ava"
   },
   "files": [
