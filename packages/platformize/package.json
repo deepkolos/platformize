@@ -28,13 +28,13 @@
     "deepmerge": "^4.2.2",
     "estree-walker": "2.0.1",
     "magic-string": "^0.25.7",
+    "rollup": "^2.60.1",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-terser": "^7.0.2",
     "regenerator-runtime": "~0.13.9"
   },
   "devDependencies": {
     "@types/node": "^17.0.8",
-    "rollup": "^2.60.1",
     "@types/wechat-miniprogram": "^3.4.0",
     "minigame-api-typings": "^3.4.1",
     "@swc/cli": "~0.1.52",
