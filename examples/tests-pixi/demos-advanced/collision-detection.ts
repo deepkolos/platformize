@@ -92,8 +92,8 @@ export function CollisionDetection(canvas: any) {
   const mouseCoords = { x: 0, y: 0 };
   app.stage.interactive = true;
   app.stage.on('pointermove', e => {
-    mouseCoords.x = e.data.global.x * app.renderer.resolution;
-    mouseCoords.y = e.data.global.y * app.renderer.resolution;
+    mouseCoords.x = e.data.global.x;
+    mouseCoords.y = e.data.global.y;
   });
 
   // Listen for animate update

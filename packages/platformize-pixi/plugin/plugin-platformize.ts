@@ -101,6 +101,13 @@ function patchPixi(disableContextLost: boolean): Plugin {
         if (disableContextLost)
           code = replaceAll(code, `gl.getExtension('WEBGL_lose_context')`, `null`);
 
+        // pointerup 事件丢失 @see https://github.com/deepkolos/platformize/issues/5
+        code = replaceAll(
+          code,
+          `var eventAppend = originalEvent.target !== this.interactionDOMElement ? 'outside' : '';`,
+          ` var eventAppend = '';`,
+        );
+
         if (filePath.match(/text(-bitmap)?\.js$/)) {
           code = code.replace(
             `// OffscreenCanvas2D measureText can be up to 40% faster.`,
@@ -112,6 +119,21 @@ function patchPixi(disableContextLost: boolean): Plugin {
             code,
             `canvas = document.createElement('canvas');`,
             `canvas = window.$canvas2D;`,
+          );
+
+          // https://github.com/deepkolos/platformize/issues/4
+          code = code.replace(
+            `var texture = Texture.from(canvas);`,
+            `var idata = canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height);
+            var texture = Texture.fromBuffer(new Uint8Array(idata.data), canvas.width, canvas.height);`,
+          );
+
+          code = code.replace(
+            `texture.orig.width = texture._frame.width - (padding * 2);`,
+            `texture.baseTexture.width = texture.trim.width;
+              texture.baseTexture.height = texture.trim.height;
+              texture.baseTexture.resource.data = new Uint8Array(this.context.getImageData(0, 0, canvas.width, canvas.height).data);
+             texture.orig.width = texture._frame.width - (padding * 2);`,
           );
         }
 
