@@ -13,7 +13,7 @@
   "license": "",
   "dependencies": {
     "tests-pixi": "*",
-    "platformize-pixi": "^6.2.2",
+    "platformize-pixi": "^6.2.3",
     "@pixi/app": "6.2.1"
   },
   "devDependencies": {

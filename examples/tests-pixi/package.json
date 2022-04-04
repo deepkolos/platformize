@@ -10,7 +10,7 @@
     "build": "exit 0"
   },
   "dependencies": {
-    "platformize-pixi": "^6.2.2",
+    "platformize-pixi": "^6.2.3",
    "@pixi/constants": "6.2.1",
     "@pixi/core": "6.2.1",
     "@pixi/math": "6.2.1",

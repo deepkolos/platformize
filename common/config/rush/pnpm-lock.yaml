@@ -4101,7 +4101,7 @@ packages:
       licia: 1.32.0
       qrcode-reader: 1.0.4
       qrcode-terminal: 0.12.0
-      ws: 6.2.2
+      ws: 6.2.3
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -5331,7 +5331,7 @@ packages:
       typedarray-to-buffer: 3.1.5
     dev: false
 
-  /ws/6.2.2:
+  /ws/6.2.3:
     resolution: {integrity: sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==}
     dependencies:
       async-limiter: 1.0.1
