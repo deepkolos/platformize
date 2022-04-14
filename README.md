@@ -92,7 +92,7 @@
 
 ```text
 pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core
-rush install
+rush update
 
 # dev all
 rush build:watch

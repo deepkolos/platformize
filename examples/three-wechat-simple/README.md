@@ -6,7 +6,7 @@
 
 ```sh
 # 安装依赖
-> rush install
+> rush update
 
 # dev
 > rush build:watch
