@@ -204,7 +204,7 @@ packages
 9. TextDecoder 支持更多格式 (TBD)
 10. 支持 playcanvas 导出项目转换到小程序 ✅
 11. 运行时反馈式 tree shaking (类似 tfjs custom module 的方式[tfjs-treeshaking-test](https://github.com/deepkolos/tfjs-treeshaking-test)) prototype ✅
-12. 新增 prebuild 包, 允许无需额外构建使用方式即 three-platformize 的方式
+12. ~~新增 prebuild 包, 允许无需额外构建使用方式即 three-platformize 的方式~~(一想到还需要prebuild生态就算了比如单独prebuild three还不够, 还得exampls jsm, 其他渲染引擎也类似)
 
 ## 适配经验
 
