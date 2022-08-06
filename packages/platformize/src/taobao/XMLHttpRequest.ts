@@ -90,7 +90,7 @@ export default class $XMLHttpRequest extends EventTarget {
 
   overrideMimeType() {}
 
-  async send(data = '') {
+  send(data = '') {
     if (this.readyState !== $XMLHttpRequest.OPENED) {
       throw new Error(
         "Failed to execute 'send' on 'XMLHttpRequest': The object's state must be OPENED.",
@@ -193,22 +193,26 @@ export default class $XMLHttpRequest extends EventTarget {
         return;
       }
 
-      if ($XMLHttpRequest.URLModifier) url = await $XMLHttpRequest.URLModifier(url);
+      const downloadFile = url => {
+        my.downloadFile({
+          url,
+          data,
+          success: ({ apFilePath }) => {
+            const fileSystem = my.getFileSystemManager();
+            fileSystem.readFile({
+              filePath: apFilePath,
+              encoding: responseType === 'arraybuffer' ? 'base64' : 'utf8',
+              // encoding: 'arraybuffer', // 不写encoding默认ArrayBuffer
+              success: onSuccess,
+            });
+          },
+          fail: onFail,
+        });
+      };
 
-      my.downloadFile({
-        url,
-        data,
-        success: ({ apFilePath }) => {
-          const fileSystem = my.getFileSystemManager();
-          fileSystem.readFile({
-            filePath: apFilePath,
-            encoding: responseType === 'arraybuffer' ? 'base64' : 'utf8',
-            // encoding: 'arraybuffer', // 不写encoding默认ArrayBuffer
-            success: onSuccess,
-          });
-        },
-        fail: onFail,
-      });
+      if ($XMLHttpRequest.URLModifier)
+        Promise.resolve($XMLHttpRequest.URLModifier(url)).then(downloadFile);
+      else downloadFile(url);
 
       // my.request({
       //   data,

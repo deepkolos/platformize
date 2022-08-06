@@ -14,7 +14,8 @@
     "declaration": true,
     "strict": true,
     "allowJs": true,
-    "target": "es2017"
+    "target": "es2017",
+    "noEmitHelpers": true,
   },
   "exclude": [
     "dist",
