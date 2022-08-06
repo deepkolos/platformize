@@ -1,15 +1,15 @@
 <view class="title">platformize-three</view>
 
 <view class="desc">
-  一个让 THREE 平台化的项目
+  <view class="line">一个让 THREE 平台化的项目</view>
 
-  0. 已适配微信小程序(真机+模拟器)，淘宝小程序(模拟器+真机)，字节小程序(真机)
-  1. 支持 tree shaking（需用 webpack，rollup 等构建工具）
-  2. VSCode types 正常，能正常访问各个类的定义
-  3. 适配 examples/jsm/\*\*/\*.js，types 正常
-  4. 可升级、降级版本或使用自定义 THREE
-  5. 微信小程序 IOS 内存优化，更少切页面导致的崩溃
-  6. 支持自定义新平台适配，参考 WechatPlatform 编写适配器即可
+  <view class="line">0. 已适配微信小程序(真机+模拟器)，淘宝小程序(模拟器+真机)，字节小程序(真机)</view>
+  <view class="line">1. 支持 tree shaking（需用 webpack，rollup 等构建工具）</view>
+  <view class="line">2. VSCode types 正常，能正常访问各个类的定义</view>
+  <view class="line">3. 适配 examples/jsm/\*\*/\*.js，types 正常</view>
+  <view class="line">4. 可升级、降级版本或使用自定义 THREE</view>
+  <view class="line">5. 微信小程序 IOS 内存优化，更少切页面导致的崩溃</view>
+  <view class="line">6. 支持自定义新平台适配，参考 WechatPlatform 编写适配器即可</view>
 </view>
 
 <view bindtap="goto" class="btn">立即进入</view>

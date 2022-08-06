@@ -6,6 +6,7 @@
     "build:watch": "rollup -c",
     "dev": "rollup -wc",
     "build": "rollup -c --environment BUILD:production",
+    "dev:prod": "rollup -cw --environment BUILD:production",
     "dev-hotcode-slot": "rollup -c --environment HOTCODE_MODE:slot",
     "build-hotcode-slot": "rollup -c --environment BUILD:production --environment HOTCODE_MODE:slot",
     "dev-hotcode-remove": "rollup -c --environment HOTCODE_MODE:remove",
