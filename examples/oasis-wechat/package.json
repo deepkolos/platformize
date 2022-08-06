@@ -5,6 +5,7 @@
   "scripts": {
     "build:watch": "rollup -c",
     "dev": "rollup -w -c",
+    "dev:prod": "rollup -wc --environment BUILD:production",
     "build": "rollup -c --environment BUILD:production",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
