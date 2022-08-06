@@ -146,13 +146,14 @@ export class TaobaoPlatform extends Platform {
 
     // @ts-ignore
     canvas.getBoundingClientRect = () => this.canvasRect;
-    // @ts-ignore
-    canvas._getContext = this.canvas.getContext;
-    canvas.getContext = function getContext() {
-      if (arguments[0] !== 'webgl') return null;
-      // @ts-ignore
-      return canvas._getContext(...arguments);
-    };
+    // 反馈影响模拟器运行了 https://github.com/deepkolos/platformize/issues/8 
+    // // @ts-ignore
+    // canvas._getContext = this.canvas.getContext;
+    // canvas.getContext = function getContext() {
+    //   if (arguments[0] !== 'webgl') return null;
+    //   // @ts-ignore
+    //   return canvas._getContext(...arguments);
+    // };
   }
 
   enableDeviceOrientation() {
