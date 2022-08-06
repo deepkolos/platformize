@@ -56,6 +56,10 @@ wechatPlatform.dispose();
 - [oasis-wechat-game](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat-game/README.md)
 - [oasis-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-taobao/README.md)
 
+## BUG
+
+> 2022/8/6 发现微信小程序gl.texSubImage2D api有问题...目前只修复了GLTexture2D.setImageSource, setPixelBuffer依然有问题...
+
 ## 讨论
 
 可通过群里 DeepKolos 联系我
