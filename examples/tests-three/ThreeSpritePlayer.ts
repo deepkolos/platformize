@@ -5,9 +5,9 @@ import ThreeSpritePlayer from 'three-sprite-player';
 // const url: Array<string> = new Array<string>(3).fill('').map((v: string, k: number) => `/imgs/output-${k}.png`);
 
 const url = [
-  'https://s3.ax1x.com/2021/02/26/yx0ObV.png',
-  'https://s3.ax1x.com/2021/02/26/yx0LD0.png',
-  'https://s3.ax1x.com/2021/02/26/yx0Hvn.png',
+  'https://upload-images.jianshu.io/upload_images/252050-20a1aa9acbfb9446.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+  'https://upload-images.jianshu.io/upload_images/252050-4a7c3cc27a087066.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+  'https://upload-images.jianshu.io/upload_images/252050-db07cae2bbf672a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
 ];
 
 const tile = {
