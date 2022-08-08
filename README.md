@@ -38,6 +38,7 @@
 
 - 纹理图片分辨率不能大于 `2048`, 下载 ArrayBuffer 大小不能大于 `10MB`
 - WebGL 扩展 `OES_vertex_array_object` 有问题, 需手动禁用
+- 基础库版本`2.24.1`以上有`texSubImage2D`api报错问题, 会导致oasis加载图片为黑色(已patch修复) [#10](https://github.com/deepkolos/platformize/issues/10)
 
 #### 淘宝小程序限制
 
