@@ -7,7 +7,7 @@
 ## 使用
 
 ```text
-pnpm i -S platformize-oasis@0.6.3 oasis-engine@0.6.3
+pnpm i -S platformize-oasis@0.6.5 oasis-engine@0.6.3
 ```
 
 `rollup.config.js`注入特定配置
