@@ -24,7 +24,7 @@ export function Cube(canvas: any) {
   cameraEntity.transform.position = new Vector3(0, 5, 10);
   cameraEntity.transform.lookAt(new Vector3(0, 0, 0));
   cameraEntity.addComponent(Camera);
-  scene.background.solidColor.setValue(1, 1, 1, 1);
+  scene.background.solidColor.set(1, 1, 1, 1);
 
   // Create a entity to add light component
   let lightEntity = rootEntity.createChild('light');

@@ -1,4 +1,4 @@
-import { OrbitControl } from '@oasis-engine/controls';
+import { OrbitControl } from '@oasis-engine-toolkit/controls';
 import { Camera, GLTFResource, WebGLEngine } from 'oasis-engine';
 
 export function GLTF(canvas: any) {
@@ -12,7 +12,7 @@ export function GLTF(canvas: any) {
   cameraEntity.transform.setPosition(3, 3, 3);
   cameraEntity.addComponent(OrbitControl);
 
-  engine.sceneManager.activeScene.ambientLight.diffuseSolidColor.setValue(1, 1, 1, 1);
+  engine.sceneManager.activeScene.ambientLight.diffuseSolidColor.set(1, 1, 1, 1);
 
   engine.resourceManager
     .load<GLTFResource>(

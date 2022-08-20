@@ -1,5 +1,5 @@
 /// <reference types="minigame-api-typings" />
-/// <reference types="offscreencanvas" />
+/// <reference types="@types/offscreencanvas" />
 
 import $URL from '../base/URL';
 import $Blob from '../base/Blob';
@@ -131,7 +131,7 @@ export class WechatGamePlatform extends Platform {
 
     const dispatchEvent = (e: any) => this.dispatchTouchEvent(e);
 
-    if (systemInfo.platform != 'devtools' || WechatGamePlatform.DEVTOOLS_USE_NATIVE_EVENT) {
+    if ((systemInfo.platform as string) != 'devtools' || WechatGamePlatform.DEVTOOLS_USE_NATIVE_EVENT) {
       wxGame.onTouchMove(dispatchEvent);
       wxGame.onTouchStart(dispatchEvent);
       wxGame.onTouchEnd(dispatchEvent);
@@ -235,6 +235,8 @@ export class WechatGamePlatform extends Platform {
         offsetX: touch.pageX,
         offsetY: touch.pageY,
         pointerId: touch.identifier,
+        // to fix oasis controls https://www.w3.org/TR/uievents/#dom-mouseevent-buttons
+        buttons: 1,
         type:
           {
             touchstart: 'pointerdown',
@@ -245,6 +247,7 @@ export class WechatGamePlatform extends Platform {
       };
 
       this.canvas.dispatchEvent(pointerEvent);
+      if (e.type === 'touchend') this.canvas.dispatchEvent({ ...pointerEvent, type: 'pointerout' });
     }
   }
 

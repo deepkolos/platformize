@@ -23,7 +23,7 @@ function getMd5(str) {
 
 const overwriteCfg = { storeName: true };
 
-export default function hotCode(options: HotCodeProps = {}): Plugin {
+export default function hotCode(options: HotCodeProps = {}): Plugin | null {
   const { sourceMap = false, log = null, mode, removeSwitch = true } = options;
   if (mode !== 'slot' && mode !== 'remove' && mode !== 'debug') return null;
 
@@ -45,7 +45,7 @@ export default function hotCode(options: HotCodeProps = {}): Plugin {
       if (!filter(filePath)) return null;
       if (filePath.endsWith('hot-code-mod.js')) return null;
 
-      let ast: AcornNode = null;
+      let ast: AcornNode | null = null;
       try {
         ast = this.parse(code);
       } catch (err) {

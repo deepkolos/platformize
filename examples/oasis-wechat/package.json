@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build:watch": "rollup -c",
-    "dev": "rollup -w -c",
+    "dev": "rollup -wc",
     "dev:prod": "rollup -wc --environment BUILD:production",
     "build": "rollup -c --environment BUILD:production",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
@@ -14,8 +14,8 @@
   "license": "",
   "dependencies": {
     "tests-oasis": "*",
-    "oasis-engine": "^0.6.3",
-    "platformize-oasis": "^0.6.4"
+    "oasis-engine": "0.8.0-beta.14",
+    "platformize-oasis": "^0.8.0"
   },
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.4.0",

@@ -1,5 +1,5 @@
 import { PlatformManager, WechatPlatform } from 'platformize-oasis';
-import { OrbitControl } from '@oasis-engine/controls';
+import { OrbitControl } from '@oasis-engine-toolkit/controls';
 import { Camera, Engine, GLTFResource, WebGLEngine } from 'oasis-engine';
 
 Page({

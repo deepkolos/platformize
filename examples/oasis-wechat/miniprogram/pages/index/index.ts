@@ -1,6 +1,5 @@
 import { PlatformManager, WechatPlatform } from 'platformize-oasis';
 import * as DEMO from 'tests-oasis';
-import type { Engine } from 'oasis-engine';
 
 const getNode = id =>
   new Promise(r => wx.createSelectorQuery().select(id).fields({ node: true, size: true }).exec(r));
@@ -8,7 +7,7 @@ const getNode = id =>
 Page({
   platform: null as unknown as WechatPlatform,
   canvas: null as unknown as WechatMiniprogram.Canvas,
-  currDemo: null as unknown as Engine,
+  currDemo: null as any,
   switchingItem: false,
 
   data: {
@@ -61,9 +60,9 @@ Page({
 
     this.currDemo?.destroy();
     this.switchingItem = true;
-    this.currDemo = null as unknown as Engine;
+    this.currDemo = null;
 
-    const demo = (await DEMO[item](this.canvas)) as Engine;
+    const demo = (await DEMO[item](this.canvas));
     if (!demo) console.error('no engine instance returned');
     this.currDemo = demo;
     this.setData({ currItem: i });
