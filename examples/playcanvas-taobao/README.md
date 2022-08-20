@@ -11,7 +11,10 @@
 # 运行
 
 ```sh
-# 安装依赖
+# 全局依赖(若未安装)
+pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core
+
+# 安装/更新依赖
 > rush update
 
 # dev
