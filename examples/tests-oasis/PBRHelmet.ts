@@ -67,9 +67,8 @@ export function PBRHelmet(canvas: any) {
         skyMaterial.textureCubeMap = ambientLight.specularTexture;
         skyMaterial.textureDecodeRGBM = true;
       }),
-  ]).then(() => {
-    engine.run();
-  });
+  ]);
 
+  engine.run();
   return engine;
 }
