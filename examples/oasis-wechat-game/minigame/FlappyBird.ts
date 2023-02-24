@@ -147,7 +147,7 @@ export function FlappyBird(canvas: any) {
       const groundMaterial = new UnlitMaterial(engine);
       groundRenderer.setMaterial(groundMaterial);
       groundMaterial.baseTexture = texture2DArr[2];
-      groundMaterial.tilingOffset.setValue(21, 1, 0, 0);
+      groundMaterial.tilingOffset.set(21, 1, 0, 0);
       nodeGround.addComponent(ScriptGround);
 
       // Bird.
@@ -172,7 +172,7 @@ export function FlappyBird(canvas: any) {
       effRenderer.setMaterial(material);
       // Can be transparent.
       material.isTransparent = true;
-      material.baseColor.setValue(0, 0, 0, 0);
+      material.baseColor.set(0, 0, 0, 0);
       nodeDeathEff.addComponent(ScriptDeathEff);
 
       // GUI.
@@ -744,7 +744,7 @@ export function FlappyBird(canvas: any) {
         this._curFrameIndex = frameIndex;
         const frameInfo = this._regions[frameIndex];
         const region = this._sprite.region;
-        region.setValue(
+        region.set(
           frameInfo.x,
           frameInfo.y,
           this._reciprocalSliceWidth,

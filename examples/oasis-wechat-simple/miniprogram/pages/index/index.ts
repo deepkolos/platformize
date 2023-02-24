@@ -28,7 +28,7 @@ Page({
         cameraEntity.transform.setPosition(3, 3, 3);
         cameraEntity.addComponent(OrbitControl);
 
-        engine.sceneManager.activeScene.ambientLight.diffuseSolidColor.setValue(1, 1, 1, 1);
+        engine.sceneManager.activeScene.ambientLight.diffuseSolidColor.set(1, 1, 1, 1);
 
         engine.resourceManager
           .load<GLTFResource>(

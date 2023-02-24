@@ -1,0 +1,17 @@
+<!--index.ttml-->
+<view class="page">
+  <view class="nav-bar">
+    <view class="title">Oasis-Platformize 字节小程序</view>
+    <view class="menu" bindtap="onMenuClick">示例</view>
+  </view>
+
+  <view class="menu-can {{showMenu ? 'active' : ''}}">
+    <view class="menu-item {{currItem === idx ? 'active' : ''}}" tt:for="{{menuList}}" tt:for-index="idx"
+      tt:for-item="item" data-i="{{idx}}" tt:key="idx" data-item="{{item}}" bindtap="onMenuItemClick">{{item}}</view>
+  </view>
+
+  <canvas class="canvas {{showCanvas ? '' : 'hide'}}" id="gl" type="webgl" bindtouchstart="onTX" bindtouchmove="onTX"
+    bindtouchend="onTX">
+  </canvas>
+  <canvas class="helper-canvas" type="2d" id="canvas"></canvas>
+</view>

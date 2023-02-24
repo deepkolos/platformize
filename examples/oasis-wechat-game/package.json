@@ -20,9 +20,9 @@
     "typescript": "*"
   },
   "dependencies": {
-    "@oasis-engine/physics-lite": "^0.6.3",
+    "@oasis-engine/physics-lite": "^0.8.3",
     "@tweenjs/tween.js": "^18.6.4",
-    "oasis-engine": "^0.6.3",
-    "platformize-oasis": "^0.6.4"
+    "oasis-engine": "^0.8.3",
+    "platformize-oasis": "^0.8.3"
   }
 }

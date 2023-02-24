@@ -3,7 +3,7 @@
 一个支持把 js 库中浏览器 api 改用定制 polyfill 的`构建`插件, 并提供特定库的定制适配, 如:
 
 - `three@0.133.0`
-- `oasis-engine@0.6.3` | `@0.8.0-beta.14`
+- `oasis-engine@0.8.3` | `oasis-engine@0.6.3`
 - `playcanvas@1.50.0`
 - `pixi@6.2.1`
 
@@ -19,8 +19,8 @@
 | 微信小游戏模拟器 | ✅      | ✅    | ✅         | ✅     |
 | 淘宝小程序真机   | ✅      | ✅    | ✅         |        |
 | 淘宝小程序模拟器 | ❌      | ❌    | ❌         |        |
-| 字节小程序真机   | ✅      |       |            |        |
-| 字节小程序模拟器 | ❌      |       |            |        |
+| 抖音小程序真机   | ✅      | ✅    |            |        |
+| 抖音小程序模拟器 | ✅      | ✅    |            |        |
 
 - [platformize 通用适配](./packages/platformize/README.md)
 - [platformize-three 专门适配](./packages/platformize-three/README.md)
@@ -116,7 +116,7 @@ pnpm dev
 # dev playcanvas wechat example
 rush build:watch --to-except platformize-playcanvas-wechat
 cd examples/playcanvas-wechat
-pnpm dev 
+pnpm dev
 
 # dev pixi wechat example
 rush build:watch --to-except platformize-pixi-wechat

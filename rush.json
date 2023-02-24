@@ -536,6 +536,11 @@
       "shouldPublish": false
     },
     {
+      "packageName": "platformize-oasis-byte",
+      "projectFolder": "examples/oasis-byte",
+      "shouldPublish": false
+    },
+    {
       "packageName": "platformize-three-wechat",
       "projectFolder": "examples/three-wechat",
       "shouldPublish": false
