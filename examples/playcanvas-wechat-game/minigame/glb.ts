@@ -5,7 +5,7 @@ export function glb(canvas: any) {
   // lights and cameras, and switches between the cameras every 2 seconds.
 
   // Create the app and start the update loop
-  const app = new pc.Application(canvas, {});
+  const app = new pc.Application(canvas, { graphicsDeviceOptions: { preferWebGl2: false } });
   app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
   app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
   app.setCanvasResolution(pc.RESOLUTION_AUTO);

@@ -516,6 +516,11 @@
       "shouldPublish": false
     },
     {
+      "packageName": "platformize-playcanvas-byte",
+      "projectFolder": "examples/playcanvas-byte",
+      "shouldPublish": false
+    },
+    {
       "packageName": "platformize-oasis-wechat",
       "projectFolder": "examples/oasis-wechat",
       "shouldPublish": false

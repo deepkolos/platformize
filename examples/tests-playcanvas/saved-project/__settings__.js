@@ -1,9 +1,9 @@
 import * as pc from 'playcanvas';
 
 export function setting() {
-  const ASSET_PREFIX = 'http://10.85.119.133:8080/';
-  const SCRIPT_PREFIX = 'http://10.85.119.133:8080/';
-  const SCENE_PATH = 'http://10.85.119.133:8080/1284821.json';
+  const ASSET_PREFIX = 'http://10.85.117.216:8080/'; // 需修改为自己的IP地址
+  const SCRIPT_PREFIX = 'http://10.85.117.216:8080/';
+  const SCENE_PATH = 'http://10.85.117.216:8080/1284821.json';
   const CONTEXT_OPTIONS = {
     antialias: true,
     alpha: false,

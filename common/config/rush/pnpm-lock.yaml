@@ -61,6 +61,7 @@ specifiers:
   '@rush-temp/platformize-pixi-wechat': file:./projects/platformize-pixi-wechat.tgz
   '@rush-temp/platformize-pixi-wechat-game': file:./projects/platformize-pixi-wechat-game.tgz
   '@rush-temp/platformize-playcanvas': file:./projects/platformize-playcanvas.tgz
+  '@rush-temp/platformize-playcanvas-byte': file:./projects/platformize-playcanvas-byte.tgz
   '@rush-temp/platformize-playcanvas-taobao': file:./projects/platformize-playcanvas-taobao.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:./projects/platformize-playcanvas-wechat.tgz
   '@rush-temp/platformize-playcanvas-wechat-game': file:./projects/platformize-playcanvas-wechat-game.tgz
@@ -158,6 +159,7 @@ dependencies:
   '@rush-temp/platformize-pixi-wechat': file:projects/platformize-pixi-wechat.tgz_aceb95ab22e2234d543e5a00b62355d3
   '@rush-temp/platformize-pixi-wechat-game': file:projects/platformize-pixi-wechat-game.tgz
   '@rush-temp/platformize-playcanvas': file:projects/platformize-playcanvas.tgz
+  '@rush-temp/platformize-playcanvas-byte': file:projects/platformize-playcanvas-byte.tgz
   '@rush-temp/platformize-playcanvas-taobao': file:projects/platformize-playcanvas-taobao.tgz
   '@rush-temp/platformize-playcanvas-wechat': file:projects/platformize-playcanvas-wechat.tgz
   '@rush-temp/platformize-playcanvas-wechat-game': file:projects/platformize-playcanvas-wechat-game.tgz
@@ -265,7 +267,7 @@ packages:
     dev: false
 
   file:projects/platformize-pixi-byte.tgz_aceb95ab22e2234d543e5a00b62355d3:
-    resolution: {integrity: sha512-K9z2qs5xfSAa2ZxnkOYK+0E8fdL/gJVrCLhoyhjHtGAannwach4np8V3pwiNexrpyO5iMk+Uv403Aj2sh2KnkQ==, tarball: file:projects/platformize-pixi-byte.tgz}
+    resolution: {integrity: sha512-JWXRqDeOV94e7rguGcoT9ikHcR1Xmyc42szd4IkpxT3VNM42JK1R1Z+jKrL65jVjYOpME5zXscHKKqk+keE5Rg==, tarball: file:projects/platformize-pixi-byte.tgz}
     id: file:projects/platformize-pixi-byte.tgz
     name: '@rush-temp/platformize-pixi-byte'
     version: 0.0.0
@@ -278,7 +280,7 @@ packages:
     dev: false
 
   file:projects/platformize-pixi-wechat-game.tgz:
-    resolution: {integrity: sha512-ASnMhXvt4ZIni/0wFPDvENajutDW2pxlxqTe+oUDDcVBWv/cX3V0mYKt3DDAaSdYdHzS1jOyuTD6TflWVUBlXQ==, tarball: file:projects/platformize-pixi-wechat-game.tgz}
+    resolution: {integrity: sha512-mHBAMXU5nWcOEtTC0kQIVgCiRmlbr0tRzsoWyByauE2/FzAlql8y8wb+bXv1ID8kL/Awqtagy7qusEM+KVz26w==, tarball: file:projects/platformize-pixi-wechat-game.tgz}
     name: '@rush-temp/platformize-pixi-wechat-game'
     version: 0.0.0
     dependencies:
@@ -328,7 +330,7 @@ packages:
     dev: false
 
   file:projects/platformize-pixi-wechat.tgz_aceb95ab22e2234d543e5a00b62355d3:
-    resolution: {integrity: sha512-/fuDG2+nXAgIRzpkEDDU3RRiUfsF6egfTG7oJaa+3vmlc2M5+c4ANVFKqZ39GxUXfZ+jaQE0yakvzaPswy6Jnw==, tarball: file:projects/platformize-pixi-wechat.tgz}
+    resolution: {integrity: sha512-FQoToNGPzFsbcL5lb++8TgE95jGNjxVX6ZVZdS3RImsr88uaB0aczGfAeChhUvPvQ9quTes/qxo/uRo81o31VA==, tarball: file:projects/platformize-pixi-wechat.tgz}
     id: file:projects/platformize-pixi-wechat.tgz
     name: '@rush-temp/platformize-pixi-wechat'
     version: 0.0.0
@@ -351,6 +353,17 @@ packages:
       '@types/node': registry.npmjs.org/@types/node/17.0.45
       rollup: registry.npmjs.org/rollup/2.79.1
       string.prototype.replaceall: registry.npmjs.org/string.prototype.replaceall/1.0.7
+    dev: false
+
+  file:projects/platformize-playcanvas-byte.tgz:
+    resolution: {integrity: sha512-vHm8THQeUFGiUcet1/W0hce83ZgBYHp6vQGlhPxeYJ8Vwmv+MOFuCxzkrCIvO/emH+gZiBgSZH50lVC+59xCDg==, tarball: file:projects/platformize-playcanvas-byte.tgz}
+    name: '@rush-temp/platformize-playcanvas-byte'
+    version: 0.0.0
+    dependencies:
+      '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.1_oasis-engine@0.8.3
+      oasis-engine: registry.npmjs.org/oasis-engine/0.8.3
+      playcanvas: registry.npmjs.org/playcanvas/1.50.0
+      rollup: registry.npmjs.org/rollup/2.79.1
     dev: false
 
   file:projects/platformize-playcanvas-taobao.tgz:
@@ -513,7 +526,7 @@ packages:
     dev: false
 
   file:projects/tests-pixi.tgz:
-    resolution: {integrity: sha512-bQrOVqRen7HIzlXTN3GWBTlAUnz9W3XdhaalHHNN5XVQpaiS9XatIC7xqUQr6Ag15NjSFHrO5FLZWJScUsD2QA==, tarball: file:projects/tests-pixi.tgz}
+    resolution: {integrity: sha512-KAJ4eks2m5nHKP1GD2TDC7FE2rD5HU9ACxkA/RgUsHYu24jtloGNDKjI9LF7uN7JlY43t1EN3H+SK/afnACTWQ==, tarball: file:projects/tests-pixi.tgz}
     name: '@rush-temp/tests-pixi'
     version: 0.0.0
     dependencies:

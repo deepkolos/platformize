@@ -3,7 +3,7 @@
 ## 使用
 
 ```text
-pnpm i -S platformize-playcanvas@1.50.0 playcanvas@1.50.0
+pnpm i -S platformize-playcanvas@1.50.2 playcanvas@1.50.0
 ```
 
 `rollup.config.js`注入特定配置
@@ -51,6 +51,7 @@ wechatPlatform.dispose();
 - [playcanvas-wechat-simple](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-wechat-simple/README.md)
 - [playcanvas-wechat-game](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-wechat-game/README.md)
 - [playcanvas-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-taobao/README.md)
+- [playcanvas-byte](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/playcanvas-byte/README.md)
 
 ## 注意事项
 
@@ -63,6 +64,10 @@ wechatPlatform.dispose();
 ```sh
 node ./packages/platformize-playcanvas/cli.js -src=./resources/playcanvas-editor-exported/ -dst=./examples/tests-playcanvas/saved-project-auto/ -url=http://127.0.0.1:8080/
 ```
+
+需在`resources/playcanvas-editor-exported`启动http服务
+
+并修改文件内ip地址为自己ip的[__settings__.js](../../examples/tests-playcanvas/saved-project/__settings__.js)
 
 ## 讨论
 

@@ -4,7 +4,7 @@ import { tweenScript } from './scripts/tween';
 
 export async function tween(canvas: any) {
   // Create the application and start the update loop
-  const app = new pc.Application(canvas, {});
+  const app = new pc.Application(canvas, { graphicsDeviceOptions: { preferWebGl2: false } });
   app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
   app.start();
 

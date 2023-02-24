@@ -1,6 +1,6 @@
 {
   "name": "platformize-playcanvas",
-  "version": "1.50.1",
+  "version": "1.50.2",
   "description": "platformize playcanvas to many platform wechat/taobao miniprogram/game",
   "sideEffects": false,
   "main": "dist/index.js",

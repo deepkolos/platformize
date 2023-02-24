@@ -79,6 +79,12 @@ function playcanvasPatch(): Plugin {
           x: touch.pageX - totalOffsetX,
           y: touch.pageY - totalOffsetY
         };`);
+
+        // patch createVertexArrayOES on byte webgl2
+        code = code.replace(`ext.createVertexArrayOES.bind(ext)`, `(ext.createVertexArrayOES || ext.createVertexArray).bind(ext)`)
+        code = code.replace(`ext.deleteVertexArrayOES.bind(ext)`, `(ext.deleteVertexArrayOES || ext.deleteVertexArray).bind(ext)`)
+        code = code.replace(`ext.isVertexArrayOES.bind(ext)`, `(ext.isVertexArrayOES || ext.isVertexArray).bind(ext)`)
+        code = code.replace(`ext.bindVertexArrayOES.bind(ext)`, `(ext.bindVertexArrayOES || ext.bindVertexArray).bind(ext)`)
       }
 
       return {

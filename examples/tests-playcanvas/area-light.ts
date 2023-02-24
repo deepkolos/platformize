@@ -3,7 +3,7 @@ import { getUrl, labelAssets, loadAssets } from './utils/loader';
 
 export async function areaLight(canvas: any) {
   // Create the app and start the update loop
-  const app = new pc.Application(canvas, {});
+  const app = new pc.Application(canvas, { graphicsDeviceOptions: { preferWebGl2: false } });
   app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
   app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
   app.setCanvasResolution(pc.RESOLUTION_AUTO);

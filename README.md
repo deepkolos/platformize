@@ -19,8 +19,8 @@
 | 微信小游戏模拟器 | ✅      | ✅    | ✅         | ✅     |
 | 淘宝小程序真机   | ✅      | ✅    | ✅         |        |
 | 淘宝小程序模拟器 | ❌      | ❌    | ❌         |        |
-| 抖音小程序真机   | ✅      | ✅    |            | ✅     |
-| 抖音小程序模拟器 | ✅      | ✅    |            | ✅     |
+| 抖音小程序真机   | ✅      | ✅    | ✅         | ✅     |
+| 抖音小程序模拟器 | ✅      | ✅    | ✅         | ✅     |
 
 - [platformize 通用适配](./packages/platformize/README.md)
 - [platformize-three 专门适配](./packages/platformize-three/README.md)

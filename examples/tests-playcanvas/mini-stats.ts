@@ -5,7 +5,7 @@ import * as pc from 'playcanvas';
 
 export function miniStats(canvas: any) {
   // Create the application and start the update loop
-  const app = new pc.Application(canvas, {});
+  const app = new pc.Application(canvas, { graphicsDeviceOptions: { preferWebGl2: false } });
   app.graphicsDevice.maxPixelRatio = window.devicePixelRatio;
   app.start();
 

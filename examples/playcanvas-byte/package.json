@@ -1,0 +1,22 @@
+{
+  "name": "platformize-playcanvas-byte",
+  "version": "1.0.0",
+  "description": "platformize-playcanvas 头条小程序 Demo",
+  "scripts": {
+    "build:watch": "rollup -c",
+    "dev": "rollup -wc",
+    "build": "rollup -c --environment BUILD:production",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "keywords": [],
+  "author": "DeepKolos<deepkolos@qq.com>",
+  "license": "",
+  "dependencies": {
+    "platformize-playcanvas": "^1.50.2",
+    "playcanvas": "1.50.0",
+    "tests-playcanvas": "*"
+  },
+  "devDependencies": {
+    "rollup": "^2.60.1"
+  }
+}
