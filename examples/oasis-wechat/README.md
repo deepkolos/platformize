@@ -1,7 +1,7 @@
 # platformize-oasis-demo-wechat
 
 <div>
-  <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wecat/demo.gif" width="250" alt="" style="display:inline-block;"/>
+  <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
 </div>
 
 # 运行
