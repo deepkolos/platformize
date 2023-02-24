@@ -68,6 +68,7 @@ wechatPlatform.dispose();
 - [pixi-wechat-simple](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-wechat-simple/README.md)
 - [pixi-wechat-game](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-wechat-game/README.md)
 - [pixi-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-taobao/README.md)
+- [pixi-byte](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/pixi-byte/README.md)
 
 ## 已知问题
 

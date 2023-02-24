@@ -57,6 +57,7 @@ specifiers:
   '@rush-temp/platformize-oasis-wechat-game': file:./projects/platformize-oasis-wechat-game.tgz
   '@rush-temp/platformize-oasis-wechat-simple': file:./projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-pixi': file:./projects/platformize-pixi.tgz
+  '@rush-temp/platformize-pixi-byte': file:./projects/platformize-pixi-byte.tgz
   '@rush-temp/platformize-pixi-wechat': file:./projects/platformize-pixi-wechat.tgz
   '@rush-temp/platformize-pixi-wechat-game': file:./projects/platformize-pixi-wechat-game.tgz
   '@rush-temp/platformize-playcanvas': file:./projects/platformize-playcanvas.tgz
@@ -153,6 +154,7 @@ dependencies:
   '@rush-temp/platformize-oasis-wechat-game': file:projects/platformize-oasis-wechat-game.tgz
   '@rush-temp/platformize-oasis-wechat-simple': file:projects/platformize-oasis-wechat-simple.tgz
   '@rush-temp/platformize-pixi': file:projects/platformize-pixi.tgz
+  '@rush-temp/platformize-pixi-byte': file:projects/platformize-pixi-byte.tgz_aceb95ab22e2234d543e5a00b62355d3
   '@rush-temp/platformize-pixi-wechat': file:projects/platformize-pixi-wechat.tgz_aceb95ab22e2234d543e5a00b62355d3
   '@rush-temp/platformize-pixi-wechat-game': file:projects/platformize-pixi-wechat-game.tgz
   '@rush-temp/platformize-playcanvas': file:projects/platformize-playcanvas.tgz
@@ -260,6 +262,19 @@ packages:
     dependencies:
       '@types/node': registry.npmjs.org/@types/node/17.0.45
       rollup: registry.npmjs.org/rollup/2.79.1
+    dev: false
+
+  file:projects/platformize-pixi-byte.tgz_aceb95ab22e2234d543e5a00b62355d3:
+    resolution: {integrity: sha512-K9z2qs5xfSAa2ZxnkOYK+0E8fdL/gJVrCLhoyhjHtGAannwach4np8V3pwiNexrpyO5iMk+Uv403Aj2sh2KnkQ==, tarball: file:projects/platformize-pixi-byte.tgz}
+    id: file:projects/platformize-pixi-byte.tgz
+    name: '@rush-temp/platformize-pixi-byte'
+    version: 0.0.0
+    dependencies:
+      '@pixi/app': registry.npmjs.org/@pixi/app/6.2.1_aceb95ab22e2234d543e5a00b62355d3
+      rollup: registry.npmjs.org/rollup/2.79.1
+    transitivePeerDependencies:
+      - '@pixi/core'
+      - '@pixi/display'
     dev: false
 
   file:projects/platformize-pixi-wechat-game.tgz:

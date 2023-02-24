@@ -65,7 +65,7 @@ function patchPixi(disableContextLost: boolean): Plugin {
         code = replaceAll(
           code,
           `source instanceof HTMLImageElement`,
-          `source.naturalWidth !== undefined`,
+          `source.naturalWidth !== undefined || (source.width !== undefined && source.src)`,
         );
         code = replaceAll(code, `'ontouchstart' in self`, 'true');
         code = replaceAll(code, `'PointerEvent' in self`, `false`);
