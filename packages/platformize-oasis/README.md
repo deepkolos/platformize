@@ -1,12 +1,15 @@
 # platformize-oasis
 
-[`oasis-engine@0.6.3`](https://github.com/oasis-engine/engine) 专门适配
+[`oasis-engine@0.8.3`|`oasis-engine@0.6.3`](https://github.com/oasis-engine/engine) 专门适配
 
 > 更加全面的适配可参考官方的适配库 [oasis-engine/miniprogram-adapter](https://github.com/oasis-engine/miniprogram-adapter) 也欢迎 PR 集成到本仓库
 
 ## 使用
 
 ```text
+# 0.8.3
+pnpm i -S platformize-oasis@0.8.3 oasis-engine@0.8.3
+# 0.6.3
 pnpm i -S platformize-oasis@0.6.5 oasis-engine@0.6.3
 ```
 
