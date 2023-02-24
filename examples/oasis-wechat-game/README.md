@@ -19,13 +19,13 @@ pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core
 # 安装/更新依赖
 > rush update
 
-# dev
-> rush build:watch
+# dev 进入到本目录后
+> pnpm dev
 
 # 小程序开发工具打开minigame目录即可
 
-# prod
-> rush build
+# prod 进入到本目录后
+> pnpm build
 ```
 
 ## 运行时反馈式 treeshaking

@@ -17,13 +17,13 @@ pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core
 # 安装/更新依赖
 > rush update
 
-# dev
-> rush build:watch
+# dev 进入到本目录后
+> pnpm dev
 
 # 淘宝开发工具打开本目录即可
 
-# prod
-> rush build
+# prod 进入到本目录后
+> pnpm build
 ```
 
 ## 模拟器预览

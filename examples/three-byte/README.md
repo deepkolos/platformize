@@ -15,13 +15,13 @@ pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core
 # 安装/更新依赖
 > rush update
 
-# dev
-> rush build:watch
+# dev 进入到本目录后
+> pnpm dev
 
 # 小程序开发工具打开miniprogram目录即可, 开调试模式
 
-# prod
-> rush build
+# prod 进入到本目录后
+> pnpm build
 ```
 
 ## 进度
