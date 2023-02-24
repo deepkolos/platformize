@@ -19,6 +19,8 @@ import {
   WebGLEngine,
   StaticCollider,
   BoxColliderShape,
+  Engine,
+  Keys,
 } from 'oasis-engine';
 import * as TWEEN from '@tweenjs/tween.js';
 import { LitePhysics } from '@oasis-engine/physics-lite';
@@ -50,26 +52,24 @@ export function FlappyBird(canvas: any) {
   };
 
   let gameResArray: Texture2D[];
-
-  /**
-   * We can customize the size of the interface that is finally presented to the player.
-   * @param designWidth - Design width
-   * @param designHeight - Design height
-   */
-  function fitWithHeight(aspectRatio: number) {
-    const parentEle = canvas.parentElement;
-    const style = canvas.style;
-    const designHeight = parentEle.clientHeight;
-    const designWidth = designHeight * aspectRatio;
-    style.width = designWidth + 'px';
-    style.height = designHeight + 'px';
-    style.marginLeft = (parentEle.clientWidth - designWidth) / 2 + 'px';
-  }
-
-  // Design size.
-  // fitWithHeight(768 / 896);
+  // We can customize the size of the interface that is finally presented to the player.
+  // const designWidth = 768;
+  // const designHeight = 896;
+  // const aspectRatio = designWidth / designHeight;
+  // const parentEle = canvas.parentElement;
+  // let { clientWidth, clientHeight } = parentEle;
+  // if (clientWidth / clientHeight > aspectRatio) {
+  //   clientWidth = clientHeight * aspectRatio;
+  //   canvas.style.width = clientWidth + 'px';
+  //   canvas.style.marginLeft = (parentEle.clientWidth - clientWidth) / 2 + 'px';
+  // } else {
+  //   clientHeight = clientWidth / aspectRatio;
+  //   canvas.style.height = clientHeight + 'px';
+  //   canvas.style.marginTop = (parentEle.clientHeight - clientHeight) / 2 + 'px';
+  // }
   // Create engine object.
-  const engine = new WebGLEngine(canvas, LitePhysics);
+  const engine = new WebGLEngine(canvas, { webGLMode: 2 });
+  engine.physicsManager.initialize(LitePhysics as any);
   engine.canvas.resizeByClientSize();
 
   const scene = engine.sceneManager.activeScene;
@@ -81,7 +81,7 @@ export function FlappyBird(canvas: any) {
   const camera = cameraEntity.addComponent(Camera);
   // 2D is more suitable for orthographic cameras.
   camera.isOrthographic = true;
-  camera.orthographicSize = 4.5;
+  camera.orthographicSize = engine.canvas.height / Engine._pixelsPerUnit / 2;
 
   // Load the resources needed by the game.
   engine.resourceManager
@@ -117,7 +117,6 @@ export function FlappyBird(canvas: any) {
         type: AssetType.Texture2D,
       },
     ])
-    // @ts-ignore
     .then((texture2DArr: Texture2D[]) => {
       // Record the resources.
       gameResArray = texture2DArr;
@@ -125,13 +124,7 @@ export function FlappyBird(canvas: any) {
       // Background.
       const nodeBg = rootEntity.createChild('nodeBg');
       nodeBg.transform.setPosition(0.3, 0, -10);
-      nodeBg.addComponent(SpriteRenderer).sprite = new Sprite(
-        engine,
-        texture2DArr[0],
-        undefined,
-        undefined,
-        100,
-      );
+      nodeBg.addComponent(SpriteRenderer).sprite = new Sprite(engine, texture2DArr[0]);
 
       // Pipe.
       const nodePipe = rootEntity.createChild('nodePipe');
@@ -153,13 +146,7 @@ export function FlappyBird(canvas: any) {
       // Bird.
       const nodeBird = rootEntity.createChild('nodeBird');
       nodeBird.transform.setPosition(-1, 1.15, 0);
-      nodeBird.addComponent(SpriteRenderer).sprite = new Sprite(
-        engine,
-        texture2DArr[3],
-        undefined,
-        undefined,
-        100,
-      );
+      nodeBird.addComponent(SpriteRenderer).sprite = new Sprite(engine, texture2DArr[3]);
       nodeBird.addComponent(ScriptBird);
 
       // Death Effect.
@@ -180,13 +167,7 @@ export function FlappyBird(canvas: any) {
       nodeGui.transform.setPosition(0.3, 0, 1);
       // Restart.
       const nodeRestart = nodeGui.createChild('nodeRestart');
-      nodeRestart.addComponent(SpriteRenderer).sprite = new Sprite(
-        engine,
-        texture2DArr[4],
-        undefined,
-        undefined,
-        100,
-      );
+      nodeRestart.addComponent(SpriteRenderer).sprite = new Sprite(engine, texture2DArr[4]);
       // Score.
       const nodeScore = nodeGui.createChild('nodeScore');
       nodeScore.transform.setPosition(0, 3.2, 0);
@@ -200,16 +181,15 @@ export function FlappyBird(canvas: any) {
 
   engine.run();
 
-  // class definition
   class ScriptPipe extends Script {
     /** When there is no pipe in the pool, use this instance to clone. */
-    private _originPipe!: Entity;
+    private _originPipe: Entity;
     /** All current pipes. */
     private _nowPipeArr: Array<Entity> = [];
     /** Pool for reuse. */
     private _pipePool: Array<Entity> = [];
     /** Timestamp of the start of the game. */
-    private _curStartTimeStamp!: number;
+    private _curStartTimeStamp: number;
     /**  Hide when the x coordinate of the pipe is less than -4.6. */
     private _pipeHideX: number = 4.6;
     /**  Vertical distance of pipe. */
@@ -232,20 +212,8 @@ export function FlappyBird(canvas: any) {
       node1.transform.setPosition(0, -verticalDis / 2, 0);
       node2.transform.setPosition(0, verticalDis / 2, 0);
       node2.transform.setScale(1, -1, 1);
-      node1.addComponent(SpriteRenderer).sprite = new Sprite(
-        engine,
-        gameResArray[1],
-        undefined,
-        undefined,
-        100,
-      );
-      node2.addComponent(SpriteRenderer).sprite = new Sprite(
-        engine,
-        gameResArray[1],
-        undefined,
-        undefined,
-        100,
-      );
+      node1.addComponent(SpriteRenderer).sprite = new Sprite(engine, gameResArray[1]);
+      node2.addComponent(SpriteRenderer).sprite = new Sprite(engine, gameResArray[1]);
       this._pipePool.push(pipe);
 
       // Control the performance of the pipe according to the change of the game state.
@@ -331,7 +299,7 @@ export function FlappyBird(canvas: any) {
 
     private _createPipe(posX: number, posY: number, posZ: number) {
       const pipePool = this._pipePool;
-      const pipe = (pipePool.length > 0 ? pipePool.pop() : this._originPipe.clone()) as Entity;
+      const pipe = pipePool.length > 0 ? pipePool.pop() : this._originPipe.clone();
       pipe.transform.setPosition(posX, posY, posZ);
       this.entity.addChild(pipe);
       this._nowPipeArr.push(pipe);
@@ -374,9 +342,7 @@ export function FlappyBird(canvas: any) {
       const spriteArray = this._spriteArray;
       // Cut digital resources into ten.
       for (var i = 0; i < 10; i++) {
-        spriteArray.push(
-          new Sprite(engine, gameResArray[5], new Rect(i * 0.1, 0, 0.1, 1), undefined, 75),
-        );
+        spriteArray.push(new Sprite(engine, gameResArray[5], new Rect(i * 0.1, 0, 0.1, 1)));
       }
 
       engine.on(GameEvent.addScore, () => {
@@ -442,7 +408,7 @@ export function FlappyBird(canvas: any) {
 
   class ScriptGround extends Script {
     /** Swap two pieces of ground to achieve constant movement. */
-    private _groundMaterial!: UnlitMaterial;
+    private _groundMaterial: UnlitMaterial;
     /** Horizontal movement speed. */
     private _groundHorizontalV: number = 0.0082;
 
@@ -464,7 +430,7 @@ export function FlappyBird(canvas: any) {
       });
 
       // When checkHit is monitored, check the collision between the ground and the bird.
-      engine.on(GameEvent.checkHit, (birdY: number) => {
+      engine.on(GameEvent.checkHit, birdY => {
         birdY < groundY && engine.dispatch(GameEvent.gameOver);
       });
     }
@@ -476,7 +442,7 @@ export function FlappyBird(canvas: any) {
   }
 
   class GameCtrl extends Script {
-    private _gameState!: EnumGameState;
+    private _gameState: EnumGameState;
 
     onAwake() {
       engine.on(GameEvent.reStartGame, () => {
@@ -501,9 +467,16 @@ export function FlappyBird(canvas: any) {
     onUpdate() {
       // Update TWEEN.
       TWEEN.update();
+      if (this.engine.inputManager.isKeyDown(Keys.Space)) {
+        this._dispatchFly();
+      }
     }
 
     onPointerDown() {
+      this._dispatchFly();
+    }
+
+    private _dispatchFly() {
       switch (this._gameState) {
         case EnumGameState.Idel:
           this._setGameState(EnumGameState.Start);
@@ -584,13 +557,13 @@ export function FlappyBird(canvas: any) {
     private _cumulativeTime: number = 0;
     private _birdState = EnumBirdState.Alive;
 
-    private _sprite!: Sprite;
-    private _curFrameIndex!: number;
-    private _startY!: number;
-    private _flyStartTime!: number;
-    private _gameState!: EnumGameState;
-    private _yoyoTween!: TWEEN.Tween<Vector3>;
-    private _dropTween!: TWEEN.Tween<Vector3>;
+    private _sprite: Sprite;
+    private _curFrameIndex: number;
+    private _startY: number;
+    private _flyStartTime: number;
+    private _gameState: EnumGameState;
+    private _yoyoTween;
+    private _dropTween;
 
     onAwake() {
       this._initDataAndUI();
@@ -650,13 +623,7 @@ export function FlappyBird(canvas: any) {
     private _initDataAndUI() {
       const { entity } = this;
       const renderer = entity.getComponent(SpriteRenderer);
-      renderer.sprite = this._sprite = new Sprite(
-        engine,
-        gameResArray[3],
-        undefined,
-        undefined,
-        100,
-      );
+      renderer.sprite = this._sprite = new Sprite(engine, gameResArray[3]);
       this._setFrameIndex(0);
     }
 

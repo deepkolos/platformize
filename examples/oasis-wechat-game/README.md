@@ -6,6 +6,12 @@
   <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat-game/demo.gif" width="200"alt="" />
 </div>
 
+```ts
+const engine = new WebGLEngine(canvas, { webGLMode: 2 }); // 需要强制标记使用WebGL1
+```
+  
+
+
 ```sh
 # 全局依赖(若未安装)
 pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core

@@ -40,22 +40,16 @@
     "useCompilerPlugins": false
   },
   "compileType": "game",
-  "libVersion": "1.9.94",
+  "libVersion": "2.21.2",
   "appid": "wx15604413f6a28c17",
   "projectname": "platformzie-oasis-demo-wechat-game",
-  "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "list": []
-    }
+  "condition": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }
