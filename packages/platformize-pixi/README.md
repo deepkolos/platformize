@@ -5,7 +5,7 @@
 ## 使用
 
 ```text
-pnpm i -S platformize-pixi@6.2.1
+pnpm i -S platformize-pixi@6.2.4
 
 # 根据实际使用模块安装 https://pixijs.io/customize/
 # 模块引入可参考 [tests-pixi/pixi.ts](../../examples/tests-pixi/pixi.ts)
