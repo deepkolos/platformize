@@ -123,6 +123,11 @@ rush build:watch --to-except platformize-pixi-wechat
 cd examples/pixi-wechat
 pnpm dev
 
+# dev pixi byte example
+rush build:watch --to-except platformize-pixi-wechat
+cd examples/pixi-byte
+pnpm dev
+
 # prod
 rush build
 rush rebuild
