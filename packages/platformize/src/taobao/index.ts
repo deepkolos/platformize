@@ -197,6 +197,8 @@ export class TaobaoPlatform extends Platform {
         offsetX: touch.pageX,
         offsetY: touch.pageY,
         pointerId: (touch.identifier || 0) + 2,
+        // to fix oasis controls https://www.w3.org/TR/uievents/#dom-mouseevent-buttons
+        buttons: 1,
         type:
           {
             touchstart: 'pointerdown',
@@ -207,6 +209,7 @@ export class TaobaoPlatform extends Platform {
       };
 
       this.canvas.dispatchEvent(pointerEvent);
+      if (e.type === 'touchend') this.canvas.dispatchEvent({ ...pointerEvent, type: 'pointerout' });
     }
   }
 

@@ -2,7 +2,7 @@
  * @title Blend Mode
  * @category Material
  */
-import { OrbitControl } from '@oasis-engine/controls';
+import { OrbitControl } from '@oasis-engine-toolkit/controls';
 import { Camera, GLTFResource, Vector3, WebGLEngine } from 'oasis-engine';
 
 export function BlendMode(canvas: any) {
@@ -19,7 +19,7 @@ export function BlendMode(canvas: any) {
   cameraEntity.addComponent(Camera);
   cameraEntity.addComponent(OrbitControl);
 
-  scene.ambientLight.diffuseSolidColor.setValue(1, 1, 1, 1);
+  scene.ambientLight.diffuseSolidColor.set(1, 1, 1, 1);
 
   engine.resourceManager
     .load<GLTFResource>(

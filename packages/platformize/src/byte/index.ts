@@ -185,6 +185,8 @@ export class BytePlatform extends Platform {
       offsetX: touch.pageX,
       offsetY: touch.pageY,
       pointerId: touch.identifier,
+      // to fix oasis controls https://www.w3.org/TR/uievents/#dom-mouseevent-buttons
+      buttons: 1,
       type:
         {
           touchstart: 'pointerdown',
@@ -195,6 +197,7 @@ export class BytePlatform extends Platform {
     };
 
     this.canvas.dispatchEvent(pointerEvent);
+    if (e.type === 'touchend') this.canvas.dispatchEvent({ ...pointerEvent, type: 'pointerout' });
   }
 
   dispose() {

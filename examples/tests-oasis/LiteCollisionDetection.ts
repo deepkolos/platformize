@@ -16,17 +16,18 @@ import {
   Script,
   DynamicCollider,
 } from 'oasis-engine';
-import { OrbitControl } from '@oasis-engine/controls';
+import { OrbitControl } from '@oasis-engine-toolkit/controls';
 
 import { LitePhysics } from '@oasis-engine/physics-lite';
 
 export function LiteCollisionDetection(canvas: any) {
-  const engine = new WebGLEngine(canvas, LitePhysics);
+  const engine = new WebGLEngine(canvas);
+  engine.physicsManager.initialize(LitePhysics as any);
   engine.canvas.resizeByClientSize();
   const scene = engine.sceneManager.activeScene;
   const rootEntity = scene.createRootEntity('root');
 
-  scene.ambientLight.diffuseSolidColor.setValue(1, 1, 1, 1);
+  scene.ambientLight.diffuseSolidColor.set(1, 1, 1, 1);
   scene.ambientLight.diffuseIntensity = 1.2;
 
   // init camera
@@ -47,7 +48,7 @@ export function LiteCollisionDetection(canvas: any) {
 
   const boxMtl = new BlinnPhongMaterial(engine);
   const boxRenderer = boxEntity.addComponent(MeshRenderer);
-  boxMtl.baseColor.setValue(0.6, 0.3, 0.3, 1.0);
+  boxMtl.baseColor.set(0.6, 0.3, 0.3, 1.0);
   boxRenderer.mesh = PrimitiveMesh.createCuboid(engine, cubeSize, cubeSize, cubeSize);
   boxRenderer.setMaterial(boxMtl);
 
@@ -63,7 +64,7 @@ export function LiteCollisionDetection(canvas: any) {
 
   const sphereMtl = new BlinnPhongMaterial(engine);
   const sphereRenderer = sphereEntity.addComponent(MeshRenderer);
-  sphereMtl.baseColor.setValue(Math.random(), Math.random(), Math.random(), 1.0);
+  sphereMtl.baseColor.set(Math.random(), Math.random(), Math.random(), 1.0);
   sphereRenderer.mesh = PrimitiveMesh.createSphere(engine, radius);
   sphereRenderer.setMaterial(sphereMtl);
 
@@ -94,7 +95,7 @@ export function LiteCollisionDetection(canvas: any) {
   // Collision Detection
   class CollisionScript extends Script {
     onTriggerExit() {
-      (<BlinnPhongMaterial>sphereRenderer.getMaterial()).baseColor.setValue(
+      (<BlinnPhongMaterial>sphereRenderer.getMaterial()).baseColor.set(
         Math.random(),
         Math.random(),
         Math.random(),
@@ -107,7 +108,7 @@ export function LiteCollisionDetection(canvas: any) {
     }
 
     onTriggerEnter() {
-      (<BlinnPhongMaterial>sphereRenderer.getMaterial()).baseColor.setValue(
+      (<BlinnPhongMaterial>sphereRenderer.getMaterial()).baseColor.set(
         Math.random(),
         Math.random(),
         Math.random(),

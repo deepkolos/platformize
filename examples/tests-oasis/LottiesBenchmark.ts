@@ -2,7 +2,7 @@
  * @title Lottie Benchmark
  * @category Benchmark
  */
-import { OrbitControl } from '@oasis-engine/controls';
+import { OrbitControl } from '@oasis-engine-toolkit/controls';
 import { Camera, Entity, WebGLEngine } from 'oasis-engine';
 import { LottieAnimation } from '@oasis-engine/lottie';
 

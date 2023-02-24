@@ -2,7 +2,7 @@
  * @title PBR Helmet
  * @category Material
  */
-import { OrbitControl } from '@oasis-engine/controls';
+import { OrbitControl } from '@oasis-engine-toolkit/controls';
 import {
   AmbientLight,
   AssetType,

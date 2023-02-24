@@ -2,7 +2,7 @@
  * @title Buffer Mesh Instance
  * @category Mesh
  */
-import { OrbitControl } from '@oasis-engine/controls';
+import { OrbitControl } from '@oasis-engine-toolkit/controls';
 import {
   Buffer,
   BufferBindFlag,
