@@ -10,11 +10,11 @@
     "build": "exit 0"
   },
   "dependencies": {
-    "@oasis-engine-toolkit/controls": "^0.8.0-beta.4",
-    "@oasis-engine/lottie": "^0.8.0-beta.14",
-    "@oasis-engine/physics-lite": "^0.8.0-beta.14",
+    "@oasis-engine-toolkit/controls": "^0.8.1",
+    "@oasis-engine/lottie": "^0.8.3",
+    "@oasis-engine/physics-lite": "^0.8.3",
     "@tweenjs/tween.js": "^18.6.4",
-    "oasis-engine": "^0.8.0-beta.14",
-    "platformize-oasis": "^0.8.0"
+    "oasis-engine": "^0.8.3",
+    "platformize-oasis": "^0.8.3"
   }
 }

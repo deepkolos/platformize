@@ -2,8 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@ava/babel': 2.0.0
-  '@oasis-engine-toolkit/controls': ^0.8.0-beta.4
-  '@oasis-engine/lottie': ^0.8.0-beta.14
+  '@oasis-engine/lottie': ^0.8.3
   '@pixi/accessibility': 6.2.1
   '@pixi/app': 6.2.1
   '@pixi/basis': 6.2.1
@@ -96,8 +95,7 @@ specifiers:
 
 dependencies:
   '@ava/babel': registry.npmjs.org/@ava/babel/2.0.0
-  '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4
-  '@oasis-engine/lottie': registry.npmjs.org/@oasis-engine/lottie/0.8.1_ba71ef3b804e8fbdacd622722295154d
+  '@oasis-engine/lottie': registry.npmjs.org/@oasis-engine/lottie/0.8.3
   '@pixi/accessibility': registry.npmjs.org/@pixi/accessibility/6.2.1_0d73c62036669f541116e605da87f869
   '@pixi/app': registry.npmjs.org/@pixi/app/6.2.1_aceb95ab22e2234d543e5a00b62355d3
   '@pixi/basis': registry.npmjs.org/@pixi/basis/6.2.1_3483474bb8588d021c9d62524e8fe248
@@ -215,25 +213,25 @@ packages:
     dev: false
 
   file:projects/platformize-oasis-wechat-simple.tgz:
-    resolution: {integrity: sha512-U8VAtkpEWHXkop9BKQetZY9ciWdA6GiHejC1G6nsnii5xDtEwijOQF3H0f5xLUdSpJCpMpoVjdPorgNkqVTfrA==, tarball: file:projects/platformize-oasis-wechat-simple.tgz}
+    resolution: {integrity: sha512-cxL2PkO+s6V9S+JCf0kZptwjz4ujuYQmPow0ViYk+42IdgYgly9Hi9enbXEWhHVETIATATpbTbTLMo8CSEtMaA==, tarball: file:projects/platformize-oasis-wechat-simple.tgz}
     name: '@rush-temp/platformize-oasis-wechat-simple'
     version: 0.0.0
     dependencies:
-      '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4_oasis-engine@0.8.0-beta.14
+      '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4_oasis-engine@0.8.3
       '@types/wechat-miniprogram': registry.npmjs.org/@types/wechat-miniprogram/3.4.1
-      oasis-engine: registry.npmjs.org/oasis-engine/0.8.0-beta.14
+      oasis-engine: registry.npmjs.org/oasis-engine/0.8.3
       rollup: registry.npmjs.org/rollup/2.78.1
       typescript: registry.npmjs.org/typescript/4.7.4
     dev: false
 
   file:projects/platformize-oasis-wechat.tgz:
-    resolution: {integrity: sha512-WihvtN472yc9tiZvEI1CUBUnmOfVx1+2NABhsT8SN7J/8aUW4XM2qA2qZVoyFZEIXeuDJ6cGA8sA7CkdjgDkKg==, tarball: file:projects/platformize-oasis-wechat.tgz}
+    resolution: {integrity: sha512-lUbHaFfpquE+0LdV05anw9ovtEBBxb/JZan8ox+5MWR64C83uVMQv8u6KKYAXQkJqdzqaWjS0DVZoELuMrnyxA==, tarball: file:projects/platformize-oasis-wechat.tgz}
     name: '@rush-temp/platformize-oasis-wechat'
     version: 0.0.0
     dependencies:
       '@types/wechat-miniprogram': registry.npmjs.org/@types/wechat-miniprogram/3.4.1
       miniprogram-automator: registry.npmjs.org/miniprogram-automator/0.10.0
-      oasis-engine: registry.npmjs.org/oasis-engine/0.8.0-beta.14
+      oasis-engine: registry.npmjs.org/oasis-engine/0.8.3
       platformize-oasis: registry.npmjs.org/platformize-oasis/0.6.5_rollup@2.78.1
       rollup: registry.npmjs.org/rollup/2.78.1
     transitivePeerDependencies:
@@ -473,15 +471,15 @@ packages:
     dev: false
 
   file:projects/tests-oasis.tgz:
-    resolution: {integrity: sha512-sdFjMpWCdYMSTUR5wvug8vMe7vZtvad0UIvJkEVIJ50zOeZQISTh5q0/M5S4eirQuyU0RT3WCozUaZRwc9n37A==, tarball: file:projects/tests-oasis.tgz}
+    resolution: {integrity: sha512-VeCM8ps/ND01XVp5Mn92kTjHwni+WQCCSBdRDh9oB1ScUTibye/Hs5M+P1f57Op9WmdEtnuVqK49zLiy9EIRZQ==, tarball: file:projects/tests-oasis.tgz}
     name: '@rush-temp/tests-oasis'
     version: 0.0.0
     dependencies:
-      '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4_oasis-engine@0.8.0-beta.14
-      '@oasis-engine/lottie': registry.npmjs.org/@oasis-engine/lottie/0.8.1_2803af5f8cf5f0bff2cfcd54bfaa84f0
-      '@oasis-engine/physics-lite': registry.npmjs.org/@oasis-engine/physics-lite/0.8.0-beta.14_oasis-engine@0.8.0-beta.14
+      '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.1_oasis-engine@0.8.3
+      '@oasis-engine/lottie': registry.npmjs.org/@oasis-engine/lottie/0.8.3_19fd8684837a4010b32c83f283284c1a
+      '@oasis-engine/physics-lite': registry.npmjs.org/@oasis-engine/physics-lite/0.8.3_oasis-engine@0.8.3
       '@tweenjs/tween.js': registry.npmjs.org/@tweenjs/tween.js/18.6.4
-      oasis-engine: registry.npmjs.org/oasis-engine/0.8.0-beta.14
+      oasis-engine: registry.npmjs.org/oasis-engine/0.8.3
     dev: false
 
   file:projects/tests-pixi.tgz:
@@ -1913,15 +1911,7 @@ packages:
       fastq: registry.npmjs.org/fastq/1.13.0
     dev: false
 
-  registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4:
-    resolution: {integrity: sha512-Sdi57EuxIyKU3Jk4PgFUI15NJ9VLQYvC8c7KCw0T9pKv0+dtX8KaH7/ciZG/lE5PCaiie0mOoXDxPzy3a1SLmA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine-toolkit/controls/-/controls-0.8.0-beta.4.tgz}
-    name: '@oasis-engine-toolkit/controls'
-    version: 0.8.0-beta.4
-    peerDependencies:
-      oasis-engine: ^0.8.0-beta
-    dev: false
-
-  registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4_oasis-engine@0.8.0-beta.14:
+  registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4_oasis-engine@0.8.3:
     resolution: {integrity: sha512-Sdi57EuxIyKU3Jk4PgFUI15NJ9VLQYvC8c7KCw0T9pKv0+dtX8KaH7/ciZG/lE5PCaiie0mOoXDxPzy3a1SLmA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine-toolkit/controls/-/controls-0.8.0-beta.4.tgz}
     id: registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4
     name: '@oasis-engine-toolkit/controls'
@@ -1929,7 +1919,18 @@ packages:
     peerDependencies:
       oasis-engine: ^0.8.0-beta
     dependencies:
-      oasis-engine: registry.npmjs.org/oasis-engine/0.8.0-beta.14
+      oasis-engine: registry.npmjs.org/oasis-engine/0.8.3
+    dev: false
+
+  registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.1_oasis-engine@0.8.3:
+    resolution: {integrity: sha512-H8BbZYKbTStYubpu9/qpfPQTygD9tfhDR8uHBns1BfsHxCl7Cb3gZ+WzJEYe523xZKODa0mHRuJ8ZTFAFyYc5A==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine-toolkit/controls/-/controls-0.8.1.tgz}
+    id: registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.1
+    name: '@oasis-engine-toolkit/controls'
+    version: 0.8.1
+    peerDependencies:
+      oasis-engine: ^0.8.0-beta
+    dependencies:
+      oasis-engine: registry.npmjs.org/oasis-engine/0.8.3
     dev: false
 
   registry.npmjs.org/@oasis-engine/core/0.6.9:
@@ -1940,12 +1941,12 @@ packages:
       '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.6.9
     dev: false
 
-  registry.npmjs.org/@oasis-engine/core/0.8.0-beta.14:
-    resolution: {integrity: sha512-1SG+sz1PH9+xGe7SKuf2VYlN9oE3n5/yxl88ZRwTosLsjPOcnwv2+OgU0hKpiWQmNjvPOVtyN1CZVZyzewiY5g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/core/-/core-0.8.0-beta.14.tgz}
+  registry.npmjs.org/@oasis-engine/core/0.8.3:
+    resolution: {integrity: sha512-AGISJEY8XUQ8biq57ZCWjvtbPIwfG/FWfOB9HtqVhpMBOYDtmYZbO+ePgxvR0j0SG/lDjLd4LmpMxwBAxZDspw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/core/-/core-0.8.3.tgz}
     name: '@oasis-engine/core'
-    version: 0.8.0-beta.14
+    version: 0.8.3
     dependencies:
-      '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.8.0-beta.14
+      '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.8.3
     dev: false
 
   registry.npmjs.org/@oasis-engine/design/0.6.9:
@@ -1964,12 +1965,12 @@ packages:
       '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.6.9
     dev: false
 
-  registry.npmjs.org/@oasis-engine/draco/0.8.0-beta.14:
-    resolution: {integrity: sha512-/l+9JMgXZIzZWFKaXJ9CdXEUHnvkRPcWf/tOkfAAbZelyoSB4t6jqI/Dq2u2Srk+fXahL+5hRd1tVN3uLXdebw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/draco/-/draco-0.8.0-beta.14.tgz}
+  registry.npmjs.org/@oasis-engine/draco/0.8.3:
+    resolution: {integrity: sha512-On/RLU3W1sBYdNhKMykD2ZqD35gRbE4uWsD5nGshS/IxIuF7Gq9iQlfjNz2YtjoHFI1d+hMf0xUv2iDboUOo9g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/draco/-/draco-0.8.3.tgz}
     name: '@oasis-engine/draco'
-    version: 0.8.0-beta.14
+    version: 0.8.3
     dependencies:
-      '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.0-beta.14
+      '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.3
     dev: false
 
   registry.npmjs.org/@oasis-engine/loader/0.6.9:
@@ -1983,42 +1984,40 @@ packages:
       '@oasis-engine/rhi-webgl': registry.npmjs.org/@oasis-engine/rhi-webgl/0.6.9
     dev: false
 
-  registry.npmjs.org/@oasis-engine/loader/0.8.0-beta.14:
-    resolution: {integrity: sha512-hIEOfC8qpKBghTvEhL/97lLEn6je0fubILBXxdjLcNiB3g5EBUbDxdnO+23hwekfFFB/mVXN4HYDVtqCriqVEg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/loader/-/loader-0.8.0-beta.14.tgz}
+  registry.npmjs.org/@oasis-engine/loader/0.8.3:
+    resolution: {integrity: sha512-sDFSy3EicVtWavIV3eCF0rsNgl6soYTEWMLpy5rY4AxvOGpUy2CtMNQ/hloTulxQ7eE+eJUZCykOXApaad8mmA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/loader/-/loader-0.8.3.tgz}
     name: '@oasis-engine/loader'
-    version: 0.8.0-beta.14
+    version: 0.8.3
     dependencies:
-      '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.0-beta.14
-      '@oasis-engine/draco': registry.npmjs.org/@oasis-engine/draco/0.8.0-beta.14
-      '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.8.0-beta.14
-      '@oasis-engine/rhi-webgl': registry.npmjs.org/@oasis-engine/rhi-webgl/0.8.0-beta.14
+      '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.3
+      '@oasis-engine/draco': registry.npmjs.org/@oasis-engine/draco/0.8.3
+      '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.8.3
+      '@oasis-engine/rhi-webgl': registry.npmjs.org/@oasis-engine/rhi-webgl/0.8.3
     dev: false
 
-  registry.npmjs.org/@oasis-engine/lottie/0.8.1_2803af5f8cf5f0bff2cfcd54bfaa84f0:
-    resolution: {integrity: sha512-hLK2nBips8B3SpCGJc7zrH9JihC/xSP2KSkB/Uy8yLQI3v4U7Mi5tzdW4TgCkZCbguo12BFFYzI5bvWEBZe3sg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/lottie/-/lottie-0.8.1.tgz}
-    id: registry.npmjs.org/@oasis-engine/lottie/0.8.1
+  registry.npmjs.org/@oasis-engine/lottie/0.8.3:
+    resolution: {integrity: sha512-wfBH0qeD1nRuXbyXstStNPW0gN1D7KfKaZLuvoNhjN0IOakkK75XSlZJygE1x9iy4dlFB6t21LbbNG4LxDen6g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/lottie/-/lottie-0.8.3.tgz}
     name: '@oasis-engine/lottie'
-    version: 0.8.1
+    version: 0.8.3
     peerDependencies:
       '@oasis-engine-toolkit/controls': ^0.8.0-beta.1
-      oasis-engine: ^0.8.0-beta.2
+      oasis-engine: ^0.8.0
     dependencies:
-      '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4_oasis-engine@0.8.0-beta.14
       bezier-easing: registry.npmjs.org/bezier-easing/2.1.0
-      oasis-engine: registry.npmjs.org/oasis-engine/0.8.0-beta.14
     dev: false
 
-  registry.npmjs.org/@oasis-engine/lottie/0.8.1_ba71ef3b804e8fbdacd622722295154d:
-    resolution: {integrity: sha512-hLK2nBips8B3SpCGJc7zrH9JihC/xSP2KSkB/Uy8yLQI3v4U7Mi5tzdW4TgCkZCbguo12BFFYzI5bvWEBZe3sg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/lottie/-/lottie-0.8.1.tgz}
-    id: registry.npmjs.org/@oasis-engine/lottie/0.8.1
+  registry.npmjs.org/@oasis-engine/lottie/0.8.3_19fd8684837a4010b32c83f283284c1a:
+    resolution: {integrity: sha512-wfBH0qeD1nRuXbyXstStNPW0gN1D7KfKaZLuvoNhjN0IOakkK75XSlZJygE1x9iy4dlFB6t21LbbNG4LxDen6g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/lottie/-/lottie-0.8.3.tgz}
+    id: registry.npmjs.org/@oasis-engine/lottie/0.8.3
     name: '@oasis-engine/lottie'
-    version: 0.8.1
+    version: 0.8.3
     peerDependencies:
       '@oasis-engine-toolkit/controls': ^0.8.0-beta.1
-      oasis-engine: ^0.8.0-beta.2
+      oasis-engine: ^0.8.0
     dependencies:
-      '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.0-beta.4
+      '@oasis-engine-toolkit/controls': registry.npmjs.org/@oasis-engine-toolkit/controls/0.8.1_oasis-engine@0.8.3
       bezier-easing: registry.npmjs.org/bezier-easing/2.1.0
+      oasis-engine: registry.npmjs.org/oasis-engine/0.8.3
     dev: false
 
   registry.npmjs.org/@oasis-engine/math/0.6.9:
@@ -2027,10 +2026,10 @@ packages:
     version: 0.6.9
     dev: false
 
-  registry.npmjs.org/@oasis-engine/math/0.8.0-beta.14:
-    resolution: {integrity: sha512-ajKJJgee4JPJk5OKWsi7Mdo+hC6w0dIlCzDsjHDAfcVc7aaen/fK/80JGPULOMZ8aQZrF8BYhIq/dL1EYnbUag==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/math/-/math-0.8.0-beta.14.tgz}
+  registry.npmjs.org/@oasis-engine/math/0.8.3:
+    resolution: {integrity: sha512-DfQXggv8pUxf5+eOfrImX1ktjl/R4vVEsucUtQuMt1De7V61lTaQe3en40vzlfdBBlM8vFpPOWjhsBPl2oKFLg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/math/-/math-0.8.3.tgz}
     name: '@oasis-engine/math'
-    version: 0.8.0-beta.14
+    version: 0.8.3
     dev: false
 
   registry.npmjs.org/@oasis-engine/physics-lite/0.6.9:
@@ -2042,15 +2041,15 @@ packages:
       oasis-engine: registry.npmjs.org/oasis-engine/0.6.9
     dev: false
 
-  registry.npmjs.org/@oasis-engine/physics-lite/0.8.0-beta.14_oasis-engine@0.8.0-beta.14:
-    resolution: {integrity: sha512-97NQMX+AEJGB9bqp6tlJuz+ma8/5ZDvFoTsWNo5TclA5eQ3LnOd8GStlKx7V+KxTtUUjMAI3uJMkUUThBgN5cg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/physics-lite/-/physics-lite-0.8.0-beta.14.tgz}
-    id: registry.npmjs.org/@oasis-engine/physics-lite/0.8.0-beta.14
+  registry.npmjs.org/@oasis-engine/physics-lite/0.8.3_oasis-engine@0.8.3:
+    resolution: {integrity: sha512-ZNal+cnjSvK1cBoiGYsecaSUB2Ku1Rm0d8p4o8vKirtGcrJKZ9N7n7JZDW/oKwu1hhU+0rI8Aood6c9mFabQYA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/physics-lite/-/physics-lite-0.8.3.tgz}
+    id: registry.npmjs.org/@oasis-engine/physics-lite/0.8.3
     name: '@oasis-engine/physics-lite'
-    version: 0.8.0-beta.14
+    version: 0.8.3
     peerDependencies:
-      oasis-engine: 0.8.0-beta.14
+      oasis-engine: 0.8.3
     dependencies:
-      oasis-engine: registry.npmjs.org/oasis-engine/0.8.0-beta.14
+      oasis-engine: registry.npmjs.org/oasis-engine/0.8.3
     dev: false
 
   registry.npmjs.org/@oasis-engine/rhi-webgl/0.6.9:
@@ -2062,13 +2061,13 @@ packages:
       '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.6.9
     dev: false
 
-  registry.npmjs.org/@oasis-engine/rhi-webgl/0.8.0-beta.14:
-    resolution: {integrity: sha512-2Im3ZZu4NHpwvQDoIfhkhgXYhsd6Ns7RbmvEpqKBvdMcCJqqZxynXI2O01WAjF2t0fE4JDQFOE0Pplcgct9nlg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/rhi-webgl/-/rhi-webgl-0.8.0-beta.14.tgz}
+  registry.npmjs.org/@oasis-engine/rhi-webgl/0.8.3:
+    resolution: {integrity: sha512-oAnRL9z7C6r91EACbhqCtlsJSDldensoFwaCQKy4zw2ikae3NwoyOvomgJA4sPIh9l646NJEPucjWpSwZc1W/w==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@oasis-engine/rhi-webgl/-/rhi-webgl-0.8.3.tgz}
     name: '@oasis-engine/rhi-webgl'
-    version: 0.8.0-beta.14
+    version: 0.8.3
     dependencies:
-      '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.0-beta.14
-      '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.8.0-beta.14
+      '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.3
+      '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.8.3
     dev: false
 
   registry.npmjs.org/@pixi/accessibility/6.2.1_0d73c62036669f541116e605da87f869:
@@ -5577,15 +5576,15 @@ packages:
       '@oasis-engine/rhi-webgl': registry.npmjs.org/@oasis-engine/rhi-webgl/0.6.9
     dev: false
 
-  registry.npmjs.org/oasis-engine/0.8.0-beta.14:
-    resolution: {integrity: sha512-QIjUXWAWmlTgLrkTQL/V8bLYBPeM5SfTVahCIbzlsMNo95XRcukhXfvqg1tWRhd5ZZwKhIZzwOAKO2qcep5Oyw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/oasis-engine/-/oasis-engine-0.8.0-beta.14.tgz}
+  registry.npmjs.org/oasis-engine/0.8.3:
+    resolution: {integrity: sha512-5bWKOby/4/B7hS64oAUg2+T3QRTBjoWzfYIWveLU/ethyUbzjFw2OGOYnt8G0kuIOD5AxybA0EXxWUBoi00FoA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/oasis-engine/-/oasis-engine-0.8.3.tgz}
     name: oasis-engine
-    version: 0.8.0-beta.14
+    version: 0.8.3
     dependencies:
-      '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.0-beta.14
-      '@oasis-engine/loader': registry.npmjs.org/@oasis-engine/loader/0.8.0-beta.14
-      '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.8.0-beta.14
-      '@oasis-engine/rhi-webgl': registry.npmjs.org/@oasis-engine/rhi-webgl/0.8.0-beta.14
+      '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.3
+      '@oasis-engine/loader': registry.npmjs.org/@oasis-engine/loader/0.8.3
+      '@oasis-engine/math': registry.npmjs.org/@oasis-engine/math/0.8.3
+      '@oasis-engine/rhi-webgl': registry.npmjs.org/@oasis-engine/rhi-webgl/0.8.3
     dev: false
 
   registry.npmjs.org/object-assign/4.1.1:
