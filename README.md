@@ -38,7 +38,7 @@
 
 - 纹理图片分辨率不能大于 `2048`, 下载 ArrayBuffer 大小不能大于 `10MB`
 - WebGL 扩展 `OES_vertex_array_object` 有问题, 需手动禁用
-- 基础库版本`2.24.1`以上有`texSubImage2D`api报错问题, 会导致oasis加载图片为黑色(已patch修复) [#10](https://github.com/deepkolos/platformize/issues/10)
+- 基础库版本`2.24.1`以上有`texSubImage2D`api 报错问题, 会导致 oasis 加载图片为黑色(已 patch 修复) [#10](https://github.com/deepkolos/platformize/issues/10)
 
 #### 淘宝小程序限制
 
@@ -205,7 +205,7 @@ packages
 9. TextDecoder 支持更多格式 (TBD)
 10. 支持 playcanvas 导出项目转换到小程序 ✅
 11. 运行时反馈式 tree shaking (类似 tfjs custom module 的方式[tfjs-treeshaking-test](https://github.com/deepkolos/tfjs-treeshaking-test)) prototype ✅
-12. ~~新增 prebuild 包, 允许无需额外构建使用方式即 three-platformize 的方式~~(一想到还需要prebuild生态就算了比如单独prebuild three还不够, 还得exampls jsm, 其他渲染引擎也类似)
+12. ~~新增 prebuild 包, 允许无需额外构建使用方式即 three-platformize 的方式~~(一想到还需要 prebuild 生态就算了比如单独 prebuild three 还不够, 还得 exampls jsm, 其他渲染引擎也类似)
 
 ## 适配经验
 
@@ -227,7 +227,8 @@ packages
 
 | 时间       | 大佬                                       |
 | ---------- | ------------------------------------------ |
-| 2022/08/19 | 背影                               |
+| 2023/02/20 | 程序员-徐工                                |
+| 2022/08/19 | 背影                                       |
 | 2022/06/09 | 没有壳的蜗牛                               |
 | 2022/06/08 | 扫地禅僧-马乐                              |
 | 2022/05/30 | 许先生                                     |
