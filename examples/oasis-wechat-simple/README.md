@@ -1,6 +1,9 @@
 # platformize-oasis-demo-wechat-simple
 
-最基本的 oasis demo, 显示一个 gltf 模型，小程序包大小`552kb`, 运行时反馈式 treeshaking 后只有`297kb`
+最基本的 oasis demo, 显示一个 gltf 模型
+
+> 0.6.3: 小程序包大小`552kb`, 运行时反馈式 treeshaking 后 `297kb`
+> 0.8.3: 小程序包大小`597kb`, 运行时反馈式 treeshaking 后 `301kb`
 
 [platformize](https://github.com/deepkolos/platformize)
 
@@ -28,7 +31,7 @@ pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core
 # 运行时反馈式treeshaking slot
 > pnpm run dev-hotcode-slot / pnpm run build-hotcode-slot
 
-# 模拟器内操作, 然后控制台执行JSON.stringify(console.fireLog) 保存内容到 firelog.json
+# 模拟器内操作, 然后控制台执行 JSON.stringify(console.fireLog) 保存内容到 firelog.json
 
 # 然后, 执行remove
 > pnpm run dev-hotcode-remove / pnpm run build-hotcode-remove
