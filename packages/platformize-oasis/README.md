@@ -58,6 +58,7 @@ wechatPlatform.dispose();
 - [oasis-wechat-simple](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat-simple/README.md)
 - [oasis-wechat-game](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-wechat-game/README.md)
 - [oasis-taobao](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-taobao/README.md)
+- [oasis-byte](https://raw.githubusercontent.com/deepkolos/platformize/main/examples/oasis-byte/README.md)
 
 ## BUG
 
