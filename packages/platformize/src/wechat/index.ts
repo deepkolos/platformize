@@ -214,6 +214,7 @@ export class WechatPlatform extends Platform {
     },
   ) {
     const target = { ...this };
+    const type = e.type.replace('on', '');
     const changedTouches = e.changedTouches.map(touch => new Touch(touch));
 
     const event = {
@@ -223,7 +224,7 @@ export class WechatPlatform extends Platform {
       timeStamp: e.timeStamp,
       target: target,
       currentTarget: target,
-      type: e.type,
+      type,
       cancelBubble: false,
       cancelable: false,
     };
@@ -233,6 +234,8 @@ export class WechatPlatform extends Platform {
     if (changedTouches.length) {
       const touch = changedTouches[0];
       const pointerEvent = {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
         pageX: touch.pageX,
         pageY: touch.pageY,
         offsetX: touch.pageX,
@@ -245,12 +248,12 @@ export class WechatPlatform extends Platform {
             touchstart: 'pointerdown',
             touchmove: 'pointermove',
             touchend: 'pointerup',
-          }[e.type] || '',
+          }[type] || '',
         pointerType: 'touch',
       };
 
       this.canvas.dispatchEvent(pointerEvent);
-      if (e.type === 'touchend') this.canvas.dispatchEvent({ ...pointerEvent, type: 'pointerout' });
+      if (type === 'touchend') this.canvas.dispatchEvent({ ...pointerEvent, type: 'pointerout' });
     }
   }
 

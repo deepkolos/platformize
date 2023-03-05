@@ -209,8 +209,9 @@ export class WechatGamePlatform extends Platform {
       type: '',
     },
   ) {
-    // 这一行总觉得有问题
     const target = { ...this };
+    // 微信小程序type会多on
+    const type = e.type.replace('on', '');
     const changedTouches = e.changedTouches.map(touch => new Touch(touch));
 
     const event = {
@@ -220,7 +221,7 @@ export class WechatGamePlatform extends Platform {
       timeStamp: e.timeStamp,
       target: target,
       currentTarget: target,
-      type: e.type,
+      type,
       cancelBubble: false,
       cancelable: false,
     };
@@ -230,6 +231,8 @@ export class WechatGamePlatform extends Platform {
     if (changedTouches.length) {
       const touch = changedTouches[0];
       const pointerEvent = {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
         pageX: touch.pageX,
         pageY: touch.pageY,
         offsetX: touch.pageX,
@@ -242,12 +245,12 @@ export class WechatGamePlatform extends Platform {
             touchstart: 'pointerdown',
             touchmove: 'pointermove',
             touchend: 'pointerup',
-          }[e.type] || '',
+          }[type] || '',
         pointerType: 'touch',
       };
 
       this.canvas.dispatchEvent(pointerEvent);
-      if (e.type === 'touchend') this.canvas.dispatchEvent({ ...pointerEvent, type: 'pointerout' });
+      if (type === 'touchend') this.canvas.dispatchEvent({ ...pointerEvent, type: 'pointerout' });
     }
   }
 
