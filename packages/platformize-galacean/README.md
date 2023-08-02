@@ -52,5 +52,6 @@ wechatPlatform.dispose();
 ## Note
 微信基础库api差异：
   1. 在小游戏中使用createOffscreenCanvas会返回空对象，需要使用createOffScreenCanvas
+
 微信小程序和小游戏差异:
   1. 创建视频, 小程序使用wx.createVideoContext, 小游戏使用wx.createVideo
