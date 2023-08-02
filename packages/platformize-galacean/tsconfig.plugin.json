@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": [],
+    "module": "CommonJS",
+    "outDir": "./dist-plugin",
+    "rootDir": "./plugin",
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"]
+  },
+  "include": ["./plugin"]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "platformize-galacean",
+  "version": "0.2.2",
+  "description": "platformize galacean to wechat miniprogram.",
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "build:watch": "pnpm run build:file",
+    "build:type": "concurrently \"tsc --project ./tsconfig.json --emitDeclarationOnly || exit 0\" \"tsc --project ./tsconfig.plugin.json --emitDeclarationOnly || exit 0\"",
+    "build:file": "concurrently \"swc plugin -d dist-plugin -C module.type=commonjs\" \"swc src -d dist\"",
+    "build": "concurrently \"pnpm run build:type\" \"pnpm run build:file\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "README.md",
+    "dist",
+    "dist-plugin"
+  ],
+  "author": "linji<jtabibito@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "platformize": "^1.0.2",
+    "minigame-api-typings": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@types/offscreencanvas": "*",
+    "@types/wechat-miniprogram": "^3.4.0",
+    "typescript": "*",
+    "@swc/cli": "^0.1.62",
+    "@swc/core": "^1.3.70",
+    "concurrently": "^8.2.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@rollup/plugin-sucrase": "^3.1.0",
+    "@rollup/pluginutils": "^4.1.1",
+    "deepmerge": "^4.2.2",
+    "estree-walker": "2.0.1",
+    "magic-string": "^0.25.7",
+    "regenerator-runtime": "~0.13.9",
+    "rollup": "^2.60.1",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "keywords": [
+    "platformize-galacean"
+  ]
+}
