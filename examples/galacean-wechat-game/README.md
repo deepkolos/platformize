@@ -1,9 +1,5 @@
 # platformize-galacean-demo-wechat-game
 
-```ts
-const engine = await WebGLEngine.create({ canvas: canvas, graphicDeviceOptions: webGLMode: WebGLMode.WebGL1 }); // 需要强制标记使用WebGL1
-```
-  
 ```sh
 # 全局依赖(若未安装)
 pnpm i -g @microsoft/rush concurrently @swc/cli @swc/core
