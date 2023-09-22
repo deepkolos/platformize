@@ -4,6 +4,7 @@
 
 - `three@0.133.0`
 - `oasis-engine@0.8.3` | `oasis-engine@0.6.3`
+- `galacean@1.0.0-beta.14`
 - `playcanvas@1.50.0`
 - `pixi@6.2.1`
 
@@ -11,19 +12,20 @@
 
 ## 适配情况
 
-|                  | ThreeJS | Oasis | Playcanvas | PixiJS |
-| ---------------- | ------- | ----- | ---------- | ------ |
-| 微信小程序真机   | ✅      | ✅    | ✅         | ✅     |
-| 微信小程序模拟器 | ✅      | ✅    | ✅         | ✅     |
-| 微信小游戏真机   | ✅      | ✅    | ✅         | ✅     |
-| 微信小游戏模拟器 | ✅      | ✅    | ✅         | ✅     |
-| 淘宝小程序真机   | ✅      | ✅    | ✅         |        |
-| 淘宝小程序模拟器 | ❌      | ❌    | ❌         |        |
-| 抖音小程序真机   | ✅      | ✅    | ✅         | ✅     |
-| 抖音小程序模拟器 | ✅      | ✅    | ✅         | ✅     |
+|                  | ThreeJS | Oasis | Playcanvas | PixiJS | Galacean |
+| ---------------- | ------- | ----- | ---------- | ------ | -------- |
+| 微信小程序真机   | ✅      | ✅    | ✅         | ✅     |          |
+| 微信小程序模拟器 | ✅      | ✅    | ✅         | ✅     |          |
+| 微信小游戏真机   | ✅      | ✅    | ✅         | ✅     | ✅       |
+| 微信小游戏模拟器 | ✅      | ✅    | ✅         | ✅     | ✅       |
+| 淘宝小程序真机   | ✅      | ✅    | ✅         |        |          |
+| 淘宝小程序模拟器 | ❌      | ❌    | ❌         |        |          |
+| 抖音小程序真机   | ✅      | ✅    | ✅         | ✅     |          |
+| 抖音小程序模拟器 | ✅      | ✅    | ✅         | ✅     |          |
 
 - [platformize 通用适配](./packages/platformize/README.md)
 - [platformize-three 专门适配](./packages/platformize-three/README.md)
+- [platformize-galacean 专门适配](./packages/platformize-galacean/README.md)
 - [platformize-oasis 专门适配](./packages/platformize-oasis/README.md)
 - [platformize-playcanvas 专门适配](./packages/platformize-playcanvas/README.md)
 - [platformize-pixi 专门适配](./packages/platformize-pixi/README.md)
