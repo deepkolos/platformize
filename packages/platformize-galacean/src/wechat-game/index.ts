@@ -3,9 +3,9 @@
 
 import { WechatGamePlatform as WechatGamePlatformBase } from 'platformize';
 import { Touch, TouchEvent } from 'platformize/dist/base/EventTarget';
-import $Blob from 'platformize/dist/base/Blob';
 import { createImage, createVideo } from '../base/utils/helper';
 import { $FontFaceSet } from '../base/Font';
+import $window from '../base/window';
 import type { Polyfill } from '../Platform';
 
 const wxGame = wx as unknown as WechatMinigame.Wx;
@@ -38,7 +38,8 @@ export class WechatGamePlatform extends WechatGamePlatformBase {
     this.fonts = new $FontFaceSet();
     this.polyfill.document['fonts'] = this.fonts;
 
-    this.polyfill.window['Blob'] = $Blob;
+    this.polyfill.window['Blob'] = $window.Blob;
+    this.polyfill.window['setTimeout'] = $window.setTimeout;
     this.polyfill.Blob = this.polyfill.window['Blob'];
     this.polyfill.OffscreenCanvas = OffscreenCanvas;
 

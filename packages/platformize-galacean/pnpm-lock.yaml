@@ -1514,7 +1514,7 @@ packages:
       deepmerge: 4.2.2
       estree-walker: 2.0.1
       magic-string: 0.25.7
-      regenerator-runtime: 0.13.9
+      regenerator-runtime: 0.13.11
       rollup: 2.60.1
       rollup-plugin-node-builtins: 2.1.2
       rollup-plugin-terser: 7.0.2(rollup@2.60.1)
@@ -1617,10 +1617,10 @@ packages:
 
   /regenerator-runtime@0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: true
 
   /regenerator-runtime@0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
+    dev: true
 
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
