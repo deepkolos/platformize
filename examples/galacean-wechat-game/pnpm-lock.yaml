@@ -36,8 +36,8 @@ dependencies:
     specifier: ^0.7.9
     version: 0.7.9
   platformize-galacean:
-    specifier: ^0.2.1
-    version: 0.2.1
+    specifier: ^0.3.0
+    version: 0.3.0
 
 devDependencies:
   minigame-api-typings:
@@ -3902,8 +3902,8 @@ packages:
       find-up: 5.0.0
     dev: false
 
-  /platformize-galacean@0.2.1:
-    resolution: {integrity: sha512-CR2OPDbxMc17pLuIPxxU6YFnff5Kqjtv10vrPm9xMbhepVR5KhV9AhDnVCTvGcZ2TfOsR1cIDSxi+b8t/tKtyw==}
+  /platformize-galacean@0.3.0:
+    resolution: {integrity: sha512-0xARd0BxO7kV+h/xRZaea7zwp/Kzm1b/RIpdNLL176XIMnxztJ1P0NLtfAKO82CWr6SFcJpH30Lr8L6N98hRSA==}
     dependencies:
       minigame-api-typings: 3.7.4
       platformize: 1.0.2

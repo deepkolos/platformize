@@ -16,7 +16,7 @@ function _classCallCheck$6(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function");
     }
 }
-var $Blob$1 = function $Blob(parts) {
+var $Blob = function $Blob(parts) {
     var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
         type: "image/jpeg"
     };
@@ -96,7 +96,7 @@ var $URL = /*#__PURE__*/ function() {
     }
     var _proto = $URL.prototype;
     _proto.createObjectURL = function createObjectURL(obj) {
-        if (_instanceof$2(obj, $Blob$1)) {
+        if (_instanceof$2(obj, $Blob)) {
             // 更好的方式，使用wx.fileSystemManager写入临时文件来获取url，但是需要手动管理临时文件
             var base64 = encode(obj.parts[0]);
             var url = "data:".concat(obj.options.type, ";base64,").concat(base64);
@@ -1028,7 +1028,7 @@ function _objectSpread(target) {
     }
     return target;
 }
-function ownKeys(object, enumerableOnly) {
+function ownKeys$1(object, enumerableOnly) {
     var keys = Object.keys(object);
     if (Object.getOwnPropertySymbols) {
         var symbols = Object.getOwnPropertySymbols(object);
@@ -1046,7 +1046,7 @@ function _objectSpreadProps(target, source) {
     if (Object.getOwnPropertyDescriptors) {
         Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
     } else {
-        ownKeys(Object(source)).forEach(function(key) {
+        ownKeys$1(Object(source)).forEach(function(key) {
             Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
         });
     }
@@ -1172,7 +1172,7 @@ var WechatGamePlatform$1 = /*#__PURE__*/ function(Platform) {
             window: window,
             document: document,
             // @ts-expect-error
-            Blob: $Blob$1,
+            Blob: $Blob,
             // @ts-expect-error
             DOMParser: $DOMParser,
             // @ts-expect-error
@@ -1341,37 +1341,6 @@ var WechatGamePlatform$1 = /*#__PURE__*/ function(Platform) {
 }(Platform);
 WechatGamePlatform$1.DEVTOOLS_USE_NATIVE_EVENT = true;
 
-function _class_call_check$2(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-    }
-}
-function _define_property$1(obj, key, value) {
-    if (key in obj) {
-        Object.defineProperty(obj, key, {
-            value: value,
-            enumerable: true,
-            configurable: true,
-            writable: true
-        });
-    } else {
-        obj[key] = value;
-    }
-    return obj;
-}
-var $Blob = function $Blob(parts) {
-    var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
-        type: "image/jpeg"
-    };
-    _class_call_check$2(this, $Blob);
-    _define_property$1(this, "parts", void 0);
-    _define_property$1(this, "options", void 0);
-    this.parts = parts;
-    this.options = options;
-    // 安卓微信不支持image/jpg的解析, 需改为image/jpeg
-    options.type = options.type.replace("jpg", "jpeg");
-};
-
 function createImage(canvas) {
     var img = canvas.createImage();
     img.addEventListener = function(name, cb) {
@@ -1382,8 +1351,8 @@ function createImage(canvas) {
     };
     return img;
 }
-function createVideo(canvas) {
-    var video = canvas.createVideo();
+function createVideo(module) {
+    var video = module.createVideo();
     video.addEventListener = function(name, cb) {
         return video["on".concat(name)] = cb.bind(video);
     };
@@ -1398,7 +1367,7 @@ function _class_call_check$1(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function");
     }
 }
-function _defineProperties(target, props) {
+function _defineProperties$1(target, props) {
     for(var i = 0; i < props.length; i++){
         var descriptor = props[i];
         descriptor.enumerable = descriptor.enumerable || false;
@@ -1407,12 +1376,12 @@ function _defineProperties(target, props) {
         Object.defineProperty(target, descriptor.key, descriptor);
     }
 }
-function _create_class(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
+function _create_class$1(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties$1(Constructor, staticProps);
     return Constructor;
 }
-function _define_property(obj, key, value) {
+function _define_property$1(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
             value: value,
@@ -1428,15 +1397,15 @@ function _define_property(obj, key, value) {
 var $FontFaceSet = /*#__PURE__*/ function() {
     function $FontFaceSet() {
         _class_call_check$1(this, $FontFaceSet);
-        _define_property(this, "fontfaces", void 0);
-        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/loading_event) */ _define_property(this, "onloading", void 0);
-        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/loadingdone_event) */ _define_property(this, "onloadingdone", void 0);
-        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/loadingerror_event) */ _define_property(this, "onloadingerror", void 0);
-        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/ready) */ _define_property(this, "ready", void 0);
-        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/status) */ _define_property(this, "status", void 0);
+        _define_property$1(this, "fontfaces", void 0);
+        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/loading_event) */ _define_property$1(this, "onloading", void 0);
+        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/loadingdone_event) */ _define_property$1(this, "onloadingdone", void 0);
+        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/loadingerror_event) */ _define_property$1(this, "onloadingerror", void 0);
+        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/ready) */ _define_property$1(this, "ready", void 0);
+        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/status) */ _define_property$1(this, "status", void 0);
         this.fontfaces = {};
     }
-    _create_class($FontFaceSet, [
+    _create_class$1($FontFaceSet, [
         {
             key: "getHashCode",
             value: function getHashCode(font) {
@@ -1481,6 +1450,33 @@ function _class_call_check(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function");
     }
 }
+function _defineProperties(target, props) {
+    for(var i = 0; i < props.length; i++){
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+    }
+}
+function _create_class(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+}
+function _define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
 function _get_prototype_of(o) {
     _get_prototype_of = Object.setPrototypeOf ? Object.getPrototypeOf : function getPrototypeOf(o) {
         return o.__proto__ || Object.getPrototypeOf(o);
@@ -1499,6 +1495,45 @@ function _inherits$1(subClass, superClass) {
         }
     });
     if (superClass) _set_prototype_of$1(subClass, superClass);
+}
+function _object_spread(target) {
+    for(var i = 1; i < arguments.length; i++){
+        var source = arguments[i] != null ? arguments[i] : {};
+        var ownKeys = Object.keys(source);
+        if (typeof Object.getOwnPropertySymbols === "function") {
+            ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function(sym) {
+                return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+            }));
+        }
+        ownKeys.forEach(function(key) {
+            _define_property(target, key, source[key]);
+        });
+    }
+    return target;
+}
+function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        if (enumerableOnly) {
+            symbols = symbols.filter(function(sym) {
+                return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+            });
+        }
+        keys.push.apply(keys, symbols);
+    }
+    return keys;
+}
+function _object_spread_props(target, source) {
+    source = source != null ? source : {};
+    if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+        ownKeys(Object(source)).forEach(function(key) {
+            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+    }
+    return target;
 }
 function _possible_constructor_return(self, call) {
     if (call && (_type_of(call) === "object" || typeof call === "function")) {
@@ -1542,7 +1577,7 @@ function _create_super(Derived) {
     };
 }
 var wxGame = wx;
-// 微信小程序创建离屏画布接口变成了createOffScreenCanvas
+// 微信小游戏创建离屏画布接口变成了createOffScreenCanvas
 function OffscreenCanvas() {
     // @ts-ignore
     if (wxGame.createOffscreenCanvas === undefined) {
@@ -1558,6 +1593,7 @@ var WechatGamePlatform = /*#__PURE__*/ function(WechatGamePlatformBase1) {
         _class_call_check(this, WechatGamePlatform);
         var _this;
         _this = _super.call(this, canvas, width, height);
+        _define_property(_assert_this_initialized$1(_this), "fonts", void 0);
         _this.polyfill.document["createElement"] = function(type) {
             if (type === "canvas") return canvas;
             if (type === "img") return createImage(wxGame);
@@ -1575,6 +1611,69 @@ var WechatGamePlatform = /*#__PURE__*/ function(WechatGamePlatformBase1) {
         canvas.focus = function() {};
         return _this;
     }
+    _create_class(WechatGamePlatform, [
+        {
+            key: "dispatchTouchEvent",
+            value: function dispatchTouchEvent() {
+                var e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {
+                    touches: [],
+                    changedTouches: [],
+                    timeStamp: 0,
+                    type: ""
+                };
+                var target = _object_spread({}, this);
+                // 微信小程序type会多on
+                var type = e.type.replace("on", "");
+                var changedTouches = e.changedTouches.map(function(touch) {
+                    return new Touch(touch);
+                });
+                var event = {
+                    changedTouches: changedTouches,
+                    touches: e.touches.map(function(touch) {
+                        return new Touch(touch);
+                    }),
+                    targetTouches: Array.prototype.slice.call(e.touches.map(function(touch) {
+                        return new Touch(touch);
+                    })),
+                    timeStamp: e.timeStamp,
+                    target: target,
+                    currentTarget: target,
+                    type: type,
+                    cancelBubble: false,
+                    cancelable: false
+                };
+                this.canvas.dispatchEvent(event);
+                if (changedTouches.length) {
+                    var touch = changedTouches[0];
+                    var pointerEvent = {
+                        clientX: touch.clientX,
+                        clientY: touch.clientY,
+                        pageX: touch.pageX,
+                        pageY: touch.pageY,
+                        offsetX: touch.pageX,
+                        offsetY: touch.pageY,
+                        pointerId: touch.identifier,
+                        // to fix oasis controls https://www.w3.org/TR/uievents/#dom-mouseevent-buttons
+                        buttons: 1,
+                        type: {
+                            touchstart: "pointerdown",
+                            touchmove: "pointermove",
+                            touchend: "pointerup",
+                            touchcancel: "pointercancel"
+                        }[type] || "",
+                        pointerType: "touch"
+                    };
+                    this.canvas.dispatchEvent(pointerEvent);
+                    // call pointerleave if touchend after pointerup.
+                    if (type === "touchend") {
+                        this.canvas.dispatchEvent(_object_spread_props(_object_spread({}, pointerEvent), {
+                            type: "pointerleave"
+                        }));
+                    }
+                }
+            }
+        }
+    ]);
     return WechatGamePlatform;
 }(WechatGamePlatform$1);
 

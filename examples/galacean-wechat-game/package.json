@@ -25,7 +25,7 @@
     "@tweenjs/tween.js": "^21.0.0",
     "concurrently": "^8.2.0",
     "dat.gui": "^0.7.9",
-    "platformize-galacean": "^0.2.1"
+    "platformize-galacean": "^0.3.0"
   },
   "devDependencies": {
     "minigame-api-typings": "3.7.4",
