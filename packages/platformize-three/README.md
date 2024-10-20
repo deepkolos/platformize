@@ -187,10 +187,9 @@ wechatPlatform.dispose();
 
 ## 讨论
 
-可通过群里 DeepKolos 联系我
+可通过`飞书`群里 DeepKolos 联系我, ~~QQ群广告太多了~~
 
-<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize/main/docs/qq-group.jpg" />
-
+<img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize/main/docs/lark-group.jpeg" />
 ### [CHANGELOG](https://github.com/deepkolos/platformize-three/blob/master/CHANGELOG.md)
 
 # 赞助

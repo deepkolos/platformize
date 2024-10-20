@@ -239,7 +239,7 @@ packages
 
 ## 讨论
 
-可通过`飞书`群里 DeepKolos 联系我, ~~QQ群广告太多了~~
+可通过`飞书`群里 DeepKolos 联系我, ~~QQ 群广告太多了~~
 
 <img width="250" src="https://raw.githubusercontent.com/deepkolos/platformize/main/docs/lark-group.jpeg" />
 
@@ -253,6 +253,7 @@ packages
 
 | 时间       | 大佬                                       |
 | ---------- | ------------------------------------------ |
+| 2024/10/18 | 小牛快跑                                   |
 | 2023/02/20 | 程序员-徐工                                |
 | 2023/01/10 | 随映                                       |
 | 2022/08/19 | 背影                                       |
