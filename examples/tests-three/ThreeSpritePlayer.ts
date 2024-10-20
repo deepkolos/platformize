@@ -1,5 +1,5 @@
 import { Demo } from './Demo';
-import { PlaneGeometry, MeshBasicMaterial, Mesh, BoxGeometry } from 'three';
+import { PlaneGeometry, MeshBasicMaterial, Mesh, BoxGeometry, NearestFilter, UnsignedByteType, LinearFilter } from 'three';
 import ThreeSpritePlayer from 'three-sprite-player';
 
 // const url: Array<string> = new Array<string>(3).fill('').map((v: string, k: number) => `/imgs/output-${k}.png`);
@@ -30,8 +30,18 @@ export class DemoThreeSpritePlayer extends Demo {
   async init(): Promise<void> {
     const { textureLoader } = this.deps;
     const tiles = await Promise.all(tile.url.map(url => textureLoader.loadAsync(url)));
-    const spritePlayer = new ThreeSpritePlayer(tiles, tile.total, tile.row, tile.col, tile.fps, true);
-
+    const spritePlayer = new ThreeSpritePlayer(
+      tiles,
+      tile.total,
+      tile.row,
+      tile.col,
+      tile.fps,
+      true,
+    );
+    tiles.forEach(texture => {
+      // 默认 LinearMipmapLinearFilter 微信新版本会导致渲染异常
+      texture.minFilter = LinearFilter;
+    });
     const geometry = new PlaneGeometry(tile.w, tile.h);
     const material = new MeshBasicMaterial({
       map: spritePlayer.texture,
