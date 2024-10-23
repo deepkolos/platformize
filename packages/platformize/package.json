@@ -1,6 +1,6 @@
 {
   "name": "platformize",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "platformize 通用构建插件和基础 API 适配, 可单独使用",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "build:watch": "pnpm run build:file",
     "build:type": "concurrently \"tsc --project ./tsconfig.json --emitDeclarationOnly || exit 0\" \"tsc --project ./tsconfig.plugin.json --emitDeclarationOnly || exit 0\"",
-    "build:file": "concurrently \"swc plugin -d dist-plugin -C module.type=commonjs\" \"swc src -d dist\"",
+    "build:file": "concurrently \"swc plugin -d dist-plugin -C module.type=commonjs --strip-leading-paths\" \"swc src -d dist --strip-leading-paths\"",
     "build": "concurrently \"pnpm run build:type\" \"pnpm run build:file\"",
     "test": "ava"
   },
@@ -35,9 +35,9 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.8",
-    "@types/wechat-miniprogram": "^3.4.0",
+    "@types/wechat-miniprogram": "^3.4.8",
     "@types/offscreencanvas": "*",
-    "minigame-api-typings": "^3.4.1",
+    "minigame-api-typings": "^3.8.7",
     "ava": "^3.15.0",
     "@ava/babel": "2.0.0",
     "typescript": "*"

@@ -2,7 +2,7 @@ import { TaobaoPlatform as TaobaoPlatformBase } from 'platformize';
 import type { Polyfill } from '../Platform';
 
 export class TaobaoPlatform extends TaobaoPlatformBase {
-  polyfill!: Polyfill;
+  declare polyfill: Polyfill;
 
   constructor(canvas: any, width?: number, height?: number) {
     super(canvas, width, height);

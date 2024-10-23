@@ -24,7 +24,7 @@ function OffscreenCanvas() {
 }
 
 export class WechatGamePlatform extends WechatGamePlatformBase {
-  polyfill!: Polyfill;
+  declare polyfill: Polyfill;
   private fonts: $FontFaceSet | undefined;
 
   constructor(canvas: WechatMinigame.Canvas, width?: number, height?: number) {

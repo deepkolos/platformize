@@ -38,10 +38,6 @@ export class DemoThreeSpritePlayer extends Demo {
       tile.fps,
       true,
     );
-    tiles.forEach(texture => {
-      // 默认 LinearMipmapLinearFilter 微信新版本会导致渲染异常
-      texture.minFilter = LinearFilter;
-    });
     const geometry = new PlaneGeometry(tile.w, tile.h);
     const material = new MeshBasicMaterial({
       map: spritePlayer.texture,

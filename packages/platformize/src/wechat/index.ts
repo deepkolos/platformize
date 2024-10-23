@@ -12,9 +12,8 @@ import $TextDecoder from '../base/TextDecoder';
 import $performance from '../base/performance';
 import { Platform, Polyfill } from '../Platform';
 
-function OffscreenCanvas() {
-  // @ts-ignore
-  return wx.createOffscreenCanvas();
+function OffscreenCanvas(w: number, h: number) {
+  return wx.createOffscreenCanvas({ type: '2d', width: w, height: h });
 }
 
 export class WechatPlatform extends Platform {

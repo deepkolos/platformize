@@ -13,9 +13,8 @@ import { Platform, Polyfill } from '../Platform';
 
 const wxGame = wx as unknown as WechatMinigame.Wx;
 
-function OffscreenCanvas() {
-  // @ts-ignore
-  return wxGame.createOffscreenCanvas();
+function OffscreenCanvas(w: number, h: number) {
+  return wx.createOffscreenCanvas({ type: '2d', width: w, height: h });
 }
 
 export class WechatGamePlatform extends Platform {
@@ -33,7 +32,7 @@ export class WechatGamePlatform extends Platform {
     right: 0,
     bottom: 0,
   };
-  static DEVTOOLS_USE_NATIVE_EVENT = true; 
+  static DEVTOOLS_USE_NATIVE_EVENT = true;
 
   constructor(canvas: WechatMinigame.Canvas, width?: number, height?: number) {
     super();
@@ -131,7 +130,10 @@ export class WechatGamePlatform extends Platform {
 
     const dispatchEvent = (e: any) => this.dispatchTouchEvent(e);
 
-    if ((systemInfo.platform as string) != 'devtools' || WechatGamePlatform.DEVTOOLS_USE_NATIVE_EVENT) {
+    if (
+      (systemInfo.platform as string) != 'devtools' ||
+      WechatGamePlatform.DEVTOOLS_USE_NATIVE_EVENT
+    ) {
       wxGame.onTouchMove(dispatchEvent);
       wxGame.onTouchStart(dispatchEvent);
       wxGame.onTouchEnd(dispatchEvent);

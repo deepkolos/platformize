@@ -1,7 +1,5 @@
 # platformize-three-demo-wechat 微信小程序
 
-> ⚠️ Texture.minFilter 默认为 LinearMipmapLinearFilter 微信新版本会导致渲染异常, 需手动改为LinearFilter
-
 <div>
   <img src="https://raw.githubusercontent.com/deepkolos/platformize/main/examples/three-wechat/demo.gif" width="250" alt="" style="display:inline-block;"/>
 </div>

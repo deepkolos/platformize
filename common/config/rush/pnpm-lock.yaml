@@ -80,12 +80,10 @@ specifiers:
   '@types/node': ^17.0.8
   '@types/offscreencanvas': '*'
   '@types/three': 0.133.1
-  '@types/wechat-miniprogram': ^3.4.0
   ava: ^3.15.0
   deepmerge: ^4.2.2
   estree-walker: 2.0.1
   magic-string: ^0.25.7
-  minigame-api-typings: ^3.4.1
   miniprogram-automator: ^0.10.0
   platformize-oasis: ^0.6.4
   playcanvas: 1.50.0
@@ -178,12 +176,10 @@ dependencies:
   '@types/node': registry.npmjs.org/@types/node/17.0.45
   '@types/offscreencanvas': registry.npmjs.org/@types/offscreencanvas/2019.7.0
   '@types/three': registry.npmjs.org/@types/three/0.133.1
-  '@types/wechat-miniprogram': registry.npmjs.org/@types/wechat-miniprogram/3.4.1
   ava: registry.npmjs.org/ava/3.15.0
   deepmerge: registry.npmjs.org/deepmerge/4.3.0
   estree-walker: registry.npmjs.org/estree-walker/2.0.1
   magic-string: registry.npmjs.org/magic-string/0.25.9
-  minigame-api-typings: registry.npmjs.org/minigame-api-typings/3.7.2
   miniprogram-automator: registry.npmjs.org/miniprogram-automator/0.10.0
   platformize-oasis: registry.npmjs.org/platformize-oasis/0.6.5_rollup@2.79.1
   playcanvas: registry.npmjs.org/playcanvas/1.50.0
@@ -356,7 +352,7 @@ packages:
     dev: false
 
   file:projects/platformize-playcanvas-byte.tgz:
-    resolution: {integrity: sha512-vHm8THQeUFGiUcet1/W0hce83ZgBYHp6vQGlhPxeYJ8Vwmv+MOFuCxzkrCIvO/emH+gZiBgSZH50lVC+59xCDg==, tarball: file:projects/platformize-playcanvas-byte.tgz}
+    resolution: {integrity: sha512-LWTtD6Is4dK/UFFG5gG1sUaML9eA9ohyLj5rKmjIp423jXOrlkQIdzdxMv7oFfNt+iX8HL2+Lu6YgC6Zfl2wbw==, tarball: file:projects/platformize-playcanvas-byte.tgz}
     name: '@rush-temp/platformize-playcanvas-byte'
     version: 0.0.0
     dependencies:
@@ -367,7 +363,7 @@ packages:
     dev: false
 
   file:projects/platformize-playcanvas-taobao.tgz:
-    resolution: {integrity: sha512-7J+ddvIVLjXzZQPUsum5+9luyrZvkxOKgnfq9Ttbl16cB8PqMEp5wXLjMHdxnkHk/t89E05/41/mJ8TukgkVFw==, tarball: file:projects/platformize-playcanvas-taobao.tgz}
+    resolution: {integrity: sha512-IngWMiAggH9YgVstidJ9+T75kSKVsnQh3C+FF6FTiL7rsk0nLdoq1WfRQd+hyBbBbRDfb3oKWyZKZ7LxM7IxvQ==, tarball: file:projects/platformize-playcanvas-taobao.tgz}
     name: '@rush-temp/platformize-playcanvas-taobao'
     version: 0.0.0
     dependencies:
@@ -376,7 +372,7 @@ packages:
     dev: false
 
   file:projects/platformize-playcanvas-wechat-game.tgz:
-    resolution: {integrity: sha512-GC+4sUva7L5AJlzZ3zHAQveHBDteBQkX9FyuSShhRwhrebk8J/bbt/8hH6Xw+ahTaeSWra2BcyxNkYGIa7LBsQ==, tarball: file:projects/platformize-playcanvas-wechat-game.tgz}
+    resolution: {integrity: sha512-MXt+JvmImqQvJBgBZetn95nFV2zI1R0RxpGLBXdPJ8Ltmo5rhCeo13fcrrCcPHcbyAF8XrsAk+7iyJcctwng5Q==, tarball: file:projects/platformize-playcanvas-wechat-game.tgz}
     name: '@rush-temp/platformize-playcanvas-wechat-game'
     version: 0.0.0
     dependencies:
@@ -387,7 +383,7 @@ packages:
     dev: false
 
   file:projects/platformize-playcanvas-wechat-simple.tgz:
-    resolution: {integrity: sha512-WA6cGDQtSu02o/G5vPsDakEQr2k+E2WxzglQfwlVpl5TSsKxlF9t0RxXZzHSv4ajVKKqzge5+GiPNpXtwbVaAA==, tarball: file:projects/platformize-playcanvas-wechat-simple.tgz}
+    resolution: {integrity: sha512-CozDXAbhIwnxCf/nvuPPQjqfwmBC4JtfKeGL5d+7FIvqcFFGsFveI7vzffGti11yS9Uu6YUFemx0XkUX04t36g==, tarball: file:projects/platformize-playcanvas-wechat-simple.tgz}
     name: '@rush-temp/platformize-playcanvas-wechat-simple'
     version: 0.0.0
     dependencies:
@@ -398,7 +394,7 @@ packages:
     dev: false
 
   file:projects/platformize-playcanvas-wechat.tgz:
-    resolution: {integrity: sha512-qXn84bGZk4OjfKOOEvKl/Rf/o9bysBJkDCzYRfrztXgwW8l4Mp648/qRJ0W66hDVgLeZdQA/HBT77OAlQ3tmnA==, tarball: file:projects/platformize-playcanvas-wechat.tgz}
+    resolution: {integrity: sha512-DFEMmqSTpYzV9bvCst3mA54JnD3FHLSjjYmIowfEvdouGn1VJwUulyrXFRd01m6nsgYzl1sDQD2X31wbs72IUg==, tarball: file:projects/platformize-playcanvas-wechat.tgz}
     name: '@rush-temp/platformize-playcanvas-wechat'
     version: 0.0.0
     dependencies:
@@ -487,7 +483,7 @@ packages:
     dev: false
 
   file:projects/platformize.tgz:
-    resolution: {integrity: sha512-oXvU7XXFNW7wtVBtdeKACEIFxZIUw25ORQU+9+ygN5hUblG6uuU9tZMrD+4FNa4hI9HdxUt7+n8Cs4zr+KQo/g==, tarball: file:projects/platformize.tgz}
+    resolution: {integrity: sha512-bMc/ZQZDJMcVTlq2uUf3LGgr0mb82AMZxH495w77qNjp1gy40yAwuwdde3gA41rtS3jWnFJmADkjL9f3T0fc9A==, tarball: file:projects/platformize.tgz}
     name: '@rush-temp/platformize'
     version: 0.0.0
     dependencies:
@@ -498,12 +494,12 @@ packages:
       '@rollup/pluginutils': registry.npmjs.org/@rollup/pluginutils/4.2.1
       '@types/node': registry.npmjs.org/@types/node/17.0.45
       '@types/offscreencanvas': registry.npmjs.org/@types/offscreencanvas/2019.7.0
-      '@types/wechat-miniprogram': registry.npmjs.org/@types/wechat-miniprogram/3.4.1
+      '@types/wechat-miniprogram': registry.npmjs.org/@types/wechat-miniprogram/3.4.8
       ava: registry.npmjs.org/ava/3.15.0
       deepmerge: registry.npmjs.org/deepmerge/4.3.0
       estree-walker: registry.npmjs.org/estree-walker/2.0.1
       magic-string: registry.npmjs.org/magic-string/0.25.9
-      minigame-api-typings: registry.npmjs.org/minigame-api-typings/3.7.2
+      minigame-api-typings: registry.npmjs.org/minigame-api-typings/3.8.7
       regenerator-runtime: registry.npmjs.org/regenerator-runtime/0.13.11
       rollup: registry.npmjs.org/rollup/2.79.1
       rollup-plugin-node-builtins: registry.npmjs.org/rollup-plugin-node-builtins/2.1.2
@@ -573,7 +569,7 @@ packages:
     dev: false
 
   file:projects/tests-playcanvas.tgz:
-    resolution: {integrity: sha512-Wigl26Yins8TyRO1E0ZBv9kEulPJU0O6U/y0TlzsKVDs5vd/uiuISiAbx/sg7sxeSpF9KB43lHAos4lMLDsQUg==, tarball: file:projects/tests-playcanvas.tgz}
+    resolution: {integrity: sha512-zIKCDacoHwAYAQAL20ibL3DzTCOrrz45hv/DYKnBWTJnDs+tRQ+D7Cxdit9YD1ZJSQen76aashNKorQxqGKjEA==, tarball: file:projects/tests-playcanvas.tgz}
     name: '@rush-temp/tests-playcanvas'
     version: 0.0.0
     dependencies:
@@ -2866,6 +2862,12 @@ packages:
     resolution: {integrity: sha512-szbuYR32VotxNQNQ4YyQ6Ob3ya0tLY0zpf/xvi6DF8Oqb+0Y+5CL5BpxS+4wBSJvlu3VfSXhjxZ0ze1a3l16Pw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@types/wechat-miniprogram/-/wechat-miniprogram-3.4.1.tgz}
     name: '@types/wechat-miniprogram'
     version: 3.4.1
+    dev: false
+
+  registry.npmjs.org/@types/wechat-miniprogram/3.4.8:
+    resolution: {integrity: sha512-lOqddA707X3SZxVhlZNBZPzYzj7lG/ED2fF30k+aE2oT6R4wfw0Wiup2k2hGrmzYUFyJXfGs01sDCuJMhQMAdg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@types/wechat-miniprogram/-/wechat-miniprogram-3.4.8.tgz}
+    name: '@types/wechat-miniprogram'
+    version: 3.4.8
     dev: false
 
   registry.npmjs.org/abstract-leveldown/0.12.4:
@@ -5578,6 +5580,12 @@ packages:
     version: 3.7.2
     dev: false
 
+  registry.npmjs.org/minigame-api-typings/3.8.7:
+    resolution: {integrity: sha512-zbzL8OABjCItBC3Dqs21KnL72jZdT8mWyc4jymFVRqGAlqJCM+TUOzysXWLxgTaXdBedhOi+nerudzMauRLR2g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/minigame-api-typings/-/minigame-api-typings-3.8.7.tgz}
+    name: minigame-api-typings
+    version: 3.8.7
+    dev: false
+
   registry.npmjs.org/minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz}
     name: minimalistic-assert
@@ -5701,6 +5709,7 @@ packages:
     resolution: {integrity: sha512-KwtE4ctCYN2P6RCPedT4dZyo7Lu4QDGuBc4LJUgxkTkTHfYFBuKNsezr2XGBUP+viVGMJPbu+LeuA6JkkbAtrA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/oasis-engine/-/oasis-engine-0.6.9.tgz}
     name: oasis-engine
     version: 0.6.9
+    deprecated: Package no longer supported. Please upgrade to latest package via npm i @galacean/engine
     dependencies:
       '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.6.9
       '@oasis-engine/loader': registry.npmjs.org/@oasis-engine/loader/0.6.9
@@ -5712,6 +5721,7 @@ packages:
     resolution: {integrity: sha512-5bWKOby/4/B7hS64oAUg2+T3QRTBjoWzfYIWveLU/ethyUbzjFw2OGOYnt8G0kuIOD5AxybA0EXxWUBoi00FoA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/oasis-engine/-/oasis-engine-0.8.3.tgz}
     name: oasis-engine
     version: 0.8.3
+    deprecated: Package no longer supported. Please upgrade to latest package via npm i @galacean/engine
     dependencies:
       '@oasis-engine/core': registry.npmjs.org/@oasis-engine/core/0.8.3
       '@oasis-engine/loader': registry.npmjs.org/@oasis-engine/loader/0.8.3

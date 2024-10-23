@@ -5,7 +5,7 @@ import type { Polyfill } from '../Platform';
 
 WechatGamePlatformBase.DEVTOOLS_USE_NATIVE_EVENT = true;
 export class WechatGamePlatform extends WechatGamePlatformBase {
-  polyfill!: Polyfill;
+  declare polyfill: Polyfill;
 
   constructor(canvas: WechatMinigame.Canvas, width?: number, height?: number) {
     super(canvas, width, height);
